@@ -1,22 +1,110 @@
 ---
 layout: page
-description: "Thinking will not overcome fear but action will."
+description: "Kevin's digital workshop: AI systems, product experiments, and open-source building in public."
 ---
 
+<style>
+.home-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; margin-bottom: 24px; }
+.home-card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 18px; box-shadow: 0 4px 14px rgba(0,0,0,.04); }
+.home-card h3 { margin: 0 0 8px; font-size: 20px; }
+.home-card p { margin: 0 0 8px; color: #666; }
+.pill { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; margin: 0 6px 6px 0; }
+.pill.ai { background:#e3f2fd; color:#1565c0; }
+.pill.oss { background:#e8f5e9; color:#2e7d32; }
+.pill.system { background:#fff3e0; color:#ef6c00; }
+.pill.product { background:#f3e5f5; color:#7b1fa2; }
+.quick-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+.quick-links a { border:1px solid #ddd; border-radius:8px; padding:8px 12px; font-size:13px; text-decoration:none; }
+.section-title { margin: 28px 0 14px; font-size: 24px; }
+.project-grid { display:grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap:14px; }
+.project { background:#fff; border:1px solid #eee; border-radius:10px; padding:14px; }
+.project h4 { margin:0 0 6px; font-size:16px; }
+.project .meta { color:#888; font-size:12px; margin-bottom:8px; }
+.roadmap { background:#fff; border:1px solid #eee; border-radius:10px; padding:14px; }
+.roadmap li { margin-bottom:8px; }
+.post-zone { margin-top: 24px; }
+@media (max-width: 900px) {
+  .home-grid, .project-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="home-grid">
+  <div class="home-card">
+    <h3>Hi, I'm Kevin 👋</h3>
+    <p>
+      AI-native builder, full-stack developer, and workflow optimizer.
+      I care about practical LLM systems: tracking papers, shipping tools, and turning ideas into running products.
+    </p>
+    <p>
+      Current vibe: <strong>ship fast, iterate weekly, document publicly</strong>.
+    </p>
+    <div>
+      <span class="pill ai">LLM Engineering</span>
+      <span class="pill system">Automation</span>
+      <span class="pill oss">Open Source</span>
+      <span class="pill product">Product Thinking</span>
+    </div>
+    <div class="quick-links">
+      <a href="/llm-tracker/">🤖 LLM Tracker</a>
+      <a href="/llm-tracker/timeline/">📅 Timeline</a>
+      <a href="https://github.com/Xplore0114" target="_blank">🐙 GitHub</a>
+      <a href="/about/">🙋 About</a>
+    </div>
+  </div>
+
+  <div class="home-card">
+    <h3>Builder Profile</h3>
+    <p><strong>Core Focus:</strong> AI research tracking, agent workflows, dev productivity.</p>
+    <p><strong>Tech Stack:</strong> Python, JavaScript, GitHub Actions, static deployment.</p>
+    <p><strong>Working Style:</strong> data-first, automation-first, long-term maintainability.</p>
+    <p><strong>Open to:</strong> AI infra collab, developer tools, OSS co-building.</p>
+  </div>
+</div>
+
+<h2 class="section-title">Open-Source Projects (In Progress)</h2>
+<div class="project-grid">
+  <div class="project">
+    <h4>LLM Papers Tracker</h4>
+    <div class="meta">Research Infra · Active</div>
+    <p>Daily arXiv ingestion + timeline visualization + topic filtering + company paper feed.</p>
+  </div>
+  <div class="project">
+    <h4>PromptOps Toolkit</h4>
+    <div class="meta">Developer Tooling · Planning</div>
+    <p>A practical toolkit for prompt versioning, evaluation snapshots, and rollback-ready prompt releases.</p>
+  </div>
+  <div class="project">
+    <h4>Agent Workflow Lab</h4>
+    <div class="meta">AI Agent · Planning</div>
+    <p>Reusable templates for multi-step autonomous workflows: fetch, reason, act, and report.</p>
+  </div>
+  <div class="project">
+    <h4>Model Notes & Bench</h4>
+    <div class="meta">Model Comparison · Planning</div>
+    <p>Hands-on notes and benchmark cards for practical model selection across coding, writing, and reasoning tasks.</p>
+  </div>
+</div>
+
+<h2 class="section-title">Roadmap</h2>
+<div class="roadmap">
+  <ol>
+    <li><strong>Q1:</strong> Stabilize paper pipeline and improve citation quality.</li>
+    <li><strong>Q2:</strong> Publish PromptOps Toolkit alpha with docs and examples.</li>
+    <li><strong>Q3:</strong> Launch Agent Workflow Lab templates for open-source contributors.</li>
+    <li><strong>Q4:</strong> Build a public AI engineering playbook from real shipped projects.</li>
+  </ol>
+</div>
+
+<h2 class="section-title">Latest Notes</h2>
+<div class="post-zone">
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">
-            {{ post.title }}
-        </h2>
+        <h2 class="post-title">{{ post.title }}</h2>
         {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
+        <h3 class="post-subtitle">{{ post.subtitle }}</h3>
         {% endif %}
-        <div class="post-content-preview">
-            {{ post.content | strip_html | truncate:200 }}
-        </div>
+        <div class="post-content-preview">{{ post.content | strip_html | truncate:200 }}</div>
     </a>
     <p class="post-meta">
         Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
@@ -25,7 +113,6 @@ description: "Thinking will not overcome fear but action will."
 <hr>
 {% endfor %}
 
-<!-- Pager -->
 {% if paginator.total_pages > 1 %}
 <ul class="pager">
     {% if paginator.previous_page %}
@@ -40,3 +127,4 @@ description: "Thinking will not overcome fear but action will."
     {% endif %}
 </ul>
 {% endif %}
+</div>
