@@ -120,6 +120,609 @@
     "abstract": "Humans perceive actions through key transitions that structure actions across multiple abstraction levels, whereas machines, relying on visual features, tend to over-segment. This highlights the difficulty of enabling hierarchical reasoning in video understanding. Interestingly, we observe that lower-level visual and high-level action latent variables evolve at different rates, with low-level visu"
   },
   {
+    "id": "2602.24288",
+    "title": "DARE-bench: Evaluating Modeling and Instruction Fidelity of LLMs in Data Science",
+    "authors": "Fan Shu, Yite Wang, Ruofan Wu et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "The fast-growing demands in using Large Language Models (LLMs) to tackle complex multi-step data science tasks create an emergent need for accurate benchmarking. There are two major gaps in existing benchmarks: (i) the lack of standardized, process-aware evaluation that captures instruction adherence and process fidelity, and (ii) the scarcity of accurately labeled training data. To bridge these gaps, we introduce DARE-bench, a benchmark designed for machine learning modeling and data science in"
+  },
+  {
+    "id": "2602.24287",
+    "title": "Do LLMs Benefit From Their Own Words?",
+    "authors": "Jenny Y. Huang, Leshem Choshen, Ramon Astudillo et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Multi-turn interactions with large language models typically retain the assistant's own past responses in the conversation history. In this work, we revisit this design choice by asking whether large language models benefit from conditioning on their own prior responses. Using in-the-wild, multi-turn conversations, we compare standard (full-context) prompting with a user-turn-only prompting approach that omits all previous assistant responses, across three open reasoning models and one state-of-"
+  },
+  {
+    "id": "2602.24283",
+    "title": "Taming Momentum: Rethinking Optimizer States Through Low-Rank Approximation",
+    "authors": "Zhengbo Wang, Jian Liang, Ran He et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Modern optimizers like Adam and Muon are central to training large language models, but their reliance on first- and second-order momenta introduces significant memory overhead, which constrains scalability and computational efficiency. In this work, we reframe the exponential moving average (EMA) used in these momenta as the training of a linear regressor via online gradient flow. Building on this equivalence, we introduce LoRA-Pre, a novel low-rank optimizer designed for efficient pre-training"
+  },
+  {
+    "id": "2602.24210",
+    "title": "Controllable Reasoning Models Are Private Thinkers",
+    "authors": "Haritz Puerto, Haonan Li, Xudong Han et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "AI agents powered by reasoning models require access to sensitive user data. However, their reasoning traces are difficult to control, which can result in the unintended leakage of private information to external parties. We propose training models to follow instructions not only in the final answer, but also in reasoning traces, potentially under different constraints. We hypothesize that improving their instruction following abilities in the reasoning traces can improve their privacy-preservat"
+  },
+  {
+    "id": "2602.24195",
+    "title": "Uncertainty Quantification for Multimodal Large Language Models with Incoherence-adjusted Semantic Volume",
+    "authors": "Gregory Kang Ruey Lau, Hieu Dao, Nicole Kan Hui Lin et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Despite their capabilities, Multimodal Large Language Models (MLLMs) may produce plausible but erroneous outputs, hindering reliable deployment. Accurate uncertainty metrics could enable escalation of unreliable queries to human experts or larger models for improved performance. However, existing uncertainty metrics have practical constraints, such as being designed only for specific modalities, reliant on external tools, or computationally expensive. We introduce UMPIRE, a training-free uncerta"
+  },
+  {
+    "id": "2602.24188",
+    "title": "MT-PingEval: Evaluating Multi-Turn Collaboration with Private Information Games",
+    "authors": "Jacob Eisenstein, Fantine Huot, Adam Fisch et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "We present a scalable methodology for evaluating language models in multi-turn interactions, using a suite of collaborative games that require effective communication about private information. This enables an interactive scaling analysis, in which a fixed token budget is divided over a variable number of turns. We find that in many cases, language models are unable to use interactive collaboration to improve over the non-interactive baseline scenario in which one agent attempts to summarize its"
+  },
+  {
+    "id": "2602.24174",
+    "title": "Task-Centric Acceleration of Small-Language Models",
+    "authors": "Dor Tsur, Sharon Adar, Ran Levy",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Small language models (SLMs) have emerged as efficient alternatives to large language models for task-specific applications. However, they are often employed in high-volume, low-latency settings, where efficiency is crucial. We propose TASC, Task-Adaptive Sequence Compression, a framework for SLM acceleration comprising two use-cases: When performing SLM fine-tuning, we propose TASC-ft, which iteratively enriches the tokenizer vocabulary with high-frequency output n-grams and then fine-tunes the"
+  },
+  {
+    "id": "2602.24172",
+    "title": "ArgLLM-App: An Interactive System for Argumentative Reasoning with Large Language Models",
+    "authors": "Adam Dejl, Deniz Gorur, Francesca Toni",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Argumentative LLMs (ArgLLMs) are an existing approach leveraging Large Language Models (LLMs) and computational argumentation for decision-making, with the aim of making the resulting decisions faithfully explainable to and contestable by humans. Here we propose a web-based system implementing ArgLLM-empowered agents for binary tasks. ArgLLM-App supports visualisation of the produced explanations and interaction with human users, allowing them to identify and contest any mistakes in the system's"
+  },
+  {
+    "id": "2602.24142",
+    "title": "CoME: Empowering Channel-of-Mobile-Experts with Informative Hybrid-Capabilities Reasoning",
+    "authors": "Yuxuan Liu, Weikai Xu, Kun Huang et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Mobile Agents can autonomously execute user instructions, which requires hybrid-capabilities reasoning, including screen summary, subtask planning, action decision and action function. However, existing agents struggle to achieve both decoupled enhancement and balanced integration of these capabilities. To address these challenges, we propose Channel-of-Mobile-Experts (CoME), a novel agent architecture consisting of four distinct experts, each aligned with a specific reasoning stage, CoME activa"
+  },
+  {
+    "id": "2602.24134",
+    "title": "AgenticOCR: Parsing Only What You Need for Efficient Retrieval-Augmented Generation",
+    "authors": "Zhengren Wang, Dongsheng Ma, Huaping Zhong et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "The expansion of retrieval-augmented generation (RAG) into multimodal domains has intensified the challenge for processing complex visual documents, such as financial reports. While page-level chunking and retrieval is a natural starting point, it creates a critical bottleneck: delivering entire pages to the generator introduces excessive extraneous context. This not only overloads the generator's attention mechanism but also dilutes the most salient evidence. Moreover, compressing these informa"
+  },
+  {
+    "id": "2602.24119",
+    "title": "Terminology Rarity Predicts Catastrophic Failure in LLM Translation of Low-Resource Ancient Languages: Evidence from Ancient Greek",
+    "authors": "James L. Zainaldin, Cameron Pattison, Manuela Marai et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "This study presents the first systematic, reference-free human evaluation of large language model (LLM) machine translation (MT) for Ancient Greek (AG) technical prose. We evaluate translations by three commercial LLMs (Claude, Gemini, ChatGPT) of twenty paragraph-length passages from two works by the Greek physician Galen of Pergamum (ca. 129-216 CE): On Mixtures, which has two published English translations, and On the Composition of Drugs according to Kinds, which has never been fully transla"
+  },
+  {
+    "id": "2602.24111",
+    "title": "Toward Guarantees for Clinical Reasoning in Vision Language Models via Formal Verification",
+    "authors": "Vikash Singh, Debargha Ganguly, Haotian Yu et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Vision-language models (VLMs) show promise in drafting radiology reports, yet they frequently suffer from logical inconsistencies, generating diagnostic impressions unsupported by their own perceptual findings or missing logically entailed conclusions. Standard lexical metrics heavily penalize clinical paraphrasing and fail to capture these deductive failures in reference-free settings. Toward guarantees for clinical reasoning, we introduce a neurosymbolic verification framework that determinist"
+  },
+  {
+    "id": "2602.24110",
+    "title": "Recycling Failures: Salvaging Exploration in RLVR via Fine-Grained Off-Policy Guidance",
+    "authors": "Yanwei Ren, Haotian Zhang, Likang Xiao et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Reinforcement Learning from Verifiable Rewards (RLVR) has emerged as a powerful paradigm for enhancing the complex reasoning capabilities of Large Reasoning Models. However, standard outcome-based supervision suffers from a critical limitation that penalizes trajectories that are largely correct but fail due to several missteps as heavily as completely erroneous ones. This coarse feedback signal causes the model to discard valuable largely correct rollouts, leading to a degradation in rollout di"
+  },
+  {
+    "id": "2602.24109",
+    "title": "ARGUS: Seeing the Influence of Narrative Features on Persuasion in Argumentative Texts",
+    "authors": "Sara Nabhani, Federico Pianzola, Khalid Al-Khatib et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Can narratives make arguments more persuasive? And to this end, which narrative features matter most? Although stories are often seen as powerful tools for persuasion, their specific role in online, unstructured argumentation remains underexplored. To address this gap, we present ARGUS, a framework for studying the impact of narration on persuasion in argumentative discourse. ARGUS introduces a new ChangeMyView corpus annotated for story presence and six key narrative features, integrating insig"
+  },
+  {
+    "id": "2602.24082",
+    "title": "Preference Packing: Efficient Preference Optimization for Large Language Models",
+    "authors": "Jaekyung Cho",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Resource-efficient training optimization techniques are becoming increasingly important as the size of large language models (LLMs) continues to grow. In particular, batch packing is commonly used in pre-training and supervised fine-tuning to achieve resource-efficient training. We propose preference packing, a method to enhance resource efficiency in training techniques that use data with different responses for the same input prompt, such as reward models or Direct Preference Optimization (DPO"
+  },
+  {
+    "id": "2602.24071",
+    "title": "SongSong: A Time Phonograph for Chinese SongCi Music from Thousand of Years Away",
+    "authors": "Jiajia Li, Jiliang Hu, Ziyi Pan et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Recently, there have been significant advancements in music generation. However, existing models primarily focus on creating modern pop songs, making it challenging to produce ancient music with distinct rhythms and styles, such as ancient Chinese SongCi. In this paper, we introduce SongSong, the first music generation model capable of restoring Chinese SongCi to our knowledge. Our model first predicts the melody from the input SongCi, then separately generates the singing voice and accompanimen"
+  },
+  {
+    "id": "2602.24068",
+    "title": "A Novel Hierarchical Multi-Agent System for Payments Using LLMs",
+    "authors": "Joon Kiat Chua, Donghao Huang, Zhaoxia Wang",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language model (LLM) agents, such as OpenAI's Operator and Claude's Computer Use, can automate workflows but unable to handle payment tasks. Existing agentic solutions have gained significant attention; however, even the latest approaches face challenges in implementing end-to-end agentic payment workflows. To address this gap, this research proposes the Hierarchical Multi-Agent System for Payments (HMASP), which provides an end-to-end agentic method for completing payment workflows. The p"
+  },
+  {
+    "id": "2602.24060",
+    "title": "Task Complexity Matters: An Empirical Study of Reasoning in LLMs for Sentiment Analysis",
+    "authors": "Donghao Huang, Zhaoxia Wang",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) with reasoning capabilities have fueled a compelling narrative that reasoning universally improves performance across language tasks. We test this claim through a comprehensive evaluation of 504 configurations across seven model families--including adaptive, conditional, and reinforcement learning-based reasoning architectures--on sentiment analysis datasets of varying granularity (binary, five-class, and 27-class emotion). Our findings reveal that reasoning effectiv"
+  },
+  {
+    "id": "2602.24044",
+    "title": "Data Driven Optimization of GPU efficiency for Distributed LLM Adapter Serving",
+    "authors": "Ferran Agullo, Joan Oliveras, Chen Wang et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large Language Model (LLM) adapters enable low-cost model specialization, but introduce complex caching and scheduling challenges in distributed serving systems where hundreds of adapters must be hosted concurrently. While prior work has largely focused on latency minimization, resource efficiency through throughput maximization remains underexplored. This paper presents a data-driven pipeline that, for a given workload, computes an adapter placement that serves the workload with the minimum num"
+  },
+  {
+    "id": "2602.24040",
+    "title": "RewardUQ: A Unified Framework for Uncertainty-Aware Reward Models",
+    "authors": "Daniel Yang, Samuel Stante, Florian Redhardt et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Reward models are central to aligning large language models (LLMs) with human preferences. Yet most approaches rely on pointwise reward estimates that overlook the epistemic uncertainty in reward models arising from limited human feedback. Recent work suggests that quantifying this uncertainty can reduce the costs of human annotation via uncertainty-guided active learning and mitigate reward overoptimization in LLM post-training. However, uncertainty-aware reward models have so far been adopted "
+  },
+  {
+    "id": "2602.24009",
+    "title": "Jailbreak Foundry: From Papers to Runnable Attacks for Reproducible Benchmarking",
+    "authors": "Zhicheng Fang, Jingjie Zheng, Chenxu Fu et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Jailbreak techniques for large language models (LLMs) evolve faster than benchmarks, making robustness estimates stale and difficult to compare across papers due to drift in datasets, harnesses, and judging protocols. We introduce JAILBREAK FOUNDRY (JBF), a system that addresses this gap via a multi-agent workflow to translate jailbreak papers into executable modules for immediate evaluation within a unified harness. JBF features three core components: (i) JBF-LIB for shared contracts and reusab"
+  },
+  {
+    "id": "2602.24002",
+    "title": "Dialect and Gender Bias in YouTube's Spanish Captioning System",
+    "authors": "Iris Dania Jimenez, Christoph Kern",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Spanish is the official language of twenty-one countries and is spoken by over 441 million people. Naturally, there are many variations in how Spanish is spoken across these countries. Media platforms such as YouTube rely on automatic speech recognition systems to make their content accessible to different groups of users. However, YouTube offers only one option for automatically generating captions in Spanish. This raises the question: could this captioning system be biased against certain Span"
+  },
+  {
+    "id": "2602.23993",
+    "title": "The GRADIEND Python Package: An End-to-End System for Gradient-Based Feature Learning",
+    "authors": "Jonathan Drechsel, Steffen Herbold",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "We present gradiend, an open-source Python package that operationalizes the GRADIEND method for learning feature directions from factual-counterfactual MLM and CLM gradients in language models. The package provides a unified workflow for feature-related data creation, training, evaluation, visualization, persistent model rewriting via controlled weight updates, and multi-feature comparison. We demonstrate GRADIEND on an English pronoun paradigm and on a large-scale feature comparison that reprod"
+  },
+  {
+    "id": "2602.23944",
+    "title": "MemEmo: Evaluating Emotion in Memory Systems of Agents",
+    "authors": "Peng Liu, Zhen Tao, Jihao Zhao et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Memory systems address the challenge of context loss in Large Language Model during prolonged interactions. However, compared to human cognition, the efficacy of these systems in processing emotion-related information remains inconclusive. To address this gap, we propose an emotion-enhanced memory evaluation benchmark to assess the performance of mainstream and state-of-the-art memory systems in handling affective information. We developed the \\textbf{H}uman-\\textbf{L}ike \\textbf{M}emory \\textbf"
+  },
+  {
+    "id": "2602.23941",
+    "title": "EDDA-Coordinata: An Annotated Dataset of Historical Geographic Coordinates",
+    "authors": "Ludovic Moncla, Pierre Nugues, Thierry Joliveau et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "This paper introduces a dataset of enriched geographic coordinates retrieved from Diderot and d'Alembert's eighteenth-century Encyclopedie. Automatically recovering geographic coordinates from historical texts is a complex task, as they are expressed in a variety of ways and with varying levels of precision. To improve retrieval of coordinates from similar digitized early modern texts, we have created a gold standard dataset, trained models, published the resulting inferred and normalized coordi"
+  },
+  {
+    "id": "2602.23940",
+    "title": "Benchmarking BERT-based Models for Sentence-level Topic Classification in Nepali Language",
+    "authors": "Nischal Karki, Bipesh Subedi, Prakash Poudyal et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Transformer-based models such as BERT have significantly advanced Natural Language Processing (NLP) across many languages. However, Nepali, a low-resource language written in Devanagari script, remains relatively underexplored. This study benchmarks multilingual, Indic, Hindi, and Nepali BERT variants to evaluate their effectiveness in Nepali topic classification. Ten pre-trained models, including mBERT, XLM-R, MuRIL, DevBERT, HindiBERT, IndicBERT, and NepBERTa, were fine-tuned and tested on the"
+  },
+  {
+    "id": "2602.23928",
+    "title": "The Astonishing Ability of Large Language Models to Parse Jabberwockified Language",
+    "authors": "Gary Lupyan, Senyi Yang",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "We show that large language models (LLMs) have an astonishing ability to recover meaning from severely degraded English texts. Texts in which content words have been randomly substituted by nonsense strings, e.g., \"At the ghybe of the swuint, we are haiveed to Wourge Phrear-gwurr, who sproles into an ghitch flount with his crurp\", can be translated to conventional English that is, in many cases, close to the original text, e.g., \"At the start of the story, we meet a man, Chow, who moves into an "
+  },
+  {
+    "id": "2602.23898",
+    "title": "Ref-Adv: Exploring MLLM Visual Reasoning in Referring Expression Tasks",
+    "authors": "Qihua Dong, Kuo Yang, Lin Ju et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety"
+    ],
+    "abstract": "Referring Expression Comprehension (REC) links language to region level visual perception. Standard benchmarks (RefCOCO, RefCOCO+, RefCOCOg) have progressed rapidly with multimodal LLMs but remain weak tests of visual reasoning and grounding: (i) many expressions are very short, leaving little reasoning demand; (ii) images often contain few distractors, making the target easy to find; and (iii) redundant descriptors enable shortcut solutions that bypass genuine text understanding and visual reas"
+  },
+  {
+    "id": "2602.23881",
+    "title": "LK Losses: Direct Acceptance Rate Optimization for Speculative Decoding",
+    "authors": "Alexander Samarin, Sergei Krutikov, Anton Shevtsov et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety"
+    ],
+    "abstract": "Speculative decoding accelerates autoregressive large language model (LLM) inference by using a lightweight draft model to propose candidate tokens that are then verified in parallel by the target model. The speedup is significantly determined by the acceptance rate, yet standard training minimizes Kullback-Leibler (KL) divergence as a proxy objective. While KL divergence and acceptance rate share the same global optimum, small draft models, having limited capacity, typically converge to subopti"
+  },
+  {
+    "id": "2602.23866",
+    "title": "SWE-rebench V2: Language-Agnostic SWE Task Collection at Scale",
+    "authors": "Ibragim Badertdinov, Maksim Nekrashevich, Anton Shevtsov et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety"
+    ],
+    "abstract": "Software engineering agents (SWE) are improving rapidly, with recent gains largely driven by reinforcement learning (RL). However, RL training is constrained by the scarcity of large-scale task collections with reproducible execution environments and reliable test suites. Although a growing number of benchmarks have emerged, datasets suitable for training remain limited in scale and diversity or often target a limited set of high-resource language ecosystems. We introduce SWE-rebench V2, a langu"
+  },
+  {
+    "id": "2602.24059",
+    "title": "Quant Experts: Token-aware Adaptive Error Reconstruction with Mixture of Experts for Large Vision-Language Models Quantization",
+    "authors": "Chenwei Jia, Baoting Li, Xuchong Zhang et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Post-Training Quantization (PTQ) has emerged as an effective technique for alleviating the substantial computational and memory overheads of Vision-Language Models (VLMs) by compressing both weights and activations without retraining the full model. Existing PTQ methods primarily rely on static identification and global compensation of sensitive or outlier channels, yet they often overlook the distributional differences of these important channels across inputs, leading to unsatisfactory quantiz"
+  },
+  {
+    "id": "2602.24014",
+    "title": "Interpretable Debiasing of Vision-Language Models for Social Fairness",
+    "authors": "Na Min An, Yoonna Jang, Yusuke Hirota et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "The rapid advancement of Vision-Language models (VLMs) has raised growing concerns that their black-box reasoning processes could lead to unintended forms of social bias. Current debiasing approaches focus on mitigating surface-level bias signals through post-hoc learning or test-time algorithms, while leaving the internal dynamics of the model largely unexplored. In this work, we introduce an interpretable, model-agnostic bias mitigation framework, DeBiasLens, that localizes social attribute ne"
+  },
+  {
+    "id": "2602.23971",
+    "title": "Ask don't tell: Reducing sycophancy in large language models",
+    "authors": "Magda Dubois, Cozmin Ududec, Christopher Summerfield et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Sycophancy, the tendency of large language models to favour user-affirming responses over critical engagement, has been identified as an alignment failure, particularly in high-stakes advisory and social contexts. While prior work has documented conversational features correlated with sycophancy, we lack a systematic understanding of what provokes or prevents AI sycophancy. Here, we present a set of controlled experimental studies where we first isolate how input framing influences sycophancy, a"
+  },
+  {
     "id": "2501.12948",
     "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
     "authors": "DeepSeek AI",
@@ -132,266 +735,6 @@
       "Agent"
     ],
     "abstract": "We introduce DeepSeek-R1, which incentivizes reasoning capabilities in LLMs through reinforcement learning (RL). DeepSeek-R1-Zero, trained via large-scale RL without supervised fine-tuning, demonstrates remarkable reasoning capabilities."
-  },
-  {
-    "id": "2407.10671",
-    "title": "Qwen2 Technical Report",
-    "authors": "Qwen Team, Alibaba",
-    "year": 2024,
-    "date": "2024-07-15",
-    "cite": 1200,
-    "tags": [
-      "LLM",
-      "Multilingual",
-      "Fine-tuning"
-    ],
-    "abstract": "We introduce Qwen2, the latest series of Qwen large language models. Qwen2 surpasses most prior open-weight models including its predecessor Qwen1.5."
-  },
-  {
-    "id": "2404.19756",
-    "title": "Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone",
-    "authors": "Abdin et al., Microsoft",
-    "year": 2024,
-    "date": "2024-04-30",
-    "cite": 900,
-    "tags": [
-      "LLM",
-      "Efficient",
-      "Fine-tuning"
-    ],
-    "abstract": "We introduce phi-3-mini, a 3.8 billion parameter language model trained on 3.3 trillion tokens, whose overall performance is comparable to Mixtral 8x7B and GPT-3.5."
-  },
-  {
-    "id": "2312.11805",
-    "title": "Gemini: A Family of Highly Capable Multimodal Models",
-    "authors": "Gemini Team, Google",
-    "year": 2023,
-    "date": "2023-12-19",
-    "cite": 3500,
-    "tags": [
-      "Multimodal",
-      "LLM"
-    ],
-    "abstract": "We introduce Gemini, a family of highly capable multimodal models developed at Google. Gemini models are natively multimodal, trained jointly across image, audio, video, and text data."
-  },
-  {
-    "id": "2303.08774",
-    "title": "GPT-4 Technical Report",
-    "authors": "OpenAI",
-    "year": 2023,
-    "date": "2023-03-27",
-    "cite": 18000,
-    "tags": [
-      "LLM",
-      "Multimodal"
-    ],
-    "abstract": "We report the development of GPT-4, a large-scale, multimodal model which can accept image and text inputs and produce text outputs."
-  },
-  {
-    "id": "2307.09288",
-    "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
-    "authors": "Touvron et al., Meta AI",
-    "year": 2023,
-    "date": "2023-07-18",
-    "cite": 14000,
-    "tags": [
-      "LLM",
-      "Fine-tuning",
-      "Open-source"
-    ],
-    "abstract": "We develop and release Llama 2, a collection of pretrained and fine-tuned large language models ranging in scale from 7B to 70B parameters."
-  },
-  {
-    "id": "2302.13971",
-    "title": "LLaMA: Open and Efficient Foundation Language Models",
-    "authors": "Touvron et al., Meta AI",
-    "year": 2023,
-    "date": "2023-02-27",
-    "cite": 15000,
-    "tags": [
-      "LLM",
-      "Efficient",
-      "Open-source"
-    ],
-    "abstract": "We introduce LLaMA, a collection of foundation language models ranging from 7B to 65B parameters trained on trillions of tokens."
-  },
-  {
-    "id": "2005.11401",
-    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
-    "authors": "Lewis et al., Facebook AI",
-    "year": 2020,
-    "date": "2020-05-22",
-    "cite": 8000,
-    "tags": [
-      "RAG",
-      "Retrieval",
-      "Knowledge"
-    ],
-    "abstract": "We explore a general-purpose fine-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric memory for language generation."
-  },
-  {
-    "id": "2312.10997",
-    "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
-    "authors": "Gao et al.",
-    "year": 2023,
-    "date": "2023-12-18",
-    "cite": 2800,
-    "tags": [
-      "RAG",
-      "Survey"
-    ],
-    "abstract": "Large Language Models (LLMs) demonstrate significant capabilities but face challenges such as hallucination, outdated knowledge, and non-transparent reasoning. RAG has emerged as a promising solution."
-  },
-  {
-    "id": "2210.03629",
-    "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
-    "authors": "Yao et al., Princeton & Google",
-    "year": 2022,
-    "date": "2022-10-06",
-    "cite": 4000,
-    "tags": [
-      "Agent",
-      "Reasoning",
-      "Tool-use"
-    ],
-    "abstract": "We explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner, allowing for greater synergy between the two."
-  },
-  {
-    "id": "2302.04761",
-    "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
-    "authors": "Schick et al., Meta AI",
-    "year": 2023,
-    "date": "2023-02-09",
-    "cite": 2500,
-    "tags": [
-      "Agent",
-      "Tool-use"
-    ],
-    "abstract": "We introduce Toolformer, a model trained to decide which APIs to call, when to call them, what arguments to pass, and how to best incorporate the results into future token prediction."
-  },
-  {
-    "id": "2308.11432",
-    "title": "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation",
-    "authors": "Wu et al., Microsoft",
-    "year": 2023,
-    "date": "2023-08-22",
-    "cite": 3200,
-    "tags": [
-      "Agent",
-      "Multi-agent"
-    ],
-    "abstract": "We introduce AutoGen, an open-source framework that allows developers to build LLM applications via multiple agents that can converse with each other to accomplish tasks."
-  },
-  {
-    "id": "2401.01335",
-    "title": "Agent AI: Surveying the Horizons of Multimodal Interaction",
-    "authors": "Durante et al.",
-    "year": 2024,
-    "date": "2024-01-02",
-    "cite": 600,
-    "tags": [
-      "Agent",
-      "Multimodal",
-      "Survey"
-    ],
-    "abstract": "We survey the landscape of Agent AI systems that are capable of taking actions and making decisions across digital and physical domains."
-  },
-  {
-    "id": "2201.11903",
-    "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
-    "authors": "Wei et al., Google",
-    "year": 2022,
-    "date": "2022-01-28",
-    "cite": 9000,
-    "tags": [
-      "Reasoning",
-      "CoT",
-      "Prompting"
-    ],
-    "abstract": "We explore how generating a chain of thought — a series of intermediate reasoning steps — significantly improves the ability of large language models to perform complex reasoning."
-  },
-  {
-    "id": "2205.01068",
-    "title": "Least-to-Most Prompting Enables Complex Reasoning in Large Language Models",
-    "authors": "Zhou et al., Google",
-    "year": 2022,
-    "date": "2022-05-02",
-    "cite": 1800,
-    "tags": [
-      "Reasoning",
-      "Prompting"
-    ],
-    "abstract": "We propose least-to-most prompting to enable easy-to-hard generalization in large language models."
-  },
-  {
-    "id": "2106.09685",
-    "title": "LoRA: Low-Rank Adaptation of Large Language Models",
-    "authors": "Hu et al., Microsoft",
-    "year": 2021,
-    "date": "2021-06-17",
-    "cite": 12000,
-    "tags": [
-      "Fine-tuning",
-      "Efficient",
-      "PEFT"
-    ],
-    "abstract": "We propose Low-Rank Adaptation (LoRA), which freezes the pretrained model weights and injects trainable rank decomposition matrices into each layer of the Transformer architecture."
-  },
-  {
-    "id": "2305.14314",
-    "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
-    "authors": "Dettmers et al.",
-    "year": 2023,
-    "date": "2023-05-23",
-    "cite": 4500,
-    "tags": [
-      "Fine-tuning",
-      "Efficient",
-      "PEFT"
-    ],
-    "abstract": "We present QLoRA, an efficient finetuning approach that reduces memory usage enough to finetune a 65B parameter model on a single 48GB GPU while preserving full 16-bit finetuning task performance."
-  },
-  {
-    "id": "2212.08073",
-    "title": "Constitutional AI: Harmlessness from AI Feedback",
-    "authors": "Bai et al., Anthropic",
-    "year": 2022,
-    "date": "2022-12-15",
-    "cite": 3500,
-    "tags": [
-      "Safety",
-      "Alignment",
-      "RLHF"
-    ],
-    "abstract": "We propose Constitutional AI (CAI), a method for training a harmless AI assistant without any human labels identifying harmful outputs."
-  },
-  {
-    "id": "2203.02155",
-    "title": "Training language models to follow instructions with human feedback",
-    "authors": "Ouyang et al., OpenAI",
-    "year": 2022,
-    "date": "2022-03-04",
-    "cite": 12000,
-    "tags": [
-      "RLHF",
-      "Alignment",
-      "Fine-tuning"
-    ],
-    "abstract": "We show an avenue for aligning language models with user intent on a wide range of tasks by fine-tuning with human feedback, resulting in InstructGPT."
-  },
-  {
-    "id": "2310.06825",
-    "title": "Mistral 7B",
-    "authors": "Jiang et al., Mistral AI",
-    "year": 2023,
-    "date": "2023-10-10",
-    "cite": 3000,
-    "tags": [
-      "LLM",
-      "Efficient",
-      "Open-source"
-    ],
-    "abstract": "We introduce Mistral 7B, a 7-billion-parameter language model engineered for superior performance and efficiency."
   },
   {
     "id": "2501.09223",
@@ -408,6 +751,20 @@
     "abstract": "The Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to LLMs, enabling seamless integration between LLM applications and external data sources and tools."
   },
   {
+    "id": "2407.10671",
+    "title": "Qwen2 Technical Report",
+    "authors": "Qwen Team, Alibaba",
+    "year": 2024,
+    "date": "2024-07-15",
+    "cite": 1200,
+    "tags": [
+      "LLM",
+      "Multilingual",
+      "Fine-tuning"
+    ],
+    "abstract": "We introduce Qwen2, the latest series of Qwen large language models. Qwen2 surpasses most prior open-weight models including its predecessor Qwen1.5."
+  },
+  {
     "id": "2406.12793",
     "title": "Mixture of Agents Enhances Large Language Model Capabilities",
     "authors": "Wang et al.",
@@ -420,6 +777,20 @@
       "LLM"
     ],
     "abstract": "We propose a mixture-of-agents (MoA) methodology that leverages the collective strengths of multiple LLMs to enhance performance."
+  },
+  {
+    "id": "2404.19756",
+    "title": "Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone",
+    "authors": "Abdin et al., Microsoft",
+    "year": 2024,
+    "date": "2024-04-30",
+    "cite": 900,
+    "tags": [
+      "LLM",
+      "Efficient",
+      "Fine-tuning"
+    ],
+    "abstract": "We introduce phi-3-mini, a 3.8 billion parameter language model trained on 3.3 trillion tokens, whose overall performance is comparable to Mixtral 8x7B and GPT-3.5."
   },
   {
     "id": "2404.16130",
@@ -436,6 +807,60 @@
     "abstract": "We present AutoCodeRover, an automated approach for program improvement combining LLMs with sophisticated code search."
   },
   {
+    "id": "2401.01335",
+    "title": "Agent AI: Surveying the Horizons of Multimodal Interaction",
+    "authors": "Durante et al.",
+    "year": 2024,
+    "date": "2024-01-02",
+    "cite": 600,
+    "tags": [
+      "Agent",
+      "Multimodal",
+      "Survey"
+    ],
+    "abstract": "We survey the landscape of Agent AI systems that are capable of taking actions and making decisions across digital and physical domains."
+  },
+  {
+    "id": "2312.11805",
+    "title": "Gemini: A Family of Highly Capable Multimodal Models",
+    "authors": "Gemini Team, Google",
+    "year": 2023,
+    "date": "2023-12-19",
+    "cite": 3500,
+    "tags": [
+      "Multimodal",
+      "LLM"
+    ],
+    "abstract": "We introduce Gemini, a family of highly capable multimodal models developed at Google. Gemini models are natively multimodal, trained jointly across image, audio, video, and text data."
+  },
+  {
+    "id": "2312.10997",
+    "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+    "authors": "Gao et al.",
+    "year": 2023,
+    "date": "2023-12-18",
+    "cite": 2800,
+    "tags": [
+      "RAG",
+      "Survey"
+    ],
+    "abstract": "Large Language Models (LLMs) demonstrate significant capabilities but face challenges such as hallucination, outdated knowledge, and non-transparent reasoning. RAG has emerged as a promising solution."
+  },
+  {
+    "id": "2310.06825",
+    "title": "Mistral 7B",
+    "authors": "Jiang et al., Mistral AI",
+    "year": 2023,
+    "date": "2023-10-10",
+    "cite": 3000,
+    "tags": [
+      "LLM",
+      "Efficient",
+      "Open-source"
+    ],
+    "abstract": "We introduce Mistral 7B, a 7-billion-parameter language model engineered for superior performance and efficiency."
+  },
+  {
     "id": "2309.07864",
     "title": "Multimodal Foundation Models: From Specialists to General-Purpose Assistants",
     "authors": "Li et al., Microsoft",
@@ -450,6 +875,47 @@
     "abstract": "This paper presents a comprehensive survey of multimodal foundation models that demonstrate vision and language capabilities."
   },
   {
+    "id": "2308.11432",
+    "title": "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation",
+    "authors": "Wu et al., Microsoft",
+    "year": 2023,
+    "date": "2023-08-22",
+    "cite": 3200,
+    "tags": [
+      "Agent",
+      "Multi-agent"
+    ],
+    "abstract": "We introduce AutoGen, an open-source framework that allows developers to build LLM applications via multiple agents that can converse with each other to accomplish tasks."
+  },
+  {
+    "id": "2307.09288",
+    "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
+    "authors": "Touvron et al., Meta AI",
+    "year": 2023,
+    "date": "2023-07-18",
+    "cite": 14000,
+    "tags": [
+      "LLM",
+      "Fine-tuning",
+      "Open-source"
+    ],
+    "abstract": "We develop and release Llama 2, a collection of pretrained and fine-tuned large language models ranging in scale from 7B to 70B parameters."
+  },
+  {
+    "id": "2305.14314",
+    "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+    "authors": "Dettmers et al.",
+    "year": 2023,
+    "date": "2023-05-23",
+    "cite": 4500,
+    "tags": [
+      "Fine-tuning",
+      "Efficient",
+      "PEFT"
+    ],
+    "abstract": "We present QLoRA, an efficient finetuning approach that reduces memory usage enough to finetune a 65B parameter model on a single 48GB GPU while preserving full 16-bit finetuning task performance."
+  },
+  {
     "id": "2304.08485",
     "title": "LLaVA: Visual Instruction Tuning",
     "authors": "Liu et al.",
@@ -462,5 +928,142 @@
       "Vision"
     ],
     "abstract": "We present LLaVA, the first attempt to use language-image instruction-following data generated by GPT-4 for visual instruction tuning."
+  },
+  {
+    "id": "2303.08774",
+    "title": "GPT-4 Technical Report",
+    "authors": "OpenAI",
+    "year": 2023,
+    "date": "2023-03-27",
+    "cite": 18000,
+    "tags": [
+      "LLM",
+      "Multimodal"
+    ],
+    "abstract": "We report the development of GPT-4, a large-scale, multimodal model which can accept image and text inputs and produce text outputs."
+  },
+  {
+    "id": "2302.13971",
+    "title": "LLaMA: Open and Efficient Foundation Language Models",
+    "authors": "Touvron et al., Meta AI",
+    "year": 2023,
+    "date": "2023-02-27",
+    "cite": 15000,
+    "tags": [
+      "LLM",
+      "Efficient",
+      "Open-source"
+    ],
+    "abstract": "We introduce LLaMA, a collection of foundation language models ranging from 7B to 65B parameters trained on trillions of tokens."
+  },
+  {
+    "id": "2302.04761",
+    "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+    "authors": "Schick et al., Meta AI",
+    "year": 2023,
+    "date": "2023-02-09",
+    "cite": 2500,
+    "tags": [
+      "Agent",
+      "Tool-use"
+    ],
+    "abstract": "We introduce Toolformer, a model trained to decide which APIs to call, when to call them, what arguments to pass, and how to best incorporate the results into future token prediction."
+  },
+  {
+    "id": "2212.08073",
+    "title": "Constitutional AI: Harmlessness from AI Feedback",
+    "authors": "Bai et al., Anthropic",
+    "year": 2022,
+    "date": "2022-12-15",
+    "cite": 3500,
+    "tags": [
+      "Safety",
+      "Alignment",
+      "RLHF"
+    ],
+    "abstract": "We propose Constitutional AI (CAI), a method for training a harmless AI assistant without any human labels identifying harmful outputs."
+  },
+  {
+    "id": "2210.03629",
+    "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+    "authors": "Yao et al., Princeton & Google",
+    "year": 2022,
+    "date": "2022-10-06",
+    "cite": 4000,
+    "tags": [
+      "Agent",
+      "Reasoning",
+      "Tool-use"
+    ],
+    "abstract": "We explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner, allowing for greater synergy between the two."
+  },
+  {
+    "id": "2205.01068",
+    "title": "Least-to-Most Prompting Enables Complex Reasoning in Large Language Models",
+    "authors": "Zhou et al., Google",
+    "year": 2022,
+    "date": "2022-05-02",
+    "cite": 1800,
+    "tags": [
+      "Reasoning",
+      "Prompting"
+    ],
+    "abstract": "We propose least-to-most prompting to enable easy-to-hard generalization in large language models."
+  },
+  {
+    "id": "2203.02155",
+    "title": "Training language models to follow instructions with human feedback",
+    "authors": "Ouyang et al., OpenAI",
+    "year": 2022,
+    "date": "2022-03-04",
+    "cite": 12000,
+    "tags": [
+      "RLHF",
+      "Alignment",
+      "Fine-tuning"
+    ],
+    "abstract": "We show an avenue for aligning language models with user intent on a wide range of tasks by fine-tuning with human feedback, resulting in InstructGPT."
+  },
+  {
+    "id": "2201.11903",
+    "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+    "authors": "Wei et al., Google",
+    "year": 2022,
+    "date": "2022-01-28",
+    "cite": 9000,
+    "tags": [
+      "Reasoning",
+      "CoT",
+      "Prompting"
+    ],
+    "abstract": "We explore how generating a chain of thought — a series of intermediate reasoning steps — significantly improves the ability of large language models to perform complex reasoning."
+  },
+  {
+    "id": "2106.09685",
+    "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "authors": "Hu et al., Microsoft",
+    "year": 2021,
+    "date": "2021-06-17",
+    "cite": 12000,
+    "tags": [
+      "Fine-tuning",
+      "Efficient",
+      "PEFT"
+    ],
+    "abstract": "We propose Low-Rank Adaptation (LoRA), which freezes the pretrained model weights and injects trainable rank decomposition matrices into each layer of the Transformer architecture."
+  },
+  {
+    "id": "2005.11401",
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "authors": "Lewis et al., Facebook AI",
+    "year": 2020,
+    "date": "2020-05-22",
+    "cite": 8000,
+    "tags": [
+      "RAG",
+      "Retrieval",
+      "Knowledge"
+    ],
+    "abstract": "We explore a general-purpose fine-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric memory for language generation."
   }
 ]
