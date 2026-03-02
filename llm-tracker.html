@@ -10,66 +10,84 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 header{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:white;padding:2rem;text-align:center}
 header h1{font-size:2rem;margin-bottom:.5rem}
 header p{opacity:.8;font-size:.9rem}
-.tabs{display:flex;justify-content:center;gap:1rem;padding:1.2rem;background:white;border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:10;flex-wrap:wrap}
-.tab{padding:.6rem 1.5rem;border-radius:2rem;cursor:pointer;border:2px solid #302b63;background:white;font-weight:600;transition:all .2s;font-size:.9rem}
+.tabs{display:flex;justify-content:center;gap:.6rem;padding:1rem;background:white;border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:10;flex-wrap:wrap}
+.tab{padding:.5rem 1.2rem;border-radius:2rem;cursor:pointer;border:2px solid #302b63;background:white;font-weight:600;transition:all .2s;font-size:.85rem}
 .tab.active,.tab:hover{background:#302b63;color:white}
-.filter-bar{max-width:960px;margin:1.5rem auto .5rem;padding:0 1rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:flex-end}
+.toolbar{max-width:1000px;margin:1.2rem auto .5rem;padding:0 1rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:flex-end}
 .fg{display:flex;flex-direction:column;gap:3px}
-.fg label{font-size:.75rem;color:#888;text-transform:uppercase;letter-spacing:.04em}
-.fg input,.fg select{padding:.45rem .7rem;border:1px solid #ddd;border-radius:8px;font-size:.85rem;background:white;outline:none}
+.fg label{font-size:.72rem;color:#888;text-transform:uppercase;letter-spacing:.04em}
+.fg input,.fg select{padding:.4rem .7rem;border:1px solid #ddd;border-radius:8px;font-size:.85rem;background:white;outline:none}
 .fg input:focus,.fg select:focus{border-color:#302b63}
 .fg.grow{flex:1;min-width:180px}
-.result-info{max-width:960px;margin:.5rem auto;padding:0 1rem;font-size:.8rem;color:#999}
-.section{display:none;max-width:960px;margin:1rem auto 3rem;padding:0 1rem}
+.result-info{max-width:1000px;margin:.3rem auto;padding:0 1rem;font-size:.8rem;color:#999}
+.section{display:none;max-width:1000px;margin:.8rem auto 3rem;padding:0 1rem}
 .section.active{display:block}
-.card{background:white;border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06);transition:box-shadow .2s}
+.card{background:white;border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:.8rem;box-shadow:0 2px 8px rgba(0,0,0,.06);transition:box-shadow .2s;position:relative}
 .card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
 .card-header{display:flex;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.5rem}
-.badge{font-size:.8rem;padding:.2rem .7rem;border-radius:1rem;font-weight:600}
+.card-meta{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+.badge{font-size:.75rem;padding:.2rem .6rem;border-radius:1rem;font-weight:600;white-space:nowrap}
 .badge.cite{background:#fff3e0;color:#e65100}
 .badge.cite.high{background:#e8f5e9;color:#2e7d32}
 .badge.date{background:#ede7f6;color:#4527a0}
-.badge.tag{background:#e3f2fd;color:#1565c0}
-.arxiv-link{font-size:.85rem;color:#302b63;text-decoration:none;font-weight:600}
+.badge.tag{background:#e3f2fd;color:#1565c0;cursor:pointer}
+.badge.tag:hover{background:#1565c0;color:white}
+.arxiv-link{font-size:.82rem;color:#302b63;text-decoration:none;font-weight:600}
 .arxiv-link:hover{text-decoration:underline}
-.card h3{font-size:1rem;line-height:1.5;margin-bottom:.4rem}
-.authors{font-size:.85rem;color:#666;margin-bottom:.5rem}
-.abstract{font-size:.85rem;color:#555;line-height:1.6;border-top:1px solid #f0f0f0;padding-top:.5rem;margin-top:.5rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.pagination{display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;margin-top:1.5rem}
-.page-btn{padding:.45rem .9rem;border:1px solid #ddd;border-radius:6px;background:white;cursor:pointer;font-size:.85rem;transition:all .2s}
+.card h3{font-size:.95rem;line-height:1.5;margin-bottom:.3rem}
+.authors{font-size:.82rem;color:#666;margin-bottom:.4rem}
+.abstract{font-size:.82rem;color:#555;line-height:1.6;border-top:1px solid #f0f0f0;padding-top:.5rem;margin-top:.4rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.fav-btn{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.3rem;cursor:pointer;opacity:.35;transition:opacity .2s,transform .2s}
+.fav-btn:hover{opacity:.8;transform:scale(1.2)}
+.fav-btn.active{opacity:1}
+.pagination{display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;margin-top:1.2rem}
+.page-btn{padding:.4rem .8rem;border:1px solid #ddd;border-radius:6px;background:white;cursor:pointer;font-size:.82rem;transition:all .2s}
 .page-btn:hover,.page-btn.active{background:#302b63;color:white;border-color:#302b63}
+.empty{text-align:center;padding:3rem;color:#999;font-size:.95rem}
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+.topic-card{background:white;border-radius:12px;padding:1.2rem;box-shadow:0 2px 8px rgba(0,0,0,.06);cursor:pointer;transition:box-shadow .2s}
+.topic-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.topic-card h4{font-size:1rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.topic-card p{font-size:.82rem;color:#666;line-height:1.5}
+.topic-count{font-size:.75rem;background:#302b63;color:white;border-radius:1rem;padding:.1rem .5rem}
 footer{text-align:center;padding:2rem;color:#aaa;font-size:.8rem}
-@media(max-width:700px){.filter-bar{flex-direction:column}}
+@media(max-width:700px){.toolbar{flex-direction:column}.topic-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header>
   <h1>🤖 LLM Papers Tracker</h1>
-  <p>AI 大模型论文追踪 · 精选高影响力研究</p>
+  <p id="header-sub">AI 大模型前沿论文追踪 · 每日自动更新</p>
 </header>
-
 <div class="tabs">
-  <button class="tab active" onclick="showTab('high',this)">高引用 (≥500)</button>
-  <button class="tab" onclick="showTab('latest',this)">最新论文</button>
-  <button class="tab" onclick="showTab('topics',this)">按主题</button>
+  <button class="tab active" onclick="showTab('latest',this)">🆕 最新</button>
+  <button class="tab" onclick="showTab('hot',this)">🔥 高引用</button>
+  <button class="tab" onclick="showTab('topics',this)">🏷️ 主题</button>
+  <button class="tab" onclick="showTab('favorites',this)">⭐ 收藏</button>
 </div>
-
-<div class="filter-bar" id="filter-bar">
-  <div class="fg grow">
-    <label>搜索</label>
-    <input type="text" id="q" placeholder="标题、作者、关键词..." autocomplete="off" oninput="applyFilter()">
-  </div>
-  <div class="fg">
-    <label>最低引用</label>
-    <select id="min-cite" onchange="applyFilter()">
-      <option value="0">全部</option>
-      <option value="100">≥ 100</option>
-      <option value="500">≥ 500</option>
-      <option value="1000">≥ 1000</option>
+<div class="toolbar" id="toolbar">
+  <div class="fg grow"><label>搜索</label><input type="text" id="q" placeholder="标题、作者、关键词..." oninput="applyFilter()"></div>
+  <div class="fg"><label>主题</label>
+    <select id="tag-filter" onchange="applyFilter()">
+      <option value="">全部</option>
+      <option value="RAG">RAG</option>
+      <option value="Agent">Agent</option>
+      <option value="MCP">MCP</option>
+      <option value="Reasoning">Reasoning</option>
+      <option value="Multimodal">Multimodal</option>
+      <option value="Fine-tuning">Fine-tuning</option>
+      <option value="Safety">Safety</option>
+      <option value="LLM">LLM</option>
     </select>
   </div>
-  <div class="fg">
-    <label>年份</label>
+  <div class="fg"><label>排序</label>
+    <select id="sort" onchange="applyFilter()">
+      <option value="date">最新日期</option>
+      <option value="cite">引用量</option>
+      <option value="title">标题</option>
+    </select>
+  </div>
+  <div class="fg"><label>年份</label>
     <select id="year" onchange="applyFilter()">
       <option value="">全部</option>
       <option value="2025">2025</option>
@@ -80,35 +98,131 @@ footer{text-align:center;padding:2rem;color:#aaa;font-size:.8rem}
   </div>
 </div>
 <div class="result-info" id="result-info"></div>
-
-<div id="high" class="section active"></div>
-<div id="latest" class="section"></div>
+<div id="latest" class="section active"></div>
+<div id="hot" class="section"></div>
 <div id="topics" class="section"></div>
-
-<footer>Curated by Kevin · Data from arXiv & Semantic Scholar</footer>
-
+<div id="favorites" class="section"></div>
+<footer>Curated by Kevin · Data from arXiv · <a href="https://github.com/Xplore0114" style="color:#302b63">GitHub</a></footer>
 <script>
 const PAPERS = [
-  {title:"Attention Is All You Need",authors:"Vaswani et al.",year:2017,cite:120000,arxiv:"1706.03762",abstract:"We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.",tags:["Transformer","Attention"]},
-  {title:"BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",authors:"Devlin et al., Google",year:2018,cite:90000,arxiv:"1810.04805",abstract:"We introduce BERT, a new language representation model which stands for Bidirectional Encoder Representations from Transformers.",tags:["BERT","Pre-training"]},
-  {title:"Language Models are Few-Shot Learners (GPT-3)",authors:"Brown et al., OpenAI",year:2020,cite:50000,arxiv:"2005.14165",abstract:"We show that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even reaching competitiveness with prior state-of-the-art fine-tuning approaches.",tags:["GPT","Few-shot","Scaling"]},
-  {title:"Training language models to follow instructions with human feedback (InstructGPT)",authors:"Ouyang et al., OpenAI",year:2022,cite:12000,arxiv:"2203.02155",abstract:"We show an avenue for aligning language models with user intent on a wide range of tasks by fine-tuning with human feedback.",tags:["RLHF","Alignment","InstructGPT"]},
-  {title:"LLaMA: Open and Efficient Foundation Language Models",authors:"Touvron et al., Meta AI",year:2023,cite:15000,arxiv:"2302.13971",abstract:"We introduce LLaMA, a collection of foundation language models ranging from 7B to 65B parameters trained on trillions of tokens.",tags:["LLaMA","Open-source","Efficient"]},
-  {title:"GPT-4 Technical Report",authors:"OpenAI",year:2023,cite:18000,arxiv:"2303.08774",abstract:"We report the development of GPT-4, a large-scale, multimodal model which can accept image and text inputs and produce text outputs.",tags:["GPT-4","Multimodal"]},
-  {title:"Llama 2: Open Foundation and Fine-Tuned Chat Models",authors:"Touvron et al., Meta AI",year:2023,cite:14000,arxiv:"2307.09288",abstract:"We develop and release Llama 2, a collection of pretrained and fine-tuned large language models ranging in scale from 7B to 70B parameters.",tags:["LLaMA2","Chat","Open-source"]},
-  {title:"Mistral 7B",authors:"Jiang et al., Mistral AI",year:2023,cite:3000,arxiv:"2310.06825",abstract:"We introduce Mistral 7B, a 7-billion-parameter language model engineered for superior performance and efficiency.",tags:["Mistral","Efficient","7B"]},
-  {title:"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",authors:"Lewis et al., Facebook AI",year:2020,cite:8000,arxiv:"2005.11401",abstract:"We explore a general-purpose fine-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric memory for language generation.",tags:["RAG","Retrieval","Knowledge"]},
-  {title:"Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",authors:"Wei et al., Google",year:2022,cite:9000,arxiv:"2201.11903",abstract:"We explore how generating a chain of thought — a series of intermediate reasoning steps — significantly improves the ability of large language models to perform complex reasoning.",tags:["CoT","Reasoning","Prompting"]},
-  {title:"ReAct: Synergizing Reasoning and Acting in Language Models",authors:"Yao et al., Princeton & Google",year:2022,cite:4000,arxiv:"2210.03629",abstract:"We explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner.",tags:["Agent","Reasoning","Tool-use"]},
-  {title:"Toolformer: Language Models Can Teach Themselves to Use Tools",authors:"Schick et al., Meta AI",year:2023,cite:2500,arxiv:"2302.04761",abstract:"We introduce Toolformer, a model trained to decide which APIs to call, when to call them, what arguments to pass, and how to best incorporate the results into future token prediction.",tags:["Tool-use","Agent"]},
-  {title:"Qwen2 Technical Report",authors:"Qwen Team, Alibaba",year:2024,cite:1200,arxiv:"2407.10671",abstract:"We introduce Qwen2, the latest series of Qwen large language models. Qwen2 surpasses most prior open-weight models including its predecessor Qwen1.5.",tags:["Qwen2","Open-source","Multilingual"]},
-  {title:"DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",authors:"DeepSeek AI",year:2025,cite:800,arxiv:"2501.12948",abstract:"We introduce DeepSeek-R1, which incentivizes reasoning capabilities in LLMs through reinforcement learning (RL).",tags:["Reasoning","RL","DeepSeek"]},
-  {title:"Constitutional AI: Harmlessness from AI Feedback",authors:"Bai et al., Anthropic",year:2022,cite:3500,arxiv:"2212.08073",abstract:"We propose Constitutional AI (CAI), a method for training a harmless AI assistant without any human labels identifying harmful outputs.",tags:["Alignment","Safety","RLHF"]},
+  {id:"2501.12948",title:"DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",authors:"DeepSeek AI",year:2025,date:"2025-01-22",cite:800,tags:["Reasoning","RL","Agent"],abstract:"We introduce DeepSeek-R1, which incentivizes reasoning capabilities in LLMs through reinforcement learning. DeepSeek-R1-Zero demonstrates remarkable reasoning capabilities without supervised fine-tuning."},
+  {id:"2501.09223",title:"Model Context Protocol: Standardizing LLM Tool Integration",authors:"Anthropic",year:2025,date:"2025-01-15",cite:200,tags:["MCP","Tool-use","Agent"],abstract:"The Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to LLMs, enabling seamless integration between LLM applications and external data sources and tools."},
+  {id:"2407.10671",title:"Qwen2 Technical Report",authors:"Qwen Team, Alibaba",year:2024,date:"2024-07-15",cite:1200,tags:["LLM","Multilingual","Fine-tuning"],abstract:"We introduce Qwen2, the latest series of Qwen large language models. Qwen2 surpasses most prior open-weight models including its predecessor Qwen1.5."},
+  {id:"2404.19756",title:"Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone",authors:"Abdin et al., Microsoft",year:2024,date:"2024-04-30",cite:900,tags:["LLM","Efficient","Fine-tuning"],abstract:"We introduce phi-3-mini, a 3.8 billion parameter language model trained on 3.3 trillion tokens, whose overall performance is comparable to Mixtral 8x7B and GPT-3.5."},
+  {id:"2406.12793",title:"Mixture of Agents Enhances Large Language Model Capabilities",authors:"Wang et al.",year:2024,date:"2024-06-18",cite:450,tags:["Agent","Multi-agent","LLM"],abstract:"We propose a mixture-of-agents (MoA) methodology that leverages the collective strengths of multiple LLMs to enhance performance, achieving state-of-the-art results."},
+  {id:"2312.11805",title:"Gemini: A Family of Highly Capable Multimodal Models",authors:"Gemini Team, Google",year:2023,date:"2023-12-19",cite:3500,tags:["Multimodal","LLM"],abstract:"We introduce Gemini, a family of highly capable multimodal models. Gemini models are natively multimodal, trained jointly across image, audio, video, and text data."},
+  {id:"2303.08774",title:"GPT-4 Technical Report",authors:"OpenAI",year:2023,date:"2023-03-27",cite:18000,tags:["LLM","Multimodal"],abstract:"We report the development of GPT-4, a large-scale, multimodal model which can accept image and text inputs and produce text outputs."},
+  {id:"2307.09288",title:"Llama 2: Open Foundation and Fine-Tuned Chat Models",authors:"Touvron et al., Meta AI",year:2023,date:"2023-07-18",cite:14000,tags:["LLM","Fine-tuning","Open-source"],abstract:"We develop and release Llama 2, a collection of pretrained and fine-tuned large language models ranging in scale from 7B to 70B parameters."},
+  {id:"2312.10997",title:"Retrieval-Augmented Generation for Large Language Models: A Survey",authors:"Gao et al.",year:2023,date:"2023-12-18",cite:2800,tags:["RAG","Survey"],abstract:"Large Language Models face challenges such as hallucination and outdated knowledge. RAG has emerged as a promising solution by combining parametric and non-parametric memory."},
+  {id:"2308.11432",title:"AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation",authors:"Wu et al., Microsoft",year:2023,date:"2023-08-22",cite:3200,tags:["Agent","Multi-agent"],abstract:"We introduce AutoGen, an open-source framework that allows developers to build LLM applications via multiple agents that can converse with each other to accomplish tasks."},
+  {id:"2305.14314",title:"QLoRA: Efficient Finetuning of Quantized LLMs",authors:"Dettmers et al.",year:2023,date:"2023-05-23",cite:4500,tags:["Fine-tuning","Efficient","PEFT"],abstract:"We present QLoRA, an efficient finetuning approach that reduces memory usage enough to finetune a 65B parameter model on a single 48GB GPU while preserving full 16-bit finetuning task performance."},
+  {id:"2210.03629",title:"ReAct: Synergizing Reasoning and Acting in Language Models",authors:"Yao et al., Princeton & Google",year:2022,date:"2022-10-06",cite:4000,tags:["Agent","Reasoning","Tool-use"],abstract:"We explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner, allowing for greater synergy between the two."},
+  {id:"2201.11903",title:"Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",authors:"Wei et al., Google",year:2022,date:"2022-01-28",cite:9000,tags:["Reasoning","CoT","Prompting"],abstract:"We explore how generating a chain of thought significantly improves the ability of large language models to perform complex reasoning."},
+  {id:"2106.09685",title:"LoRA: Low-Rank Adaptation of Large Language Models",authors:"Hu et al., Microsoft",year:2021,date:"2021-06-17",cite:12000,tags:["Fine-tuning","Efficient","PEFT"],abstract:"We propose Low-Rank Adaptation (LoRA), which freezes the pretrained model weights and injects trainable rank decomposition matrices into each layer of the Transformer architecture."},
+  {id:"2005.11401",title:"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",authors:"Lewis et al., Facebook AI",year:2020,date:"2020-05-22",cite:8000,tags:["RAG","Retrieval","Knowledge"],abstract:"We explore RAG — models which combine pre-trained parametric and non-parametric memory for language generation, achieving strong results on knowledge-intensive tasks."},
+  {id:"2212.08073",title:"Constitutional AI: Harmlessness from AI Feedback",authors:"Bai et al., Anthropic",year:2022,date:"2022-12-15",cite:3500,tags:["Safety","Alignment","RLHF"],abstract:"We propose Constitutional AI (CAI), a method for training a harmless AI assistant without any human labels identifying harmful outputs."},
+  {id:"2203.02155",title:"Training language models to follow instructions with human feedback",authors:"Ouyang et al., OpenAI",year:2022,date:"2022-03-04",cite:12000,tags:["RLHF","Alignment","Fine-tuning"],abstract:"We show an avenue for aligning language models with user intent on a wide range of tasks by fine-tuning with human feedback, resulting in InstructGPT."},
+  {id:"2304.08485",title:"LLaVA: Visual Instruction Tuning",authors:"Liu et al.",year:2023,date:"2023-04-17",cite:5000,tags:["Multimodal","Fine-tuning","Vision"],abstract:"We present LLaVA, the first attempt to use language-image instruction-following data generated by GPT-4 for visual instruction tuning."},
+  {id:"2302.04761",title:"Toolformer: Language Models Can Teach Themselves to Use Tools",authors:"Schick et al., Meta AI",year:2023,date:"2023-02-09",cite:2500,tags:["Agent","Tool-use","MCP"],abstract:"We introduce Toolformer, a model trained to decide which APIs to call, when to call them, what arguments to pass, and how to best incorporate the results into future token prediction."},
+  {id:"2310.06825",title:"Mistral 7B",authors:"Jiang et al., Mistral AI",year:2023,date:"2023-10-10",cite:3000,tags:["LLM","Efficient","Open-source"],abstract:"We introduce Mistral 7B, a 7-billion-parameter language model engineered for superior performance and efficiency, outperforming Llama 2 13B on all benchmarks."}
 ];
 
-const PAGE_SIZE = 10;
-let currentTab = 'high';
-let filteredData = {};
+const TOPICS = [
+  {key:"RAG",icon:"🔍",name:"RAG 检索增强",desc:"检索增强生成，解决 LLM 幻觉和知识过时问题"},
+  {key:"Agent",icon:"🤖",name:"AI Agent 智能体",desc:"自主规划、工具调用、多智能体协作"},
+  {key:"MCP",icon:"🔌",name:"MCP 工具协议",desc:"Model Context Protocol，标准化 LLM 工具集成"},
+  {key:"Reasoning",icon:"🧠",name:"推理能力",desc:"CoT、思维链、复杂推理增强"},
+  {key:"Multimodal",icon:"🖼️",name:"多模态",desc:"图文音视频多模态大模型"},
+  {key:"Fine-tuning",icon:"⚙️",name:"微调与对齐",desc:"LoRA、RLHF、指令微调、高效训练"},
+  {key:"Safety",icon:"🛡️",name:"安全与对齐",desc:"AI 安全、价值对齐、有害内容防护"},
+  {key:"LLM",icon:"💡",name:"基础大模型",desc:"GPT、LLaMA、Qwen 等基础模型研究"},
+];
+
+const PAGE_SIZE = 8;
+let currentTab = 'latest';
+let pages = {};
+let favorites = JSON.parse(localStorage.getItem('llm_favs') || '[]');
+
+function getFavSet() { return new Set(favorites); }
+
+function toggleFav(id) {
+  const s = getFavSet();
+  if (s.has(id)) s.delete(id); else s.add(id);
+  favorites = [...s];
+  localStorage.setItem('llm_favs', JSON.stringify(favorites));
+  document.querySelectorAll(`.fav-btn[data-id="${id}"]`).forEach(b => {
+    b.classList.toggle('active', getFavSet().has(id));
+    b.title = getFavSet().has(id) ? '取消收藏' : '收藏';
+  });
+  if (currentTab === 'favorites') renderSection('favorites', 1);
+}
+
+function filterData(tab) {
+  const q = document.getElementById('q').value.toLowerCase();
+  const tagF = document.getElementById('tag-filter').value;
+  const sortF = document.getElementById('sort').value;
+  const yearF = document.getElementById('year').value;
+
+  let data = tab === 'favorites'
+    ? PAPERS.filter(p => getFavSet().has(p.id))
+    : [...PAPERS];
+
+  if (tab === 'hot') data = data.filter(p => p.cite >= 1000);
+  if (q) data = data.filter(p => p.title.toLowerCase().includes(q) || p.authors.toLowerCase().includes(q) || p.tags.join(' ').toLowerCase().includes(q));
+  if (tagF) data = data.filter(p => p.tags.includes(tagF));
+  if (yearF) data = data.filter(p => p.year == yearF);
+
+  if (sortF === 'cite') data.sort((a,b) => b.cite - a.cite);
+  else if (sortF === 'title') data.sort((a,b) => a.title.localeCompare(b.title));
+  else data.sort((a,b) => b.date.localeCompare(a.date));
+
+  return data;
+}
+
+function renderCard(p) {
+  const fav = getFavSet().has(p.id);
+  const tagHtml = p.tags.map(t => `<span class="badge tag" onclick="filterByTag('${t}')">${t}</span>`).join(' ');
+  return `<div class="card">
+    <button class="fav-btn ${fav?'active':''}" data-id="${p.id}" onclick="toggleFav('${p.id}')" title="${fav?'取消收藏':'收藏'}">⭐</button>
+    <div class="card-header">
+      <div class="card-meta">
+        <span class="badge cite ${p.cite>=1000?'high':''}">📊 ${p.cite.toLocaleString()}</span>
+        <span class="badge date">📅 ${p.date}</span>
+        <a class="arxiv-link" href="https://arxiv.org/abs/${p.id}" target="_blank">arXiv ↗</a>
+      </div>
+    </div>
+    <h3>${p.title}</h3>
+    <div class="authors">👤 ${p.authors}</div>
+    <div style="margin-bottom:.4rem">${tagHtml}</div>
+    <div class="abstract">${p.abstract}</div>
+  </div>`;
+}
+
+function renderSection(tab, page) {
+  const data = filterData(tab);
+  pages[tab] = page;
+  const total = data.length;
+  const slice = data.slice((page-1)*PAGE_SIZE, page*PAGE_SIZE);
+  const totalPages = Math.ceil(total/PAGE_SIZE);
+  document.getElementById('result-info').textContent = `共 ${total} 篇`;
+
+  let html = slice.length ? slice.map(renderCard).join('') : '<div class="empty">暂无论文 📭</div>';
+  if (totalPages > 1) {
+    html += '<div class="pagination">' +
+      Array.from({length:totalPages},(_,i)=>`<button class="page-btn ${i+1===page?'active':''}" onclick="renderSection('${tab}',${i+1})">${i+1}</button>`).join('') +
+      '</div>';
+  }
+  document.getElementById(tab).innerHTML = html;
+}
+
+function filterByTag(tag) {
+  document.getElementById('tag-filter').value = tag;
+  applyFilter();
+}
+
+function applyFilter() {
+  if (currentTab !== 'topics') renderSection(currentTab, 1);
+}
 
 function showTab(tab, el) {
   currentTab = tab;
@@ -116,83 +230,31 @@ function showTab(tab, el) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.getElementById(tab).classList.add('active');
   el.classList.add('active');
-  applyFilter();
+  document.getElementById('toolbar').style.display = tab === 'topics' ? 'none' : 'flex';
+  if (tab === 'topics') renderTopics();
+  else renderSection(tab, 1);
 }
 
-function applyFilter() {
-  const q = document.getElementById('q').value.toLowerCase();
-  const minCite = parseInt(document.getElementById('min-cite').value);
-  const year = document.getElementById('year').value;
-
-  let data = PAPERS.filter(p => {
-    if (p.cite < minCite) return false;
-    if (year && p.year != year) return false;
-    if (q && !p.title.toLowerCase().includes(q) && !p.authors.toLowerCase().includes(q) && !p.tags.join(' ').toLowerCase().includes(q)) return false;
-    return true;
-  });
-
-  if (currentTab === 'high') data = data.filter(p => p.cite >= 500).sort((a,b) => b.cite - a.cite);
-  else if (currentTab === 'latest') data = [...data].sort((a,b) => b.year - a.year);
-  else data = [...data].sort((a,b) => b.cite - a.cite);
-
-  filteredData[currentTab] = data;
-  renderPage(currentTab, 1);
-}
-
-function renderPage(tab, page) {
-  const data = filteredData[tab] || [];
-  const total = data.length;
-  const start = (page-1)*PAGE_SIZE;
-  const slice = data.slice(start, start+PAGE_SIZE);
-  const container = document.getElementById(tab);
-
-  document.getElementById('result-info').textContent = `共 ${total} 篇`;
-
-  let html = slice.map(p => `
-    <div class="card">
-      <div class="card-header">
-        <span class="badge cite ${p.cite>=1000?'high':''}">📊 ${p.cite.toLocaleString()} 引用</span>
-        <span class="badge date">📅 ${p.year}</span>
-        <a class="arxiv-link" href="https://arxiv.org/abs/${p.arxiv}" target="_blank">arXiv:${p.arxiv} ↗</a>
-      </div>
-      <h3>${p.title}</h3>
-      <div class="authors">👤 ${p.authors}</div>
-      <div style="margin-bottom:.5rem">${p.tags.map(t=>`<span class="badge tag">${t}</span>`).join(' ')}</div>
-      <div class="abstract">${p.abstract}</div>
-    </div>
-  `).join('');
-
-  // pagination
-  const totalPages = Math.ceil(total/PAGE_SIZE);
-  if (totalPages > 1) {
-    html += '<div class="pagination">';
-    for (let i=1;i<=totalPages;i++) {
-      html += `<button class="page-btn ${i===page?'active':''}" onclick="renderPage('${tab}',${i})">${i}</button>`;
-    }
-    html += '</div>';
-  }
-
-  container.innerHTML = html || '<div style="text-align:center;padding:3rem;color:#999">没有找到相关论文</div>';
-}
-
-// topics tab
 function renderTopics() {
-  const topics = {};
-  PAPERS.forEach(p => p.tags.forEach(t => {
-    if (!topics[t]) topics[t] = [];
-    topics[t].push(p);
-  }));
-  const container = document.getElementById('topics');
-  container.innerHTML = Object.entries(topics).sort((a,b)=>b[1].length-a[1].length).map(([tag, papers]) => `
-    <div class="card">
-      <div class="card-header"><span class="badge tag">🏷️ ${tag}</span><span class="badge cite">${papers.length} 篇</span></div>
-      ${papers.slice(0,3).map(p=>`<div style="font-size:.85rem;padding:.3rem 0;border-bottom:1px solid #f5f5f5"><a class="arxiv-link" href="https://arxiv.org/abs/${p.arxiv}" target="_blank">${p.title}</a></div>`).join('')}
-    </div>
-  `).join('');
+  const html = '<div class="topic-grid">' + TOPICS.map(t => {
+    const count = PAPERS.filter(p => p.tags.includes(t.key)).length;
+    return `<div class="topic-card" onclick="selectTopic('${t.key}')">
+      <h4>${t.icon} ${t.name} <span class="topic-count">${count}</span></h4>
+      <p>${t.desc}</p>
+    </div>`;
+  }).join('') + '</div>';
+  document.getElementById('topics').innerHTML = html;
 }
 
-applyFilter();
-renderTopics();
+function selectTopic(tag) {
+  document.getElementById('tag-filter').value = tag;
+  showTab('latest', document.querySelector('.tab'));
+  document.querySelectorAll('.tab')[0].classList.add('active');
+}
+
+// init
+renderSection('latest', 1);
+document.getElementById('header-sub').innerHTML = `AI 大模型前沿论文追踪 · 数据更新于 ${new Date().toLocaleDateString('zh-CN')}`;
 </script>
 </body>
 </html>
