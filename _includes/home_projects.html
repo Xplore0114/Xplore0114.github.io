@@ -1,0 +1,29 @@
+<div class="project-grid">
+{% for project in site.data.projects %}
+  <div class="project">
+    <h4>{{ project.title }}</h4>
+    <div class="status-row">
+      <span class="status-dot {{ project.status_class }}"></span>
+      <span class="status-text">{{ project.status }}</span>
+    </div>
+    <div class="meta">{{ project.category }}</div>
+    <p>{{ project.description }}</p>
+    <div>
+      {% for tag in project.tags %}
+        <span class="pill {{ tag.class }}">{{ tag.label }}</span>
+      {% endfor %}
+    </div>
+    <div class="project-actions">
+      {% for link in project.links %}
+        <a href="{{ link.href }}" {% if link.blank %}target="_blank"{% endif %}>{{ link.label }}</a>
+      {% endfor %}
+    </div>
+    <div class="project-update">Last update: {{ project.last_update }}</div>
+    <ul>
+      {% for item in project.log %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endfor %}
+</div>
