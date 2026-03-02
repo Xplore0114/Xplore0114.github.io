@@ -2,7 +2,7 @@ name: Update Papers Daily
 
 on:
   schedule:
-    - cron: '0 1 * * *'  # 每天 UTC 1:00 = 北京时间 9:00
+    - cron: '0 1 * * *'
   workflow_dispatch:
 
 jobs:
@@ -29,7 +29,14 @@ jobs:
         run: |
           if [ -f daily_summary.txt ]; then
             MSG=$(cat daily_summary.txt)
-            curl -s -X POST "$FEISHU_WEBHOOK" \
-              -H "Content-Type: application/json" \
-              -d "{\"msg_type\":\"text\",\"content\":{\"text\":\"📚 LLM Papers 每日更新\n$MSG\n查看：https://xplore0114.github.io/llm-tracker.html\"}}"
+            python3 -c "
+import urllib.request, json, os
+webhook = os.environ['FEISHU_WEBHOOK']
+msg = open('daily_summary.txt').read()
+text = '📚 LLM Papers 每日更新\n' + msg + '\n查看：https://xplore0114.github.io/llm-tracker.html'
+data = json.dumps({'msg_type':'text','content':{'text':text}}).encode()
+req = urllib.request.Request(webhook, data=data, headers={'Content-Type':'application/json'})
+res = urllib.request.urlopen(req).read()
+print(res.decode())
+"
           fi
