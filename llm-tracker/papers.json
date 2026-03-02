@@ -4026,7 +4026,11 @@
     "date": "2026-02-15",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "RAG",
+      "Agent",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
     ],
     "abstract": "Large language models (LLMs) show promise for healthcare question answering, but clinical use is limited by weak verification, insufficient evidence grounding, and unreliable confidence signalling. We propose a multi-agent medical QA framework that combines complementary LLMs with evidence retrieval, uncertainty estimation, and bias checks to improve answer reliability. Our approach has two phases. First, we fine-tune three representative LLM families (GPT, LLaMA, and DeepSeek R1) on MedQuAD-der",
     "company": "DeepSeek",
@@ -8268,7 +8272,7 @@
     "date": "2026-01-21",
     "cite": 0,
     "tags": [
-      "Qwen"
+      "LLM"
     ],
     "abstract": "As large language models (LLMs) are increasingly applied to creative writing, their performance on culturally specific narrative tasks warrants systematic investigation. This study constructs the first Chinese film script continuation benchmark comprising 53 classic films, and designs a multi-dimensional evaluation framework comparing GPT-5.2 and Qwen-Max-Latest. Using a \"first half to second half\" continuation paradigm with 3 samples per film, we obtained 303 valid samples (GPT-5.2: 157, 98.7% ",
     "company": "Qwen",
@@ -8945,7 +8949,9 @@
     "date": "2026-01-16",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "Reasoning",
+      "Multimodal",
+      "LLM"
     ],
     "abstract": "As vision-language models (VLMs) tackle increasingly complex and multimodal tasks, the rapid growth of Key-Value (KV) cache imposes significant memory and computational bottlenecks during inference. While Multi-Head Latent Attention (MLA) offers an effective means to compress the KV cache and accelerate inference, adapting existing VLMs to the MLA architecture without costly pretraining remains largely unexplored. In this work, we present MHA2MLA-VLM, a parameter-efficient and multimodal-aware f",
     "company": "DeepSeek",
@@ -10350,7 +10356,8 @@
     "date": "2026-01-07",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "Multimodal",
+      "LLM"
     ],
     "abstract": "DeepSeek-OCR utilizes an optical 2D mapping approach to achieve high-ratio vision-text compression, claiming to decode text tokens exceeding ten times the input visual tokens. While this suggests a promising solution for the LLM long-context bottleneck, we investigate a critical question: \"Visual merit or linguistic crutch - which drives DeepSeek-OCR's performance?\" By employing sentence-level and word-level semantic corruption, we isolate the model's intrinsic OCR capabilities from its language",
     "company": "DeepSeek",
@@ -11095,7 +11102,8 @@
     "date": "2025-12-23",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "Multimodal",
+      "LLM"
     ],
     "abstract": "A global shortage of radiologists has been exacerbated by the significant volume of chest X-ray workloads, particularly in primary care. Although multimodal large language models show promise, existing evaluations predominantly rely on automated metrics or retrospective analyses, lacking rigorous prospective clinical validation. Janus-Pro-CXR (1B), a chest X-ray interpretation system based on DeepSeek Janus-Pro model, was developed and rigorously validated through a multicenter prospective trial",
     "company": "DeepSeek",
@@ -11358,7 +11366,9 @@
     "date": "2025-12-11",
     "cite": 0,
     "tags": [
-      "Mistral"
+      "RAG",
+      "Reasoning",
+      "LLM"
     ],
     "abstract": "Large language models (LLMs) like Claude, Mistral IA, and GPT-4 excel in NLP but lack structured knowledge, leading to factual inconsistencies. We address this by integrating Knowledge Graphs (KGs) via KG-BERT to enhance grounding and reasoning. Experiments show significant gains in knowledge-intensive tasks such as question answering and entity linking. This approach improves factual reliability and enables more context-aware next-generation LLMs.",
     "company": "Mistral",
@@ -11698,7 +11708,9 @@
     "date": "2025-12-02",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "Agent",
+      "Reasoning",
+      "LLM"
     ],
     "abstract": "We introduce DeepSeek-V3.2, a model that harmonizes high computational efficiency with superior reasoning and agent performance. The key technical breakthroughs of DeepSeek-V3.2 are as follows: (1) DeepSeek Sparse Attention (DSA): We introduce DSA, an efficient attention mechanism that substantially reduces computational complexity while preserving model performance in long-context scenarios. (2) Scalable Reinforcement Learning Framework: By implementing a robust reinforcement learning protocol ",
     "company": "DeepSeek",
@@ -11920,7 +11932,8 @@
     "date": "2025-11-24",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "Reasoning",
+      "LLM"
     ],
     "abstract": "Test-time scaling, which leverages additional computation during inference to improve model accuracy, has enabled a new class of Large Language Models (LLMs) that are able to reason through complex problems by understanding the goal, turning this goal into a plan, working through intermediate steps, and checking their own work before answering . Frontier large language models with reasoning capabilities, such as DeepSeek-R1 and OpenAI's gpt-oss, follow the same procedure when solving complex pro",
     "company": "DeepSeek",
@@ -13299,7 +13312,7 @@
     "date": "2025-10-16",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "LLM"
     ],
     "abstract": "The developments in Generative AI technologies have paved the way for numerous innovations in different fields. Recently, Generative AI has been proposed as a competitor to AES systems in evaluating student essays automatically. Considering the potential limitations of AI in processing idioms, this study assessed the scoring performances of Generative AI models for essays with and without idioms by incorporating insights from Corpus Linguistics and Computational Linguistics. Two equal essay list",
     "company": "DeepSeek",
@@ -13937,7 +13950,7 @@
     "date": "2025-09-28",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "Reasoning"
     ],
     "abstract": "Large Reasoning Models (LRMs) generate explicit reasoning traces alongside final answers, yet the extent to which these traces influence answer generation remains unclear. In this work, we conduct a three-stage investigation into the interplay between reasoning and answer generation in three distilled DeepSeek R1 models. First, through empirical evaluation, we demonstrate that including explicit reasoning consistently improves answer quality across diverse domains. Second, attention analysis rev",
     "company": "DeepSeek",
@@ -14315,7 +14328,7 @@
     "date": "2025-09-16",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "LLM"
     ],
     "abstract": "This study presents a novel dual-perspective approach to analyzing user reviews for ChatGPT and DeepSeek on the Google Play Store, integrating lexicon-based sentiment analysis (TextBlob) with deep learning classification models, including Convolutional Neural Networks (CNN) and Bidirectional Long Short Term Memory (Bi LSTM) Networks. Unlike prior research, which focuses on either lexicon-based strategies or predictive deep learning models in isolation, this study conducts an extensive investigat",
     "company": "DeepSeek",
@@ -14485,7 +14498,8 @@
     "date": "2025-09-02",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "Reasoning",
+      "LLM"
     ],
     "abstract": "Large language models (LLMs) hold transformative potential in healthcare, yet their capacity to interpret longitudinal patient narratives remains inadequately explored. Dentistry, with its rich repository of structured clinical data, presents a unique opportunity to rigorously assess LLMs' reasoning abilities. While several commercial LLMs already exist, DeepSeek, a model that gained significant attention earlier this year, has also joined the competition. This study evaluated four state-of-the-",
     "company": "DeepSeek",
@@ -14538,7 +14552,7 @@
     "date": "2025-08-29",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "LLM"
     ],
     "abstract": "Large Language Models (LLMs) are transforming AI across industries, but their development and deployment remain complex. This survey reviews 16 key challenges in building and using LLMs and examines how these challenges are addressed by two state-of-the-art models with unique approaches: OpenAI's closed source GPT-4o (May 2024 update) and DeepSeek-V3-0324 (March 2025), a large open source Mixture-of-Experts model. Through this comparison, we showcase the trade-offs between closed source models (",
     "company": "DeepSeek",
@@ -14656,7 +14670,9 @@
     "date": "2025-08-25",
     "cite": 0,
     "tags": [
-      "Mistral"
+      "RAG",
+      "Fine-tuning",
+      "LLM"
     ],
     "abstract": "In the paper, we consider multilevel multitask analysis of cryptocurrency news using a fine-tuned Mistral 7B large language model with retrieval-augmented generation (RAG). On the first level of analytics, the fine-tuned model generates graph and text summaries with sentiment scores as well as JSON representations of summaries. Higher levels perform hierarchical stacking that consolidates sets of graph-based and text-based summaries as well as summaries of summaries into comprehensive reports. T",
     "company": "Mistral",
@@ -14722,7 +14738,9 @@
     "date": "2025-08-08",
     "cite": 0,
     "tags": [
-      "OpenAI"
+      "Agent",
+      "Reasoning",
+      "LLM"
     ],
     "abstract": "We present gpt-oss-120b and gpt-oss-20b, two open-weight reasoning models that push the frontier of accuracy and inference cost. The models use an efficient mixture-of-expert transformer architecture and are trained using large-scale distillation and reinforcement learning. We optimize the models to have strong agentic capabilities (deep research browsing, python tool use, and support for developer-provided functions), all while using a rendered chat format that enables clear instruction followi",
     "company": "OpenAI",
@@ -14749,7 +14767,8 @@
     "date": "2025-07-23",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "Reasoning",
+      "LLM"
     ],
     "abstract": "Large language models (LLMs) have rapidly transformed the creation of written materials. LLMs have led to questions about writing integrity, thereby driving the creation of artificial intelligence (AI) detection technologies. Adversarial attacks, such as standard and humanized paraphrasing, inhibit detectors' ability to detect machine-generated text. Previous studies have mainly focused on ChatGPT and other well-known LLMs and have shown varying accuracy across detectors. However, there is a cle",
     "company": "DeepSeek",
@@ -14776,7 +14795,7 @@
     "date": "2025-07-14",
     "cite": 0,
     "tags": [
-      "Qwen"
+      "LLM"
     ],
     "abstract": "Online platforms struggle to curb hate speech without over-censoring legitimate discourse. Early bidirectional transformer encoders made big strides, but the arrival of ultra-large autoregressive LLMs promises deeper context-awareness. Whether this extra scale actually improves practical hate-speech detection on real-world text remains unverified. Our study puts this question to the test by benchmarking both model families, classic encoders and next-generation LLMs, on curated corpora of online ",
     "company": "Qwen",
@@ -14790,7 +14809,7 @@
     "date": "2025-07-14",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "LLM"
     ],
     "abstract": "DeepSeek, a Chinese Artificial Intelligence (AI) startup, has released their V3 and R1 series models, which attracted global attention due to their low cost, high performance, and open-source advantages. This paper begins by reviewing the evolution of large AI models focusing on paradigm shifts, the mainstream Large Language Model (LLM) paradigm, and the DeepSeek paradigm. Subsequently, the paper highlights novel algorithms introduced by DeepSeek, including Multi-head Latent Attention (MLA), Mix",
     "company": "DeepSeek",
@@ -14804,7 +14823,8 @@
     "date": "2025-07-11",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "Reasoning",
+      "LLM"
     ],
     "abstract": "Argument mining (AM) is an interdisciplinary research field that integrates insights from logic, philosophy, linguistics, rhetoric, law, psychology, and computer science. It involves the automatic identification and extraction of argumentative components, such as premises and claims, and the detection of relationships between them, such as support, attack, or neutrality. Recently, the field has advanced significantly, especially with the advent of large language models (LLMs), which have enhance",
     "company": "DeepSeek",
@@ -14831,7 +14851,8 @@
     "date": "2025-07-08",
     "cite": 0,
     "tags": [
-      "Qwen"
+      "Safety",
+      "LLM"
     ],
     "abstract": "Multilingual large language models (LLMs) often exhibit language confusion, a tendency to generate responses in a dominant language irrespective of the prompt's language. To address this, we propose Smoothie-Qwen, a lightweight, post-hoc method that mitigates language bias without retraining. This technique selectively adjusts token-level output probabilities to effectively suppress undesired language generation. Applied to the Qwen model, our method reduces unintended Chinese output by over 95%",
     "company": "Qwen",
@@ -14845,7 +14866,8 @@
     "date": "2025-06-29",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "Reasoning",
+      "LLM"
     ],
     "abstract": "How far are Large Language Models (LLMs) in performing deep relational reasoning? In this paper, we evaluate and compare the reasoning capabilities of three cutting-edge LLMs, namely, DeepSeek-R1, DeepSeek-V3 and GPT-4o, through a suite of carefully designed benchmark tasks in family tree and general graph reasoning. Our experiments reveal that DeepSeek-R1 consistently achieves the highest F1-scores across multiple tasks and problem sizes, demonstrating strong aptitude in logical deduction and r",
     "company": "DeepSeek",
@@ -14859,7 +14881,11 @@
     "date": "2025-06-24",
     "cite": 0,
     "tags": [
-      "Meta"
+      "RAG",
+      "Reasoning",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
     ],
     "abstract": "This paper introduces KunLunBaizeRAG, a reinforcement learning-driven reasoning framework designed to enhance the reasoning capabilities of large language models (LLMs) in complex multi-hop question-answering tasks. The framework addresses key limitations of traditional RAG, such as retrieval drift, information redundancy, and strategy rigidity. Key innovations include the RAG-driven Reasoning Alignment (RDRA) mechanism, the Search-Think Iterative Enhancement (STIE) mechanism, the Network-Local ",
     "company": "Meta",
@@ -14873,7 +14899,9 @@
     "date": "2025-06-23",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "Fine-tuning",
+      "Safety",
+      "LLM"
     ],
     "abstract": "The widespread deployment of large language models (LLMs) has raised critical concerns over their vulnerability to jailbreak attacks, i.e., adversarial prompts that bypass alignment mechanisms and elicit harmful or policy-violating outputs. While proprietary models like GPT-4 have undergone extensive evaluation, the robustness of emerging open-source alternatives such as DeepSeek remains largely underexplored, despite their growing adoption in real-world applications. In this paper, we present t",
     "company": "DeepSeek",
@@ -14887,7 +14915,7 @@
     "date": "2025-06-23",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "LLM"
     ],
     "abstract": "The increasing use of large language models (LLMs) in natural language processing (NLP) tasks has sparked significant interest in evaluating their effectiveness across diverse applications. While models like ChatGPT and DeepSeek have shown strong results in many NLP domains, a comprehensive evaluation is needed to understand their strengths, weaknesses, and domain-specific abilities. This is critical as these models are applied to various tasks, from sentiment analysis to more nuanced tasks like",
     "company": "DeepSeek",
@@ -14901,7 +14929,7 @@
     "date": "2025-06-17",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "LLM"
     ],
     "abstract": "Yangliuqing woodblock prints, a cornerstone of China's intangible cultural heritage, are celebrated for their intricate designs and vibrant colors. However, preserving these traditional art forms while fostering innovation presents significant challenges. This study explores the DeepSeek + MidJourney approach to generating creative, themed Yangliuqing woodblock prints focused on the fight against COVID-19 and depicting joyous winners. Using Fréchet Inception Distance (FID) scores for evaluation,",
     "company": "DeepSeek",
@@ -14915,7 +14943,8 @@
     "date": "2025-06-16",
     "cite": 0,
     "tags": [
-      "Qwen"
+      "Fine-tuning",
+      "LLM"
     ],
     "abstract": "This paper presents our system for the MLC-SLM Challenge 2025, focusing on multilingual speech recognition and language modeling with large language models (LLMs). Our approach combines a fine-tuned Whisper-large-v3 encoder with efficient projector architectures and various decoder configurations. We employ a three-stage training methodology that progressively optimizes the encoder, projector, and LLM components. Our system achieves competitive performance with a private test average WER/CER res",
     "company": "Qwen",
@@ -14929,7 +14958,8 @@
     "date": "2025-06-14",
     "cite": 0,
     "tags": [
-      "DeepSeek"
+      "Reasoning",
+      "LLM"
     ],
     "abstract": "This study examines information suppression mechanisms in DeepSeek, an open-source large language model (LLM) developed in China. We propose an auditing framework and use it to analyze the model's responses to 646 politically sensitive prompts by comparing its final output with intermediate chain-of-thought (CoT) reasoning. Our audit unveils evidence of semantic-level information suppression in DeepSeek: sensitive content often appears within the model's internal reasoning but is omitted or reph",
     "company": "DeepSeek",
@@ -14969,7 +14999,9 @@
     "date": "2025-06-09",
     "cite": 0,
     "tags": [
-      "Mistral"
+      "RAG",
+      "Reasoning",
+      "LLM"
     ],
     "abstract": "In this paper we introduce the first effort to adapt large language models (LLMs) to the Ukrainian dialect (in our case Hutsul), a low-resource and morphologically complex dialect spoken in the Carpathian Highlands. We created a parallel corpus of 9852 dialect-to-standard Ukrainian sentence pairs and a dictionary of 7320 dialectal word mappings. We also addressed data shortage by proposing an advanced Retrieval-Augmented Generation (RAG) pipeline to generate synthetic parallel translation pairs,",
     "company": "Mistral",
@@ -14996,7 +15028,7 @@
     "date": "2025-05-28",
     "cite": 0,
     "tags": [
-      "Qwen"
+      "LLM"
     ],
     "abstract": "The intangible cultural heritage (ICH) of China, a cultural asset transmitted across generations by various ethnic groups, serves as a significant testament to the evolution of human civilization and holds irreplaceable value for the preservation of historical lineage and the enhancement of cultural self-confidence. However, the rapid pace of modernization poses formidable challenges to ICH, including threats damage, disappearance and discontinuity of inheritance. China has the highest number of",
     "company": "Qwen",
@@ -15088,7 +15120,8 @@
     "date": "2025-05-05",
     "cite": 0,
     "tags": [
-      "Mistral"
+      "Safety",
+      "LLM"
     ],
     "abstract": "This paper presents a comparative benchmark evaluating the performance of Typica.ai's custom Moroccan Darija toxicity detection model against major LLM-based moderation APIs: OpenAI (omni-moderation-latest), Mistral (mistral-moderation-latest), and Anthropic Claude (claude-3-haiku-20240307). We focus on culturally grounded toxic content, including implicit insults, sarcasm, and culturally specific aggression often overlooked by general-purpose systems. Using a balanced test set derived from the ",
     "company": "Mistral",
@@ -15128,7 +15161,7 @@
     "date": "2025-04-02",
     "cite": 0,
     "tags": [
-      "Qwen"
+      "LLM"
     ],
     "abstract": "We evaluated the performance of OpenFOAMGPT incorporating multiple large-language models. Some of the present models efficiently manage different CFD tasks such as adjusting boundary conditions, turbulence models, and solver configurations, although their token cost and stability vary. Locally deployed smaller models like QwQ-32B struggled with generating valid solver files for complex processes. Zero-shot prompting commonly failed in simulations with intricate settings, even for large models. C",
     "company": "Qwen",
@@ -15181,7 +15214,10 @@
     "date": "2025-02-23",
     "cite": 0,
     "tags": [
-      "Mistral"
+      "Reasoning",
+      "Multimodal",
+      "Safety",
+      "LLM"
     ],
     "abstract": "Traditional evaluations of multimodal large language models (LLMs) have been limited by their focus on single-image reasoning, failing to assess crucial aspects like contextual understanding, reasoning stability, and uncertainty calibration. This study addresses these limitations by introducing a novel benchmark that integrates multi-image reasoning tasks with rejection-based evaluation and positional bias detection. To evaluate these dimensions, we further introduce entropy as a novel metric fo",
     "company": "Qwen",
@@ -15195,7 +15231,7 @@
     "date": "2025-02-22",
     "cite": 0,
     "tags": [
-      "Qwen"
+      "Fine-tuning"
     ],
     "abstract": "The Qwen 2.5 3B base model was fine-tuned to generate contextually rich and engaging movie dialogue, leveraging the Cornell Movie-Dialog Corpus, a curated dataset of movie conversations. Due to the limitations in GPU computing and VRAM, the training process began with the 0.5B model progressively scaling up to the 1.5B and 3B versions as efficiency improvements were implemented. The Qwen 2.5 series, developed by Alibaba Group, stands at the forefront of small open-source pre-trained models, part",
     "company": "Qwen",
@@ -15261,7 +15297,8 @@
     "date": "2025-02-03",
     "cite": 0,
     "tags": [
-      "OpenAI"
+      "Reasoning",
+      "LLM"
     ],
     "abstract": "We show that reinforcement learning applied to large language models (LLMs) significantly boosts performance on complex coding and reasoning tasks. Additionally, we compare two general-purpose reasoning models - OpenAI o1 and an early checkpoint of o3 - with a domain-specific system, o1-ioi, which uses hand-engineered inference strategies designed for competing in the 2024 International Olympiad in Informatics (IOI). We competed live at IOI 2024 with o1-ioi and, using hand-crafted test-time stra",
     "company": "OpenAI",
@@ -15303,7 +15340,7 @@
     "date": "2025-01-16",
     "cite": 0,
     "tags": [
-      "Qwen"
+      "LLM"
     ],
     "abstract": "This paper describes the approach of the Unibuc - NLP team in tackling the Coling 2025 GenAI Workshop, Task 1: Binary Multilingual Machine-Generated Text Detection. We explored both masked language models and causal models. For Subtask A, our best model achieved first-place out of 36 teams when looking at F1 Micro (Auxiliary Score) of 0.8333, and second-place when looking at F1 Macro (Main Score) of 0.8301",
     "company": "Qwen",
@@ -15332,7 +15369,9 @@
     "date": "2024-12-21",
     "cite": 0,
     "tags": [
-      "OpenAI"
+      "Reasoning",
+      "Fine-tuning",
+      "Safety"
     ],
     "abstract": "The o1 model series is trained with large-scale reinforcement learning to reason using chain of thought. These advanced reasoning capabilities provide new avenues for improving the safety and robustness of our models. In particular, our models can reason about our safety policies in context when responding to potentially unsafe prompts, through deliberative alignment. This leads to state-of-the-art performance on certain benchmarks for risks such as generating illicit advice, choosing stereotype",
     "company": "OpenAI",
@@ -15346,7 +15385,7 @@
     "date": "2024-12-04",
     "cite": 0,
     "tags": [
-      "Mistral"
+      "RAG"
     ],
     "abstract": "This report explores the enhancement of text retrieval performance using advanced data refinement techniques. We develop Linq-Embed-Mistral\\footnote{\\url{https://huggingface.co/Linq-AI-Research/Linq-Embed-Mistral}} by building on the E5-mistral and Mistral-7B-v0.1 models, focusing on sophisticated data crafting, data filtering, and negative mining methods, which are highly tailored to each task, applied to both existing benchmark dataset and highly tailored synthetic dataset generated via large ",
     "company": "Mistral",
@@ -15373,7 +15412,8 @@
     "date": "2024-10-25",
     "cite": 0,
     "tags": [
-      "OpenAI"
+      "Multimodal",
+      "LLM"
     ],
     "abstract": "GPT-4o is an autoregressive omni model that accepts as input any combination of text, audio, image, and video, and generates any combination of text, audio, and image outputs. It's trained end-to-end across text, vision, and audio, meaning all inputs and outputs are processed by the same neural network. GPT-4o can respond to audio inputs in as little as 232 milliseconds, with an average of 320 milliseconds, which is similar to human response time in conversation. It matches GPT-4 Turbo performan",
     "company": "OpenAI",
@@ -15426,7 +15466,9 @@
     "date": "2024-08-25",
     "cite": 0,
     "tags": [
-      "Mistral"
+      "Reasoning",
+      "Multimodal",
+      "LLM"
     ],
     "abstract": "Background and Aims: This study evaluates the medical reasoning performance of large language models (LLMs) and vision language models (VLMs) in gastroenterology. Methods: We used 300 gastroenterology board exam-style multiple-choice questions, 138 of which contain images to systematically assess the impact of model configurations and parameters and prompt engineering strategies utilizing GPT-3.5. Next, we assessed the performance of proprietary and open-source LLMs (versions), including GPT (3.",
     "company": "Mistral",
@@ -15440,7 +15482,7 @@
     "date": "2024-08-20",
     "cite": 0,
     "tags": [
-      "Mistral"
+      "RAG"
     ],
     "abstract": "Learned Sparse Retrievers (LSR) have evolved into an effective retrieval strategy that can bridge the gap between traditional keyword-based sparse retrievers and embedding-based dense retrievers. At its core, learned sparse retrievers try to learn the most important semantic keyword expansions from a query and/or document which can facilitate better retrieval with overlapping keyword expansions. LSR like SPLADE has typically been using encoder only models with MLM (masked language modeling) styl",
     "company": "Mistral",
@@ -15454,7 +15496,9 @@
     "date": "2024-08-06",
     "cite": 0,
     "tags": [
-      "Mistral"
+      "Reasoning",
+      "Fine-tuning",
+      "LLM"
     ],
     "abstract": "This paper describes our approach to the SemEval-2024 safe biomedical Natural Language Inference for Clinical Trials (NLI4CT) task, which concerns classifying statements about Clinical Trial Reports (CTRs). We explored the capabilities of Mistral-7B, a generalist open-source Large Language Model (LLM). We developed a prompt for the NLI4CT task, and fine-tuned a quantized version of the model using an augmented version of the training dataset. The experimental results show that this approach can ",
     "company": "Mistral",
@@ -15524,7 +15568,9 @@
     "date": "2024-06-12",
     "cite": 0,
     "tags": [
-      "Mistral"
+      "Reasoning",
+      "Fine-tuning",
+      "LLM"
     ],
     "abstract": "Despite the advances in Large Language Models (LLMs), exemplified by models like GPT-4 and Claude, smaller-scale LLMs such as Llama and Mistral often struggle with generating in-depth and coherent dialogues. This paper presents a novel two-step Coarse-to-Fine Actor model to address the inherent limitations in conversational and analytical capabilities of small-sized LLMs. Our approach begins with the Policy-based Coarse Actor, employing a technique we term \"Continuous Maximization\". The Coarse A",
     "company": "Mistral",
@@ -15603,7 +15649,8 @@
     "date": "2024-05-08",
     "cite": 0,
     "tags": [
-      "Mistral"
+      "RAG",
+      "LLM"
     ],
     "abstract": "Evaluating open-ended written examination responses from students is an essential yet time-intensive task for educators, requiring a high degree of effort, consistency, and precision. Recent developments in Large Language Models (LLMs) present a promising opportunity to balance the need for thorough evaluation with efficient use of educators' time. In our study, we explore the effectiveness of LLMs ChatGPT-3.5, ChatGPT-4, Claude-3, and Mistral-Large in assessing university students' open-ended a",
     "company": "Mistral",
@@ -15647,7 +15694,8 @@
     "date": "2024-04-15",
     "cite": 0,
     "tags": [
-      "Mistral"
+      "Safety",
+      "LLM"
     ],
     "abstract": "This paper introduces fourteen novel datasets for the evaluation of Large Language Models' safety in the context of enterprise tasks. A method was devised to evaluate a model's safety, as determined by its ability to follow instructions and output factual, unbiased, grounded, and appropriate content. In this research, we used OpenAI GPT as point of comparison since it excels at all levels of safety. On the open-source side, for smaller models, Meta Llama2 performs well at factuality and toxicity",
     "company": "Mistral",
@@ -15661,7 +15709,8 @@
     "date": "2024-04-14",
     "cite": 0,
     "tags": [
-      "Mistral"
+      "Fine-tuning",
+      "LLM"
     ],
     "abstract": "In the rapidly advancing field of AI and NLP, generative large language models (LLMs) stand at the forefront of innovation, showcasing unparalleled abilities in text understanding and generation. However, the limited representation of low-resource languages like Ukrainian poses a notable challenge, restricting the reach and relevance of this technology. Our paper addresses this by fine-tuning the open-source Gemma and Mistral LLMs with Ukrainian datasets, aiming to improve their linguistic profi",
     "company": "Mistral",
@@ -15675,7 +15724,9 @@
     "date": "2024-04-13",
     "cite": 0,
     "tags": [
-      "Mistral"
+      "RAG",
+      "Fine-tuning",
+      "LLM"
     ],
     "abstract": "The relentless pursuit of enhancing Large Language Models (LLMs) has led to the advent of Super Retrieval-Augmented Generation (Super RAGs), a novel approach designed to elevate the performance of LLMs by integrating external knowledge sources with minimal structural modifications. This paper presents the integration of Super RAGs into the Mistral 8x7B v1, a state-of-the-art LLM, and examines the resultant improvements in accuracy, speed, and user satisfaction. Our methodology uses a fine-tuned ",
     "company": "Mistral",
@@ -15728,7 +15779,7 @@
     "date": "2024-03-20",
     "cite": 0,
     "tags": [
-      "Mistral"
+      "LLM"
     ],
     "abstract": "The advancement of Large Language Models (LLMs) has significantly transformed the field of natural language processing, although the focus on English-centric models has created a noticeable research gap for specific languages, including Vietnamese. To address this issue, this paper presents vi-mistral-x, an innovative Large Language Model designed expressly for the Vietnamese language. It utilizes a unique method of continual pre-training, based on the Mistral architecture, which incorporates gr",
     "company": "Mistral"
@@ -15832,7 +15883,7 @@
     "date": "2024-01-24",
     "cite": 0,
     "tags": [
-      "Mistral"
+      "LLM"
     ],
     "abstract": "In this paper, we present significant advancements in the pretraining of Mistral 7B, a large-scale language model, using a dataset of 32.6 GB, equivalent to 1.1 billion tokens. We explore the impact of extending the context length, releasing models with context lengths of 4096 and 32768 tokens, and further refining performance with a specialized 16384 context length instruction-tuned model, we called it Malaysian Mistral. Our experiments demonstrate the efficacy of continue pretraining and the i",
     "company": "Mistral",
@@ -15967,7 +16018,7 @@
     "date": "2023-11-14",
     "cite": 0,
     "tags": [
-      "Qwen"
+      "Multimodal"
     ],
     "abstract": "Recently, instruction-following audio-language models have received broad attention for audio interaction with humans. However, the absence of pre-trained audio models capable of handling diverse audio types and tasks has hindered progress in this field. Consequently, most existing works have only been able to support a limited range of interaction capabilities. In this paper, we develop the Qwen-Audio model and address this limitation by scaling up audio-language pre-training to cover over 30 t",
     "company": "Qwen",
@@ -16010,7 +16061,7 @@
     "date": "2023-09-28",
     "cite": 0,
     "tags": [
-      "Qwen"
+      "LLM"
     ],
     "abstract": "Large language models (LLMs) have revolutionized the field of artificial intelligence, enabling natural language processing tasks that were previously thought to be exclusive to humans. In this work, we introduce Qwen, the first installment of our large language model series. Qwen is a comprehensive language model series that encompasses distinct models with varying parameter counts. It includes Qwen, the base pretrained language models, and Qwen-Chat, the chat models finetuned with human alignm",
     "company": "Qwen",
@@ -16052,7 +16103,8 @@
     "date": "2023-08-24",
     "cite": 0,
     "tags": [
-      "Qwen"
+      "RAG",
+      "Multimodal"
     ],
     "abstract": "In this work, we introduce the Qwen-VL series, a set of large-scale vision-language models (LVLMs) designed to perceive and understand both texts and images. Starting from the Qwen-LM as a foundation, we endow it with visual capacity by the meticulously designed (i) visual receptor, (ii) input-output interface, (iii) 3-stage training pipeline, and (iv) multilingual multimodal cleaned corpus. Beyond the conventional image description and question-answering, we implement the grounding and text-rea",
     "company": "Qwen"
@@ -16361,7 +16413,7 @@
     "date": "2021-01-13",
     "cite": 0,
     "tags": [
-      "OpenAI"
+      "Agent"
     ],
     "abstract": "We train a single, goal-conditioned policy that can solve many robotic manipulation tasks, including tasks with previously unseen goals and objects. We rely on asymmetric self-play for goal discovery, where two agents, Alice and Bob, play a game. Alice is asked to propose challenging goals and Bob aims to solve them. We show that this method can discover highly diverse and complex goals without any human priors. Bob can be trained with only sparse rewards, because the interaction between Alice a",
     "company": "OpenAI",
@@ -16390,7 +16442,7 @@
     "date": "2019-10-16",
     "cite": 0,
     "tags": [
-      "OpenAI"
+      "Multimodal"
     ],
     "abstract": "We demonstrate that models trained only in simulation can be used to solve a manipulation problem of unprecedented complexity on a real robot. This is made possible by two key components: a novel algorithm, which we call automatic domain randomization (ADR) and a robot platform built for machine learning. ADR automatically generates a distribution over randomized environments of ever-increasing difficulty. Control policies and vision state estimators trained with ADR exhibit vastly improved sim2",
     "company": "OpenAI",
@@ -16404,7 +16456,7 @@
     "date": "2018-08-01",
     "cite": 0,
     "tags": [
-      "OpenAI"
+      "Multimodal"
     ],
     "abstract": "We use reinforcement learning (RL) to learn dexterous in-hand manipulation policies which can perform vision-based object reorientation on a physical Shadow Dexterous Hand. The training is performed in a simulated environment in which we randomize many of the physical properties of the system like friction coefficients and an object's appearance. Our policies transfer to the physical robot despite being trained entirely in simulation. Our method does not rely on any human demonstrations, but man",
     "company": "OpenAI",

@@ -92,3 +92,54 @@ import shutil, os
 if os.path.exists("llm-tracker"):
     shutil.copy("papers.json", "llm-tracker/papers.json")
     print("Synced to llm-tracker/papers.json")
+
+# ── Company papers ──────────────────────────────────────────
+COMPANY_QUERIES = [
+    ("OpenAI",    'au:openai'),
+    ("Google",    'au:google AND (cat:cs.CL OR cat:cs.AI)'),
+    ("Meta",      'au:meta AND ti:llama'),
+    ("Mistral",   'ti:mistral OR au:mistral'),
+    ("Qwen",      'ti:qwen OR au:alibaba AND cat:cs.CL'),
+    ("DeepSeek",  'ti:deepseek OR au:deepseek'),
+]
+
+TAG_RULES = [
+    ('RAG',        r'retrieval|rag\b|knowledge base'),
+    ('Agent',      r'agent|tool use|react\b|planning|autonomous'),
+    ('Reasoning',  r'reasoning|chain.of.thought|cot\b|math|logic'),
+    ('Multimodal', r'multimodal|vision|image|visual|vlm|video'),
+    ('Fine-tuning',r'lora|rlhf|fine.tun|instruction tun|sft\b|dpo\b'),
+    ('Safety',     r'safety|alignment|red.team|harmful|jailbreak'),
+    ('LLM',        r'large language model|llm\b|foundation model'),
+]
+
+def auto_tag(title, abstract=''):
+    import re as _re
+    text = (title + ' ' + abstract).lower()
+    return [t for t,p in TAG_RULES if _re.search(p, text)] or ['LLM']
+
+for company, query in COMPANY_QUERIES:
+    results = fetch_arxiv(f"({query})", company, max_results=20)
+    for p in results:
+        p['company'] = company
+        p['tags'] = auto_tag(p['title'], p.get('abstract',''))
+        if p['id'] not in existing_ids:
+            all_papers.append(p)
+            existing_ids.add(p['id'])
+        else:
+            for ep in all_papers:
+                if ep['id'] == p['id']:
+                    ep['company'] = company
+                    if not ep.get('tags') or ep['tags'] == [company]:
+                        ep['tags'] = p['tags']
+    time.sleep(3)
+
+# Rebuild company-papers.json
+company_papers = [p for p in all_papers if p.get('company')]
+company_papers.sort(key=lambda p: p.get('date',''), reverse=True)
+ticker = [{"id":p["id"],"title":p["title"],"title_zh":p.get("title_zh",""),
+           "company":p["company"],"date":p.get("date",""),
+           "tags":p.get("tags",[])} for p in company_papers[:100]]
+with open("llm-tracker/company-papers.json", "w") as f:
+    json.dump(ticker, f, ensure_ascii=False)
+print(f"Company papers: {len(ticker)}")
