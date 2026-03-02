@@ -1,6 +1,6 @@
 ---
 layout: page
-description: "Kevin's digital workshop: AI systems, product experiments, and open-source building in public."
+description: "Kevin 的数字工坊：AI 系统、实战项目、开源探索。"
 ---
 
 <style>
@@ -23,7 +23,6 @@ description: "Kevin's digital workshop: AI systems, product experiments, and ope
 .roadmap { background:#fff; border:1px solid #eee; border-radius:10px; padding:14px; }
 .roadmap li { margin-bottom:8px; }
 .post-zone { margin-top: 24px; }
-
 .status-row { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
 .status-dot { width:8px; height:8px; border-radius:50%; display:inline-block; }
 .status-active { background:#2e7d32; box-shadow:0 0 0 4px rgba(46,125,50,.12); }
@@ -33,7 +32,7 @@ description: "Kevin's digital workshop: AI systems, product experiments, and ope
 .project-actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
 .project-actions a { font-size:12px; border:1px solid #ddd; border-radius:999px; padding:4px 10px; text-decoration:none; }
 .project-update { font-size:12px; color:#999; margin-top:8px; }
-
+.post-meta { font-size:12px; color:#999; margin-top:4px; }
 @media (max-width: 900px) {
   .home-grid, .project-grid { grid-template-columns: 1fr; }
 }
@@ -41,103 +40,51 @@ description: "Kevin's digital workshop: AI systems, product experiments, and ope
 
 <div class="home-grid">
   <div class="home-card">
-    <h3>Hi, I'm Kevin 👋</h3>
+    <h3>Kevin 的数字工坊 👋</h3>
     <p>
-      AI-native builder, full-stack developer, and workflow optimizer.
-      I care about practical LLM systems: tracking papers, shipping tools, and turning ideas into running products.
+      AI 与全栈开发结合的实践者，关注落地的 LLM 系统、自动化流程与工程效率。
+      乐于把复杂的研究与产品转化为可以部署的工具。
     </p>
     <p>
-      Current vibe: <strong>ship fast, iterate weekly, document publicly</strong>.
+      当前工作节奏：<strong>快速交付、周更迭、公开记录</strong>。
     </p>
     <div>
-      <span class="pill ai">LLM Engineering</span>
-      <span class="pill system">Automation</span>
-      <span class="pill oss">Open Source</span>
-      <span class="pill product">Product Thinking</span>
+      <span class="pill ai">LLM 工程</span>
+      <span class="pill system">自动化</span>
+      <span class="pill oss">开源</span>
+      <span class="pill product">产品思维</span>
     </div>
     <div class="quick-links">
       <a href="/llm-tracker/">🤖 LLM Tracker</a>
-      <a href="/llm-tracker/timeline/">📅 Timeline</a>
+      <a href="/llm-tracker/timeline/">📅 时间轴</a>
       <a href="https://github.com/Xplore0114" target="_blank">🐙 GitHub</a>
-      <a href="/about/">🙋 About</a>
+      <a href="/about/">🙋 关于</a>
     </div>
   </div>
 
   <div class="home-card">
     <h3>Builder Profile</h3>
-    <p><strong>Core Focus:</strong> AI research tracking, agent workflows, dev productivity.</p>
-    <p><strong>Tech Stack:</strong> Python, JavaScript, GitHub Actions, static deployment.</p>
-    <p><strong>Working Style:</strong> data-first, automation-first, long-term maintainability.</p>
-    <p><strong>Open to:</strong> AI infra collab, developer tools, OSS co-building.</p>
+    <p><strong>关注方向：</strong>AI 研究追踪、agent 工作流、开发效率提升。</p>
+    <p><strong>技术栈：</strong>Python、JavaScript、GitHub Actions 与静态部署流程。</p>
+    <p><strong>工作方式：</strong>数据先行、自动化优先、关注长期可维护。</p>
+    <p><strong>合作内容：</strong>AI 基础设施、开发者工具、开源协作。</p>
   </div>
 </div>
 
-<h2 class="section-title">Open-Source Projects (In Progress)</h2>
+<h2 class="section-title">开源项目（进行中）</h2>
 {% include home_projects.html %}
-  <div class="project">
-    <h4>LLM Papers Tracker</h4>
-    <div class="status-row"><span class="status-dot status-active"></span><span class="status-text">Active</span></div>
-    <div class="meta">Research Infra · AI Papers</div>
-    <p>Daily arXiv ingestion + timeline visualization + topic filtering + company paper feed.</p>
-    <div class="project-actions">
-      <a href="/llm-tracker/">Live Demo</a>
-      <a href="https://github.com/Xplore0114" target="_blank">Repo (soon)</a>
-      <a href="#">⭐ Stars: --</a>
-    </div>
-    <div class="project-update">Last update: 2026-03-03</div>
-  </div>
 
-  <div class="project">
-    <h4>PromptOps Toolkit</h4>
-    <div class="status-row"><span class="status-dot status-planning"></span><span class="status-text">Planning</span></div>
-    <div class="meta">Developer Tooling · Prompt Engineering</div>
-    <p>A practical toolkit for prompt versioning, evaluation snapshots, and rollback-ready prompt releases.</p>
-    <div class="project-actions">
-      <a href="#">Design Doc</a>
-      <a href="https://github.com/Xplore0114" target="_blank">Repo (soon)</a>
-      <a href="#">⭐ Stars: --</a>
-    </div>
-    <div class="project-update">Last update: 2026-03-03</div>
-  </div>
-
-  <div class="project">
-    <h4>Agent Workflow Lab</h4>
-    <div class="status-row"><span class="status-dot status-planning"></span><span class="status-text">Planning</span></div>
-    <div class="meta">AI Agent · Workflow Templates</div>
-    <p>Reusable templates for multi-step autonomous workflows: fetch, reason, act, and report.</p>
-    <div class="project-actions">
-      <a href="#">Blueprint</a>
-      <a href="https://github.com/Xplore0114" target="_blank">Repo (soon)</a>
-      <a href="#">⭐ Stars: --</a>
-    </div>
-    <div class="project-update">Last update: 2026-03-03</div>
-  </div>
-
-  <div class="project">
-    <h4>Model Notes & Bench</h4>
-    <div class="status-row"><span class="status-dot status-planning"></span><span class="status-text">Planning</span></div>
-    <div class="meta">Model Comparison · Benchmark Cards</div>
-    <p>Hands-on notes and benchmark cards for practical model selection across coding, writing, and reasoning tasks.</p>
-    <div class="project-actions">
-      <a href="#">Bench Plan</a>
-      <a href="https://github.com/Xplore0114" target="_blank">Repo (soon)</a>
-      <a href="#">⭐ Stars: --</a>
-    </div>
-    <div class="project-update">Last update: 2026-03-03</div>
-  </div>
-</div>
-
-<h2 class="section-title">Roadmap</h2>
+<h2 class="section-title">路线图</h2>
 <div class="roadmap">
   <ol>
-    <li><strong>Q1:</strong> Stabilize paper pipeline and improve citation quality.</li>
-    <li><strong>Q2:</strong> Publish PromptOps Toolkit alpha with docs and examples.</li>
-    <li><strong>Q3:</strong> Launch Agent Workflow Lab templates for open-source contributors.</li>
-    <li><strong>Q4:</strong> Build a public AI engineering playbook from real shipped projects.</li>
+    <li><strong>Q1：</strong>稳定论文流水线，提升引用质量和可视化体验。</li>
+    <li><strong>Q2：</strong>发布 PromptOps Toolkit alpha，附带文档与示例。</li>
+    <li><strong>Q3：</strong>推出 Agent Workflow Lab 模板供开源社区复用。</li>
+    <li><strong>Q4：</strong>整理已交付项目，输出公开的 AI 工程手册。</li>
   </ol>
 </div>
 
-<h2 class="section-title">Latest Notes</h2>
+<h2 class="section-title">最新动态</h2>
 <div class="post-zone">
 {% for post in paginator.posts %}
 <div class="post-preview">
@@ -149,7 +96,7 @@ description: "Kevin's digital workshop: AI systems, product experiments, and ope
         <div class="post-content-preview">{{ post.content | strip_html | truncate:200 }}</div>
     </a>
     <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+        发布于 {{ post.date | date: "%Y年%-m月%-d日" }}
     </p>
 </div>
 <hr>
@@ -159,12 +106,12 @@ description: "Kevin's digital workshop: AI systems, product experiments, and ope
 <ul class="pager">
     {% if paginator.previous_page %}
     <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; 更新中</a>
     </li>
     {% endif %}
     {% if paginator.next_page %}
     <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">更多内容 &rarr;</a>
     </li>
     {% endif %}
 </ul>
