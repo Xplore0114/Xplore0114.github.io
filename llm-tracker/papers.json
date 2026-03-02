@@ -814,7 +814,8 @@
     "date": "2026-02-27",
     "cite": 0,
     "tags": [
-      "Multimodal"
+      "Multimodal",
+      "Reasoning"
     ],
     "abstract": "This paper addresses the domain generalization (DG) problem in deep learning. While most DG methods focus on enforcing visual feature invariance, we leverage the reasoning capability of multimodal large language models (MLLMs) and explore the potential of constructing reasoning chains that derives image categories to achieve more robust predictions under domain shift. To this end, we systematically study the role of reasoning in DG using DomainBed-Reasoning, a newly constructed extension of Doma",
     "title_zh": "推理驱动的多模态法学硕士领域泛化"
@@ -922,6 +923,48 @@
     ],
     "abstract": "Vision-language models (VLMs) show strong potential for complex diagnostic tasks in medical imaging. However, applying VLMs to multi-organ medical imaging introduces two principal challenges: (1) modality-specific vision-language alignment and (2) cross-modal feature fusion. In this work, we propose MedMAP, a Medical Modality-Aware Pretraining framework that enhances vision-language representation learning in 3D MRI. MedMAP comprises a modality-aware vision-language alignment stage and a fine-tu",
     "title_zh": "MRI 多器官异常检测中视觉语言模型的 3D 模态感知预训练"
+  },
+  {
+    "id": "2602.23729",
+    "title": "From Static Benchmarks to Dynamic Protocol: Agent-Centric Text Anomaly Detection for Evaluating LLM Reasoning",
+    "authors": "Seungdong Yoa, Sanghyu Yoon, Suhee Yoon et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "The evaluation of large language models (LLMs) has predominantly relied on static datasets, which offer limited scalability and fail to capture the evolving reasoning capabilities of recent models. To overcome these limitations, we propose an agent-centric benchmarking paradigm that moves beyond static datasets by introducing a dynamic protocol in which autonomous agents iteratively generate, validate, and solve problems. Within this protocol, a teacher agent generates candidate problems, an orc",
+    "company": null,
+    "title_zh": "从静态基准到动态协议：用于评估 LLM 推理的以代理为中心的文本异常检测"
+  },
+  {
+    "id": "2602.23681",
+    "title": "ODAR: Principled Adaptive Routing for LLM Reasoning via Active Inference",
+    "authors": "Siyuan Ma, Bo Gao, Xiaojun Jia et al.",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "The paradigm of large language model (LLM) reasoning is shifting from parameter scaling to test-time compute scaling, yet many existing approaches still rely on uniform brute-force sampling (for example, fixed best-of-N or self-consistency) that is costly, hard to attribute, and can trigger overthinking with diminishing returns. We propose ODAR-Expert, an adaptive routing framework that optimizes the accuracy-efficiency trade-off via principled resource allocation. ODAR uses a difficulty estimat",
+    "company": null,
+    "title_zh": "ODAR：通过主动推理进行 LLM 推理的有原则的自适应路由"
+  },
+  {
+    "id": "2602.23610",
+    "title": "LLM-Driven Multi-Turn Task-Oriented Dialogue Synthesis for Realistic Reasoning",
+    "authors": "Yu Zhu, Kai Yang",
+    "year": 2026,
+    "date": "2026-02-27",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "The reasoning capability of large language models (LLMs), defined as their ability to analyze, infer, and make decisions based on input information, is essential for building intelligent task-oriented dialogue systems. However, existing benchmarks do not sufficiently reflect the complexity of real-world scenarios, which limits their effectiveness in evaluating and enhancing LLM reasoning in practical contexts. Many current reasoning datasets are overly simplistic and abstract, often disconnected",
+    "company": null,
+    "title_zh": "LLM驱动的多轮面向任务的对话合成用于现实推理"
   },
   {
     "id": "2602.23184",
@@ -1035,7 +1078,8 @@
     "date": "2026-02-26",
     "cite": 0,
     "tags": [
-      "Agent"
+      "Agent",
+      "Reasoning"
     ],
     "abstract": "Large Language Model (LLM) based agents excel at general reasoning but often fail in specialized domains where success hinges on long-tail knowledge absent from their training data. While human experts can provide this missing knowledge, their guidance is often unstructured and unreliable, making its direct integration into an agent's plan problematic. To address this, we introduce AHCE (Active Human-Augmented Challenge Engagement), a framework for on-demand Human-AI collaboration. At its core, ",
     "title_zh": "请求专家推理：通过学习协作干预增强 LLM 代理"
@@ -1326,6 +1370,20 @@
     ],
     "abstract": "Integration of artificial intelligence (AI) into life cycle assessment (LCA) has accelerated in recent years, with numerous studies successfully adapting machine learning algorithms to support various stages of LCA. Despite this rapid development, comprehensive and broad synthesis of AI-LCA research remains limited. To address this gap, this study presents a detailed review of published work at the intersection of AI and LCA, leveraging large language models (LLMs) to identify current trends, em",
     "title_zh": "使用大型语言模型绘制生命周期评估中的人工智能前景"
+  },
+  {
+    "id": "2602.22495",
+    "title": "Reinforcement-aware Knowledge Distillation for LLM Reasoning",
+    "authors": "Zhaoyang Zhang, Shuli Jiang, Yantao Shen et al.",
+    "year": 2026,
+    "date": "2026-02-26",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Reinforcement learning (RL) post-training has recently driven major gains in long chain-of-thought reasoning large language models (LLMs), but the high inference cost of such models motivates distillation into smaller students. Most existing knowledge distillation (KD) methods are designed for supervised fine-tuning (SFT), relying on fixed teacher traces or teacher-student Kullback-Leibler (KL) divergence-based regularization. When combined with RL, these approaches often suffer from distributio",
+    "company": null,
+    "title_zh": "LLM 推理的强化感知知识蒸馏"
   },
   {
     "id": "2602.22427",
@@ -1827,6 +1885,48 @@
     "title_zh": "VecGlypher：使用语言模型生成统一矢量字形"
   },
   {
+    "id": "2602.22465",
+    "title": "ConstraintBench: Benchmarking LLM Constraint Reasoning on Direct Optimization",
+    "authors": "Joseph Tso, Preston Schmittou, Quan Huynh et al.",
+    "year": 2026,
+    "date": "2026-02-25",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Large language models are increasingly applied to operational decision-making where the underlying structure is constrained optimization. Existing benchmarks evaluate whether LLMs can formulate optimization problems as solver code, but leave open a complementary question. Can LLMs directly produce correct solutions to fully specified constrained optimization problems without access to a solver? We introduce ConstraintBench, a benchmark for evaluating LLMs on direct constrained optimization acros",
+    "company": null,
+    "title_zh": "ConstraintBench：直接优化的 LLM 约束推理基准测试"
+  },
+  {
+    "id": "2602.21951",
+    "title": "RADAR: Reasoning as Discrimination with Aligned Representations for LLM-based Knowledge Graph Reasoning",
+    "authors": "Bo Xue, Yuan Jin, Luoyi Fu et al.",
+    "year": 2026,
+    "date": "2026-02-25",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Knowledge graph reasoning (KGR) infers missing facts, with recent advances increasingly harnessing the semantic priors and reasoning abilities of Large Language Models (LLMs). However, prevailing generative paradigms are prone to memorizing surface-level co-occurrences rather than learning genuine relational semantics, limiting out-of-distribution generalization. To address this, we propose RADAR, which reformulates KGR from generative pattern matching to discriminative relational reasoning. We ",
+    "company": null,
+    "title_zh": "RADAR：推理作为基于 LLM 的知识图推理的对齐表示的歧视"
+  },
+  {
+    "id": "2602.21887",
+    "title": "ExpLang: Improved Exploration and Exploitation in LLM Reasoning with On-Policy Thinking Language Selection",
+    "authors": "Changjiang Gao, Zixian Huang, Kaichen Yang et al.",
+    "year": 2026,
+    "date": "2026-02-25",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Current large reasoning models (LRMs) have shown strong ability on challenging tasks after reinforcement learning (RL) based post-training. However, previous work mainly focuses on English reasoning in expectation of the strongest performance, despite the demonstrated potential advantage of multilingual thinking, as well as the requirement for native thinking traces by global users. In this paper, we propose ExpLang, a novel LLM post-training pipeline that enables on-policy thinking language sel",
+    "company": null,
+    "title_zh": "ExpLang：通过策略思维语言选择改进法学硕士推理中的探索和利用"
+  },
+  {
     "id": "2602.21447",
     "title": "Adversarial Intent is a Latent Variable: Stateful Trust Inference for Securing Multimodal Agentic RAG",
     "authors": "Inderjeet Singh, Vikas Pahuja, Aishvariya Priya Rathina Sabapathy et al.",
@@ -2060,7 +2160,8 @@
       "LLM"
     ],
     "abstract": "As the construction industry advances toward digital transformation, BIM (Building Information Modeling)-based design has become a key driver supporting intelligent construction. Despite Large Language Models (LLMs) have shown potential in promoting BIM-based design, the lack of specific datasets and LLM evaluation benchmarks has significantly hindered the performance of LLMs. Therefore, this paper addresses this gap by proposing: 1) an evaluation benchmark for BIM-based design together with cor",
-    "title_zh": "Qwen-BIM：使用特定领域的基准和数据集为基于 BIM 的设计开发大型语言模型"
+    "title_zh": "Qwen-BIM：使用特定领域的基准和数据集为基于 BIM 的设计开发大型语言模型",
+    "company": "Qwen"
   },
   {
     "id": "2602.20759",
@@ -2482,6 +2583,34 @@
     "title_zh": "使用基于大型语言模型的数字孪生对感知消息有效性进行个性化预测"
   },
   {
+    "id": "2602.19914",
+    "title": "Watson &amp; Holmes: A Naturalistic Benchmark for Comparing Human and LLM Reasoning",
+    "authors": "Thatchawin Leelawat, Lewis D Griffin",
+    "year": 2026,
+    "date": "2026-02-23",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Existing benchmarks for AI reasoning provide limited insight into how closely these capabilities resemble human reasoning in naturalistic contexts. We present an adaptation of the Watson &amp; Holmes detective tabletop game as a new benchmark designed to evaluate reasoning performance using incrementally presented narrative evidence, open-ended questions and unconstrained language responses. An automated grading system was developed and validated against human assessors to enable scalable and re",
+    "company": null,
+    "title_zh": "Watson & Holmes：比较人类推理和法学硕士推理的自然基准"
+  },
+  {
+    "id": "2602.19895",
+    "title": "DSDR: Dual-Scale Diversity Regularization for Exploration in LLM Reasoning",
+    "authors": "Zhongwei Wan, Yun Shen, Zhihao Dou et al.",
+    "year": 2026,
+    "date": "2026-02-23",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Reinforcement learning with verifiers (RLVR) is a central paradigm for improving large language model (LLM) reasoning, yet existing methods often suffer from limited exploration. Policies tend to collapse onto a few reasoning patterns and prematurely stop deep exploration, while conventional entropy regularization introduces only local stochasticity and fails to induce meaningful path-level diversity, leading to weak and unstable learning signals in group-based policy optimization. We propose DS",
+    "company": null,
+    "title_zh": "DSDR：用于 LLM 推理探索的双尺度多样性正则化"
+  },
+  {
     "id": "2602.19127",
     "title": "AgenticRAGTracer: A Hop-Aware Benchmark for Diagnosing Multi-Step Retrieval Reasoning in Agentic RAG",
     "authors": "Qijie You, Wenkai Yu, Wentao Zhang",
@@ -2652,6 +2781,20 @@
     "title_zh": "通过主动重建学习检测语言模型训练数据"
   },
   {
+    "id": "2602.19281",
+    "title": "Limited Reasoning Space: The cage of long-horizon reasoning in LLMs",
+    "authors": "Zhenyu Li, Guanlin Wu, Cheems Wang et al.",
+    "year": 2026,
+    "date": "2026-02-22",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "The test-time compute strategy, such as Chain-of-Thought (CoT), has significantly enhanced the ability of large language models to solve complex tasks like logical reasoning. However, empirical studies indicate that simply increasing the compute budget can sometimes lead to a collapse in test-time performance when employing typical task decomposition strategies such as CoT. This work hypothesizes that reasoning failures with larger compute budgets stem from static planning methods, which hardly ",
+    "company": null,
+    "title_zh": "有限的推理空间：法学硕士的长视野推理的笼子"
+  },
+  {
     "id": "2602.18734",
     "title": "Rethinking Retrieval-Augmented Generation as a Cooperative Decision-Making Problem",
     "authors": "Lichang Song, Ting Long, Yi Chang",
@@ -2797,6 +2940,20 @@
     "title_zh": "大型语言模型中的能量溢出"
   },
   {
+    "id": "2602.18916",
+    "title": "Adaptive Collaboration of Arena-Based Argumentative LLMs for Explainable and Contestable Legal Reasoning",
+    "authors": "Hoang-Loc Cao, Phuc Ho, Truong Thanh Hung Nguyen et al.",
+    "year": 2026,
+    "date": "2026-02-21",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Legal reasoning requires not only high accuracy but also the ability to justify decisions through verifiable and contestable arguments. However, existing Large Language Model (LLM) approaches, such as Chain-of-Thought (CoT) and Retrieval-Augmented Generation (RAG), often produce unstructured explanations that lack a formal mechanism for verification or user intervention. To address this limitation, we propose Adaptive Collaboration of Argumentative LLMs (ACAL), a neuro-symbolic framework that in",
+    "company": null,
+    "title_zh": "基于竞技场的论证性法学硕士的适应性协作，以进行可解释和可争议的法律推理"
+  },
+  {
     "id": "2602.17981",
     "title": "Decomposing Retrieval Failures in RAG for Long-Document Financial Question Answering",
     "authors": "Amine Kobeissi, Philippe Langlais",
@@ -2899,6 +3056,34 @@
     ],
     "abstract": "Existing Visual-Language Models (VLMs) have achieved significant progress by being trained on massive-scale datasets, typically under the assumption that data are independent and identically distributed (IID). However, in real-world scenarios, it is often impractical to expect that all data processed by an AI system satisfy this assumption. Furthermore, failure to appropriately handle out-of-distribution (OOD) objects may introduce safety risks in real-world applications (e.g., autonomous drivin",
     "title_zh": "OODBench：大型视觉语言模型的分布外基准"
+  },
+  {
+    "id": "2602.18296",
+    "title": "Context-Aware Mapping of 2D Drawing Annotations to 3D CAD Features Using LLM-Assisted Reasoning for Manufacturing Automation",
+    "authors": "Muhammad Tayyab Khan, Lequn Chen, Wenhe Feng et al.",
+    "year": 2026,
+    "date": "2026-02-20",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Manufacturing automation in process planning, inspection planning, and digital-thread integration depends on a unified specification that binds the geometric features of a 3D CAD model to the geometric dimensioning and tolerancing (GD&amp;T) callouts, datum definitions, and surface requirements carried by the corresponding 2D engineering drawing. Although Model-Based Definition (MBD) allows such specifications to be embedded directly in 3D models, 2D drawings remain the primary carrier of manufa",
+    "company": null,
+    "title_zh": "使用 LLM 辅助推理实现制造自动化，将 2D 绘图注释上下文感知映射到 3D CAD 功能"
+  },
+  {
+    "id": "2602.18232",
+    "title": "Thinking by Subtraction: Confidence-Driven Contrastive Decoding for LLM Reasoning",
+    "authors": "Lexiang Tang, Weihao Gao, Bingchen Zhao et al.",
+    "year": 2026,
+    "date": "2026-02-20",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Recent work on test-time scaling for large language model (LLM) reasoning typically assumes that allocating more inference-time computation uniformly improves correctness. However, prior studies show that reasoning uncertainty is highly localized: a small subset of low-confidence tokens disproportionately contributes to reasoning errors and unnecessary output expansion. Motivated by this observation, we propose Thinking by Subtraction, a confidence-driven contrastive decoding approach that impro",
+    "company": null,
+    "title_zh": "减法思考：LLM 推理的置信驱动对比解码"
   },
   {
     "id": "2602.17856",
@@ -3242,6 +3427,20 @@
     "title_zh": "FAMASE：自动化特征发现的 ReAct 方法"
   },
   {
+    "id": "2602.17550",
+    "title": "MASPO: Unifying Gradient Utilization, Probability Mass, and Signal Reliability for Robust and Sample-Efficient LLM Reasoning",
+    "authors": "Xiaoliang Fu, Jiaye Lin, Yangyi Fang et al.",
+    "year": 2026,
+    "date": "2026-02-19",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Existing Reinforcement Learning with Verifiable Rewards (RLVR) algorithms, such as GRPO, rely on rigid, uniform, and symmetric trust region mechanisms that are fundamentally misaligned with the complex optimization dynamics of Large Language Models (LLMs). In this paper, we identify three critical challenges in these methods: (1) inefficient gradient utilization caused by the binary cutoff of hard clipping, (2) insensitive probability mass arising from uniform ratio constraints that ignore the t",
+    "company": null,
+    "title_zh": "MASPO：统一梯度利用、概率质量和信号可靠性，实现稳健且样本高效的 LLM 推理"
+  },
+  {
     "id": "2602.16650",
     "title": "Retrieval Augmented Generation of Literature-derived Polymer Knowledge: The Example of a Biodegradable Polymer Expert System",
     "authors": "Sonakshi Gupta, Akhlak Mahmood, Wei Xiong et al.",
@@ -3405,7 +3604,8 @@
     "date": "2026-02-17",
     "cite": 0,
     "tags": [
-      "Agent"
+      "Agent",
+      "Reasoning"
     ],
     "abstract": "Foundation models for agriculture are increasingly trained on massive spatiotemporal data (e.g., multi-spectral remote sensing, soil grids, and field-level management logs) and achieve strong performance on forecasting and monitoring. However, these models lack language-based reasoning and interactive capabilities, limiting their usefulness in real-world agronomic workflows. Meanwhile, large language models (LLMs) excel at interpreting and generating text, but cannot directly reason over high-di",
     "title_zh": "AgriWorld：使用代码执行 LLM 代理进行可验证农业推理的世界工具协议框架"
@@ -3444,7 +3644,8 @@
     "date": "2026-02-17",
     "cite": 0,
     "tags": [
-      "Multimodal"
+      "Multimodal",
+      "Reasoning"
     ],
     "abstract": "Benchmarking spatial reasoning in multimodal large language models (MLLMs) has attracted growing interest in computer vision due to its importance for embodied AI and other agentic systems that require precise interaction with the physical world. However, spatial reasoning on Earth imagery has lagged behind, as it uniquely involves grounding objects in georeferenced images and quantitatively reasoning about distances, directions, and topological relations using both visual cues and vector geomet",
     "title_zh": "EarthSpatialBench：地球图像上多模态法学硕士的空间推理能力基准测试"
@@ -3671,6 +3872,62 @@
     "title_zh": "LoRA适配器后门的权重空间检测"
   },
   {
+    "id": "2602.15173",
+    "title": "Mind the (DH) Gap! A Contrast in Risky Choices Between Reasoning and Conversational LLMs",
+    "authors": "Luise Ge, Yongyan Zhang, Yevgeniy Vorobeychik",
+    "year": 2026,
+    "date": "2026-02-16",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "The use of large language models either as decision support systems, or in agentic workflows, is rapidly transforming the digital ecosystem. However, the understanding of LLM decision-making under uncertainty remains limited. We initiate a comparative study of LLM risky choices along two dimensions: (1) prospect representation (explicit vs. experience based) and (2) decision rationale (explanation). Our study, which involves 20 frontier and open LLMs, is complemented by a matched human subjects ",
+    "company": null,
+    "title_zh": "注意（DH）差距！推理法学硕士和会话法学硕士之间的风险选择对比"
+  },
+  {
+    "id": "2602.14517",
+    "title": "Beyond Translation: Evaluating Mathematical Reasoning Capabilities of LLMs in Sinhala and Tamil",
+    "authors": "Sukumar Kishanthan, Kumar Thushalika, Buddhi Jayasekara et al.",
+    "year": 2026,
+    "date": "2026-02-16",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Large language models (LLMs) demonstrate strong mathematical reasoning in English, but whether these capabilities reflect genuine multilingual reasoning or reliance on translation-based processing in low-resource languages like Sinhala and Tamil remains unclear. We examine this fundamental question by evaluating whether LLMs genuinely reason mathematically in these languages or depend on implicit translation to English-like representations. Using a taxonomy of six math problem types, from basic ",
+    "company": null,
+    "title_zh": "超越翻译：评估僧伽罗语和泰米尔语法学硕士的数学推理能力"
+  },
+  {
+    "id": "2602.14444",
+    "title": "Broken Chains: The Cost of Incomplete Reasoning in LLMs",
+    "authors": "Ian Su, Gaurav Purushothaman, Jey Narayan et al.",
+    "year": 2026,
+    "date": "2026-02-16",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Reasoning-specialized models like OpenAI's 5.1 and DeepSeek-V3.2 allocate substantial inference compute to extended chain-of-thought (CoT) traces, yet reasoning tokens incur significant costs. How do different reasoning modalities of code, natural language, hybrid, or none do perform under token constraints? We introduce a framework that constrains models to reason exclusively through code, comments, both, or neither, then systematically ablates token budgets to 10\\%, 30\\%, 50\\%, and 70\\% of opt",
+    "company": null,
+    "title_zh": "断裂的链条：法学硕士推理不完整的成本"
+  },
+  {
+    "id": "2602.14428",
+    "title": "LLM-Guided Knowledge Distillation for Temporal Knowledge Graph Reasoning",
+    "authors": "Wang Xing, Wei Song, Siyu Lin et al.",
+    "year": 2026,
+    "date": "2026-02-16",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Temporal knowledge graphs (TKGs) support reasoning over time-evolving facts, yet state-of-the-art models are often computationally heavy and costly to deploy. Existing compression and distillation techniques are largely designed for static graphs; directly applying them to temporal settings may overlook time-dependent interactions and lead to performance degradation. We propose an LLM-assisted distillation framework specifically designed for temporal knowledge graph reasoning. Beyond a conventio",
+    "company": null,
+    "title_zh": "法学硕士指导的时态知识图推理知识蒸馏"
+  },
+  {
     "id": "2602.14295",
     "title": "Machine Learning as a Tool (MLAT): A Framework for Integrating Statistical ML Models as Callable Tools within LLM Agent Workflows",
     "authors": "Edwin Chen, Zulekha Bibi",
@@ -3760,6 +4017,20 @@
     ],
     "abstract": "Multimodal Large Language Models (MLLMs) have demonstrated exceptional capabilities in high-level visual understanding. However, extending these models to fine-grained dense prediction tasks, such as semantic segmentation and depth estimation, typically necessitates the incorporation of complex, task-specific decoders and other customizations. This architectural fragmentation increases model complexity and deviates from the generalist design of MLLMs, ultimately limiting their practicality. In t",
     "title_zh": "DenseMLLM：标准多模态 LLM 是内在密集预测器"
+  },
+  {
+    "id": "2602.14158",
+    "title": "A Multi-Agent Framework for Medical AI: Leveraging Fine-Tuned GPT, LLaMA, and DeepSeek R1 for Evidence-Based and Bias-Aware Clinical Query Processing",
+    "authors": "Naeimeh Nourmohammadi, Md Meem Hossain, The Anh Han et al.",
+    "year": 2026,
+    "date": "2026-02-15",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "Large language models (LLMs) show promise for healthcare question answering, but clinical use is limited by weak verification, insufficient evidence grounding, and unreliable confidence signalling. We propose a multi-agent medical QA framework that combines complementary LLMs with evidence retrieval, uncertainty estimation, and bias checks to improve answer reliability. Our approach has two phases. First, we fine-tune three representative LLM families (GPT, LLaMA, and DeepSeek R1) on MedQuAD-der",
+    "company": "DeepSeek",
+    "title_zh": "医疗 AI 的多代理框架：利用微调的 GPT、LLaMA 和 DeepSeek R1 进行基于证据和偏差感知的临床查询处理"
   },
   {
     "id": "2602.13890",
@@ -4022,6 +4293,20 @@
     "title_zh": "Doc-to-LoRA：学习即时内化上下文"
   },
   {
+    "id": "2602.13517",
+    "title": "Think Deep, Not Just Long: Measuring LLM Reasoning Effort via Deep-Thinking Tokens",
+    "authors": "Wei-Lin Chen, Liqian Peng, Tian Tan et al.",
+    "year": 2026,
+    "date": "2026-02-13",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Large language models (LLMs) have demonstrated impressive reasoning capabilities by scaling test-time compute via long Chain-of-Thought (CoT). However, recent findings suggest that raw token counts are unreliable proxies for reasoning quality: increased generation length does not consistently correlate with accuracy and may instead signal \"overthinking,\" leading to performance degradation. In this work, we quantify inference-time effort by identifying deep-thinking tokens -- tokens where interna",
+    "company": null,
+    "title_zh": "深入思考，而不仅仅是长期思考：通过深度思考代币衡量法学硕士推理工作"
+  },
+  {
     "id": "2602.12235",
     "title": "Detecting Overflow in Compressed Token Representations for Retrieval-Augmented Generation",
     "authors": "Julia Belikova, Danila Rozhevskii, Dennis Svirin et al.",
@@ -4172,7 +4457,8 @@
     "date": "2026-02-12",
     "cite": 0,
     "tags": [
-      "Multimodal"
+      "Multimodal",
+      "Reasoning"
     ],
     "abstract": "AI models have achieved state-of-the-art results in textual reasoning; however, their ability to reason over spatial and relational structures remains a critical bottleneck -- particularly in early-grade maths, which relies heavily on visuals. This paper introduces the visual reasoning benchmark (VRB), a novel dataset designed to evaluate Multimodal Large Language Models (MLLMs) on their ability to solve authentic visual problems from classrooms. This benchmark is built on a set of 701 questions",
     "title_zh": "视觉推理基准：评估初等教育课堂真实视觉问题的多模式法学硕士"
@@ -4228,6 +4514,48 @@
     ],
     "abstract": "We study object hallucination in Multimodal Large Language Models (MLLMs) and improve visual contrastive decoding (VCD) by constructing an object-aligned auxiliary view. We leverage object-centric attention in self-supervised Vision Transformers. In particular, we remove the most salient visual evidence to construct an auxiliary view that disrupts unsupported tokens and produces a stronger contrast signal. Our method is prompt-agnostic, model-agnostic, and can be seamlessly plugged into the exis",
     "title_zh": "掩盖重要的事情：通过对象对齐的视觉对比解码来减轻多模态大语言模型中的对象幻觉"
+  },
+  {
+    "id": "2602.12164",
+    "title": "Sci-CoE: Co-evolving Scientific Reasoning LLMs via Geometric Consensus with Sparse Supervision",
+    "authors": "Xiaohan He, Shiyang Feng, Songtao Huang et al.",
+    "year": 2026,
+    "date": "2026-02-12",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Large language models (LLMs) have demonstrated exceptional reasoning capabilities, and co-evolving paradigms have shown promising results in domains such as code and math. However, in scientific reasoning tasks, these models remain fragile due to unreliable solution evaluation and limited diversity in verification strategies. In this work, we propose Sci-CoE, a two-stage scientific co-evolving framework that enables models to self-evolve as both solver and verifier through a transition from spar",
+    "company": null,
+    "title_zh": "Sci-CoE：通过几何共识和稀疏监督共同发展科学推理法学硕士"
+  },
+  {
+    "id": "2602.11782",
+    "title": "FlowMind: Execute-Summarize for Structured Workflow Generation from LLM Reasoning",
+    "authors": "Yihao Liu, Ziyun Zhang, Zile He et al.",
+    "year": 2026,
+    "date": "2026-02-12",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "LLMs can solve complex tasks through reasoning and tool use, but accurately translating these solutions into structured workflows remains challenging. We model workflows as sequences of tool use and reformulate the problem as designing a mechanism that can both solve tasks and reliably construct workflows. Prior approaches that build workflows during execution often suffer from inaccuracies due to interference between the two processes. We propose an Execute-Summarize(ES) framework that decouple",
+    "company": null,
+    "title_zh": "FlowMind：从 LLM 推理生成结构化工作流的执行总结"
+  },
+  {
+    "id": "2602.11675",
+    "title": "Right for the Wrong Reasons: Epistemic Regret Minimization for Causal Rung Collapse in LLMs",
+    "authors": "Edward Y. Chang",
+    "year": 2026,
+    "date": "2026-02-12",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Machine learning systems that are \"right for the wrong reasons\" achieve high performance through shortcuts that collapse under distributional shift. We show this pathology has a precise causal origin: autoregressive training provides no gradient signal to distinguish association P(Y|X) from intervention P(Y|do(X)), a failure we formalize as Rung Collapse. When outcome-based learning reinforces correct answers obtained through incorrect causal models, the agent becomes entrenched in flawed reason",
+    "company": null,
+    "title_zh": "错误的理由是正确的：法学硕士因果梯级崩溃的认知遗憾最小化"
   },
   {
     "id": "2602.15898",
@@ -4425,6 +4753,20 @@
     "title_zh": "格鲁吉亚语格对齐语言模型的有针对性的句法评估"
   },
   {
+    "id": "2602.11361",
+    "title": "Finding the Cracks: Improving LLMs Reasoning with Paraphrastic Probing and Consistency Verification",
+    "authors": "Weili Shi, Dongliang Guo, Lehan Yang et al.",
+    "year": 2026,
+    "date": "2026-02-11",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Large language models have demonstrated impressive performance across a variety of reasoning tasks. However, their problem-solving ability often declines on more complex tasks due to hallucinations and the accumulation of errors within these intermediate steps. Recent work has introduced the notion of critical tokens--tokens in the reasoning process that exert significant influence on subsequent steps. Prior studies suggest that replacing critical tokens can refine reasoning trajectories. Noneth",
+    "company": null,
+    "title_zh": "寻找裂缝：通过释义探究和一致性验证改进法学硕士的推理"
+  },
+  {
     "id": "2602.10271",
     "title": "MLDocRAG: Multimodal Long-Context Document Retrieval Augmented Generation",
     "authors": "Yongyue Zhang, Yaxiong Wu",
@@ -4607,6 +4949,76 @@
     "title_zh": "AlignTune：用于大型语言模型训练后对齐的模块化工具包"
   },
   {
+    "id": "2602.10246",
+    "title": "KORAL: Knowledge Graph Guided LLM Reasoning for SSD Operational Analysis",
+    "authors": "Mayur Akewar, Sandeep Madireddy, Dongsheng Luo et al.",
+    "year": 2026,
+    "date": "2026-02-10",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Solid State Drives (SSDs) are critical to datacenters, consumer platforms, and mission-critical systems. Yet diagnosing their performance and reliability is difficult because data are fragmented and time-disjoint, and existing methods demand large datasets and expert input while offering only limited insights. Degradation arises not only from shifting workloads and evolving architectures but also from environmental factors such as temperature, humidity, and vibration. We present KORAL, a knowled",
+    "company": null,
+    "title_zh": "KORAL：知识图引导的 LLM 推理用于 SSD 操作分析"
+  },
+  {
+    "id": "2602.10092",
+    "title": "Quantum-Audit: Evaluating the Reasoning Limits of LLMs on Quantum Computing",
+    "authors": "Mohamed Afane, Kayla Laufer, Wenqi Wei et al.",
+    "year": 2026,
+    "date": "2026-02-10",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Language models have become practical tools for quantum computing education and research, from summarizing technical papers to explaining theoretical concepts and answering questions about recent developments in the field. While existing benchmarks evaluate quantum code generation and circuit design, their understanding of quantum computing concepts has not been systematically measured. Quantum-Audit addresses this gap with 2,700 questions covering core quantum computing topics. We evaluate 26 m",
+    "company": null,
+    "title_zh": "量子审计：评估法学硕士在量子计算方面的推理极限"
+  },
+  {
+    "id": "2602.09832",
+    "title": "LLM Reasoning Predicts When Models Are Right: Evidence from Coding Classroom Discourse",
+    "authors": "Bakhtawar Ahtisham, Kirk Vanacore, Zhuqian Zhou et al.",
+    "year": 2026,
+    "date": "2026-02-10",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Large Language Models (LLMs) are increasingly deployed to automatically label and analyze educational dialogue at scale, yet current pipelines lack reliable ways to detect when models are wrong. We investigate whether reasoning generated by LLMs can be used to predict the correctness of a model's own predictions. We analyze 30,300 teacher utterances from classroom dialogue, each labeled by multiple state-of-the-art LLMs with an instructional move construct and an accompanying reasoning. Using hu",
+    "company": null,
+    "title_zh": "LLM 推理预测模型何时正确：来自编码课堂讨论的证据"
+  },
+  {
+    "id": "2602.09598",
+    "title": "Learning from the Irrecoverable: Error-Localized Policy Optimization for Tool-Integrated LLM Reasoning",
+    "authors": "Qiao Liang, Yuke Zhu, Chao Ge et al.",
+    "year": 2026,
+    "date": "2026-02-10",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Tool-integrated reasoning (TIR) enables LLM agents to solve tasks through planning, tool use, and iterative revision, but outcome-only reinforcement learning in this setting suffers from sparse, delayed rewards and weak step-level credit assignment. In long-horizon TIR trajectories, an early irrecoverable mistake can determine success or failure, making it crucial to localize the first irrecoverable step and leverage it for fine-grained credit assignment. We propose Error-Localized Policy Optimi",
+    "company": null,
+    "title_zh": "从不可挽回的事情中学习：工具集成 LLM 推理的错误本地化策略优化"
+  },
+  {
+    "id": "2602.09341",
+    "title": "Auditing Multi-Agent LLM Reasoning Trees Outperforms Majority Vote and LLM-as-Judge",
+    "authors": "Wei Yang, Shixuan Li, Heng Ping et al.",
+    "year": 2026,
+    "date": "2026-02-10",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Multi-agent systems (MAS) can substantially extend the reasoning capacity of large language models (LLMs), yet most frameworks still aggregate agent outputs with majority voting. This heuristic discards the evidential structure of reasoning traces and is brittle under the confabulation consensus, where agents share correlated biases and converge on the same incorrect rationale. We introduce AgentAuditor, which replaces voting with a path search over a Reasoning Tree that explicitly represents ag",
+    "company": null,
+    "title_zh": "审计多代理法学硕士推理树优于多数投票和法学硕士作为法官"
+  },
+  {
     "id": "2602.08400",
     "title": "SCOUT-RAG: Scalable and Cost-Efficient Unifying Traversal for Agentic Graph-RAG over Distributed Domains",
     "authors": "Longkun Li, Yuanben Zou, Jinghan Wu et al.",
@@ -4705,7 +5117,8 @@
     "date": "2026-02-09",
     "cite": 0,
     "tags": [
-      "Multimodal"
+      "Multimodal",
+      "Reasoning"
     ],
     "abstract": "Time-series anomaly detection (TSAD) with multimodal large language models (MLLMs) is an emerging area, yet a persistent challenge remains: MLLMs rely on coarse time-series heuristics but struggle with multi-dimensional, detailed reasoning, which is vital for understanding complex time-series data. We present AnomSeer to address this by reinforcing the model to ground its reasoning in precise, structural details of time series, unifying anomaly classification, localization, and explanation. At i",
     "title_zh": "AnomSeer：强化多模态法学硕士以推理时间序列异常检测"
@@ -4722,6 +5135,20 @@
     ],
     "abstract": "While chain-of-thought (CoT) reasoning has substantially improved multimodal large language models (MLLMs) on complex reasoning tasks, existing approaches largely rely on long textual reasoning trajectories and provide limited mechanisms for learning stable visual attention policies. Our analysis shows that current MLLMs exhibit weak visual focus: early-stage visual misalignment is rarely corrected during subsequent reasoning, leading to error propagation and failed inferences. We argue that thi",
     "title_zh": "法学硕士真的看到了吗：加强多模式法学硕士的视觉注意力"
+  },
+  {
+    "id": "2602.09000",
+    "title": "iGRPO: Self-Feedback-Driven LLM Reasoning",
+    "authors": "Ali Hatamizadeh, Shrimai Prabhumoye, Igor Gitman et al.",
+    "year": 2026,
+    "date": "2026-02-09",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Large Language Models (LLMs) have shown promise in solving complex mathematical problems, yet they still fall short of producing accurate and consistent solutions. Reinforcement Learning (RL) is a framework for aligning these models with task-specific rewards, improving overall quality and reliability. Group Relative Policy Optimization (GRPO) is an efficient, value-function-free alternative to Proximal Policy Optimization (PPO) that leverages group-relative reward normalization. We introduce It",
+    "company": null,
+    "title_zh": "iGRPO：自我反馈驱动的法学硕士推理"
   },
   {
     "id": "2602.07739",
@@ -7648,7 +8075,8 @@
     "tags": [
       "Multimodal"
     ],
-    "abstract": "Climate disinformation has become a major challenge in today digital world, especially with the rise of misleading images and videos shared widely on social media. These false claims are often convincing and difficult to detect, which can delay actions on climate change. While vision-language models (VLMs) have been used to identify visual disinformation, they rely only on the knowledge available at the time of training. This limits their ability to reason about recent events or updates. The mai"
+    "abstract": "Climate disinformation has become a major challenge in today digital world, especially with the rise of misleading images and videos shared widely on social media. These false claims are often convincing and difficult to detect, which can delay actions on climate change. While vision-language models (VLMs) have been used to identify visual disinformation, they rely only on the knowledge available at the time of training. This limits their ability to reason about recent events or updates. The mai",
+    "title_zh": "多模式气候虚假信息检测：将视觉语言模型与外部知识源集成"
   },
   {
     "id": "2601.15487",
@@ -7831,6 +8259,20 @@
     ],
     "abstract": "Vision-Language Models show strong zero-shot performance for chest X-ray classification, but standard flat metrics fail to distinguish between clinically minor and severe errors. This work investigates how to quantify and mitigate abstraction errors by leveraging medical taxonomies. We benchmark several state-of-the-art VLMs using hierarchical metrics and introduce Catastrophic Abstraction Errors to capture cross-branch mistakes. Our results reveal substantial misalignment of VLMs with clinical ",
     "title_zh": "用医学分类法测量和调整视觉语言模型中的抽象"
+  },
+  {
+    "id": "2601.14826",
+    "title": "Comparative Study of Large Language Models on Chinese Film Script Continuation: An Empirical Analysis Based on GPT-5.2 and Qwen-Max",
+    "authors": "Yuxuan Cao, Zida Yang, Ye Wang",
+    "year": 2026,
+    "date": "2026-01-21",
+    "cite": 0,
+    "tags": [
+      "Qwen"
+    ],
+    "abstract": "As large language models (LLMs) are increasingly applied to creative writing, their performance on culturally specific narrative tasks warrants systematic investigation. This study constructs the first Chinese film script continuation benchmark comprising 53 classic films, and designs a multi-dimensional evaluation framework comparing GPT-5.2 and Qwen-Max-Latest. Using a \"first half to second half\" continuation paradigm with 3 samples per film, we obtained 303 valid samples (GPT-5.2: 157, 98.7% ",
+    "company": "Qwen",
+    "title_zh": "中国电影剧本接续大语言模型比较研究——基于GPT-5.2和Qwen-Max的实证分析"
   },
   {
     "id": "2601.13879",
@@ -8494,6 +8936,20 @@
     ],
     "abstract": "As the cost of training large language models continues to increase and high-quality training data become increasingly scarce, selecting high-value samples or synthesizing effective training data under limited data budgets has emerged as a critical research problem. Most existing data selection methods rely on static criteria, such as difficulty, uncertainty, or heuristics, and fail to model the evolving relationship between the model and the data. Inspired by the educational theory of the Zone ",
     "title_zh": "ZPD 检测器：通过大型语言模型的能力-难度对齐进行数据选择"
+  },
+  {
+    "id": "2601.11464",
+    "title": "MHA2MLA-VLM: Enabling DeepSeek's Economical Multi-Head Latent Attention across Vision-Language Models",
+    "authors": "Xiaoran Fan, Zhichao Sun, Tao Ji et al.",
+    "year": 2026,
+    "date": "2026-01-16",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "As vision-language models (VLMs) tackle increasingly complex and multimodal tasks, the rapid growth of Key-Value (KV) cache imposes significant memory and computational bottlenecks during inference. While Multi-Head Latent Attention (MLA) offers an effective means to compress the KV cache and accelerate inference, adapting existing VLMs to the MLA architecture without costly pretraining remains largely unexplored. In this work, we present MHA2MLA-VLM, a parameter-efficient and multimodal-aware f",
+    "company": "DeepSeek",
+    "title_zh": "MHA2MLA-VLM：在视觉语言模型中启用 DeepSeek 经济的多头潜在注意力"
   },
   {
     "id": "2601.10413",
@@ -9887,6 +10343,20 @@
     "title_zh": "隐私-亲社会冲突下大型语言模型中的价值-行动对齐"
   },
   {
+    "id": "2601.03714",
+    "title": "Visual Merit or Linguistic Crutch? A Close Look at DeepSeek-OCR",
+    "authors": "Yunhao Liang, Ruixuan Ying, Bo Li et al.",
+    "year": 2026,
+    "date": "2026-01-07",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "DeepSeek-OCR utilizes an optical 2D mapping approach to achieve high-ratio vision-text compression, claiming to decode text tokens exceeding ten times the input visual tokens. While this suggests a promising solution for the LLM long-context bottleneck, we investigate a critical question: \"Visual merit or linguistic crutch - which drives DeepSeek-OCR's performance?\" By employing sentence-level and word-level semantic corruption, we isolate the model's intrinsic OCR capabilities from its language",
+    "company": "DeepSeek",
+    "title_zh": "视觉优势还是语言拐杖？仔细看看 DeepSeek-OCR"
+  },
+  {
     "id": "2601.03052",
     "title": "Detecting Hallucinations in Retrieval-Augmented Generation via Semantic-level Internal Reasoning Graph",
     "authors": "Jianpeng Hu, Yanzeng Li, Jialun Zhong et al.",
@@ -10618,6 +11088,20 @@
     "title_zh": "论指令调优本地法学硕士识别软件漏洞的有效性"
   },
   {
+    "id": "2512.20344",
+    "title": "A DeepSeek-Powered AI System for Automated Chest Radiograph Interpretation in Clinical Practice",
+    "authors": "Yaowei Bai, Ruiheng Zhang, Yu Lei et al.",
+    "year": 2025,
+    "date": "2025-12-23",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "A global shortage of radiologists has been exacerbated by the significant volume of chest X-ray workloads, particularly in primary care. Although multimodal large language models show promise, existing evaluations predominantly rely on automated metrics or retrospective analyses, lacking rigorous prospective clinical validation. Janus-Pro-CXR (1B), a chest X-ray interpretation system based on DeepSeek Janus-Pro model, was developed and rigorously validated through a multicenter prospective trial",
+    "company": "DeepSeek",
+    "title_zh": "由 DeepSeek 支持的 AI 系统，用于临床实践中的自动胸部 X 光片判读"
+  },
+  {
     "id": "2512.19379",
     "title": "OmniMER: Auxiliary-Enhanced LLM Adaptation for Indonesian Multimodal Emotion Recognition",
     "authors": "Xueming Yan, Boyan Xu, Yaochu Jin et al.",
@@ -10867,6 +11351,20 @@
     "title_zh": "迈向可访问的物理 AI：基于 LoRA 的 VLA 模型微调，用于现实世界的机器人控制"
   },
   {
+    "id": "2512.10440",
+    "title": "Enhancing Next-Generation Language Models with Knowledge Graphs: Extending Claude, Mistral IA, and GPT-4 via KG-BERT",
+    "authors": "Nour El Houda Ben Chaabene, Hamza Hammami",
+    "year": 2025,
+    "date": "2025-12-11",
+    "cite": 0,
+    "tags": [
+      "Mistral"
+    ],
+    "abstract": "Large language models (LLMs) like Claude, Mistral IA, and GPT-4 excel in NLP but lack structured knowledge, leading to factual inconsistencies. We address this by integrating Knowledge Graphs (KGs) via KG-BERT to enhance grounding and reasoning. Experiments show significant gains in knowledge-intensive tasks such as question answering and entity linking. This approach improves factual reliability and enables more context-aware next-generation LLMs.",
+    "company": "Mistral",
+    "title_zh": "使用知识图增强下一代语言模型：通过 KG-BERT 扩展 Claude、Mistral IA 和 GPT-4"
+  },
+  {
     "id": "2512.09872",
     "title": "FlipLLM: Efficient Bit-Flip Attacks on Multimodal LLMs using Reinforcement Learning",
     "authors": "Khurram Khalil, Khaza Anuarul Hoque",
@@ -10929,7 +11427,8 @@
       "Safety"
     ],
     "abstract": "Culture is a core component of human-to-human interaction and plays a vital role in how we perceive and interact with others. Advancements in the effectiveness of Large Language Models (LLMs) in generating human-sounding text have greatly increased the amount of human-to-computer interaction. As this field grows, the cultural alignment of these human-like agents becomes an important field of study. Our work uses Hofstede's VSM13 international surveys to understand the cultural alignment of the f",
-    "title_zh": "DeepSeek 的怪异行为：大型语言模型的文化一致性以及提示语言和文化提示的影响"
+    "title_zh": "DeepSeek 的怪异行为：大型语言模型的文化一致性以及提示语言和文化提示的影响",
+    "company": "DeepSeek"
   },
   {
     "id": "2512.09566",
@@ -11192,6 +11691,20 @@
     "title_zh": "SR-GRPO：稳定排名作为大语言模型对齐的内在几何奖励"
   },
   {
+    "id": "2512.02556",
+    "title": "DeepSeek-V3.2: Pushing the Frontier of Open Large Language Models",
+    "authors": " DeepSeek-AI, Aixin Liu, Aoxue Mei et al.",
+    "year": 2025,
+    "date": "2025-12-02",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "We introduce DeepSeek-V3.2, a model that harmonizes high computational efficiency with superior reasoning and agent performance. The key technical breakthroughs of DeepSeek-V3.2 are as follows: (1) DeepSeek Sparse Attention (DSA): We introduce DSA, an efficient attention mechanism that substantially reduces computational complexity while preserving model performance in long-context scenarios. (2) Scalable Reinforcement Learning Framework: By implementing a robust reinforcement learning protocol ",
+    "company": "DeepSeek",
+    "title_zh": "DeepSeek-V3.2：推动开放大型语言模型的前沿"
+  },
+  {
     "id": "2512.00709",
     "title": "When Human Preferences Flip: An Instance-Dependent Robust Loss for RLHF",
     "authors": "Yifan Xu, Xichen Ye, Yifan Chen et al.",
@@ -11398,6 +11911,20 @@
     ],
     "abstract": "Figuring out which objects or concepts words refer to is a central language learning challenge for young children. Most models of this process posit that children learn early object labels from co-occurrences of words and their referents that occur when someone around them talks about an object in the immediate physical environment. But how aligned in time are children's visual and linguistic experiences during everyday learning? To date, answers to this question have been limited by the need fo",
     "title_zh": "使用多模态语言模型评估婴儿视觉和语言体验之间的一致性"
+  },
+  {
+    "id": "2511.19333",
+    "title": "Learning to Reason: Training LLMs with GPT-OSS or DeepSeek R1 Reasoning Traces",
+    "authors": "Shaltiel Shmidman, Asher Fredman, Oleg Sudakov et al.",
+    "year": 2025,
+    "date": "2025-11-24",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "Test-time scaling, which leverages additional computation during inference to improve model accuracy, has enabled a new class of Large Language Models (LLMs) that are able to reason through complex problems by understanding the goal, turning this goal into a plan, working through intermediate steps, and checking their own work before answering . Frontier large language models with reasoning capabilities, such as DeepSeek-R1 and OpenAI's gpt-oss, follow the same procedure when solving complex pro",
+    "company": "DeepSeek",
+    "title_zh": "学习推理：使用 GPT-OSS 或 DeepSeek R1 推理轨迹训练法学硕士"
   },
   {
     "id": "2511.21750",
@@ -12765,6 +13292,20 @@
     "title_zh": "用于下一个兴趣点预测的认知对齐时空大语言模型"
   },
   {
+    "id": "2510.15009",
+    "title": "Can generative AI figure out figurative language? The influence of idioms on essay scoring by ChatGPT, Gemini, and Deepseek",
+    "authors": "Enis Oğuz",
+    "year": 2025,
+    "date": "2025-10-16",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "The developments in Generative AI technologies have paved the way for numerous innovations in different fields. Recently, Generative AI has been proposed as a competitor to AES systems in evaluating student essays automatically. Considering the potential limitations of AI in processing idioms, this study assessed the scoring performances of Generative AI models for essays with and without idioms by incorporating insights from Corpus Linguistics and Computational Linguistics. Two equal essay list",
+    "company": "DeepSeek",
+    "title_zh": "生成式人工智能能识别比喻语言吗？习语对 ChatGPT、Gemini 和 Deepseek 作文评分的影响"
+  },
+  {
     "id": "2510.13624",
     "title": "Unlocking Public Catalogues: Instruction-Tuning LLMs for ICD Coding of German Tumor Diagnoses",
     "authors": "Stefan Lenz, Lakisha Ortiz Rosario, Georg Vollmar et al.",
@@ -13389,6 +13930,20 @@
     "title_zh": "通过基于残差的模型引导实现偏好一致的大型语言模型"
   },
   {
+    "id": "2509.23676",
+    "title": "From Reasoning to Answer: Empirical, Attention-Based and Mechanistic Insights into Distilled DeepSeek R1 Models",
+    "authors": "Jue Zhang, Qingwei Lin, Saravan Rajmohan et al.",
+    "year": 2025,
+    "date": "2025-09-28",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "Large Reasoning Models (LRMs) generate explicit reasoning traces alongside final answers, yet the extent to which these traces influence answer generation remains unclear. In this work, we conduct a three-stage investigation into the interplay between reasoning and answer generation in three distilled DeepSeek R1 models. First, through empirical evaluation, we demonstrate that including explicit reasoning consistently improves answer quality across diverse domains. Second, attention analysis rev",
+    "company": "DeepSeek",
+    "title_zh": "从推理到答案：对 DeepSeek R1 模型精炼的经验、基于注意力和机制的见解"
+  },
+  {
     "id": "2509.23344",
     "title": "DentVLM: A Multimodal Vision-Language Model for Comprehensive Dental Diagnosis and Enhanced Clinical Practice",
     "authors": "Zijie Meng, Jin Hao, Xiwei Dai et al.",
@@ -13753,6 +14308,20 @@
     "title_zh": "多模式法学硕士稀疏培训计划"
   },
   {
+    "id": "2509.19346",
+    "title": "Benchmarking ChatGPT and DeepSeek in April 2025: A Novel Dual Perspective Sentiment Analysis Using Lexicon-Based and Deep Learning Approaches",
+    "authors": "Maryam Mahdi Alhusseini, Mohammad-Reza Feizi-Derakhshi",
+    "year": 2025,
+    "date": "2025-09-16",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "This study presents a novel dual-perspective approach to analyzing user reviews for ChatGPT and DeepSeek on the Google Play Store, integrating lexicon-based sentiment analysis (TextBlob) with deep learning classification models, including Convolutional Neural Networks (CNN) and Bidirectional Long Short Term Memory (Bi LSTM) Networks. Unlike prior research, which focuses on either lexicon-based strategies or predictive deep learning models in isolation, this study conducts an extensive investigat",
+    "company": "DeepSeek",
+    "title_zh": "2025 年 4 月对 ChatGPT 和 DeepSeek 进行基准测试：使用基于词典和深度学习方法的新型双视角情感分析"
+  },
+  {
     "id": "2509.11620",
     "title": "AesBiasBench: Evaluating Bias and Alignment in Multimodal Language Models for Personalized Image Aesthetic Assessment",
     "authors": "Kun Li, Lai-Man Po, Hongzheng Yang et al.",
@@ -13909,6 +14478,20 @@
     "title_zh": "无需复杂联合训练的英语发音评估：LoRA Fine-tuned Speech Multimodal LLM"
   },
   {
+    "id": "2509.02036",
+    "title": "DeepSeek performs better than other Large Language Models in Dental Cases",
+    "authors": "Hexian Zhang, Xinyu Yan, Yanqi Yang et al.",
+    "year": 2025,
+    "date": "2025-09-02",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "Large language models (LLMs) hold transformative potential in healthcare, yet their capacity to interpret longitudinal patient narratives remains inadequately explored. Dentistry, with its rich repository of structured clinical data, presents a unique opportunity to rigorously assess LLMs' reasoning abilities. While several commercial LLMs already exist, DeepSeek, a model that gained significant attention earlier this year, has also joined the competition. This study evaluated four state-of-the-",
+    "company": "DeepSeek",
+    "title_zh": "DeepSeek 在牙科案例中的表现优于其他大型语言模型"
+  },
+  {
     "id": "2509.01337",
     "title": "LLM-Guided Semantic Relational Reasoning for Multimodal Intent Recognition",
     "authors": "Qianrui Zhou, Hua Xu, Yifan Wang et al.",
@@ -13946,6 +14529,20 @@
     ],
     "abstract": "Time series forecasting is a long-standing and highly challenging research topic. Recently, driven by the rise of large language models (LLMs), research has increasingly shifted from purely time series methods toward harnessing textual modalities to enhance forecasting performance. However, the vast discrepancy between text and temporal data often leads current multimodal architectures to over-emphasise one modality while neglecting the other, resulting in information loss that harms forecasting",
     "title_zh": "BALM-TSF：基于 LLM 的时间序列预测的平衡多模态对齐"
+  },
+  {
+    "id": "2508.21377",
+    "title": "Challenges and Applications of Large Language Models: A Comparison of GPT and DeepSeek family of models",
+    "authors": "Shubham Sharma, Sneha Tuli, Narendra Badam",
+    "year": 2025,
+    "date": "2025-08-29",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "Large Language Models (LLMs) are transforming AI across industries, but their development and deployment remain complex. This survey reviews 16 key challenges in building and using LLMs and examines how these challenges are addressed by two state-of-the-art models with unique approaches: OpenAI's closed source GPT-4o (May 2024 update) and DeepSeek-V3-0324 (March 2025), a large open source Mixture-of-Experts model. Through this comparison, we showcase the trade-offs between closed source models (",
+    "company": "DeepSeek",
+    "title_zh": "大型语言模型的挑战和应用：GPT 和 DeepSeek 系列模型的比较"
   },
   {
     "id": "2508.21143",
@@ -14052,6 +14649,20 @@
     "title_zh": "使用多模态大视觉语言模型进行物体检测：深入回顾"
   },
   {
+    "id": "2509.03527",
+    "title": "Multilevel Analysis of Cryptocurrency News using RAG Approach with Fine-Tuned Mistral Large Language Model",
+    "authors": "Bohdan M. Pavlyshenko",
+    "year": 2025,
+    "date": "2025-08-25",
+    "cite": 0,
+    "tags": [
+      "Mistral"
+    ],
+    "abstract": "In the paper, we consider multilevel multitask analysis of cryptocurrency news using a fine-tuned Mistral 7B large language model with retrieval-augmented generation (RAG). On the first level of analytics, the fine-tuned model generates graph and text summaries with sentiment scores as well as JSON representations of summaries. Higher levels perform hierarchical stacking that consolidates sets of graph-based and text-based summaries as well as summaries of summaries into comprehensive reports. T",
+    "company": "Mistral",
+    "title_zh": "使用 RAG 方法和经过微调的 Mistral 大语言模型对加密货币新闻进行多层次分析"
+  },
+  {
     "id": "2508.16762",
     "title": "Toward Socially Aware Vision-Language Models: Evaluating Cultural Competence Through Multimodal Story Generation",
     "authors": "Arka Mukherjee, Shreya Ghosh",
@@ -14104,6 +14715,20 @@
     "title_zh": "MMReview：基于法学硕士的同行评审自动化的多学科和多模式基准"
   },
   {
+    "id": "2508.10925",
+    "title": "gpt-oss-120b &amp; gpt-oss-20b Model Card",
+    "authors": " OpenAI,  :, Sandhini Agarwal et al.",
+    "year": 2025,
+    "date": "2025-08-08",
+    "cite": 0,
+    "tags": [
+      "OpenAI"
+    ],
+    "abstract": "We present gpt-oss-120b and gpt-oss-20b, two open-weight reasoning models that push the frontier of accuracy and inference cost. The models use an efficient mixture-of-expert transformer architecture and are trained using large-scale distillation and reinforcement learning. We optimize the models to have strong agentic capabilities (deep research browsing, python tool use, and support for developer-provided functions), all while using a rendered chat format that enables clear instruction followi",
+    "company": "OpenAI",
+    "title_zh": "gpt-oss-120b 和 gpt-oss-20b 型号卡"
+  },
+  {
     "id": "2507.19771",
     "title": "Large Language Model Agent for Structural Drawing Generation Using ReAct Prompt Engineering and Retrieval Augmented Generation",
     "authors": "Xin Zhang, Lissette Iturburu, Juan Nicolas Villamizar et al.",
@@ -14115,6 +14740,20 @@
     ],
     "abstract": "Structural drawings are widely used in many fields, e.g., mechanical engineering, civil engineering, etc. In civil engineering, structural drawings serve as the main communication tool between architects, engineers, and builders to avoid conflicts, act as legal documentation, and provide a reference for future maintenance or evaluation needs. They are often organized using key elements such as title/subtitle blocks, scales, plan views, elevation view, sections, and detailed sections, which are a",
     "title_zh": "使用 ReAct Prompt Engineering 和检索增强生成来生成结构图的大型语言模型代理"
+  },
+  {
+    "id": "2507.17944",
+    "title": "Evaluating the Performance of AI Text Detectors, Few-Shot and Chain-of-Thought Prompting Using DeepSeek Generated Text",
+    "authors": "Hulayyil Alshammari, Praveen Rao",
+    "year": 2025,
+    "date": "2025-07-23",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "Large language models (LLMs) have rapidly transformed the creation of written materials. LLMs have led to questions about writing integrity, thereby driving the creation of artificial intelligence (AI) detection technologies. Adversarial attacks, such as standard and humanized paraphrasing, inhibit detectors' ability to detect machine-generated text. Previous studies have mainly focused on ChatGPT and other well-known LLMs and have shown varying accuracy across detectors. However, there is a cle",
+    "company": "DeepSeek",
+    "title_zh": "使用 DeepSeek 生成的文本评估 AI 文本检测器、少镜头和思维链提示的性能"
   },
   {
     "id": "2507.10812",
@@ -14130,6 +14769,48 @@
     "title_zh": "对此做出反应 (RTT)：针对具体人工智能的非语言图灵测试"
   },
   {
+    "id": "2507.10468",
+    "title": "From BERT to Qwen: Hate Detection across architectures",
+    "authors": "Ariadna Mon, Saúl Fenollosa, Jon Lecumberri",
+    "year": 2025,
+    "date": "2025-07-14",
+    "cite": 0,
+    "tags": [
+      "Qwen"
+    ],
+    "abstract": "Online platforms struggle to curb hate speech without over-censoring legitimate discourse. Early bidirectional transformer encoders made big strides, but the arrival of ultra-large autoregressive LLMs promises deeper context-awareness. Whether this extra scale actually improves practical hate-speech detection on real-world text remains unverified. Our study puts this question to the test by benchmarking both model families, classic encoders and next-generation LLMs, on curated corpora of online ",
+    "company": "Qwen",
+    "title_zh": "从 BERT 到 Qwen：跨架构的仇恨检测"
+  },
+  {
+    "id": "2507.09955",
+    "title": "DeepSeek: Paradigm Shifts and Technical Evolution in Large AI Models",
+    "authors": "Luolin Xiong, Haofen Wang, Xi Chen et al.",
+    "year": 2025,
+    "date": "2025-07-14",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "DeepSeek, a Chinese Artificial Intelligence (AI) startup, has released their V3 and R1 series models, which attracted global attention due to their low cost, high performance, and open-source advantages. This paper begins by reviewing the evolution of large AI models focusing on paradigm shifts, the mainstream Large Language Model (LLM) paradigm, and the DeepSeek paradigm. Subsequently, the paper highlights novel algorithms introduced by DeepSeek, including Multi-head Latent Attention (MLA), Mix",
+    "company": "DeepSeek",
+    "title_zh": "DeepSeek：大型人工智能模型的范式转变和技术演变"
+  },
+  {
+    "id": "2507.08621",
+    "title": "A comprehensive study of LLM-based argument classification: from LLAMA through GPT-4o to Deepseek-R1",
+    "authors": "Marcin Pietroń, Rafał Olszowski, Jakub Gomułka et al.",
+    "year": 2025,
+    "date": "2025-07-11",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "Argument mining (AM) is an interdisciplinary research field that integrates insights from logic, philosophy, linguistics, rhetoric, law, psychology, and computer science. It involves the automatic identification and extraction of argumentative components, such as premises and claims, and the detection of relationships between them, such as support, attack, or neutrality. Recently, the field has advanced significantly, especially with the advent of large language models (LLMs), which have enhance",
+    "company": "DeepSeek",
+    "title_zh": "基于 LLM 的论点分类的综合研究：从 LLAMA 到 GPT-4o 到 Deepseek-R1"
+  },
+  {
     "id": "2507.06520",
     "title": "Gradientsys: A Multi-Agent LLM Scheduler with ReAct Orchestration",
     "authors": "Xinyuan Song, Zeyu Wang, Siyi Wu et al.",
@@ -14141,6 +14822,118 @@
     ],
     "abstract": "We present Gradientsys, a next-generation multi-agent scheduling framework that coordinates diverse specialized AI agents using a typed Model-Context Protocol (MCP) and a ReAct-based dynamic planning loop. At its core, Gradientsys employs an LLM-powered scheduler for intelligent one-to-many task dispatch, enabling parallel execution of heterogeneous agents such as PDF parsers, web search modules, GUI controllers, and web builders. The framework supports hybrid synchronous/asynchronous execution,",
     "title_zh": "Gradientsys：具有 ReAct Orchestration 的多代理 LLM 调度程序"
+  },
+  {
+    "id": "2507.05686",
+    "title": "Smoothie-Qwen: Post-Hoc Smoothing to Reduce Language Bias in Multilingual LLMs",
+    "authors": "SeungWon Ji, Jungyup Lee, Jemin Kim et al.",
+    "year": 2025,
+    "date": "2025-07-08",
+    "cite": 0,
+    "tags": [
+      "Qwen"
+    ],
+    "abstract": "Multilingual large language models (LLMs) often exhibit language confusion, a tendency to generate responses in a dominant language irrespective of the prompt's language. To address this, we propose Smoothie-Qwen, a lightweight, post-hoc method that mitigates language bias without retraining. This technique selectively adjusts token-level output probabilities to effectively suppress undesired language generation. Applied to the Qwen model, our method reduces unintended Chinese output by over 95%",
+    "company": "Qwen",
+    "title_zh": "Smoothie-Qwen：事后平滑减少多语言法学硕士中的语言偏差"
+  },
+  {
+    "id": "2506.23128",
+    "title": "Are Large Language Models Capable of Deep Relational Reasoning? Insights from DeepSeek-R1 and Benchmark Comparisons",
+    "authors": "Chi Chiu So, Yueyue Sun, Jun-Min Wang et al.",
+    "year": 2025,
+    "date": "2025-06-29",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "How far are Large Language Models (LLMs) in performing deep relational reasoning? In this paper, we evaluate and compare the reasoning capabilities of three cutting-edge LLMs, namely, DeepSeek-R1, DeepSeek-V3 and GPT-4o, through a suite of carefully designed benchmark tasks in family tree and general graph reasoning. Our experiments reveal that DeepSeek-R1 consistently achieves the highest F1-scores across multiple tasks and problem sizes, demonstrating strong aptitude in logical deduction and r",
+    "company": "DeepSeek",
+    "title_zh": "大型语言模型能够进行深度关系推理吗？ DeepSeek-R1 和基准比较的见解"
+  },
+  {
+    "id": "2506.19466",
+    "title": "KunLunBaizeRAG: Reinforcement Learning Driven Inference Performance Leap for Large Language Models",
+    "authors": "Cheng Li, Jiexiong Liu, Yixuan Chen et al.",
+    "year": 2025,
+    "date": "2025-06-24",
+    "cite": 0,
+    "tags": [
+      "Meta"
+    ],
+    "abstract": "This paper introduces KunLunBaizeRAG, a reinforcement learning-driven reasoning framework designed to enhance the reasoning capabilities of large language models (LLMs) in complex multi-hop question-answering tasks. The framework addresses key limitations of traditional RAG, such as retrieval drift, information redundancy, and strategy rigidity. Key innovations include the RAG-driven Reasoning Alignment (RDRA) mechanism, the Search-Think Iterative Enhancement (STIE) mechanism, the Network-Local ",
+    "company": "Meta",
+    "title_zh": "KunLunBaizeRAG：强化学习驱动大型语言模型推理性能飞跃"
+  },
+  {
+    "id": "2506.18543",
+    "title": "Security Assessment of DeepSeek and GPT Series Models against Jailbreak Attacks",
+    "authors": "Xiaodong Wu, Xiangman Li, Jianbing Ni",
+    "year": 2025,
+    "date": "2025-06-23",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "The widespread deployment of large language models (LLMs) has raised critical concerns over their vulnerability to jailbreak attacks, i.e., adversarial prompts that bypass alignment mechanisms and elicit harmful or policy-violating outputs. While proprietary models like GPT-4 have undergone extensive evaluation, the robustness of emerging open-source alternatives such as DeepSeek remains largely underexplored, despite their growing adoption in real-world applications. In this paper, we present t",
+    "company": "DeepSeek",
+    "title_zh": "DeepSeek和GPT系列模型针对越狱攻击的安全评估"
+  },
+  {
+    "id": "2506.18501",
+    "title": "Comparative Evaluation of ChatGPT and DeepSeek Across Key NLP Tasks: Strengths, Weaknesses, and Domain-Specific Performance",
+    "authors": "Wael Etaiwi, Bushra Alhijawi",
+    "year": 2025,
+    "date": "2025-06-23",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "The increasing use of large language models (LLMs) in natural language processing (NLP) tasks has sparked significant interest in evaluating their effectiveness across diverse applications. While models like ChatGPT and DeepSeek have shown strong results in many NLP domains, a comprehensive evaluation is needed to understand their strengths, weaknesses, and domain-specific abilities. This is critical as these models are applied to various tasks, from sentiment analysis to more nuanced tasks like",
+    "company": "DeepSeek",
+    "title_zh": "ChatGPT 和 DeepSeek 在关键 NLP 任务上的比较评估：优点、缺点和特定领域的性能"
+  },
+  {
+    "id": "2506.14104",
+    "title": "Innovating China's Intangible Cultural Heritage with DeepSeek + MidJourney: The Case of Yangliuqing theme Woodblock Prints",
+    "authors": "RuiKun Yang, ZhongLiang Wei, Longdi Xian",
+    "year": 2025,
+    "date": "2025-06-17",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "Yangliuqing woodblock prints, a cornerstone of China's intangible cultural heritage, are celebrated for their intricate designs and vibrant colors. However, preserving these traditional art forms while fostering innovation presents significant challenges. This study explores the DeepSeek + MidJourney approach to generating creative, themed Yangliuqing woodblock prints focused on the fight against COVID-19 and depicting joyous winners. Using Fréchet Inception Distance (FID) scores for evaluation,",
+    "company": "DeepSeek",
+    "title_zh": "DeepSeek+MidJourney创新中国非物质文化遗产——以杨柳青题材木刻版画为例"
+  },
+  {
+    "id": "2506.13596",
+    "title": "Qwen vs. Gemma Integration with Whisper: A Comparative Study in Multilingual SpeechLLM Systems",
+    "authors": "Tuan Nguyen, Long-Vu Hoang, Huy-Dat Tran",
+    "year": 2025,
+    "date": "2025-06-16",
+    "cite": 0,
+    "tags": [
+      "Qwen"
+    ],
+    "abstract": "This paper presents our system for the MLC-SLM Challenge 2025, focusing on multilingual speech recognition and language modeling with large language models (LLMs). Our approach combines a fine-tuned Whisper-large-v3 encoder with efficient projector architectures and various decoder configurations. We employ a three-stage training methodology that progressively optimizes the encoder, projector, and LLM components. Our system achieves competitive performance with a private test average WER/CER res",
+    "company": "Qwen",
+    "title_zh": "Qwen 与 Gemma 与 Whisper 的集成：多语言语音LLM 系统的比较研究"
+  },
+  {
+    "id": "2506.12349",
+    "title": "Information Suppression in Large Language Models: Auditing, Quantifying, and Characterizing Censorship in DeepSeek",
+    "authors": "Peiran Qiu, Siyi Zhou, Emilio Ferrara",
+    "year": 2025,
+    "date": "2025-06-14",
+    "cite": 0,
+    "tags": [
+      "DeepSeek"
+    ],
+    "abstract": "This study examines information suppression mechanisms in DeepSeek, an open-source large language model (LLM) developed in China. We propose an auditing framework and use it to analyze the model's responses to 646 politically sensitive prompts by comparing its final output with intermediate chain-of-thought (CoT) reasoning. Our audit unveils evidence of semantic-level information suppression in DeepSeek: sensitive content often appears within the model's internal reasoning but is omitted or reph",
+    "company": "DeepSeek",
+    "title_zh": "大型语言模型中的信息抑制：DeepSeek 中的审查、量化和特征化审查"
   },
   {
     "id": "2506.08173",
@@ -14169,6 +14962,20 @@
     "title_zh": "CheMatAgent：通过基于树搜索的工具学习增强化学和材料科学的法学硕士"
   },
   {
+    "id": "2506.07617",
+    "title": "Vuyko Mistral: Adapting LLMs for Low-Resource Dialectal Translation",
+    "authors": "Roman Kyslyi, Yuliia Maksymiuk, Ihor Pysmennyi",
+    "year": 2025,
+    "date": "2025-06-09",
+    "cite": 0,
+    "tags": [
+      "Mistral"
+    ],
+    "abstract": "In this paper we introduce the first effort to adapt large language models (LLMs) to the Ukrainian dialect (in our case Hutsul), a low-resource and morphologically complex dialect spoken in the Carpathian Highlands. We created a parallel corpus of 9852 dialect-to-standard Ukrainian sentence pairs and a dictionary of 7320 dialectal word mappings. We also addressed data shortage by proposing an advanced Retrieval-Augmented Generation (RAG) pipeline to generate synthetic parallel translation pairs,",
+    "company": "Mistral",
+    "title_zh": "Vuyko Mistral：使法学硕士适应资源匮乏的方言翻译"
+  },
+  {
     "id": "2506.00042",
     "title": "Enhancing Tool Learning in Large Language Models with Hierarchical Error Checklists",
     "authors": "Yue Cui, Liuyi Yao, Shuchang Tao et al.",
@@ -14180,6 +14987,20 @@
     ],
     "abstract": "Large language models (LLMs) have significantly advanced natural language processing, particularly through the integration of external tools and APIs. However, their effectiveness is frequently hampered by parameter mis-filling during tool calling. In this paper, we propose the Hierarchical Tool Error Checklist (HiTEC) framework to systematically diagnose and mitigate tool-calling errors without relying on extensive real-world interactions. HiTEC introduces a two-tiered approach: a global error ",
     "title_zh": "通过分层错误检查表增强大型语言模型中的工具学习"
+  },
+  {
+    "id": "2505.23831",
+    "title": "ICH-Qwen: A Large Language Model Towards Chinese Intangible Cultural Heritage",
+    "authors": "Wenhao Ye, Tiansheng Zheng, Yue Qi et al.",
+    "year": 2025,
+    "date": "2025-05-28",
+    "cite": 0,
+    "tags": [
+      "Qwen"
+    ],
+    "abstract": "The intangible cultural heritage (ICH) of China, a cultural asset transmitted across generations by various ethnic groups, serves as a significant testament to the evolution of human civilization and holds irreplaceable value for the preservation of historical lineage and the enhancement of cultural self-confidence. However, the rapid pace of modernization poses formidable challenges to ICH, including threats damage, disappearance and discontinuity of inheritance. China has the highest number of",
+    "company": "Qwen",
+    "title_zh": "ICH-Qwen：中国非物质文化遗产大语言模型"
   },
   {
     "id": "2505.20670",
@@ -14260,6 +15081,20 @@
     "title_zh": "UAV-CodeAgents：通过多代理 ReAct 和视觉语言推理进行可扩展的无人机任务规划"
   },
   {
+    "id": "2505.04640",
+    "title": "A Comparative Benchmark of a Moroccan Darija Toxicity Detection Model (Typica.ai) and Major LLM-Based Moderation APIs (OpenAI, Mistral, Anthropic)",
+    "authors": "Hicham Assoudi",
+    "year": 2025,
+    "date": "2025-05-05",
+    "cite": 0,
+    "tags": [
+      "Mistral"
+    ],
+    "abstract": "This paper presents a comparative benchmark evaluating the performance of Typica.ai's custom Moroccan Darija toxicity detection model against major LLM-based moderation APIs: OpenAI (omni-moderation-latest), Mistral (mistral-moderation-latest), and Anthropic Claude (claude-3-haiku-20240307). We focus on culturally grounded toxic content, including implicit insults, sarcasm, and culturally specific aggression often overlooked by general-purpose systems. Using a balanced test set derived from the ",
+    "company": "Mistral",
+    "title_zh": "摩洛哥 Darija 毒性检测模型 (Typica.ai) 和主要基于 LLM 的审核 API（OpenAI、Mistral、Anthropic）的比较基准"
+  },
+  {
     "id": "2504.13958",
     "title": "ToolRL: Reward is All Tool Learning Needs",
     "authors": "Cheng Qian, Emre Can Acikgoz, Qi He et al.",
@@ -14284,6 +15119,20 @@
     ],
     "abstract": "Tool learning, which allows Large Language Models (LLMs) to leverage external tools for solving complex user tasks, has emerged as a promising avenue for extending model capabilities. However, existing approaches primarily focus on data synthesis for fine-tuning LLMs to invoke tools effectively, largely ignoring how to fully stimulate the potential of the model. In this paper, we propose ToolACE-R, a novel framework that includes both model-aware iterative training and adaptive refinement for to",
     "title_zh": "ToolACE-R：工具学习的模型感知迭代训练和自适应细化"
+  },
+  {
+    "id": "2504.02888",
+    "title": "A Status Quo Investigation of Large Language Models towards Cost-Effective CFD Automation with OpenFOAMGPT: ChatGPT vs. Qwen vs. Deepseek",
+    "authors": "Wenkang Wang, Ran Xu, Jingsen Feng et al.",
+    "year": 2025,
+    "date": "2025-04-02",
+    "cite": 0,
+    "tags": [
+      "Qwen"
+    ],
+    "abstract": "We evaluated the performance of OpenFOAMGPT incorporating multiple large-language models. Some of the present models efficiently manage different CFD tasks such as adjusting boundary conditions, turbulence models, and solver configurations, although their token cost and stability vary. Locally deployed smaller models like QwQ-32B struggled with generating valid solver files for complex processes. Zero-shot prompting commonly failed in simulations with intricate settings, even for large models. C",
+    "company": "Qwen",
+    "title_zh": "使用 OpenFOAMGPT 对大型语言模型实现经济有效的 CFD 自动化的现状调查：ChatGPT、Qwen 与 Deepseek"
   },
   {
     "id": "2503.10071",
@@ -14323,6 +15172,34 @@
     ],
     "abstract": "Tool learning has emerged as a promising direction by extending Large Language Models' (LLMs) capabilities with external tools. Existing tool learning studies primarily focus on the general-purpose tool-use capability, which addresses explicit user requirements in instructions. However, they overlook the importance of personalized tool-use capability, leading to an inability to handle implicit user preferences. To address the limitation, we first formulate the task of personalized tool learning,",
     "title_zh": "PEToolLLM：走向大型语言模型中的个性化工具学习"
+  },
+  {
+    "id": "2502.16428",
+    "title": "Visual Reasoning Evaluation of Grok, Deepseek Janus, Gemini, Qwen, Mistral, and ChatGPT",
+    "authors": "Nidhal Jegham, Marwan Abdelatti, Abdeltawab Hendawi",
+    "year": 2025,
+    "date": "2025-02-23",
+    "cite": 0,
+    "tags": [
+      "Mistral"
+    ],
+    "abstract": "Traditional evaluations of multimodal large language models (LLMs) have been limited by their focus on single-image reasoning, failing to assess crucial aspects like contextual understanding, reasoning stability, and uncertainty calibration. This study addresses these limitations by introducing a novel benchmark that integrates multi-image reasoning tasks with rejection-based evaluation and positional bias detection. To evaluate these dimensions, we further introduce entropy as a novel metric fo",
+    "company": "Qwen",
+    "title_zh": "Grok、Deepseek Janus、Gemini、Qwen、Mistral 和 ChatGPT 的视觉推理评估"
+  },
+  {
+    "id": "2502.16274",
+    "title": "Fine-Tuning Qwen 2.5 3B for Realistic Movie Dialogue Generation",
+    "authors": "Kartik Gupta",
+    "year": 2025,
+    "date": "2025-02-22",
+    "cite": 0,
+    "tags": [
+      "Qwen"
+    ],
+    "abstract": "The Qwen 2.5 3B base model was fine-tuned to generate contextually rich and engaging movie dialogue, leveraging the Cornell Movie-Dialog Corpus, a curated dataset of movie conversations. Due to the limitations in GPU computing and VRAM, the training process began with the 0.5B model progressively scaling up to the 1.5B and 3B versions as efficiency improvements were implemented. The Qwen 2.5 series, developed by Alibaba Group, stands at the forefront of small open-source pre-trained models, part",
+    "company": "Qwen",
+    "title_zh": "微调 Qwen 2.5 3B 以生成逼真的电影对话"
   },
   {
     "id": "2503.16451",
@@ -14377,6 +15254,20 @@
     "title_zh": "从 PowerPoint UI 草图到基于 Web 的应用程序：使用知识增强的 LLM、上下文感知视觉提示和 React 框架为 GIS 仪表板开发生成模式驱动的代码"
   },
   {
+    "id": "2502.06807",
+    "title": "Competitive Programming with Large Reasoning Models",
+    "authors": " OpenAI,  :, Ahmed El-Kishky et al.",
+    "year": 2025,
+    "date": "2025-02-03",
+    "cite": 0,
+    "tags": [
+      "OpenAI"
+    ],
+    "abstract": "We show that reinforcement learning applied to large language models (LLMs) significantly boosts performance on complex coding and reasoning tasks. Additionally, we compare two general-purpose reasoning models - OpenAI o1 and an early checkpoint of o3 - with a domain-specific system, o1-ioi, which uses hand-engineered inference strategies designed for competing in the 2024 International Olympiad in Informatics (IOI). We competed live at IOI 2024 with o1-ioi and, using hand-crafted test-time stra",
+    "company": "OpenAI",
+    "title_zh": "大型推理模型的竞争性编程"
+  },
+  {
     "id": "2501.12948",
     "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
     "authors": "DeepSeek AI",
@@ -14405,6 +15296,20 @@
     "title_zh": "先分后聚合：一种通过并行工具调用的高效工具学习方法"
   },
   {
+    "id": "2501.09813",
+    "title": "Qwen it detect machine-generated text?",
+    "authors": "Teodor-George Marchitan, Claudiu Creanga, Liviu P. Dinu",
+    "year": 2025,
+    "date": "2025-01-16",
+    "cite": 0,
+    "tags": [
+      "Qwen"
+    ],
+    "abstract": "This paper describes the approach of the Unibuc - NLP team in tackling the Coling 2025 GenAI Workshop, Task 1: Binary Multilingual Machine-Generated Text Detection. We explored both masked language models and causal models. For Subtask A, our best model achieved first-place out of 36 teams when looking at F1 Micro (Auxiliary Score) of 0.8333, and second-place when looking at F1 Macro (Main Score) of 0.8301",
+    "company": "Qwen",
+    "title_zh": "它检测机器生成的文本吗？"
+  },
+  {
     "id": "2501.09223",
     "title": "MCP: Model Context Protocol for Tool-Augmented LLMs",
     "authors": "Anthropic",
@@ -14420,6 +15325,34 @@
     "title_zh": "MCP：工具增强法学硕士的模型上下文协议"
   },
   {
+    "id": "2412.16720",
+    "title": "OpenAI o1 System Card",
+    "authors": " OpenAI,  :, Aaron Jaech et al.",
+    "year": 2024,
+    "date": "2024-12-21",
+    "cite": 0,
+    "tags": [
+      "OpenAI"
+    ],
+    "abstract": "The o1 model series is trained with large-scale reinforcement learning to reason using chain of thought. These advanced reasoning capabilities provide new avenues for improving the safety and robustness of our models. In particular, our models can reason about our safety policies in context when responding to potentially unsafe prompts, through deliberative alignment. This leads to state-of-the-art performance on certain benchmarks for risks such as generating illicit advice, choosing stereotype",
+    "company": "OpenAI",
+    "title_zh": "OpenAI o1 系统卡"
+  },
+  {
+    "id": "2412.03223",
+    "title": "Linq-Embed-Mistral Technical Report",
+    "authors": "Chanyeol Choi, Junseong Kim, Seolhwa Lee et al.",
+    "year": 2024,
+    "date": "2024-12-04",
+    "cite": 0,
+    "tags": [
+      "Mistral"
+    ],
+    "abstract": "This report explores the enhancement of text retrieval performance using advanced data refinement techniques. We develop Linq-Embed-Mistral\\footnote{\\url{https://huggingface.co/Linq-AI-Research/Linq-Embed-Mistral}} by building on the E5-mistral and Mistral-7B-v0.1 models, focusing on sophisticated data crafting, data filtering, and negative mining methods, which are highly tailored to each task, applied to both existing benchmark dataset and highly tailored synthetic dataset generated via large ",
+    "company": "Mistral",
+    "title_zh": "Linq-Embed-Mistral 技术报告"
+  },
+  {
     "id": "2412.01262",
     "title": "Exploring ReAct Prompting for Task-Oriented Dialogue: Insights and Shortcomings",
     "authors": "Michelle Elizabeth, Morgan Veyret, Miguel Couceiro et al.",
@@ -14431,6 +15364,20 @@
     ],
     "abstract": "Large language models (LLMs) gained immense popularity due to their impressive capabilities in unstructured conversations. Empowering LLMs with advanced prompting strategies such as reasoning and acting (ReAct) (Yao et al., 2022) has shown promise in solving complex tasks traditionally requiring reinforcement learning. In this work, we apply the ReAct strategy to guide LLMs performing task-oriented dialogue (TOD). We evaluate ReAct-based LLMs (ReAct-LLMs) both in simulation and with real users. ",
     "title_zh": "探索面向任务的对话的 ReAct 提示：见解和缺点"
+  },
+  {
+    "id": "2410.21276",
+    "title": "GPT-4o System Card",
+    "authors": " OpenAI,  :, Aaron Hurst et al.",
+    "year": 2024,
+    "date": "2024-10-25",
+    "cite": 0,
+    "tags": [
+      "OpenAI"
+    ],
+    "abstract": "GPT-4o is an autoregressive omni model that accepts as input any combination of text, audio, image, and video, and generates any combination of text, audio, and image outputs. It's trained end-to-end across text, vision, and audio, meaning all inputs and outputs are processed by the same neural network. GPT-4o can respond to audio inputs in as little as 232 milliseconds, with an average of 320 milliseconds, which is similar to human response time in conversation. It matches GPT-4 Turbo performan",
+    "company": "OpenAI",
+    "title_zh": "GPT-4o 系统卡"
   },
   {
     "id": "2410.16950",
@@ -14470,6 +15417,48 @@
     ],
     "abstract": "Large language models (LLMs) have significantly improved their reasoning and decision-making capabilities, as seen in methods like ReAct. However, despite its effectiveness in tackling complex tasks, ReAct faces two main challenges: losing focus on the original question and becoming stuck in action loops. To address these issues, we introduce Focused ReAct, an enhanced version of the ReAct paradigm that incorporates reiteration and early stop mechanisms. These improvements help the model stay fo",
     "title_zh": "聚焦 ReAct：通过重申和提前停止改进 ReAct"
+  },
+  {
+    "id": "2409.00084",
+    "title": "Vision-Language and Large Language Model Performance in Gastroenterology: GPT, Claude, Llama, Phi, Mistral, Gemma, and Quantized Models",
+    "authors": "Seyed Amir Ahmad Safavi-Naini, Shuhaib Ali, Omer Shahab et al.",
+    "year": 2024,
+    "date": "2024-08-25",
+    "cite": 0,
+    "tags": [
+      "Mistral"
+    ],
+    "abstract": "Background and Aims: This study evaluates the medical reasoning performance of large language models (LLMs) and vision language models (VLMs) in gastroenterology. Methods: We used 300 gastroenterology board exam-style multiple-choice questions, 138 of which contain images to systematically assess the impact of model configurations and parameters and prompt engineering strategies utilizing GPT-3.5. Next, we assessed the performance of proprietary and open-source LLMs (versions), including GPT (3.",
+    "company": "Mistral",
+    "title_zh": "胃肠病学中的视觉语言和大型语言模型性能：GPT、Claude、Llama、Phi、Mistral、Gemma 和量化模型"
+  },
+  {
+    "id": "2408.11119",
+    "title": "Mistral-SPLADE: LLMs for better Learned Sparse Retrieval",
+    "authors": "Meet Doshi, Vishwajeet Kumar, Rudra Murthy et al.",
+    "year": 2024,
+    "date": "2024-08-20",
+    "cite": 0,
+    "tags": [
+      "Mistral"
+    ],
+    "abstract": "Learned Sparse Retrievers (LSR) have evolved into an effective retrieval strategy that can bridge the gap between traditional keyword-based sparse retrievers and embedding-based dense retrievers. At its core, learned sparse retrievers try to learn the most important semantic keyword expansions from a query and/or document which can facilitate better retrieval with overlapping keyword expansions. LSR like SPLADE has typically been using encoder only models with MLM (masked language modeling) styl",
+    "company": "Mistral",
+    "title_zh": "Mistral-SPLADE：法学硕士可更好地学习稀疏检索"
+  },
+  {
+    "id": "2408.03127",
+    "title": "Lisbon Computational Linguists at SemEval-2024 Task 2: Using A Mistral 7B Model and Data Augmentation",
+    "authors": "Artur Guimarães, Bruno Martins, João Magalhães",
+    "year": 2024,
+    "date": "2024-08-06",
+    "cite": 0,
+    "tags": [
+      "Mistral"
+    ],
+    "abstract": "This paper describes our approach to the SemEval-2024 safe biomedical Natural Language Inference for Clinical Trials (NLI4CT) task, which concerns classifying statements about Clinical Trial Reports (CTRs). We explored the capabilities of Mistral-7B, a generalist open-source Large Language Model (LLM). We developed a prompt for the NLI4CT task, and fine-tuned a quantized version of the model using an augmented version of the training dataset. The experimental results show that this approach can ",
+    "company": "Mistral",
+    "title_zh": "里斯本计算语言学家参加 SemEval-2024 任务 2：使用 Mistral 7B 模型和数据增强"
   },
   {
     "id": "2407.10671",
@@ -14526,6 +15515,20 @@
     ],
     "abstract": "Personalized large language models (LLMs) have attracted great attention in many applications, such as emotional support and role-playing. However, existing works primarily focus on modeling explicit character profiles, while ignoring the underlying personality traits that truly shape behaviors and decision-making, hampering the development of more anthropomorphic and psychologically-grounded AI systems. In this paper, we explore the modeling of Big Five personality traits, which is the most wid",
     "title_zh": "P-React：通过专业 LoRA 专家的混合综合个性特征的主题自适应反应"
+  },
+  {
+    "id": "2406.08657",
+    "title": "Mistral-C2F: Coarse to Fine Actor for Analytical and Reasoning Enhancement in RLHF and Effective-Merged LLMs",
+    "authors": "Chen Zheng, Ke Sun, Xun Zhou",
+    "year": 2024,
+    "date": "2024-06-12",
+    "cite": 0,
+    "tags": [
+      "Mistral"
+    ],
+    "abstract": "Despite the advances in Large Language Models (LLMs), exemplified by models like GPT-4 and Claude, smaller-scale LLMs such as Llama and Mistral often struggle with generating in-depth and coherent dialogues. This paper presents a novel two-step Coarse-to-Fine Actor model to address the inherent limitations in conversational and analytical capabilities of small-sized LLMs. Our approach begins with the Policy-based Coarse Actor, employing a technique we term \"Continuous Maximization\". The Coarse A",
+    "company": "Mistral",
+    "title_zh": "Mistral-C2F：从粗到细的演员，用于增强 RLHF 和有效合并的法学硕士的分析和推理能力"
   },
   {
     "id": "2406.07572",
@@ -14593,6 +15596,20 @@
     "title_zh": "Seal-Tools：用于代理调优和详细基准的自指导工具学习数据集"
   },
   {
+    "id": "2405.05444",
+    "title": "Evaluating Students' Open-ended Written Responses with LLMs: Using the RAG Framework for GPT-3.5, GPT-4, Claude-3, and Mistral-Large",
+    "authors": "Jussi S. Jauhiainen, Agustín Garagorry Guerra",
+    "year": 2024,
+    "date": "2024-05-08",
+    "cite": 0,
+    "tags": [
+      "Mistral"
+    ],
+    "abstract": "Evaluating open-ended written examination responses from students is an essential yet time-intensive task for educators, requiring a high degree of effort, consistency, and precision. Recent developments in Large Language Models (LLMs) present a promising opportunity to balance the need for thorough evaluation with efficient use of educators' time. In our study, we explore the effectiveness of LLMs ChatGPT-3.5, ChatGPT-4, Claude-3, and Mistral-Large in assessing university students' open-ended a",
+    "company": "Mistral",
+    "title_zh": "评估法学硕士学生的开放式书面回答：使用 GPT-3.5、GPT-4、Claude-3 和 Mistral-Large 的 RAG 框架"
+  },
+  {
     "id": "2404.19756",
     "title": "Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone",
     "authors": "Abdin et al., Microsoft",
@@ -14621,6 +15638,48 @@
     ],
     "abstract": "We present AutoCodeRover, an automated approach for program improvement combining LLMs with sophisticated code search.",
     "title_zh": "AutoCodeRover：自主程序改进"
+  },
+  {
+    "id": "2404.09785",
+    "title": "Benchmarking Llama2, Mistral, Gemma and GPT for Factuality, Toxicity, Bias and Propensity for Hallucinations",
+    "authors": "David Nadeau, Mike Kroutikov, Karen McNeil et al.",
+    "year": 2024,
+    "date": "2024-04-15",
+    "cite": 0,
+    "tags": [
+      "Mistral"
+    ],
+    "abstract": "This paper introduces fourteen novel datasets for the evaluation of Large Language Models' safety in the context of enterprise tasks. A method was devised to evaluate a model's safety, as determined by its ability to follow instructions and output factual, unbiased, grounded, and appropriate content. In this research, we used OpenAI GPT as point of comparison since it excels at all levels of safety. On the open-source side, for smaller models, Meta Llama2 performs well at factuality and toxicity",
+    "company": "Mistral",
+    "title_zh": "对 Llama2、Mistral、Gemma 和 GPT 的真实性、毒性、偏见和幻觉倾向进行基准测试"
+  },
+  {
+    "id": "2404.09138",
+    "title": "From Bytes to Borsch: Fine-Tuning Gemma and Mistral for the Ukrainian Language Representation",
+    "authors": "Artur Kiulian, Anton Polishko, Mykola Khandoga et al.",
+    "year": 2024,
+    "date": "2024-04-14",
+    "cite": 0,
+    "tags": [
+      "Mistral"
+    ],
+    "abstract": "In the rapidly advancing field of AI and NLP, generative large language models (LLMs) stand at the forefront of innovation, showcasing unparalleled abilities in text understanding and generation. However, the limited representation of low-resource languages like Ukrainian poses a notable challenge, restricting the reach and relevance of this technology. Our paper addresses this by fine-tuning the open-source Gemma and Mistral LLMs with Ukrainian datasets, aiming to improve their linguistic profi",
+    "company": "Mistral",
+    "title_zh": "从字节到罗宋汤：针对乌克兰语言表示微调 Gemma 和 Mistral"
+  },
+  {
+    "id": "2404.08940",
+    "title": "Introducing Super RAGs in Mistral 8x7B-v1",
+    "authors": "Ayush Thakur, Raghav Gupta",
+    "year": 2024,
+    "date": "2024-04-13",
+    "cite": 0,
+    "tags": [
+      "Mistral"
+    ],
+    "abstract": "The relentless pursuit of enhancing Large Language Models (LLMs) has led to the advent of Super Retrieval-Augmented Generation (Super RAGs), a novel approach designed to elevate the performance of LLMs by integrating external knowledge sources with minimal structural modifications. This paper presents the integration of Super RAGs into the Mistral 8x7B v1, a state-of-the-art LLM, and examines the resultant improvements in accuracy, speed, and user satisfaction. Our methodology uses a fine-tuned ",
+    "company": "Mistral",
+    "title_zh": "Mistral 8x7B-v1 中引入超级 RAG"
   },
   {
     "id": "2404.03359",
@@ -14660,6 +15719,19 @@
     ],
     "abstract": "Language agents have demonstrated autonomous decision-making abilities by reasoning with foundation models. Recently, efforts have been made to train language agents for performance improvement, with multi-step reasoning and action trajectories as the training data. However, collecting such trajectories still requires considerable human effort, by either artificial annotation or implementations of diverse prompting frameworks. In this work, we propose A$^3$T, a framework that enables the Autonom",
     "title_zh": "ReAct 遇上 ActRe：当语言代理享受训练数据自主权时"
+  },
+  {
+    "id": "2403.15470",
+    "title": "Vi-Mistral-X: Building a Vietnamese Language Model with Advanced Continual Pre-training",
+    "authors": "James Vo",
+    "year": 2024,
+    "date": "2024-03-20",
+    "cite": 0,
+    "tags": [
+      "Mistral"
+    ],
+    "abstract": "The advancement of Large Language Models (LLMs) has significantly transformed the field of natural language processing, although the focus on English-centric models has created a noticeable research gap for specific languages, including Vietnamese. To address this issue, this paper presents vi-mistral-x, an innovative Large Language Model designed expressly for the Vietnamese language. It utilizes a unique method of continual pre-training, based on the Mistral architecture, which incorporates gr",
+    "company": "Mistral"
   },
   {
     "id": "2403.07714",
@@ -14751,6 +15823,20 @@
     ],
     "abstract": "Tool learning is widely acknowledged as a foundational approach or deploying large language models (LLMs) in real-world scenarios. While current research primarily emphasizes leveraging tools to augment LLMs, it frequently neglects emerging safety considerations tied to their application. To fill this gap, we present *ToolSword*, a comprehensive framework dedicated to meticulously investigating safety issues linked to LLMs in tool learning. Specifically, ToolSword delineates six safety scenarios",
     "title_zh": "ToolSword：分三个阶段揭示工具学习中大语言模型的安全问题"
+  },
+  {
+    "id": "2401.13565",
+    "title": "Large Malaysian Language Model Based on Mistral for Enhanced Local Language Understanding",
+    "authors": "Husein Zolkepli, Aisyah Razak, Kamarul Adha et al.",
+    "year": 2024,
+    "date": "2024-01-24",
+    "cite": 0,
+    "tags": [
+      "Mistral"
+    ],
+    "abstract": "In this paper, we present significant advancements in the pretraining of Mistral 7B, a large-scale language model, using a dataset of 32.6 GB, equivalent to 1.1 billion tokens. We explore the impact of extending the context length, releasing models with context lengths of 4096 and 32768 tokens, and further refining performance with a specialized 16384 context length instruction-tuned model, we called it Malaysian Mistral. Our experiments demonstrate the efficacy of continue pretraining and the i",
+    "company": "Mistral",
+    "title_zh": "基于 Mistral 的大型马来西亚语言模型，用于增强本地语言理解"
   },
   {
     "id": "2401.08326",
@@ -14874,6 +15960,20 @@
     "title_zh": "像人类一样做出反应：通过对可怕和令人震惊的事件进行基于声音的反应，将人类内在行为融入 NAO 中，以增强社交能力"
   },
   {
+    "id": "2311.07919",
+    "title": "Qwen-Audio: Advancing Universal Audio Understanding via Unified Large-Scale Audio-Language Models",
+    "authors": "Yunfei Chu, Jin Xu, Xiaohuan Zhou et al.",
+    "year": 2023,
+    "date": "2023-11-14",
+    "cite": 0,
+    "tags": [
+      "Qwen"
+    ],
+    "abstract": "Recently, instruction-following audio-language models have received broad attention for audio interaction with humans. However, the absence of pre-trained audio models capable of handling diverse audio types and tasks has hindered progress in this field. Consequently, most existing works have only been able to support a limited range of interaction capabilities. In this paper, we develop the Qwen-Audio model and address this limitation by scaling up audio-language pre-training to cover over 30 t",
+    "company": "Qwen",
+    "title_zh": "Qwen-Audio：通过统一的大规模音频语言模型推进通用音频理解"
+  },
+  {
     "id": "2310.08034",
     "title": "Receive, Reason, and React: Drive as You Say with Large Language Models in Autonomous Vehicles",
     "authors": "Can Cui, Yunsheng Ma, Xu Cao et al.",
@@ -14899,7 +15999,22 @@
       "Open-source"
     ],
     "abstract": "We introduce Mistral 7B, a 7-billion-parameter language model engineered for superior performance and efficiency.",
-    "title_zh": "米斯特拉尔7B"
+    "title_zh": "米斯特拉尔7B",
+    "company": "Mistral"
+  },
+  {
+    "id": "2309.16609",
+    "title": "Qwen Technical Report",
+    "authors": "Jinze Bai, Shuai Bai, Yunfei Chu et al.",
+    "year": 2023,
+    "date": "2023-09-28",
+    "cite": 0,
+    "tags": [
+      "Qwen"
+    ],
+    "abstract": "Large language models (LLMs) have revolutionized the field of artificial intelligence, enabling natural language processing tasks that were previously thought to be exclusive to humans. In this work, we introduce Qwen, the first installment of our large language model series. Qwen is a comprehensive language model series that encompasses distinct models with varying parameter counts. It includes Qwen, the base pretrained language models, and Qwen-Chat, the chat models finetuned with human alignm",
+    "company": "Qwen",
+    "title_zh": "Qwen技术报告"
   },
   {
     "id": "2309.07864",
@@ -14928,6 +16043,19 @@
     ],
     "abstract": "Augmenting large language models (LLMs) with external tools has emerged as a promising approach to extending the capability of LLMs. Although some works employ open-source LLMs for the tool learning task, most of them are trained in a controlled environment in which LLMs only learn to execute the human-provided tools. However, selecting proper tools from the large toolset is also a crucial ability for the tool learning model to be applied in real-world applications. Existing methods usually dire",
     "title_zh": "孔子：从易到难的课程内省反馈的迭代工具学习"
+  },
+  {
+    "id": "2308.12966",
+    "title": "Qwen-VL: A Versatile Vision-Language Model for Understanding, Localization, Text Reading, and Beyond",
+    "authors": "Jinze Bai, Shuai Bai, Shusheng Yang et al.",
+    "year": 2023,
+    "date": "2023-08-24",
+    "cite": 0,
+    "tags": [
+      "Qwen"
+    ],
+    "abstract": "In this work, we introduce the Qwen-VL series, a set of large-scale vision-language models (LVLMs) designed to perceive and understand both texts and images. Starting from the Qwen-LM as a foundation, we endow it with visual capacity by the meticulously designed (i) visual receptor, (ii) input-output interface, (iii) 3-stage training pipeline, and (iv) multilingual multimodal cleaned corpus. Beyond the conventional image description and question-answering, we implement the grounding and text-rea",
+    "company": "Qwen"
   },
   {
     "id": "2308.11432",
@@ -15052,7 +16180,8 @@
       "Multimodal"
     ],
     "abstract": "We report the development of GPT-4, a large-scale, multimodal model which can accept image and text inputs and produce text outputs.",
-    "title_zh": "GPT-4 技术报告"
+    "title_zh": "GPT-4 技术报告",
+    "company": "OpenAI"
   },
   {
     "id": "2303.11381",
@@ -15225,6 +16354,20 @@
     "title_zh": "LoRA：大型语言模型的低秩适应"
   },
   {
+    "id": "2101.04882",
+    "title": "Asymmetric self-play for automatic goal discovery in robotic manipulation",
+    "authors": "OpenAI OpenAI, Matthias Plappert, Raul Sampedro et al.",
+    "year": 2021,
+    "date": "2021-01-13",
+    "cite": 0,
+    "tags": [
+      "OpenAI"
+    ],
+    "abstract": "We train a single, goal-conditioned policy that can solve many robotic manipulation tasks, including tasks with previously unseen goals and objects. We rely on asymmetric self-play for goal discovery, where two agents, Alice and Bob, play a game. Alice is asked to propose challenging goals and Bob aims to solve them. We show that this method can discover highly diverse and complex goals without any human priors. Bob can be trained with only sparse rewards, because the interaction between Alice a",
+    "company": "OpenAI",
+    "title_zh": "机器人操作中自动目标发现的非对称自我对弈"
+  },
+  {
     "id": "2005.11401",
     "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
     "authors": "Lewis et al., Facebook AI",
@@ -15238,5 +16381,33 @@
     ],
     "abstract": "We explore a general-purpose fine-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric memory for language generation.",
     "title_zh": "知识密集型 NLP 任务的检索增强生成"
+  },
+  {
+    "id": "1910.07113",
+    "title": "Solving Rubik's Cube with a Robot Hand",
+    "authors": " OpenAI, Ilge Akkaya, Marcin Andrychowicz et al.",
+    "year": 2019,
+    "date": "2019-10-16",
+    "cite": 0,
+    "tags": [
+      "OpenAI"
+    ],
+    "abstract": "We demonstrate that models trained only in simulation can be used to solve a manipulation problem of unprecedented complexity on a real robot. This is made possible by two key components: a novel algorithm, which we call automatic domain randomization (ADR) and a robot platform built for machine learning. ADR automatically generates a distribution over randomized environments of ever-increasing difficulty. Control policies and vision state estimators trained with ADR exhibit vastly improved sim2",
+    "company": "OpenAI",
+    "title_zh": "用机械手解魔方"
+  },
+  {
+    "id": "1808.00177",
+    "title": "Learning Dexterous In-Hand Manipulation",
+    "authors": " OpenAI, Marcin Andrychowicz, Bowen Baker et al.",
+    "year": 2018,
+    "date": "2018-08-01",
+    "cite": 0,
+    "tags": [
+      "OpenAI"
+    ],
+    "abstract": "We use reinforcement learning (RL) to learn dexterous in-hand manipulation policies which can perform vision-based object reorientation on a physical Shadow Dexterous Hand. The training is performed in a simulated environment in which we randomize many of the physical properties of the system like friction coefficients and an object's appearance. Our policies transfer to the physical robot despite being trained entirely in simulation. Our method does not rely on any human demonstrations, but man",
+    "company": "OpenAI",
+    "title_zh": "学习灵巧的手部操作"
   }
 ]

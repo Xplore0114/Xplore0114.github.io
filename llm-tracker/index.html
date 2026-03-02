@@ -53,6 +53,23 @@ header p{opacity:.8;font-size:.9rem}
 .loading{text-align:center;padding:3rem;color:#999}
 footer{text-align:center;padding:2rem;color:#aaa;font-size:.8rem}
 @media(max-width:700px){.toolbar{flex-direction:column}.topic-grid{grid-template-columns:1fr}}
+
+.ticker-section{background:white;border-top:1px solid #eee;padding:.8rem 0}
+.ticker-header{max-width:1000px;margin:0 auto .5rem;padding:0 1rem;display:flex;justify-content:space-between;align-items:center;font-size:.85rem;font-weight:600;color:#302b63}
+.ticker-more{font-size:.78rem;color:#302b63;text-decoration:none;opacity:.7}
+.ticker-more:hover{opacity:1}
+.ticker-wrap{overflow:hidden;position:relative}
+.ticker-wrap::before,.ticker-wrap::after{content:'';position:absolute;top:0;width:60px;height:100%;z-index:2;pointer-events:none}
+.ticker-wrap::before{left:0;background:linear-gradient(90deg,white,transparent)}
+.ticker-wrap::after{right:0;background:linear-gradient(-90deg,white,transparent)}
+.ticker-track{display:flex;gap:1rem;animation:ticker 60s linear infinite;width:max-content;padding:.2rem 0}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{background:#f5f7fa;border-radius:8px;padding:.5rem .9rem;cursor:pointer;white-space:nowrap;max-width:320px;flex-shrink:0;border-left:3px solid #302b63}
+.ticker-item:hover{background:#ede7f6}
+.ticker-company{font-size:.68rem;font-weight:700;color:#302b63;margin-bottom:.15rem}
+.ticker-title{font-size:.78rem;color:#333;overflow:hidden;text-overflow:ellipsis;max-width:280px}
+.ticker-zh{font-size:.72rem;color:#888;overflow:hidden;text-overflow:ellipsis;max-width:280px}
 </style>
 </head>
 <body>
@@ -211,6 +228,30 @@ fetch('papers.json?t='+Date.now()).then(r=>r.json()).then(data=>{
   renderSection('latest',1);
 }).catch(()=>{
   document.getElementById('latest').innerHTML='<div class="empty">数据加载失败，请刷新重试</div>';
+});
+</script>
+
+<div class="ticker-section">
+  <div class="ticker-header">
+    <span>🏢 大模型公司最新论文</span>
+    <a href="timeline/" class="ticker-more">时间轴 →</a>
+  </div>
+  <div class="ticker-wrap">
+    <div class="ticker-track" id="ticker-track"></div>
+  </div>
+</div>
+<script>
+fetch('company-papers.json?t='+Date.now()).then(r=>r.json()).then(papers=>{
+  const track=document.getElementById('ticker-track');
+  const COLORS={'OpenAI':'#10a37f','Google':'#4285f4','Meta':'#0866ff','Anthropic':'#d97706',
+    'Mistral':'#7c3aed','Qwen':'#dc2626','DeepSeek':'#0891b2','Baidu':'#e11d48'};
+  const items=papers.slice(0,40).map(p=>`
+    <div class="ticker-item" onclick="window.open('https://arxiv.org/abs/${p.id}','_blank')" style="border-left-color:${COLORS[p.company]||'#302b63'}">
+      <div class="ticker-company" style="color:${COLORS[p.company]||'#302b63'}">${p.company} · ${p.date}</div>
+      <div class="ticker-title">${p.title}</div>
+      ${p.title_zh?`<div class="ticker-zh">${p.title_zh}</div>`:''}
+    </div>`).join('');
+  track.innerHTML=items+items; // duplicate for seamless loop
 });
 </script>
 </body>
