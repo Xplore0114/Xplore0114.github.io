@@ -9,7 +9,8 @@
     "tags": [
       "RAG"
     ],
-    "abstract": "Scaling video generation from seconds to minutes faces a critical bottleneck: while short-video data is abundant and high-fidelity, coherent long-form data is scarce and limited to narrow domains. To address this, we propose a training paradigm where Mode Seeking meets Mean Seeking, decoupling local fidelity from long-term coherence based on a unified representation via a Decoupled Diffusion Trans"
+    "abstract": "Scaling video generation from seconds to minutes faces a critical bottleneck: while short-video data is abundant and high-fidelity, coherent long-form data is scarce and limited to narrow domains. To address this, we propose a training paradigm where Mode Seeking meets Mean Seeking, decoupling local fidelity from long-term coherence based on a unified representation via a Decoupled Diffusion Trans",
+    "title_zh": "模式搜索与均值搜索相结合，实现快速长视频生成"
   },
   {
     "id": "2602.24288v1",
@@ -21,7 +22,8 @@
     "tags": [
       "RAG"
     ],
-    "abstract": "The fast-growing demands in using Large Language Models (LLMs) to tackle complex multi-step data science tasks create an emergent need for accurate benchmarking. There are two major gaps in existing benchmarks: (i) the lack of standardized, process-aware evaluation that captures instruction adherence and process fidelity, and (ii) the scarcity of accurately labeled training data. To bridge these g"
+    "abstract": "The fast-growing demands in using Large Language Models (LLMs) to tackle complex multi-step data science tasks create an emergent need for accurate benchmarking. There are two major gaps in existing benchmarks: (i) the lack of standardized, process-aware evaluation that captures instruction adherence and process fidelity, and (ii) the scarcity of accurately labeled training data. To bridge these g",
+    "title_zh": "DARE-bench：评估数据科学法学硕士的建模和指令保真度"
   },
   {
     "id": "2602.24287v1",
@@ -33,7 +35,8 @@
     "tags": [
       "RAG"
     ],
-    "abstract": "Multi-turn interactions with large language models typically retain the assistant's own past responses in the conversation history. In this work, we revisit this design choice by asking whether large language models benefit from conditioning on their own prior responses. Using in-the-wild, multi-turn conversations, we compare standard (full-context) prompting with a user-turn-only prompting approa"
+    "abstract": "Multi-turn interactions with large language models typically retain the assistant's own past responses in the conversation history. In this work, we revisit this design choice by asking whether large language models benefit from conditioning on their own prior responses. Using in-the-wild, multi-turn conversations, we compare standard (full-context) prompting with a user-turn-only prompting approa",
+    "title_zh": "法学硕士可以从自己的言论中受益吗？"
   },
   {
     "id": "2602.24286v1",
@@ -45,7 +48,8 @@
     "tags": [
       "RAG"
     ],
-    "abstract": "GPU kernel optimization is fundamental to modern deep learning but remains a highly specialized task requiring deep hardware expertise. Despite strong performance in general programming, large language models (LLMs) remain uncompetitive with compiler-based systems such as torch.compile for CUDA kernel generation. Existing CUDA code generation approaches either rely on training-free refinement or f"
+    "abstract": "GPU kernel optimization is fundamental to modern deep learning but remains a highly specialized task requiring deep hardware expertise. Despite strong performance in general programming, large language models (LLMs) remain uncompetitive with compiler-based systems such as torch.compile for CUDA kernel generation. Existing CUDA code generation approaches either rely on training-free refinement or f",
+    "title_zh": "CUDA Agent：用于高性能 CUDA 内核生成的大规模代理强化学习"
   },
   {
     "id": "2602.24281v1",
@@ -57,7 +61,8 @@
     "tags": [
       "RAG"
     ],
-    "abstract": "Transformers have been established as the de-facto backbones for most recent advances in sequence modeling, mainly due to their growing memory capacity that scales with the context length. While plausible for retrieval tasks, it causes quadratic complexity and so has motivated recent studies to explore viable subquadratic recurrent alternatives. Despite showing promising preliminary results in div"
+    "abstract": "Transformers have been established as the de-facto backbones for most recent advances in sequence modeling, mainly due to their growing memory capacity that scales with the context length. While plausible for retrieval tasks, it causes quadratic complexity and so has motivated recent studies to explore viable subquadratic recurrent alternatives. Despite showing promising preliminary results in div",
+    "title_zh": "内存缓存：内存不断增长的 RNN"
   },
   {
     "id": "2602.24283v1",
@@ -69,7 +74,8 @@
     "tags": [
       "Agent"
     ],
-    "abstract": "Modern optimizers like Adam and Muon are central to training large language models, but their reliance on first- and second-order momenta introduces significant memory overhead, which constrains scalability and computational efficiency. In this work, we reframe the exponential moving average (EMA) used in these momenta as the training of a linear regressor via online gradient flow. Building on thi"
+    "abstract": "Modern optimizers like Adam and Muon are central to training large language models, but their reliance on first- and second-order momenta introduces significant memory overhead, which constrains scalability and computational efficiency. In this work, we reframe the exponential moving average (EMA) used in these momenta as the training of a linear regressor via online gradient flow. Building on thi",
+    "title_zh": "驯服势头：通过低阶近似重新思考优化器状态"
   },
   {
     "id": "2602.24280v1",
@@ -81,7 +87,8 @@
     "tags": [
       "Agent"
     ],
-    "abstract": "Quantum-enhanced LiDAR, exploiting squeezed states of light, promises significant sensitivity gains over classical protocols. However, in realistic scenarios characterized by high optical losses and atmospheric turbulence, standard figures of merit, such as quantum fidelity or the quantum Chernoff bound, saturate rapidly, failing to provide a usable gradient for system optimization. In this work, "
+    "abstract": "Quantum-enhanced LiDAR, exploiting squeezed states of light, promises significant sensitivity gains over classical protocols. However, in realistic scenarios characterized by high optical losses and atmospheric turbulence, standard figures of merit, such as quantum fidelity or the quantum Chernoff bound, saturate rapidly, failing to provide a usable gradient for system optimization. In this work, ",
+    "title_zh": "湍流介质中量子激光雷达的几何弹性：Wasserstein 距离方法"
   },
   {
     "id": "2602.24290v1",
@@ -93,7 +100,8 @@
     "tags": [
       "MCP"
     ],
-    "abstract": "Dense 4D reconstruction from unposed images remains a critical challenge, with current methods relying on slow test-time optimization or fragmented, task-specific feedforward models. We introduce UFO-4D, a unified feedforward framework to reconstruct a dense, explicit 4D representation from just a pair of unposed images. UFO-4D directly estimates dynamic 3D Gaussian Splats, enabling the joint and "
+    "abstract": "Dense 4D reconstruction from unposed images remains a critical challenge, with current methods relying on slow test-time optimization or fragmented, task-specific feedforward models. We introduce UFO-4D, a unified feedforward framework to reconstruct a dense, explicit 4D representation from just a pair of unposed images. UFO-4D directly estimates dynamic 3D Gaussian Splats, enabling the joint and ",
+    "title_zh": "UFO-4D：从两个图像进行未曝光的前馈 4D 重建"
   },
   {
     "id": "2602.24241v1",
@@ -105,7 +113,8 @@
     "tags": [
       "Fine-tuning"
     ],
-    "abstract": "Simulating nuanced user experiences within complex interactive search systems poses distinct challenge for traditional methodologies, which often rely on static user proxies or, more recently, on standalone large language model (LLM) agents that may lack deep, verifiable grounding. The true dynamism and personalization inherent in human-computer interaction demand a more integrated approach. This "
+    "abstract": "Simulating nuanced user experiences within complex interactive search systems poses distinct challenge for traditional methodologies, which often rely on static user proxies or, more recently, on standalone large language model (LLM) agents that may lack deep, verifiable grounding. The true dynamism and personalization inherent in human-computer interaction demand a more integrated approach. This ",
+    "title_zh": "UXSim：走向混合用户搜索模拟"
   },
   {
     "id": "2602.24275v1",
@@ -117,7 +126,8 @@
     "tags": [
       "Safety"
     ],
-    "abstract": "Humans perceive actions through key transitions that structure actions across multiple abstraction levels, whereas machines, relying on visual features, tend to over-segment. This highlights the difficulty of enabling hierarchical reasoning in video understanding. Interestingly, we observe that lower-level visual and high-level action latent variables evolve at different rates, with low-level visu"
+    "abstract": "Humans perceive actions through key transitions that structure actions across multiple abstraction levels, whereas machines, relying on visual features, tend to over-segment. This highlights the difficulty of enabling hierarchical reasoning in video understanding. Interestingly, we observe that lower-level visual and high-level action latent variables evolve at different rates, with low-level visu",
+    "title_zh": "用于弱监督动作分割的分层动作学习"
   },
   {
     "id": "2602.24288",
@@ -136,7 +146,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "The fast-growing demands in using Large Language Models (LLMs) to tackle complex multi-step data science tasks create an emergent need for accurate benchmarking. There are two major gaps in existing benchmarks: (i) the lack of standardized, process-aware evaluation that captures instruction adherence and process fidelity, and (ii) the scarcity of accurately labeled training data. To bridge these gaps, we introduce DARE-bench, a benchmark designed for machine learning modeling and data science in"
+    "abstract": "The fast-growing demands in using Large Language Models (LLMs) to tackle complex multi-step data science tasks create an emergent need for accurate benchmarking. There are two major gaps in existing benchmarks: (i) the lack of standardized, process-aware evaluation that captures instruction adherence and process fidelity, and (ii) the scarcity of accurately labeled training data. To bridge these gaps, we introduce DARE-bench, a benchmark designed for machine learning modeling and data science in",
+    "title_zh": "DARE-bench：评估数据科学法学硕士的建模和指令保真度"
   },
   {
     "id": "2602.24287",
@@ -155,7 +166,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Multi-turn interactions with large language models typically retain the assistant's own past responses in the conversation history. In this work, we revisit this design choice by asking whether large language models benefit from conditioning on their own prior responses. Using in-the-wild, multi-turn conversations, we compare standard (full-context) prompting with a user-turn-only prompting approach that omits all previous assistant responses, across three open reasoning models and one state-of-"
+    "abstract": "Multi-turn interactions with large language models typically retain the assistant's own past responses in the conversation history. In this work, we revisit this design choice by asking whether large language models benefit from conditioning on their own prior responses. Using in-the-wild, multi-turn conversations, we compare standard (full-context) prompting with a user-turn-only prompting approach that omits all previous assistant responses, across three open reasoning models and one state-of-",
+    "title_zh": "法学硕士可以从自己的言论中受益吗？"
   },
   {
     "id": "2602.24283",
@@ -174,7 +186,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Modern optimizers like Adam and Muon are central to training large language models, but their reliance on first- and second-order momenta introduces significant memory overhead, which constrains scalability and computational efficiency. In this work, we reframe the exponential moving average (EMA) used in these momenta as the training of a linear regressor via online gradient flow. Building on this equivalence, we introduce LoRA-Pre, a novel low-rank optimizer designed for efficient pre-training"
+    "abstract": "Modern optimizers like Adam and Muon are central to training large language models, but their reliance on first- and second-order momenta introduces significant memory overhead, which constrains scalability and computational efficiency. In this work, we reframe the exponential moving average (EMA) used in these momenta as the training of a linear regressor via online gradient flow. Building on this equivalence, we introduce LoRA-Pre, a novel low-rank optimizer designed for efficient pre-training",
+    "title_zh": "驯服势头：通过低阶近似重新思考优化器状态"
   },
   {
     "id": "2602.24210",
@@ -193,7 +206,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "AI agents powered by reasoning models require access to sensitive user data. However, their reasoning traces are difficult to control, which can result in the unintended leakage of private information to external parties. We propose training models to follow instructions not only in the final answer, but also in reasoning traces, potentially under different constraints. We hypothesize that improving their instruction following abilities in the reasoning traces can improve their privacy-preservat"
+    "abstract": "AI agents powered by reasoning models require access to sensitive user data. However, their reasoning traces are difficult to control, which can result in the unintended leakage of private information to external parties. We propose training models to follow instructions not only in the final answer, but also in reasoning traces, potentially under different constraints. We hypothesize that improving their instruction following abilities in the reasoning traces can improve their privacy-preservat",
+    "title_zh": "可控推理模型是私人思考者"
   },
   {
     "id": "2602.24195",
@@ -212,7 +226,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Despite their capabilities, Multimodal Large Language Models (MLLMs) may produce plausible but erroneous outputs, hindering reliable deployment. Accurate uncertainty metrics could enable escalation of unreliable queries to human experts or larger models for improved performance. However, existing uncertainty metrics have practical constraints, such as being designed only for specific modalities, reliant on external tools, or computationally expensive. We introduce UMPIRE, a training-free uncerta"
+    "abstract": "Despite their capabilities, Multimodal Large Language Models (MLLMs) may produce plausible but erroneous outputs, hindering reliable deployment. Accurate uncertainty metrics could enable escalation of unreliable queries to human experts or larger models for improved performance. However, existing uncertainty metrics have practical constraints, such as being designed only for specific modalities, reliant on external tools, or computationally expensive. We introduce UMPIRE, a training-free uncerta",
+    "title_zh": "具有不连贯调整语义量的多模态大语言模型的不确定性量化"
   },
   {
     "id": "2602.24188",
@@ -231,7 +246,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "We present a scalable methodology for evaluating language models in multi-turn interactions, using a suite of collaborative games that require effective communication about private information. This enables an interactive scaling analysis, in which a fixed token budget is divided over a variable number of turns. We find that in many cases, language models are unable to use interactive collaboration to improve over the non-interactive baseline scenario in which one agent attempts to summarize its"
+    "abstract": "We present a scalable methodology for evaluating language models in multi-turn interactions, using a suite of collaborative games that require effective communication about private information. This enables an interactive scaling analysis, in which a fixed token budget is divided over a variable number of turns. We find that in many cases, language models are unable to use interactive collaboration to improve over the non-interactive baseline scenario in which one agent attempts to summarize its",
+    "title_zh": "MT-PingEval：利用私人信息博弈评估多轮协作"
   },
   {
     "id": "2602.24174",
@@ -250,7 +266,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Small language models (SLMs) have emerged as efficient alternatives to large language models for task-specific applications. However, they are often employed in high-volume, low-latency settings, where efficiency is crucial. We propose TASC, Task-Adaptive Sequence Compression, a framework for SLM acceleration comprising two use-cases: When performing SLM fine-tuning, we propose TASC-ft, which iteratively enriches the tokenizer vocabulary with high-frequency output n-grams and then fine-tunes the"
+    "abstract": "Small language models (SLMs) have emerged as efficient alternatives to large language models for task-specific applications. However, they are often employed in high-volume, low-latency settings, where efficiency is crucial. We propose TASC, Task-Adaptive Sequence Compression, a framework for SLM acceleration comprising two use-cases: When performing SLM fine-tuning, we propose TASC-ft, which iteratively enriches the tokenizer vocabulary with high-frequency output n-grams and then fine-tunes the",
+    "title_zh": "以任务为中心的小语言模型加速"
   },
   {
     "id": "2602.24172",
@@ -269,7 +286,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Argumentative LLMs (ArgLLMs) are an existing approach leveraging Large Language Models (LLMs) and computational argumentation for decision-making, with the aim of making the resulting decisions faithfully explainable to and contestable by humans. Here we propose a web-based system implementing ArgLLM-empowered agents for binary tasks. ArgLLM-App supports visualisation of the produced explanations and interaction with human users, allowing them to identify and contest any mistakes in the system's"
+    "abstract": "Argumentative LLMs (ArgLLMs) are an existing approach leveraging Large Language Models (LLMs) and computational argumentation for decision-making, with the aim of making the resulting decisions faithfully explainable to and contestable by humans. Here we propose a web-based system implementing ArgLLM-empowered agents for binary tasks. ArgLLM-App supports visualisation of the produced explanations and interaction with human users, allowing them to identify and contest any mistakes in the system's",
+    "title_zh": "ArgLLM-App：使用大型语言模型进行论证推理的交互式系统"
   },
   {
     "id": "2602.24142",
@@ -288,7 +306,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Mobile Agents can autonomously execute user instructions, which requires hybrid-capabilities reasoning, including screen summary, subtask planning, action decision and action function. However, existing agents struggle to achieve both decoupled enhancement and balanced integration of these capabilities. To address these challenges, we propose Channel-of-Mobile-Experts (CoME), a novel agent architecture consisting of four distinct experts, each aligned with a specific reasoning stage, CoME activa"
+    "abstract": "Mobile Agents can autonomously execute user instructions, which requires hybrid-capabilities reasoning, including screen summary, subtask planning, action decision and action function. However, existing agents struggle to achieve both decoupled enhancement and balanced integration of these capabilities. To address these challenges, we propose Channel-of-Mobile-Experts (CoME), a novel agent architecture consisting of four distinct experts, each aligned with a specific reasoning stage, CoME activa",
+    "title_zh": "CoME：通过信息丰富的混合功能推理为移动专家渠道提供支持"
   },
   {
     "id": "2602.24134",
@@ -307,7 +326,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "The expansion of retrieval-augmented generation (RAG) into multimodal domains has intensified the challenge for processing complex visual documents, such as financial reports. While page-level chunking and retrieval is a natural starting point, it creates a critical bottleneck: delivering entire pages to the generator introduces excessive extraneous context. This not only overloads the generator's attention mechanism but also dilutes the most salient evidence. Moreover, compressing these informa"
+    "abstract": "The expansion of retrieval-augmented generation (RAG) into multimodal domains has intensified the challenge for processing complex visual documents, such as financial reports. While page-level chunking and retrieval is a natural starting point, it creates a critical bottleneck: delivering entire pages to the generator introduces excessive extraneous context. This not only overloads the generator's attention mechanism but also dilutes the most salient evidence. Moreover, compressing these informa",
+    "title_zh": "AgenticOCR：仅解析高效检索增强生成所需的内容"
   },
   {
     "id": "2602.24119",
@@ -326,7 +346,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "This study presents the first systematic, reference-free human evaluation of large language model (LLM) machine translation (MT) for Ancient Greek (AG) technical prose. We evaluate translations by three commercial LLMs (Claude, Gemini, ChatGPT) of twenty paragraph-length passages from two works by the Greek physician Galen of Pergamum (ca. 129-216 CE): On Mixtures, which has two published English translations, and On the Composition of Drugs according to Kinds, which has never been fully transla"
+    "abstract": "This study presents the first systematic, reference-free human evaluation of large language model (LLM) machine translation (MT) for Ancient Greek (AG) technical prose. We evaluate translations by three commercial LLMs (Claude, Gemini, ChatGPT) of twenty paragraph-length passages from two works by the Greek physician Galen of Pergamum (ca. 129-216 CE): On Mixtures, which has two published English translations, and On the Composition of Drugs according to Kinds, which has never been fully transla",
+    "title_zh": "术语稀有预示着资源匮乏的古代语言的法学硕士翻译将遭遇灾难性的失败：来自古希腊语的证据"
   },
   {
     "id": "2602.24111",
@@ -345,7 +366,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Vision-language models (VLMs) show promise in drafting radiology reports, yet they frequently suffer from logical inconsistencies, generating diagnostic impressions unsupported by their own perceptual findings or missing logically entailed conclusions. Standard lexical metrics heavily penalize clinical paraphrasing and fail to capture these deductive failures in reference-free settings. Toward guarantees for clinical reasoning, we introduce a neurosymbolic verification framework that determinist"
+    "abstract": "Vision-language models (VLMs) show promise in drafting radiology reports, yet they frequently suffer from logical inconsistencies, generating diagnostic impressions unsupported by their own perceptual findings or missing logically entailed conclusions. Standard lexical metrics heavily penalize clinical paraphrasing and fail to capture these deductive failures in reference-free settings. Toward guarantees for clinical reasoning, we introduce a neurosymbolic verification framework that determinist",
+    "title_zh": "通过形式验证保证视觉语言模型的临床推理"
   },
   {
     "id": "2602.24110",
@@ -364,7 +386,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Reinforcement Learning from Verifiable Rewards (RLVR) has emerged as a powerful paradigm for enhancing the complex reasoning capabilities of Large Reasoning Models. However, standard outcome-based supervision suffers from a critical limitation that penalizes trajectories that are largely correct but fail due to several missteps as heavily as completely erroneous ones. This coarse feedback signal causes the model to discard valuable largely correct rollouts, leading to a degradation in rollout di"
+    "abstract": "Reinforcement Learning from Verifiable Rewards (RLVR) has emerged as a powerful paradigm for enhancing the complex reasoning capabilities of Large Reasoning Models. However, standard outcome-based supervision suffers from a critical limitation that penalizes trajectories that are largely correct but fail due to several missteps as heavily as completely erroneous ones. This coarse feedback signal causes the model to discard valuable largely correct rollouts, leading to a degradation in rollout di",
+    "title_zh": "回收失败：通过细粒度的离策略指导进行 RLVR 的挽救探索"
   },
   {
     "id": "2602.24109",
@@ -383,7 +406,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Can narratives make arguments more persuasive? And to this end, which narrative features matter most? Although stories are often seen as powerful tools for persuasion, their specific role in online, unstructured argumentation remains underexplored. To address this gap, we present ARGUS, a framework for studying the impact of narration on persuasion in argumentative discourse. ARGUS introduces a new ChangeMyView corpus annotated for story presence and six key narrative features, integrating insig"
+    "abstract": "Can narratives make arguments more persuasive? And to this end, which narrative features matter most? Although stories are often seen as powerful tools for persuasion, their specific role in online, unstructured argumentation remains underexplored. To address this gap, we present ARGUS, a framework for studying the impact of narration on persuasion in argumentative discourse. ARGUS introduces a new ChangeMyView corpus annotated for story presence and six key narrative features, integrating insig",
+    "title_zh": "ARGUS：了解议论文中叙事特征对说服力的影响"
   },
   {
     "id": "2602.24082",
@@ -402,7 +426,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Resource-efficient training optimization techniques are becoming increasingly important as the size of large language models (LLMs) continues to grow. In particular, batch packing is commonly used in pre-training and supervised fine-tuning to achieve resource-efficient training. We propose preference packing, a method to enhance resource efficiency in training techniques that use data with different responses for the same input prompt, such as reward models or Direct Preference Optimization (DPO"
+    "abstract": "Resource-efficient training optimization techniques are becoming increasingly important as the size of large language models (LLMs) continues to grow. In particular, batch packing is commonly used in pre-training and supervised fine-tuning to achieve resource-efficient training. We propose preference packing, a method to enhance resource efficiency in training techniques that use data with different responses for the same input prompt, such as reward models or Direct Preference Optimization (DPO",
+    "title_zh": "偏好打包：大型语言模型的高效偏好优化"
   },
   {
     "id": "2602.24071",
@@ -421,7 +446,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Recently, there have been significant advancements in music generation. However, existing models primarily focus on creating modern pop songs, making it challenging to produce ancient music with distinct rhythms and styles, such as ancient Chinese SongCi. In this paper, we introduce SongSong, the first music generation model capable of restoring Chinese SongCi to our knowledge. Our model first predicts the melody from the input SongCi, then separately generates the singing voice and accompanimen"
+    "abstract": "Recently, there have been significant advancements in music generation. However, existing models primarily focus on creating modern pop songs, making it challenging to produce ancient music with distinct rhythms and styles, such as ancient Chinese SongCi. In this paper, we introduce SongSong, the first music generation model capable of restoring Chinese SongCi to our knowledge. Our model first predicts the melody from the input SongCi, then separately generates the singing voice and accompanimen",
+    "title_zh": "宋宋：千年中国宋词的时光留声机"
   },
   {
     "id": "2602.24068",
@@ -440,7 +466,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Large language model (LLM) agents, such as OpenAI's Operator and Claude's Computer Use, can automate workflows but unable to handle payment tasks. Existing agentic solutions have gained significant attention; however, even the latest approaches face challenges in implementing end-to-end agentic payment workflows. To address this gap, this research proposes the Hierarchical Multi-Agent System for Payments (HMASP), which provides an end-to-end agentic method for completing payment workflows. The p"
+    "abstract": "Large language model (LLM) agents, such as OpenAI's Operator and Claude's Computer Use, can automate workflows but unable to handle payment tasks. Existing agentic solutions have gained significant attention; however, even the latest approaches face challenges in implementing end-to-end agentic payment workflows. To address this gap, this research proposes the Hierarchical Multi-Agent System for Payments (HMASP), which provides an end-to-end agentic method for completing payment workflows. The p",
+    "title_zh": "使用法学硕士的新型分层多代理支付系统"
   },
   {
     "id": "2602.24060",
@@ -459,7 +486,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Large language models (LLMs) with reasoning capabilities have fueled a compelling narrative that reasoning universally improves performance across language tasks. We test this claim through a comprehensive evaluation of 504 configurations across seven model families--including adaptive, conditional, and reinforcement learning-based reasoning architectures--on sentiment analysis datasets of varying granularity (binary, five-class, and 27-class emotion). Our findings reveal that reasoning effectiv"
+    "abstract": "Large language models (LLMs) with reasoning capabilities have fueled a compelling narrative that reasoning universally improves performance across language tasks. We test this claim through a comprehensive evaluation of 504 configurations across seven model families--including adaptive, conditional, and reinforcement learning-based reasoning architectures--on sentiment analysis datasets of varying granularity (binary, five-class, and 27-class emotion). Our findings reveal that reasoning effectiv",
+    "title_zh": "任务复杂性很重要：法学硕士情感分析推理的实证研究"
   },
   {
     "id": "2602.24044",
@@ -478,7 +506,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Large Language Model (LLM) adapters enable low-cost model specialization, but introduce complex caching and scheduling challenges in distributed serving systems where hundreds of adapters must be hosted concurrently. While prior work has largely focused on latency minimization, resource efficiency through throughput maximization remains underexplored. This paper presents a data-driven pipeline that, for a given workload, computes an adapter placement that serves the workload with the minimum num"
+    "abstract": "Large Language Model (LLM) adapters enable low-cost model specialization, but introduce complex caching and scheduling challenges in distributed serving systems where hundreds of adapters must be hosted concurrently. While prior work has largely focused on latency minimization, resource efficiency through throughput maximization remains underexplored. This paper presents a data-driven pipeline that, for a given workload, computes an adapter placement that serves the workload with the minimum num",
+    "title_zh": "分布式 LLM 适配器服务的 GPU 效率的数据驱动优化"
   },
   {
     "id": "2602.24040",
@@ -497,7 +526,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Reward models are central to aligning large language models (LLMs) with human preferences. Yet most approaches rely on pointwise reward estimates that overlook the epistemic uncertainty in reward models arising from limited human feedback. Recent work suggests that quantifying this uncertainty can reduce the costs of human annotation via uncertainty-guided active learning and mitigate reward overoptimization in LLM post-training. However, uncertainty-aware reward models have so far been adopted "
+    "abstract": "Reward models are central to aligning large language models (LLMs) with human preferences. Yet most approaches rely on pointwise reward estimates that overlook the epistemic uncertainty in reward models arising from limited human feedback. Recent work suggests that quantifying this uncertainty can reduce the costs of human annotation via uncertainty-guided active learning and mitigate reward overoptimization in LLM post-training. However, uncertainty-aware reward models have so far been adopted ",
+    "title_zh": "RewardUQ：不确定性奖励模型的统一框架"
   },
   {
     "id": "2602.24009",
@@ -516,7 +546,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Jailbreak techniques for large language models (LLMs) evolve faster than benchmarks, making robustness estimates stale and difficult to compare across papers due to drift in datasets, harnesses, and judging protocols. We introduce JAILBREAK FOUNDRY (JBF), a system that addresses this gap via a multi-agent workflow to translate jailbreak papers into executable modules for immediate evaluation within a unified harness. JBF features three core components: (i) JBF-LIB for shared contracts and reusab"
+    "abstract": "Jailbreak techniques for large language models (LLMs) evolve faster than benchmarks, making robustness estimates stale and difficult to compare across papers due to drift in datasets, harnesses, and judging protocols. We introduce JAILBREAK FOUNDRY (JBF), a system that addresses this gap via a multi-agent workflow to translate jailbreak papers into executable modules for immediate evaluation within a unified harness. JBF features three core components: (i) JBF-LIB for shared contracts and reusab",
+    "title_zh": "越狱铸造厂：从论文到可运行的攻击以实现可重复的基准测试"
   },
   {
     "id": "2602.24002",
@@ -535,7 +566,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Spanish is the official language of twenty-one countries and is spoken by over 441 million people. Naturally, there are many variations in how Spanish is spoken across these countries. Media platforms such as YouTube rely on automatic speech recognition systems to make their content accessible to different groups of users. However, YouTube offers only one option for automatically generating captions in Spanish. This raises the question: could this captioning system be biased against certain Span"
+    "abstract": "Spanish is the official language of twenty-one countries and is spoken by over 441 million people. Naturally, there are many variations in how Spanish is spoken across these countries. Media platforms such as YouTube rely on automatic speech recognition systems to make their content accessible to different groups of users. However, YouTube offers only one option for automatically generating captions in Spanish. This raises the question: could this captioning system be biased against certain Span",
+    "title_zh": "YouTube 西班牙语字幕系统中的方言和性别偏见"
   },
   {
     "id": "2602.23993",
@@ -554,7 +586,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "We present gradiend, an open-source Python package that operationalizes the GRADIEND method for learning feature directions from factual-counterfactual MLM and CLM gradients in language models. The package provides a unified workflow for feature-related data creation, training, evaluation, visualization, persistent model rewriting via controlled weight updates, and multi-feature comparison. We demonstrate GRADIEND on an English pronoun paradigm and on a large-scale feature comparison that reprod"
+    "abstract": "We present gradiend, an open-source Python package that operationalizes the GRADIEND method for learning feature directions from factual-counterfactual MLM and CLM gradients in language models. The package provides a unified workflow for feature-related data creation, training, evaluation, visualization, persistent model rewriting via controlled weight updates, and multi-feature comparison. We demonstrate GRADIEND on an English pronoun paradigm and on a large-scale feature comparison that reprod",
+    "title_zh": "GRADIEND Python 包：基于梯度的特征学习的端到端系统"
   },
   {
     "id": "2602.23944",
@@ -573,7 +606,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Memory systems address the challenge of context loss in Large Language Model during prolonged interactions. However, compared to human cognition, the efficacy of these systems in processing emotion-related information remains inconclusive. To address this gap, we propose an emotion-enhanced memory evaluation benchmark to assess the performance of mainstream and state-of-the-art memory systems in handling affective information. We developed the \\textbf{H}uman-\\textbf{L}ike \\textbf{M}emory \\textbf"
+    "abstract": "Memory systems address the challenge of context loss in Large Language Model during prolonged interactions. However, compared to human cognition, the efficacy of these systems in processing emotion-related information remains inconclusive. To address this gap, we propose an emotion-enhanced memory evaluation benchmark to assess the performance of mainstream and state-of-the-art memory systems in handling affective information. We developed the \\textbf{H}uman-\\textbf{L}ike \\textbf{M}emory \\textbf",
+    "title_zh": "MemEmo：评估智能体记忆系统中的情绪"
   },
   {
     "id": "2602.23941",
@@ -592,7 +626,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "This paper introduces a dataset of enriched geographic coordinates retrieved from Diderot and d'Alembert's eighteenth-century Encyclopedie. Automatically recovering geographic coordinates from historical texts is a complex task, as they are expressed in a variety of ways and with varying levels of precision. To improve retrieval of coordinates from similar digitized early modern texts, we have created a gold standard dataset, trained models, published the resulting inferred and normalized coordi"
+    "abstract": "This paper introduces a dataset of enriched geographic coordinates retrieved from Diderot and d'Alembert's eighteenth-century Encyclopedie. Automatically recovering geographic coordinates from historical texts is a complex task, as they are expressed in a variety of ways and with varying levels of precision. To improve retrieval of coordinates from similar digitized early modern texts, we have created a gold standard dataset, trained models, published the resulting inferred and normalized coordi",
+    "title_zh": "EDDA-Coordinata：历史地理坐标的注释数据集"
   },
   {
     "id": "2602.23940",
@@ -611,7 +646,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Transformer-based models such as BERT have significantly advanced Natural Language Processing (NLP) across many languages. However, Nepali, a low-resource language written in Devanagari script, remains relatively underexplored. This study benchmarks multilingual, Indic, Hindi, and Nepali BERT variants to evaluate their effectiveness in Nepali topic classification. Ten pre-trained models, including mBERT, XLM-R, MuRIL, DevBERT, HindiBERT, IndicBERT, and NepBERTa, were fine-tuned and tested on the"
+    "abstract": "Transformer-based models such as BERT have significantly advanced Natural Language Processing (NLP) across many languages. However, Nepali, a low-resource language written in Devanagari script, remains relatively underexplored. This study benchmarks multilingual, Indic, Hindi, and Nepali BERT variants to evaluate their effectiveness in Nepali topic classification. Ten pre-trained models, including mBERT, XLM-R, MuRIL, DevBERT, HindiBERT, IndicBERT, and NepBERTa, were fine-tuned and tested on the",
+    "title_zh": "基于 BERT 的尼泊尔语句子级主题分类模型的基准测试"
   },
   {
     "id": "2602.23928",
@@ -630,7 +666,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "We show that large language models (LLMs) have an astonishing ability to recover meaning from severely degraded English texts. Texts in which content words have been randomly substituted by nonsense strings, e.g., \"At the ghybe of the swuint, we are haiveed to Wourge Phrear-gwurr, who sproles into an ghitch flount with his crurp\", can be translated to conventional English that is, in many cases, close to the original text, e.g., \"At the start of the story, we meet a man, Chow, who moves into an "
+    "abstract": "We show that large language models (LLMs) have an astonishing ability to recover meaning from severely degraded English texts. Texts in which content words have been randomly substituted by nonsense strings, e.g., \"At the ghybe of the swuint, we are haiveed to Wourge Phrear-gwurr, who sproles into an ghitch flount with his crurp\", can be translated to conventional English that is, in many cases, close to the original text, e.g., \"At the start of the story, we meet a man, Chow, who moves into an ",
+    "title_zh": "大型语言模型解析 Jabberwockified 语言的惊人能力"
   },
   {
     "id": "2602.23898",
@@ -648,7 +685,8 @@
       "Fine-tuning",
       "Safety"
     ],
-    "abstract": "Referring Expression Comprehension (REC) links language to region level visual perception. Standard benchmarks (RefCOCO, RefCOCO+, RefCOCOg) have progressed rapidly with multimodal LLMs but remain weak tests of visual reasoning and grounding: (i) many expressions are very short, leaving little reasoning demand; (ii) images often contain few distractors, making the target easy to find; and (iii) redundant descriptors enable shortcut solutions that bypass genuine text understanding and visual reas"
+    "abstract": "Referring Expression Comprehension (REC) links language to region level visual perception. Standard benchmarks (RefCOCO, RefCOCO+, RefCOCOg) have progressed rapidly with multimodal LLMs but remain weak tests of visual reasoning and grounding: (i) many expressions are very short, leaving little reasoning demand; (ii) images often contain few distractors, making the target easy to find; and (iii) redundant descriptors enable shortcut solutions that bypass genuine text understanding and visual reas",
+    "title_zh": "Ref-Adv：在引用表达式任务中探索 MLLM 视觉推理"
   },
   {
     "id": "2602.23881",
@@ -666,7 +704,8 @@
       "Fine-tuning",
       "Safety"
     ],
-    "abstract": "Speculative decoding accelerates autoregressive large language model (LLM) inference by using a lightweight draft model to propose candidate tokens that are then verified in parallel by the target model. The speedup is significantly determined by the acceptance rate, yet standard training minimizes Kullback-Leibler (KL) divergence as a proxy objective. While KL divergence and acceptance rate share the same global optimum, small draft models, having limited capacity, typically converge to subopti"
+    "abstract": "Speculative decoding accelerates autoregressive large language model (LLM) inference by using a lightweight draft model to propose candidate tokens that are then verified in parallel by the target model. The speedup is significantly determined by the acceptance rate, yet standard training minimizes Kullback-Leibler (KL) divergence as a proxy objective. While KL divergence and acceptance rate share the same global optimum, small draft models, having limited capacity, typically converge to subopti",
+    "title_zh": "LK 损失：推测解码的直接接受率优化"
   },
   {
     "id": "2602.23866",
@@ -684,7 +723,8 @@
       "Fine-tuning",
       "Safety"
     ],
-    "abstract": "Software engineering agents (SWE) are improving rapidly, with recent gains largely driven by reinforcement learning (RL). However, RL training is constrained by the scarcity of large-scale task collections with reproducible execution environments and reliable test suites. Although a growing number of benchmarks have emerged, datasets suitable for training remain limited in scale and diversity or often target a limited set of high-resource language ecosystems. We introduce SWE-rebench V2, a langu"
+    "abstract": "Software engineering agents (SWE) are improving rapidly, with recent gains largely driven by reinforcement learning (RL). However, RL training is constrained by the scarcity of large-scale task collections with reproducible execution environments and reliable test suites. Although a growing number of benchmarks have emerged, datasets suitable for training remain limited in scale and diversity or often target a limited set of high-resource language ecosystems. We introduce SWE-rebench V2, a langu",
+    "title_zh": "SWE-rebench V2：与语言无关的大规模 SWE 任务集合"
   },
   {
     "id": "2602.24059",
@@ -696,7 +736,8 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Post-Training Quantization (PTQ) has emerged as an effective technique for alleviating the substantial computational and memory overheads of Vision-Language Models (VLMs) by compressing both weights and activations without retraining the full model. Existing PTQ methods primarily rely on static identification and global compensation of sensitive or outlier channels, yet they often overlook the distributional differences of these important channels across inputs, leading to unsatisfactory quantiz"
+    "abstract": "Post-Training Quantization (PTQ) has emerged as an effective technique for alleviating the substantial computational and memory overheads of Vision-Language Models (VLMs) by compressing both weights and activations without retraining the full model. Existing PTQ methods primarily rely on static identification and global compensation of sensitive or outlier channels, yet they often overlook the distributional differences of these important channels across inputs, leading to unsatisfactory quantiz",
+    "title_zh": "量化专家：针对大型视觉语言模型量化的令牌感知自适应误差重建与专家混合"
   },
   {
     "id": "2602.24014",
@@ -708,7 +749,8 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "The rapid advancement of Vision-Language models (VLMs) has raised growing concerns that their black-box reasoning processes could lead to unintended forms of social bias. Current debiasing approaches focus on mitigating surface-level bias signals through post-hoc learning or test-time algorithms, while leaving the internal dynamics of the model largely unexplored. In this work, we introduce an interpretable, model-agnostic bias mitigation framework, DeBiasLens, that localizes social attribute ne"
+    "abstract": "The rapid advancement of Vision-Language models (VLMs) has raised growing concerns that their black-box reasoning processes could lead to unintended forms of social bias. Current debiasing approaches focus on mitigating surface-level bias signals through post-hoc learning or test-time algorithms, while leaving the internal dynamics of the model largely unexplored. In this work, we introduce an interpretable, model-agnostic bias mitigation framework, DeBiasLens, that localizes social attribute ne",
+    "title_zh": "视觉语言模型的可解释消除偏差以实现社会公平"
   },
   {
     "id": "2602.23971",
@@ -720,7 +762,8 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Sycophancy, the tendency of large language models to favour user-affirming responses over critical engagement, has been identified as an alignment failure, particularly in high-stakes advisory and social contexts. While prior work has documented conversational features correlated with sycophancy, we lack a systematic understanding of what provokes or prevents AI sycophancy. Here, we present a set of controlled experimental studies where we first isolate how input framing influences sycophancy, a"
+    "abstract": "Sycophancy, the tendency of large language models to favour user-affirming responses over critical engagement, has been identified as an alignment failure, particularly in high-stakes advisory and social contexts. While prior work has documented conversational features correlated with sycophancy, we lack a systematic understanding of what provokes or prevents AI sycophancy. Here, we present a set of controlled experimental studies where we first isolate how input framing influences sycophancy, a",
+    "title_zh": "问而不说：减少大型语言模型中的阿谀奉承"
   },
   {
     "id": "2501.12948",
@@ -734,7 +777,8 @@
       "RL",
       "Agent"
     ],
-    "abstract": "We introduce DeepSeek-R1, which incentivizes reasoning capabilities in LLMs through reinforcement learning (RL). DeepSeek-R1-Zero, trained via large-scale RL without supervised fine-tuning, demonstrates remarkable reasoning capabilities."
+    "abstract": "We introduce DeepSeek-R1, which incentivizes reasoning capabilities in LLMs through reinforcement learning (RL). DeepSeek-R1-Zero, trained via large-scale RL without supervised fine-tuning, demonstrates remarkable reasoning capabilities.",
+    "title_zh": "DeepSeek-R1：通过强化学习激励法学硕士的推理能力"
   },
   {
     "id": "2501.09223",
@@ -748,7 +792,8 @@
       "Tool-use",
       "Agent"
     ],
-    "abstract": "The Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to LLMs, enabling seamless integration between LLM applications and external data sources and tools."
+    "abstract": "The Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to LLMs, enabling seamless integration between LLM applications and external data sources and tools.",
+    "title_zh": "MCP：工具增强法学硕士的模型上下文协议"
   },
   {
     "id": "2407.10671",
@@ -762,7 +807,8 @@
       "Multilingual",
       "Fine-tuning"
     ],
-    "abstract": "We introduce Qwen2, the latest series of Qwen large language models. Qwen2 surpasses most prior open-weight models including its predecessor Qwen1.5."
+    "abstract": "We introduce Qwen2, the latest series of Qwen large language models. Qwen2 surpasses most prior open-weight models including its predecessor Qwen1.5.",
+    "title_zh": "Qwen2技术报告"
   },
   {
     "id": "2406.12793",
@@ -776,7 +822,8 @@
       "Multi-agent",
       "LLM"
     ],
-    "abstract": "We propose a mixture-of-agents (MoA) methodology that leverages the collective strengths of multiple LLMs to enhance performance."
+    "abstract": "We propose a mixture-of-agents (MoA) methodology that leverages the collective strengths of multiple LLMs to enhance performance.",
+    "title_zh": "混合代理增强了大型语言模型的能力"
   },
   {
     "id": "2404.19756",
@@ -790,7 +837,8 @@
       "Efficient",
       "Fine-tuning"
     ],
-    "abstract": "We introduce phi-3-mini, a 3.8 billion parameter language model trained on 3.3 trillion tokens, whose overall performance is comparable to Mixtral 8x7B and GPT-3.5."
+    "abstract": "We introduce phi-3-mini, a 3.8 billion parameter language model trained on 3.3 trillion tokens, whose overall performance is comparable to Mixtral 8x7B and GPT-3.5.",
+    "title_zh": "Phi-3 技术报告：手机本地功能强大的语言模型"
   },
   {
     "id": "2404.16130",
@@ -804,7 +852,8 @@
       "Code",
       "Autonomous"
     ],
-    "abstract": "We present AutoCodeRover, an automated approach for program improvement combining LLMs with sophisticated code search."
+    "abstract": "We present AutoCodeRover, an automated approach for program improvement combining LLMs with sophisticated code search.",
+    "title_zh": "AutoCodeRover：自主程序改进"
   },
   {
     "id": "2401.01335",
@@ -818,7 +867,8 @@
       "Multimodal",
       "Survey"
     ],
-    "abstract": "We survey the landscape of Agent AI systems that are capable of taking actions and making decisions across digital and physical domains."
+    "abstract": "We survey the landscape of Agent AI systems that are capable of taking actions and making decisions across digital and physical domains.",
+    "title_zh": "AI 代理：审视多模式交互的视野"
   },
   {
     "id": "2312.11805",
@@ -831,7 +881,8 @@
       "Multimodal",
       "LLM"
     ],
-    "abstract": "We introduce Gemini, a family of highly capable multimodal models developed at Google. Gemini models are natively multimodal, trained jointly across image, audio, video, and text data."
+    "abstract": "We introduce Gemini, a family of highly capable multimodal models developed at Google. Gemini models are natively multimodal, trained jointly across image, audio, video, and text data.",
+    "title_zh": "Gemini：一系列高性能多模式模型"
   },
   {
     "id": "2312.10997",
@@ -844,7 +895,8 @@
       "RAG",
       "Survey"
     ],
-    "abstract": "Large Language Models (LLMs) demonstrate significant capabilities but face challenges such as hallucination, outdated knowledge, and non-transparent reasoning. RAG has emerged as a promising solution."
+    "abstract": "Large Language Models (LLMs) demonstrate significant capabilities but face challenges such as hallucination, outdated knowledge, and non-transparent reasoning. RAG has emerged as a promising solution.",
+    "title_zh": "大型语言模型的检索增强生成：一项调查"
   },
   {
     "id": "2310.06825",
@@ -858,7 +910,8 @@
       "Efficient",
       "Open-source"
     ],
-    "abstract": "We introduce Mistral 7B, a 7-billion-parameter language model engineered for superior performance and efficiency."
+    "abstract": "We introduce Mistral 7B, a 7-billion-parameter language model engineered for superior performance and efficiency.",
+    "title_zh": "米斯特拉尔7B"
   },
   {
     "id": "2309.07864",
@@ -872,7 +925,8 @@
       "Survey",
       "LLM"
     ],
-    "abstract": "This paper presents a comprehensive survey of multimodal foundation models that demonstrate vision and language capabilities."
+    "abstract": "This paper presents a comprehensive survey of multimodal foundation models that demonstrate vision and language capabilities.",
+    "title_zh": "多模式基础模型：从专家到通用助手"
   },
   {
     "id": "2308.11432",
@@ -885,7 +939,8 @@
       "Agent",
       "Multi-agent"
     ],
-    "abstract": "We introduce AutoGen, an open-source framework that allows developers to build LLM applications via multiple agents that can converse with each other to accomplish tasks."
+    "abstract": "We introduce AutoGen, an open-source framework that allows developers to build LLM applications via multiple agents that can converse with each other to accomplish tasks.",
+    "title_zh": "AutoGen：通过多代理对话启用下一代 LLM 应用程序"
   },
   {
     "id": "2307.09288",
@@ -899,7 +954,8 @@
       "Fine-tuning",
       "Open-source"
     ],
-    "abstract": "We develop and release Llama 2, a collection of pretrained and fine-tuned large language models ranging in scale from 7B to 70B parameters."
+    "abstract": "We develop and release Llama 2, a collection of pretrained and fine-tuned large language models ranging in scale from 7B to 70B parameters.",
+    "title_zh": "Llama 2：开放基础和微调的聊天模型"
   },
   {
     "id": "2305.14314",
@@ -913,7 +969,8 @@
       "Efficient",
       "PEFT"
     ],
-    "abstract": "We present QLoRA, an efficient finetuning approach that reduces memory usage enough to finetune a 65B parameter model on a single 48GB GPU while preserving full 16-bit finetuning task performance."
+    "abstract": "We present QLoRA, an efficient finetuning approach that reduces memory usage enough to finetune a 65B parameter model on a single 48GB GPU while preserving full 16-bit finetuning task performance.",
+    "title_zh": "QLoRA：量化 LLM 的高效微调"
   },
   {
     "id": "2304.08485",
@@ -927,7 +984,8 @@
       "Fine-tuning",
       "Vision"
     ],
-    "abstract": "We present LLaVA, the first attempt to use language-image instruction-following data generated by GPT-4 for visual instruction tuning."
+    "abstract": "We present LLaVA, the first attempt to use language-image instruction-following data generated by GPT-4 for visual instruction tuning.",
+    "title_zh": "LLaVA：视觉指令调整"
   },
   {
     "id": "2303.08774",
@@ -940,7 +998,8 @@
       "LLM",
       "Multimodal"
     ],
-    "abstract": "We report the development of GPT-4, a large-scale, multimodal model which can accept image and text inputs and produce text outputs."
+    "abstract": "We report the development of GPT-4, a large-scale, multimodal model which can accept image and text inputs and produce text outputs.",
+    "title_zh": "GPT-4 技术报告"
   },
   {
     "id": "2302.13971",
@@ -954,7 +1013,8 @@
       "Efficient",
       "Open-source"
     ],
-    "abstract": "We introduce LLaMA, a collection of foundation language models ranging from 7B to 65B parameters trained on trillions of tokens."
+    "abstract": "We introduce LLaMA, a collection of foundation language models ranging from 7B to 65B parameters trained on trillions of tokens.",
+    "title_zh": "LLaMA：开放高效的基础语言模型"
   },
   {
     "id": "2302.04761",
@@ -967,7 +1027,8 @@
       "Agent",
       "Tool-use"
     ],
-    "abstract": "We introduce Toolformer, a model trained to decide which APIs to call, when to call them, what arguments to pass, and how to best incorporate the results into future token prediction."
+    "abstract": "We introduce Toolformer, a model trained to decide which APIs to call, when to call them, what arguments to pass, and how to best incorporate the results into future token prediction.",
+    "title_zh": "Toolformer：语言模型可以自学使用工具"
   },
   {
     "id": "2212.08073",
@@ -981,7 +1042,8 @@
       "Alignment",
       "RLHF"
     ],
-    "abstract": "We propose Constitutional AI (CAI), a method for training a harmless AI assistant without any human labels identifying harmful outputs."
+    "abstract": "We propose Constitutional AI (CAI), a method for training a harmless AI assistant without any human labels identifying harmful outputs.",
+    "title_zh": "宪法人工智能：人工智能反馈的无害性"
   },
   {
     "id": "2210.03629",
@@ -995,7 +1057,8 @@
       "Reasoning",
       "Tool-use"
     ],
-    "abstract": "We explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner, allowing for greater synergy between the two."
+    "abstract": "We explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner, allowing for greater synergy between the two.",
+    "title_zh": "ReAct：在语言模型中协同推理和行动"
   },
   {
     "id": "2205.01068",
@@ -1008,7 +1071,8 @@
       "Reasoning",
       "Prompting"
     ],
-    "abstract": "We propose least-to-most prompting to enable easy-to-hard generalization in large language models."
+    "abstract": "We propose least-to-most prompting to enable easy-to-hard generalization in large language models.",
+    "title_zh": "从最少到最多的提示可以在大型语言模型中进行复杂的推理"
   },
   {
     "id": "2203.02155",
@@ -1022,7 +1086,8 @@
       "Alignment",
       "Fine-tuning"
     ],
-    "abstract": "We show an avenue for aligning language models with user intent on a wide range of tasks by fine-tuning with human feedback, resulting in InstructGPT."
+    "abstract": "We show an avenue for aligning language models with user intent on a wide range of tasks by fine-tuning with human feedback, resulting in InstructGPT.",
+    "title_zh": "训练语言模型遵循人类反馈的指令"
   },
   {
     "id": "2201.11903",
@@ -1036,7 +1101,8 @@
       "CoT",
       "Prompting"
     ],
-    "abstract": "We explore how generating a chain of thought — a series of intermediate reasoning steps — significantly improves the ability of large language models to perform complex reasoning."
+    "abstract": "We explore how generating a chain of thought — a series of intermediate reasoning steps — significantly improves the ability of large language models to perform complex reasoning.",
+    "title_zh": "思路链提示引发大型语言模型的推理"
   },
   {
     "id": "2106.09685",
@@ -1050,7 +1116,8 @@
       "Efficient",
       "PEFT"
     ],
-    "abstract": "We propose Low-Rank Adaptation (LoRA), which freezes the pretrained model weights and injects trainable rank decomposition matrices into each layer of the Transformer architecture."
+    "abstract": "We propose Low-Rank Adaptation (LoRA), which freezes the pretrained model weights and injects trainable rank decomposition matrices into each layer of the Transformer architecture.",
+    "title_zh": "LoRA：大型语言模型的低秩适应"
   },
   {
     "id": "2005.11401",
@@ -1064,6 +1131,7 @@
       "Retrieval",
       "Knowledge"
     ],
-    "abstract": "We explore a general-purpose fine-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric memory for language generation."
+    "abstract": "We explore a general-purpose fine-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric memory for language generation.",
+    "title_zh": "知识密集型 NLP 任务的检索增强生成"
   }
 ]
