@@ -19,7 +19,9 @@ header p{opacity:.8;font-size:.9rem}
 .fg input,.fg select{padding:.4rem .7rem;border:1px solid #ddd;border-radius:8px;font-size:.85rem;background:white;outline:none}
 .fg input:focus,.fg select:focus{border-color:#302b63}
 .fg.grow{flex:1;min-width:180px}
-.result-info{max-width:1000px;margin:.3rem auto;padding:0 1rem;font-size:.8rem;color:#999}
+.result-info{max-width:1000px;margin:.3rem auto;padding:0 1rem;font-size:.8rem;color:#999;display:flex;align-items:center;gap:1rem}
+.lang-toggle{font-size:.8rem;padding:.2rem .8rem;border-radius:1rem;border:1px solid #302b63;background:white;color:#302b63;cursor:pointer;white-space:nowrap}
+.lang-toggle:hover{background:#302b63;color:white}
 .section{display:none;max-width:1000px;margin:.8rem auto 3rem;padding:0 1rem}
 .section.active{display:block}
 .card{background:white;border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:.8rem;box-shadow:0 2px 8px rgba(0,0,0,.06);transition:box-shadow .2s;position:relative}
@@ -33,7 +35,8 @@ header p{opacity:.8;font-size:.9rem}
 .badge.tag:hover{background:#1565c0;color:white}
 .arxiv-link{font-size:.82rem;color:#302b63;text-decoration:none;font-weight:600}
 .arxiv-link:hover{text-decoration:underline}
-.card h3{font-size:.95rem;line-height:1.5;margin-bottom:.3rem}
+.card h3{font-size:.95rem;line-height:1.5;margin-bottom:.2rem;padding-right:2rem}
+.card h3 .zh{display:block;font-size:.88rem;color:#555;font-weight:400;margin-top:.15rem}
 .authors{font-size:.82rem;color:#666;margin-bottom:.4rem}
 .abstract{font-size:.82rem;color:#555;line-height:1.6;border-top:1px solid #f0f0f0;padding-top:.5rem;margin-top:.4rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .fav-btn{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.3rem;cursor:pointer;opacity:.35;transition:opacity .2s,transform .2s}
@@ -97,7 +100,10 @@ footer{text-align:center;padding:2rem;color:#aaa;font-size:.8rem}
     </select>
   </div>
 </div>
-<div class="result-info" id="result-info"></div>
+<div class="result-info">
+  <span id="result-info"></span>
+  <button class="lang-toggle" id="lang-btn" onclick="toggleLang()">🌐 显示中文标题</button>
+</div>
 <div id="latest" class="section active"><div class="loading">加载中...</div></div>
 <div id="hot" class="section"></div>
 <div id="topics" class="section"></div>
@@ -115,52 +121,81 @@ const TOPICS=[
   {key:"LLM",icon:"💡",name:"基础大模型",desc:"GPT、LLaMA、Qwen 等基础模型研究"},
 ];
 const PAGE_SIZE=8;
-let PAPERS=[];
-let currentTab='latest';
-let favorites=JSON.parse(localStorage.getItem('llm_favs')||'[]');
+let PAPERS=[], currentTab='latest';
+let favorites=new Set(JSON.parse(localStorage.getItem('llm_favs')||'[]'));
+let showZh=false;
+const zhCache={};
 
-fetch('papers.json?t='+Date.now())
-  .then(r=>r.json())
-  .then(data=>{
-    PAPERS=data;
-    document.getElementById('header-sub').textContent=`AI 大模型前沿论文追踪 · 共 ${PAPERS.length} 篇 · 每日自动更新`;
-    renderSection('latest',1);
-  })
-  .catch(()=>{
-    document.getElementById('latest').innerHTML='<div class="empty">数据加载失败，请刷新重试</div>';
-  });
-
-function getFavSet(){return new Set(favorites);}
-function toggleFav(id){
-  const s=getFavSet();
-  s.has(id)?s.delete(id):s.add(id);
-  favorites=[...s];
-  localStorage.setItem('llm_favs',JSON.stringify(favorites));
-  document.querySelectorAll(`.fav-btn[data-id="${id}"]`).forEach(b=>{
-    b.classList.toggle('active',getFavSet().has(id));
-  });
-  if(currentTab==='favorites')renderSection('favorites',1);
+async function translate(texts) {
+  const toTranslate = texts.filter(t => !zhCache[t]);
+  if (!toTranslate.length) return;
+  // Google Translate free API (batch)
+  const chunks = [];
+  for (let i=0; i<toTranslate.length; i+=50) chunks.push(toTranslate.slice(i,i+50));
+  for (const chunk of chunks) {
+    try {
+      const q = chunk.map(t=>`q=${encodeURIComponent(t)}`).join('&');
+      const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=zh-CN&dt=t&${q}`;
+      // Use individual requests for reliability
+      await Promise.all(chunk.map(async text => {
+        try {
+          const r = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=zh-CN&dt=t&q=${encodeURIComponent(text)}`);
+          const d = await r.json();
+          zhCache[text] = d[0].map(s=>s[0]).join('');
+        } catch(e) { zhCache[text] = ''; }
+      }));
+    } catch(e) {}
+  }
 }
 
-function filterData(tab){
+async function toggleLang() {
+  showZh = !showZh;
+  document.getElementById('lang-btn').textContent = showZh ? '🌐 显示英文标题' : '🌐 显示中文标题';
+  if (showZh) {
+    // translate visible titles
+    const visiblePapers = filterData(currentTab).slice(0, PAGE_SIZE*3);
+    const titles = visiblePapers.map(p=>p.title).filter(t=>!zhCache[t]);
+    if (titles.length) {
+      document.getElementById('lang-btn').textContent = '⏳ 翻译中...';
+      await translate(titles);
+      document.getElementById('lang-btn').textContent = '🌐 显示英文标题';
+    }
+  }
+  renderSection(currentTab, 1);
+}
+
+function toggleFav(id) {
+  favorites.has(id) ? favorites.delete(id) : favorites.add(id);
+  localStorage.setItem('llm_favs', JSON.stringify([...favorites]));
+  document.querySelectorAll(`.fav-btn[data-id="${id}"]`).forEach(b=>b.classList.toggle('active',favorites.has(id)));
+  if(currentTab==='favorites') renderSection('favorites',1);
+}
+
+function filterData(tab) {
   const q=document.getElementById('q').value.toLowerCase();
   const tagF=document.getElementById('tag-filter').value;
   const sortF=document.getElementById('sort').value;
   const yearF=document.getElementById('year').value;
-  let data=tab==='favorites'?PAPERS.filter(p=>getFavSet().has(p.id)):[...PAPERS];
-  if(tab==='hot')data=data.filter(p=>p.cite>=500);
-  if(q)data=data.filter(p=>p.title.toLowerCase().includes(q)||p.authors.toLowerCase().includes(q)||(p.tags||[]).join(' ').toLowerCase().includes(q));
-  if(tagF)data=data.filter(p=>(p.tags||[]).includes(tagF));
-  if(yearF)data=data.filter(p=>p.year==yearF);
-  if(sortF==='cite')data.sort((a,b)=>b.cite-a.cite);
-  else if(sortF==='title')data.sort((a,b)=>a.title.localeCompare(b.title));
+  let data=tab==='favorites'?PAPERS.filter(p=>favorites.has(p.id)):[...PAPERS];
+  if(tab==='hot') data=data.filter(p=>p.cite>=500);
+  if(q) data=data.filter(p=>
+    p.title.toLowerCase().includes(q)||
+    p.authors.toLowerCase().includes(q)||
+    (p.tags||[]).join(' ').toLowerCase().includes(q)||
+    (zhCache[p.title]||'').includes(q)
+  );
+  if(tagF) data=data.filter(p=>(p.tags||[]).includes(tagF));
+  if(yearF) data=data.filter(p=>p.year==yearF);
+  if(sortF==='cite') data.sort((a,b)=>b.cite-a.cite);
+  else if(sortF==='title') data.sort((a,b)=>a.title.localeCompare(b.title));
   else data.sort((a,b)=>(b.date||'').localeCompare(a.date||''));
   return data;
 }
 
-function renderCard(p){
-  const fav=getFavSet().has(p.id);
+function renderCard(p) {
+  const fav=favorites.has(p.id);
   const tags=(p.tags||[]).map(t=>`<span class="badge tag" onclick="filterByTag('${t}')">${t}</span>`).join(' ');
+  const zhTitle = showZh && zhCache[p.title] ? `<span class="zh">${zhCache[p.title]}</span>` : '';
   return `<div class="card">
     <button class="fav-btn ${fav?'active':''}" data-id="${p.id}" onclick="toggleFav('${p.id}')" title="${fav?'取消收藏':'收藏'}">⭐</button>
     <div class="card-meta">
@@ -168,35 +203,33 @@ function renderCard(p){
       <span class="badge date">📅 ${p.date||p.year}</span>
       <a class="arxiv-link" href="https://arxiv.org/abs/${p.id}" target="_blank">arXiv ↗</a>
     </div>
-    <h3>${p.title}</h3>
+    <h3>${p.title}${zhTitle}</h3>
     <div class="authors">👤 ${p.authors}</div>
     <div style="margin-bottom:.4rem">${tags}</div>
     <div class="abstract">${p.abstract}</div>
   </div>`;
 }
 
-function renderSection(tab,page){
+function renderSection(tab, page) {
   const data=filterData(tab);
   const total=data.length;
-  const slice=data.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE);
+  const slice=data.slice((page-1)*PAGE_SIZE, page*PAGE_SIZE);
   const totalPages=Math.ceil(total/PAGE_SIZE);
   document.getElementById('result-info').textContent=`共 ${total} 篇`;
   let html=slice.length?slice.map(renderCard).join(''):'<div class="empty">暂无论文 📭</div>';
-  if(totalPages>1){
-    html+='<div class="pagination">'+Array.from({length:totalPages},(_,i)=>
-      `<button class="page-btn ${i+1===page?'active':''}" onclick="renderSection('${tab}',${i+1})">${i+1}</button>`
-    ).join('')+'</div>';
-  }
+  if(totalPages>1) html+='<div class="pagination">'+Array.from({length:totalPages},(_,i)=>
+    `<button class="page-btn ${i+1===page?'active':''}" onclick="renderSection('${tab}',${i+1})">${i+1}</button>`
+  ).join('')+'</div>';
   document.getElementById(tab).innerHTML=html;
+  // preload translations for current page
+  if(showZh) {
+    const untranslated = slice.filter(p=>!zhCache[p.title]).map(p=>p.title);
+    if(untranslated.length) translate(untranslated).then(()=>renderSection(tab,page));
+  }
 }
 
-function filterByTag(tag){
-  document.getElementById('tag-filter').value=tag;
-  applyFilter();
-}
-function applyFilter(){
-  if(currentTab!=='topics')renderSection(currentTab,1);
-}
+function filterByTag(tag){document.getElementById('tag-filter').value=tag;applyFilter();}
+function applyFilter(){if(currentTab!=='topics')renderSection(currentTab,1);}
 function showTab(tab,el){
   currentTab=tab;
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
@@ -205,25 +238,29 @@ function showTab(tab,el){
   el.classList.add('active');
   document.getElementById('toolbar').style.display=tab==='topics'?'none':'flex';
   document.getElementById('result-info').textContent='';
-  if(tab==='topics')renderTopics();
-  else renderSection(tab,1);
+  if(tab==='topics') renderTopics(); else renderSection(tab,1);
 }
 function renderTopics(){
-  const html='<div class="topic-grid">'+TOPICS.map(t=>{
+  document.getElementById('topics').innerHTML='<div class="topic-grid">'+TOPICS.map(t=>{
     const count=PAPERS.filter(p=>(p.tags||[]).includes(t.key)).length;
     return `<div class="topic-card" onclick="selectTopic('${t.key}')">
       <h4>${t.icon} ${t.name} <span class="topic-count">${count}</span></h4>
-      <p>${t.desc}</p>
-    </div>`;
+      <p>${t.desc}</p></div>`;
   }).join('')+'</div>';
-  document.getElementById('topics').innerHTML=html;
 }
 function selectTopic(tag){
   document.getElementById('tag-filter').value=tag;
-  const latestTab=document.querySelector('.tab');
-  showTab('latest',latestTab);
-  latestTab.classList.add('active');
+  const btn=document.querySelector('.tab');
+  showTab('latest',btn); btn.classList.add('active');
 }
+
+fetch('papers.json?t='+Date.now()).then(r=>r.json()).then(data=>{
+  PAPERS=data;
+  document.getElementById('header-sub').textContent=`AI 大模型前沿论文追踪 · 共 ${PAPERS.length} 篇 · 每日自动更新`;
+  renderSection('latest',1);
+}).catch(()=>{
+  document.getElementById('latest').innerHTML='<div class="empty">数据加载失败，请刷新重试</div>';
+});
 </script>
 </body>
 </html>
