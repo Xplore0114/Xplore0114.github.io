@@ -86,3 +86,9 @@ with open("daily_summary.txt", "w") as f:
     f.write(f"今日新增 {len(new_papers)} 篇论文，共收录 {len(all_papers)} 篇\n\n")
     for p in new_papers[:5]:
         f.write(f"• [{p['tags'][0]}] {p['title'][:60]}\n  https://arxiv.org/abs/{p['id']}\n\n")
+
+# sync to llm-tracker/
+import shutil, os
+if os.path.exists("llm-tracker"):
+    shutil.copy("papers.json", "llm-tracker/papers.json")
+    print("Synced to llm-tracker/papers.json")
