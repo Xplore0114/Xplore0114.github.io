@@ -258,7 +258,7 @@ function renderPaperList(papers,label){
     html+=`<div class="paper-item" onclick="window.open('https://arxiv.org/abs/${p.id}','_blank')">
       <div class="pi-title">${p.title}</div>
       ${p.title_zh?`<div class="pi-zh">${p.title_zh}</div>`:''}
-      <div class="pi-meta">${tags}<span class="pi-date">${p.date||''}</span></div>
+      <div class="pi-meta">${tags}<span class="pi-date">${p.date||String(p.year)||''}</span></div>
     </div>`;
   });
   document.getElementById('paper-list').innerHTML=html;
