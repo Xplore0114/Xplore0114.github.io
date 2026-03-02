@@ -76,6 +76,19 @@ header p{opacity:.8;font-size:.85rem}
 .loading{text-align:center;padding:3rem;color:#999}
 footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1rem}
 @media(max-width:800px){.main-layout{grid-template-columns:1fr}.sidebar{display:none}}
+
+.badge.tag-Agent{background:#fff3e0;color:#e65100}
+.badge.tag-RAG{background:#e8f5e9;color:#2e7d32}
+.badge.tag-Reasoning{background:#e3f2fd;color:#1565c0}
+.badge.tag-Multimodal{background:#fce4ec;color:#880e4f}
+.badge.tag-Fine-tuning{background:#f3e5f5;color:#6a1b9a}
+.badge.tag-Safety{background:#e0f2f1;color:#004d40}
+.badge.tag-LLM{background:#e8eaf6;color:#283593}
+.badge.tag-MCP{background:#fff8e1;color:#f57f17}
+/* sidebar filters */
+.sidebar-filters{display:flex;flex-direction:column;gap:.4rem;margin-bottom:.7rem;flex-shrink:0}
+.sidebar-filters select{padding:.3rem .5rem;border:1px solid #e0e0e0;border-radius:6px;font-size:.75rem;background:white;outline:none;color:#333}
+.sidebar-filters select:focus{border-color:#302b63}
 </style>
 </head>
 <body>
@@ -94,7 +107,31 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
   <!-- Left sidebar: company timeline -->
   <div class="sidebar">
     <h3>🏢 公司论文 <span>可拖拽滚动</span></h3>
-    <div class="timeline-list" id="timeline-list"><div class="loading" style="padding:1rem;font-size:.8rem">加载中...</div></div>
+    <div class="sidebar-filters">
+  <select id="tl-company" onchange="filterTimeline()">
+    <option value="">全部公司</option>
+    <option value="OpenAI">OpenAI</option>
+    <option value="Google">Google</option>
+    <option value="Meta">Meta</option>
+    <option value="Anthropic">Anthropic</option>
+    <option value="Mistral">Mistral</option>
+    <option value="Qwen">Qwen</option>
+    <option value="DeepSeek">DeepSeek</option>
+    <option value="Baidu">Baidu</option>
+  </select>
+  <select id="tl-tag" onchange="filterTimeline()">
+    <option value="">全部标签</option>
+    <option value="RAG">RAG</option>
+    <option value="Agent">Agent</option>
+    <option value="Reasoning">Reasoning</option>
+    <option value="Multimodal">Multimodal</option>
+    <option value="Fine-tuning">Fine-tuning</option>
+    <option value="Safety">Safety</option>
+    <option value="LLM">LLM</option>
+    <option value="MCP">MCP</option>
+  </select>
+</div>
+<div class="timeline-list" id="timeline-list"><div class="loading" style="padding:1rem;font-size:.8rem">加载中...</div></div>
   </div>
   <!-- Right content -->
   <div class="content">
@@ -162,16 +199,29 @@ tl.addEventListener('mousedown',e=>{isDragging=true;startY=e.pageY-tl.offsetTop;
 document.addEventListener('mouseup',()=>{isDragging=false;tl.style.cursor='grab'});
 document.addEventListener('mousemove',e=>{if(!isDragging)return;e.preventDefault();tl.scrollTop=scrollTop-(e.pageY-tl.offsetTop-startY)});
 
+let ALL_COMPANY_PAPERS=[];
+function filterTimeline(){
+  const co=document.getElementById('tl-company').value;
+  const tag=document.getElementById('tl-tag').value;
+  let data=ALL_COMPANY_PAPERS;
+  if(co) data=data.filter(p=>p.company===co);
+  if(tag) data=data.filter(p=>(p.tags||[]).includes(tag));
+  renderTimeline(data);
+}
+function renderTimeline(papers){
+  const html=papers.length?papers.map(p=>`
+    <div class="tl-item" onclick="window.open('https://arxiv.org/abs/${p.id}','_blank')" style="border-left-color:${COLORS[p.company]||'#302b63'}">
+      <div class="tl-date">${p.date}</div>
+      <div class="tl-company" style="color:${COLORS[p.company]||'#302b63'}">${p.company}</div>
+      <div class="tl-title">${p.title}</div>
+      ${p.title_zh?`<div class="tl-zh">${p.title_zh}</div>`:''}
+    </div>`).join(''):'<div style="padding:1rem;font-size:.8rem;color:#bbb;text-align:center">暂无论文</div>';
+  document.getElementById('timeline-list').innerHTML=html;
+}
 function loadCompanyTimeline(){
   fetch('company-papers.json?t='+Date.now()).then(r=>r.json()).then(papers=>{
-    const html=papers.map(p=>`
-      <div class="tl-item" onclick="window.open('https://arxiv.org/abs/${p.id}','_blank')" style="border-left-color:${COLORS[p.company]||'#302b63'}">
-        <div class="tl-date">${p.date}</div>
-        <div class="tl-company" style="color:${COLORS[p.company]||'#302b63'}">${p.company}</div>
-        <div class="tl-title">${p.title}</div>
-        ${p.title_zh?`<div class="tl-zh">${p.title_zh}</div>`:''}
-      </div>`).join('');
-    document.getElementById('timeline-list').innerHTML=html;
+    ALL_COMPANY_PAPERS=papers;
+    renderTimeline(papers);
   });
 }
 
@@ -200,7 +250,7 @@ function filterData(){
 
 function renderCard(p){
   const fav=favorites.has(p.id);
-  const tags=(p.tags||[]).map(t=>`<span class="badge tag" onclick="filterByTag('${t}')">${t}</span>`).join(' ');
+  const tags=(p.tags||[]).map(t=>`<span class="badge tag tag-${t}" onclick="filterByTag('${t}')">${t}</span>`).join(' ');
   return `<div class="card">
     <button class="fav-btn ${fav?'active':''}" data-id="${p.id}" onclick="toggleFav('${p.id}')">⭐</button>
     <div class="card-meta">
