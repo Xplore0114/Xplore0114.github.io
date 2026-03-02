@@ -1,0 +1,35 @@
+name: Update Papers Daily
+
+on:
+  schedule:
+    - cron: '0 1 * * *'  # 每天 UTC 1:00 = 北京时间 9:00
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch latest papers
+        run: python3 scripts/fetch_papers.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add papers.json
+          git diff --staged --quiet || git commit -m "chore: update papers $(date +%Y-%m-%d)"
+          git push
+
+      - name: Send Feishu notification
+        if: env.FEISHU_WEBHOOK != ''
+        env:
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+        run: |
+          if [ -f daily_summary.txt ]; then
+            MSG=$(cat daily_summary.txt)
+            curl -s -X POST "$FEISHU_WEBHOOK" \
+              -H "Content-Type: application/json" \
+              -d "{\"msg_type\":\"text\",\"content\":{\"text\":\"📚 LLM Papers 每日更新\n$MSG\n查看：https://xplore0114.github.io/llm-tracker.html\"}}"
+          fi
