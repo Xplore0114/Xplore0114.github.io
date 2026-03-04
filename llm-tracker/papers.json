@@ -1,5 +1,1233 @@
 [
   {
+    "id": "2603.03249",
+    "title": "Using Learning Progressions to Guide AI Feedback for Science Learning",
+    "authors": "Xin Xia, Nejla Yuruk, Yun Wang et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Generative artificial intelligence (AI) offers scalable support for formative feedback, yet most AI-generated feedback relies on task-specific rubrics authored by domain experts. While effective, rubric authoring is time-consuming and limits scalability across instructional contexts. Learning progressions (LP) provide a theoretically grounded representation of students' developing understanding and may offer an alternative solution. This study examines whether an LP-driven rubric generation pipe"
+  },
+  {
+    "id": "2603.03242",
+    "title": "Density-Guided Response Optimization: Community-Grounded Alignment via Implicit Acceptance Signals",
+    "authors": "Patrick Gerard, Svitlana Volkova",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Language models deployed in online communities must adapt to norms that vary across social, cultural, and domain-specific contexts. Prior alignment approaches rely on explicit preference supervision or predefined principles, which are effective for well-resourced settings but exclude most online communities -- particularly those without institutional backing, annotation infrastructure, or organized around sensitive topics -- where preference elicitation is costly, ethically fraught, or culturall"
+  },
+  {
+    "id": "2603.03206",
+    "title": "Understanding and Mitigating Dataset Corruption in LLM Steering",
+    "authors": "Cullen Anderson, Narmeen Oozeer, Foad Namjoo et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Contrastive steering has been shown as a simple and effective method to adjust the generative behavior of LLMs at inference time. It uses examples of prompt responses with and without a trait to identify a direction in an intermediate activation layer, and then shifts activations in this 1-dimensional subspace. However, despite its growing use in AI safety applications, the robustness of contrastive steering to noisy or adversarial data corruption is poorly understood. We initiate a study of the"
+  },
+  {
+    "id": "2603.03205",
+    "title": "Learning When to Act or Refuse: Guarding Agentic Reasoning Models for Safe Multi-Step Tool Use",
+    "authors": "Aradhye Agarwal, Gurdit Siyan, Yash Pandya et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Agentic language models operate in a fundamentally different safety regime than chat models: they must plan, call tools, and execute long-horizon actions where a single misstep, such as accessing files or entering credentials, can cause irreversible harm. Existing alignment methods, largely optimized for static generation and task completion, break down in these settings due to sequential decision-making, adversarial tool feedback, and overconfident intermediate reasoning. We introduce MOSAIC, a"
+  },
+  {
+    "id": "2603.03203",
+    "title": "No Memorization, No Detection: Output Distribution-Based Contamination Detection in Small Language Models",
+    "authors": "Omer Sela",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "CDD, or Contamination Detection via output Distribution, identifies data contamination by measuring the peakedness of a model's sampled outputs. We study the conditions under which this approach succeeds and fails on small language models ranging from 70M to 410M parameters. Using controlled contamination experiments on GSM8K, HumanEval, and MATH, we find that CDD's effectiveness depends critically on whether fine-tuning produces verbatim memorization. With low-rank adaptation, models can learn "
+  },
+  {
+    "id": "2603.03202",
+    "title": "Code2Math: Can Your Code Agent Effectively Evolve Math Problems Through Exploration?",
+    "authors": "Dadi Guo, Yuejin Xie, Qingyu Liu et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "As large language models (LLMs) advance their mathematical capabilities toward the IMO level, the scarcity of challenging, high-quality problems for training and evaluation has become a significant bottleneck. Simultaneously, recent code agents have demonstrated sophisticated skills in agentic coding and reasoning, suggesting that code execution can serve as a scalable environment for mathematical experimentation. In this paper, we investigate the potential of code agents to autonomously evolve "
+  },
+  {
+    "id": "2603.03198",
+    "title": "ACE-Brain-0: Spatial Intelligence as a Shared Scaffold for Universal Embodiments",
+    "authors": "Ziyang Gong, Zehang Luo, Anke Tang et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Universal embodied intelligence demands robust generalization across heterogeneous embodiments, such as autonomous driving, robotics, and unmanned aerial vehicles (UAVs). However, existing embodied brain in training a unified model over diverse embodiments frequently triggers long-tail data, gradient interference, and catastrophic forgetting, making it notoriously difficult to balance universal generalization with domain-specific proficiency. In this report, we introduce ACE-Brain-0, a generalis"
+  },
+  {
+    "id": "2603.03194",
+    "title": "BeyondSWE: Can Current Code Agent Survive Beyond Single-Repo Bug Fixing?",
+    "authors": "Guoxin Chen, Fanzhe Meng, Jiale Zhao et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Current benchmarks for code agents primarily assess narrow, repository-specific fixes, overlooking critical real-world challenges such as cross-repository reasoning, domain-specialized problem solving, dependency-driven migration, and full-repository generation. To address this gap, we introduce BeyondSWE, a comprehensive benchmark that broadens existing evaluations along two axes - resolution scope and knowledge scope - using 500 real-world instances across four distinct settings. Experimental "
+  },
+  {
+    "id": "2603.03192",
+    "title": "MoD-DPO: Towards Mitigating Cross-modal Hallucinations in Omni LLMs using Modality Decoupled Preference Optimization",
+    "authors": "Ashutosh Chaubey, Jiacheng Pang, Mohammad Soleymani",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Omni-modal large language models (omni LLMs) have recently achieved strong performance across audiovisual understanding tasks, yet they remain highly susceptible to cross-modal hallucinations arising from spurious correlations and dominant language priors. In this work, we propose Modality-Decoupled Direct Preference Optimization (MoD-DPO), a simple and effective framework for improving modality grounding in omni LLMs. MoD-DPO introduces modality-aware regularization terms that explicitly enforc"
+  },
+  {
+    "id": "2603.03180",
+    "title": "Type-Aware Retrieval-Augmented Generation with Dependency Closure for Solver-Executable Industrial Optimization Modeling",
+    "authors": "Y. Zhong, R. Huang, M. Wang et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Automated industrial optimization modeling requires reliable translation of natural-language requirements into solver-executable code. However, large language models often generate non-compilable models due to missing declarations, type inconsistencies, and incomplete dependency contexts. We propose a type-aware retrieval-augmented generation (RAG) method that enforces modeling entity types and minimal dependency closure to ensure executability. Unlike existing RAG approaches that index unstruct"
+  },
+  {
+    "id": "2603.03142",
+    "title": "APRES: An Agentic Paper Revision and Evaluation System",
+    "authors": "Bingchen Zhao, Jenny Zhang, Chenxi Whitehouse et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Scientific discoveries must be communicated clearly to realize their full potential. Without effective communication, even the most groundbreaking findings risk being overlooked or misunderstood. The primary way scientists communicate their work and receive feedback from the community is through peer review. However, the current system often provides inconsistent feedback between reviewers, ultimately hindering the improvement of a manuscript and limiting its potential impact. In this paper, we "
+  },
+  {
+    "id": "2603.03134",
+    "title": "UniSkill: A Dataset for Matching University Curricula to Professional Competencies",
+    "authors": "Nurlan Musazade, Joszef Mezei, Mike Zhang",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Skill extraction and recommendation systems have been studied from recruiter, applicant, and education perspectives. While AI applications in job advertisements have received broad attention, deficiencies in the instructed skills side remain a challenge. In this work, we address the scarcity of publicly available datasets by releasing both manually annotated and synthetic datasets of skills from the European Skills, Competences, Qualifications and Occupations (ESCO) taxonomy and university cours"
+  },
+  {
+    "id": "2603.03111",
+    "title": "Evaluating Performance Drift from Model Switching in Multi-Turn LLM Systems",
+    "authors": "Raad Khraishi, Iman Zafar, Katie Myles et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Deployed multi-turn LLM systems routinely switch models mid-interaction due to upgrades, cross-provider routing, and fallbacks. Such handoffs create a context mismatch: the model generating later turns must condition on a dialogue prefix authored by a different model, potentially inducing silent performance drift. We introduce a switch-matrix benchmark that measures this effect by running a prefix model for early turns and a suffix model for the final turn, and comparing against the no-switch ba"
+  },
+  {
+    "id": "2603.03096",
+    "title": "Interpreting Speaker Characteristics in the Dimensions of Self-Supervised Speech Features",
+    "authors": "Kyle Janse van Rensburg, Benjamin van Niekerk, Herman Kamper",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "How do speech models trained through self-supervised learning structure their representations? Previous studies have looked at how information is encoded in feature vectors across different layers. But few studies have considered whether speech characteristics are captured within individual dimensions of SSL features. In this paper we specifically look at speaker information using PCA on utterance-averaged representations. Using WavLM, we find that the principal dimension that explains most vari"
+  },
+  {
+    "id": "2603.03095",
+    "title": "Compact Prompting in Instruction-tuned LLMs for Joint Argumentative Component Detection",
+    "authors": "Sofiane Elguendouze, Erwan Hain, Elena Cabrio et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Argumentative component detection (ACD) is a core subtask of Argument(ation) Mining (AM) and one of its most challenging aspects, as it requires jointly delimiting argumentative spans and classifying them into components such as claims and premises. While research on this subtask remains relatively limited compared to other AM tasks, most existing approaches formulate it as a simplified sequence labeling problem, component classification, or a pipeline of component segmentation followed by class"
+  },
+  {
+    "id": "2603.03081",
+    "title": "TAO-Attack: Toward Advanced Optimization-Based Jailbreak Attacks for Large Language Models",
+    "authors": "Zhi Xu, Jiaqi Li, Xiaotong Zhang et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) have achieved remarkable success across diverse applications but remain vulnerable to jailbreak attacks, where attackers craft prompts that bypass safety alignment and elicit unsafe responses. Among existing approaches, optimization-based attacks have shown strong effectiveness, yet current methods often suffer from frequent refusals, pseudo-harmful outputs, and inefficient token-level updates. In this work, we propose TAO-Attack, a new optimization-based jailbreak m"
+  },
+  {
+    "id": "2603.03072",
+    "title": "TikZilla: Scaling Text-to-TikZ with High-Quality Data and Reinforcement Learning",
+    "authors": "Christian Greisinger, Steffen Eger",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) are increasingly used to assist scientists across diverse workflows. A key challenge is generating high-quality figures from textual descriptions, often represented as TikZ programs that can be rendered as scientific images. Prior research has proposed a variety of datasets and modeling approaches for this task. However, existing datasets for Text-to-TikZ are too small and noisy to capture the complexity of TikZ, causing mismatches between text and rendered figures. "
+  },
+  {
+    "id": "2603.03056",
+    "title": "Incremental Graph Construction Enables Robust Spectral Clustering of Texts",
+    "authors": "Marko Pranjić, Boshko Koloski, Nada Lavrač et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Neighborhood graphs are a critical but often fragile step in spectral clustering of text embeddings. On realistic text datasets, standard $k$-NN graphs can contain many disconnected components at practical sparsity levels (small $k$), making spectral clustering degenerate and sensitive to hyperparameters. We introduce a simple incremental $k$-NN graph construction that preserves connectivity by design: each new node is linked to its $k$ nearest previously inserted nodes, which guarantees a conne"
+  },
+  {
+    "id": "2603.03054",
+    "title": "PrivMedChat: End-to-End Differentially Private RLHF for Medical Dialogue Systems",
+    "authors": "Sudip Bhujel",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models are increasingly used for patient-facing medical assistance and clinical decision support, but adapting them to clinical dialogue often requires supervision derived from doctor-patient conversations that may contain sensitive information. Conventional supervised fine-tuning and reinforcement learning from human feedback (RLHF) can amplify memorization risks, enabling empirical membership inference and extraction of rare training-set content. We present PrivMedChat, an end-t"
+  },
+  {
+    "id": "2603.03047",
+    "title": "TrustMH-Bench: A Comprehensive Benchmark for Evaluating the Trustworthiness of Large Language Models in Mental Health",
+    "authors": "Zixin Xiong, Ziteng Wang, Haotian Fan et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "While Large Language Models (LLMs) demonstrate significant potential in providing accessible mental health support, their practical deployment raises critical trustworthiness concerns due to the domains high-stakes and safety-sensitive nature. Existing evaluation paradigms for general-purpose LLMs fail to capture mental health-specific requirements, highlighting an urgent need to prioritize and enhance their trustworthiness. To address this, we propose TrustMH-Bench, a holistic framework designe"
+  },
+  {
+    "id": "2603.03001",
+    "title": "MaBERT:A Padding Safe Interleaved Transformer Mamba Hybrid Encoder for Efficient Extended Context Masked Language Modeling",
+    "authors": "Jinwoong Kim, Sangjin Park",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Self attention encoders such as Bidirectional Encoder Representations from Transformers(BERT) scale quadratically with sequence length, making long context modeling expensive. Linear time state space models, such as Mamba, are efficient; however, they show limitations in modeling global interactions and can suffer from padding induced state contamination. We propose MaBERT, a hybrid encoder that interleaves Transformer layers for global dependency modeling with Mamba layers for linear time state"
+  },
+  {
+    "id": "2603.02983",
+    "title": "Contextualized Privacy Defense for LLM Agents",
+    "authors": "Yule Wen, Yanzhe Zhang, Jianxun Lian et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "LLM agents increasingly act on users' personal information, yet existing privacy defenses remain limited in both design and adaptability. Most prior approaches rely on static or passive defenses, such as prompting and guarding. These paradigms are insufficient for supporting contextual, proactive privacy decisions in multi-step agent execution. We propose Contextualized Defense Instructing (CDI), a new privacy defense paradigm in which an instructor model generates step-specific, context-aware p"
+  },
+  {
+    "id": "2603.02945",
+    "title": "ACE-Merging: Data-Free Model Merging with Adaptive Covariance Estimation",
+    "authors": "Bo Xu, Haotian Wu, Hehai Lin et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Model merging aims to combine multiple task-specific expert models into a single model while preserving generalization across diverse tasks. However, interference among experts, especially when they are trained on different objectives, often leads to significant performance degradation. Despite recent progress, resolving this interference without data access, retraining, or architectural modification remains a fundamental challenge. This paper provides a theoretical analysis demonstrating that t"
+  },
+  {
+    "id": "2603.02909",
+    "title": "Learning to Generate and Extract: A Multi-Agent Collaboration Framework For Zero-shot Document-level Event Arguments Extraction",
+    "authors": "Guangjun Zhang, Hu Zhang, Yazhou Han et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Document-level event argument extraction (DEAE) is essential for knowledge acquisition, aiming to extract participants of events from documents.In the zero-shot setting, existing methods employ LLMs to generate synthetic data to address the challenge posed by the scarcity of annotated data. However, relying solely on Event-type-only prompts makes it difficult for the generated content to accurately capture the contextual and structural relationships of unseen events. Moreover, ensuring the relia"
+  },
+  {
+    "id": "2603.02876",
+    "title": "Eval4Sim: An Evaluation Framework for Persona Simulation",
+    "authors": "Eliseo Bao, Anxo Perez, Xi Wang et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large Language Model (LLM) personas with explicit specifications of attributes, background, and behavioural tendencies are increasingly used to simulate human conversations for tasks such as user modeling, social reasoning, and behavioural analysis. Ensuring that persona-grounded simulations faithfully reflect human conversational behaviour is therefore critical. However, current evaluation practices largely rely on LLM-as-a-judge approaches, offering limited grounding in observable human behavi"
+  },
+  {
+    "id": "2603.02873",
+    "title": "LaTeX Compilation: Challenges in the Era of LLMs",
+    "authors": "Tianyou Liu, Ziqiang Li, Yansong Li et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "As large language models (LLMs) increasingly assist scientific writing, limitations and the significant token cost of TeX become more and more visible. This paper analyzes TeX's fundamental defects in compilation and user experience design to illustrate its limitations on compilation efficiency, generated semantics, error localization, and tool ecosystem in the era of LLMs. As an alternative, Mogan STEM, a WYSIWYG structured editor, is introduced. Mogan outperforms TeX in the above aspects by it"
+  },
+  {
+    "id": "2603.02865",
+    "title": "Nodes Are Early, Edges Are Late: Probing Diagram Representations in Large Vision-Language Models",
+    "authors": "Haruto Yoshida, Keito Kudo, Yoichi Aoki et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety"
+    ],
+    "abstract": "Large vision-language models (LVLMs) demonstrate strong performance on diagram understanding benchmarks, yet they still struggle with understanding relationships between elements, particularly those represented by nodes and directed edges (e.g., arrows and lines). To investigate the underlying causes of this limitation, we probe the internal representation of LVLMs using a carefully constructed synthetic diagram dataset based on directed graphs. Our probing experiments reveal that edge informati"
+  },
+  {
+    "id": "2603.02860",
+    "title": "The Distribution of Phoneme Frequencies across the World's Languages: Macroscopic and Microscopic Information-Theoretic Models",
+    "authors": "Fermín Moscoso del Prado Martín, Suchir Salhan",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety"
+    ],
+    "abstract": "We demonstrate that the frequency distribution of phonemes across languages can be explained at both macroscopic and microscopic levels. Macroscopically, phoneme rank-frequency distributions closely follow the order statistics of a symmetric Dirichlet distribution whose single concentration parameter scales systematically with phonemic inventory size, revealing a robust compensation effect whereby larger inventories exhibit lower relative entropy. Microscopically, a Maximum Entropy model incorpo"
+  },
+  {
+    "id": "2603.02842",
+    "title": "A Browser-based Open Source Assistant for Multimodal Content Verification",
+    "authors": "Rosanna Milner, Michael Foster, Olesya Razuvayevskaya et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety"
+    ],
+    "abstract": "Disinformation and false content produced by generative AI pose a significant challenge for journalists and fact-checkers who must rapidly verify digital media information. While there is an abundance of NLP models for detecting credibility signals such as persuasion techniques, subjectivity, or machine-generated text, such methods often remain inaccessible to non-expert users and are not integrated into their daily workflows as a unified framework. This paper demonstrates the VERIFICATION ASSIS"
+  },
+  {
+    "id": "2603.02830",
+    "title": "Faster, Cheaper, More Accurate: Specialised Knowledge Tracing Models Outperform LLMs",
+    "authors": "Prarthana Bhattacharyya, Joshua Mitton, Ralph Abboud et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety"
+    ],
+    "abstract": "Predicting future student responses to questions is particularly valuable for educational learning platforms where it enables effective interventions. One of the key approaches to do this has been through the use of knowledge tracing (KT) models. These are small, domain-specific, temporal models trained on student question-response data. KT models are optimised for high accuracy on specific educational domains and have fast inference and scalable deployments. The rise of Large Language Models (L"
+  },
+  {
+    "id": "2603.03116",
+    "title": "Beyond Task Completion: Revealing Corrupt Success in LLM Agents through Procedure-Aware Evaluation",
+    "authors": "Hongliu Cao, Ilias Driouich, Eoin Thomas",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Large Language Model (LLM)-based agents are increasingly adopted in high-stakes settings, but current benchmarks evaluate mainly whether a task was completed, not how. We introduce Procedure-Aware Evaluation (PAE), a framework that formalizes agent procedures as structured observations and exposes consistency relationships between what agents observe, communicate, and execute. PAE evaluates agents along complementary axes (Utility, Efficiency, Interaction Quality, Procedural Integrity) and appli"
+  },
+  {
+    "id": "2603.03078",
+    "title": "RAPO: Expanding Exploration for LLM Agents via Retrieval-Augmented Policy Optimization",
+    "authors": "Siwei Zhang, Yun Xiong, Xi Chen et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Agentic Reinforcement Learning (Agentic RL) has shown remarkable potential in large language model-based (LLM) agents. These works can empower LLM agents to tackle complex tasks via multi-step, tool-integrated reasoning. However, an inherent limitation of existing Agentic RL methods is their reliance on a pure on-policy paradigm for exploration, restricting exploration to the agent's self-generated outputs and preventing the discovery of new reasoning perspectives for further improvement. While "
+  },
+  {
+    "id": "2603.03155",
+    "title": "Information Routing in Atomistic Foundation Models: How Equivariance Creates Linearly Disentangled Representations",
+    "authors": "Joshua Steier",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "What do atomistic foundation models encode in their intermediate representations, and how is that information organized? We introduce Composition Projection Decomposition (CPD), which uses QR projection to linearly remove composition signal from learned representations and probes the geometric residual. Across eight models from five architectural families on QM9 molecules and Materials Project crystals, we find a disentanglement gradient: tensor product equivariant architectures (MACE) produce r"
+  },
+  {
+    "id": "2603.03002",
+    "title": "SpatialText: A Pure-Text Cognitive Benchmark for Spatial Understanding in Large Language Models",
+    "authors": "Peiyao Jiang, Zequn Qin, Xi Li",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Genuine spatial reasoning relies on the capacity to construct and manipulate coherent internal spatial representations, often conceptualized as mental models, rather than merely processing surface linguistic associations. While large language models exhibit advanced capabilities across various domains, existing benchmarks fail to isolate this intrinsic spatial cognition from statistical language heuristics. Furthermore, multimodal evaluations frequently conflate genuine spatial reasoning with vi"
+  },
+  {
+    "id": "2603.02939",
+    "title": "ShipTraj-R1: Reinforcing Ship Trajectory Prediction in Large Language Models via Group Relative Policy Optimization",
+    "authors": "Yang Zhan, Yunhao Li, Zhang Chao et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Recent advancements in reinforcement fine-tuning have significantly improved the reasoning ability of large language models (LLMs). In particular, methods such as group relative policy optimization (GRPO) have demonstrated strong capabilities across various fields. However, applying LLMs to ship trajectory prediction remains largely unexplored. In this paper, we propose ShipTraj-R1, a novel LLM-based framework that reformulates ship trajectory prediction as a text-to-text generation problem. (1)"
+  },
+  {
+    "id": "2603.02938",
+    "title": "Beyond One-Size-Fits-All: Adaptive Subgraph Denoising for Zero-Shot Graph Learning with Large Language Models",
+    "authors": "Fengzhi Li, Liang Zhang, Yuan Zuo et al.",
+    "year": 2026,
+    "date": "2026-03-03",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Graph-based tasks in the zero-shot setting remain a significant challenge due to data scarcity and the inability of traditional Graph Neural Networks (GNNs) to generalize to unseen domains or label spaces. While recent advancements have transitioned toward leveraging Large Language Models (LLMs) as predictors to enhance GNNs, these methods often suffer from cross-modal alignment issues. A recent paradigm (i.e., Graph-R1) overcomes the aforementioned architectural dependencies by adopting a purel"
+  },
+  {
+    "id": "2603.02208",
+    "title": "Reasoning Core: A Scalable Procedural Data Generation Suite for Symbolic Pre-training and Post-Training",
+    "authors": "Valentin Lacombe, Valentin Quesnel, Damien Sileo",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Training on verifiable symbolic data is a promising way to expand the reasoning frontier of language models beyond what standard pre-training corpora provide. Yet existing procedural generators often rely on fixed puzzles or templates and do not deliver the distributional breadth needed at scale. We introduce Reasoning Core, a scalable suite that procedurally generates verifiable symbolic reasoning data across core formal domains: PDDL planning over randomized domains, first-order logic with equ"
+  },
+  {
+    "id": "2603.02203",
+    "title": "Tool Verification for Test-Time Reinforcement Learning",
+    "authors": "Ruotong Liao, Nikolai Röhrich, Xiaohan Wang et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Test-time reinforcement learning (TTRL) has emerged as a promising paradigm for self-evolving large reasoning models (LRMs), enabling online adaptation on unlabeled test inputs via self-induced rewards through majority voting. However, a spurious yet high-frequency unverified consensus can become a biased and reinforced reward signal, leading to incorrect mode collapse. We address this failure mode with T^3RL (Tool-Verification for Test-Time Reinforcement Learning), which introduces test-time to"
+  },
+  {
+    "id": "2603.02176",
+    "title": "Organizing, Orchestrating, and Benchmarking Agent Skills at Ecosystem Scale",
+    "authors": "Hao Li, Chunjiang Mu, Jianhao Chen et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "The rapid proliferation of Claude agent skills has raised the central question of how to effectively leverage, manage, and scale the agent skill ecosystem. In this paper, we propose AgentSkillOS, the first principled framework for skill selection, orchestration, and ecosystem-level management. AgentSkillOS comprises two stages: (i) Manage Skills, which organizes skills into a capability tree via node-level recursive categorization for efficient discovery; and (ii) Solve Tasks, which retrieves, o"
+  },
+  {
+    "id": "2603.02153",
+    "title": "Scaling Retrieval Augmented Generation with RAG Fusion: Lessons from an Industry Deployment",
+    "authors": "Luigi Medrano, Arush Verma, Mukul Chhabra",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Retrieval-Augmented Generation (RAG) systems commonly adopt retrieval fusion techniques such as multi-query retrieval and reciprocal rank fusion (RRF) to increase document recall, under the assumption that higher recall leads to better answer quality. While these methods show consistent gains in isolated retrieval benchmarks, their effectiveness under realistic production constraints remains underexplored. In this work, we evaluate retrieval fusion in a production-style RAG pipeline operating ov"
+  },
+  {
+    "id": "2603.02150",
+    "title": "Zero- and Few-Shot Named-Entity Recognition: Case Study and Dataset in the Crime Domain (CrimeNER)",
+    "authors": "Miguel Lopez-Duran, Julian Fierrez, Aythami Morales et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "The extraction of critical information from crime-related documents is a crucial task for law enforcement agencies. Named-Entity Recognition (NER) can perform this task in extracting information about the crime, the criminal, or law enforcement agencies involved. However, there is a considerable lack of adequately annotated data on general real-world crime scenarios. To address this issue, we present CrimeNER, a case-study of Crime-related zero- and Few-Shot NER, and a general Crime-related Name"
+  },
+  {
+    "id": "2603.02146",
+    "title": "LongRLVR: Long-Context Reinforcement Learning Requires Verifiable Context Rewards",
+    "authors": "Guanzheng Chen, Michael Qizhe Shieh, Lidong Bing",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Reinforcement Learning with Verifiable Rewards (RLVR) has significantly advanced the reasoning capabilities of Large Language Models (LLMs) by optimizing them against factual outcomes. However, this paradigm falters in long-context scenarios, as its reliance on internal parametric knowledge is ill-suited for tasks requiring contextual grounding--the ability to find and reason over externally provided information. We identify a key reason for this failure: a reward based solely on the final answe"
+  },
+  {
+    "id": "2603.02128",
+    "title": "LLMs as Strategic Actors: Behavioral Alignment, Risk Calibration, and Argumentation Framing in Geopolitical Simulations",
+    "authors": "Veronika Solopova, Viktoria Skorik, Maksym Tereshchenko et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) are increasingly proposed as agents in strategic decision environments, yet their behavior in structured geopolitical simulations remains under-researched. We evaluate six popular state-of-the-art LLMs alongside results from human results across four real-world crisis simulation scenarios, requiring models to select predefined actions and justify their decisions across multiple rounds. We compare models to humans in action alignment, risk calibration through chosen a"
+  },
+  {
+    "id": "2603.02112",
+    "title": "Recursive Models for Long-Horizon Reasoning",
+    "authors": "Chenxiao Yang, Nathan Srebro, Zhiyuan Li",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Modern language models reason within bounded context, an inherent constraint that poses a fundamental barrier to long-horizon reasoning. We identify recursion as a core principle for overcoming this barrier, and propose recursive models as a minimal realization, where the model can recursively invoke itself to solve subtasks in isolated contexts. We prove that any computable problem admits a recursive decomposition in which each subtask requires only exponentially smaller active context than sta"
+  },
+  {
+    "id": "2603.02099",
+    "title": "Recursive Think-Answer Process for LLMs and VLMs",
+    "authors": "Byung-Kwan Lee, Youngchae Chee, Yong Man Ro",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Think-Answer reasoners such as DeepSeek-R1 have made notable progress by leveraging interpretable internal reasoning. However, despite the frequent presence of self-reflective cues like \"Oops!\", they remain vulnerable to output errors during single-pass inference. To address this limitation, we propose an efficient Recursive Think-Answer Process (R-TAP) that enables models to engage in iterative reasoning cycles and generate more accurate answers, going beyond conventional single-pass approaches"
+  },
+  {
+    "id": "2603.02098",
+    "title": "OmniRet: Efficient and High-Fidelity Omni Modality Retrieval",
+    "authors": "Chuong Huynh, Manh Luong, Abhinav Shrivastava",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Multimodal retrieval is the task of aggregating information from queries across heterogeneous modalities to retrieve desired targets. State-of-the-art multimodal retrieval models can understand complex queries, yet they are typically limited to two modalities: text and vision. This limitation impedes the development of universal retrieval systems capable of comprehending queries that combine more than two modalities. To advance toward this goal, we present OmniRet, the first retrieval model capa"
+  },
+  {
+    "id": "2603.02097",
+    "title": "ClinConsensus: A Consensus-Based Benchmark for Evaluating Chinese Medical LLMs across Difficulty Levels",
+    "authors": "Xiang Zheng, Han Li, Wenjie Luo et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) are increasingly applied to health management, showing promise across disease prevention, clinical decision-making, and long-term care. However, existing medical benchmarks remain largely static and task-isolated, failing to capture the openness, longitudinal structure, and safety-critical complexity of real-world clinical workflows. We introduce ClinConsensus, a Chinese medical benchmark curated, validated, and quality-controlled by clinical experts. ClinConsensus c"
+  },
+  {
+    "id": "2603.02091",
+    "title": "Learning from Synthetic Data Improves Multi-hop Reasoning",
+    "authors": "Anmol Kabra, Yilun Yin, Albert Gong et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Reinforcement Learning (RL) has been shown to significantly boost reasoning capabilities of large language models (LLMs) in math, coding, and multi-hop reasoning tasks. However, RL fine-tuning requires abundant high-quality verifiable data, often sourced from human annotations, generated from frontier LLMs, or scored by LLM-based verifiers. All three have considerable limitations: human-annotated datasets are small and expensive to curate, LLM-generated data is hallucination-prone and costly, an"
+  },
+  {
+    "id": "2603.02084",
+    "title": "Modeling Grammatical Hypothesis Testing in Young Learners: A Sequence-Based Learning Analytics Study of Morphosyntactic Reasoning in an Interactive Game",
+    "authors": "Thierry Geoffre, Trystan Geoffre",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "This study investigates grammatical reasoning in primary school learners through a sequence-based learning analytics approach, leveraging fine-grained action sequences from an interactive game targeting morphosyntactic agreement in French. Unlike traditional assessments that rely on final answers, we treat each slider movement as a hypothesis-testing action, capturing real-time cognitive strategies during sentence construction. Analyzing 597 gameplay sessions (9,783 actions) from 100 students ag"
+  },
+  {
+    "id": "2603.02082",
+    "title": "What Exactly do Children Receive in Language Acquisition? A Case Study on CHILDES with Automated Detection of Filler-Gap Dependencies",
+    "authors": "Zhenghao Herbert Zhou, William Dai, Maya Viswanathan et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Children's acquisition of filler-gap dependencies has been argued by some to depend on innate grammatical knowledge, while others suggest that the distributional evidence available in child-directed speech suffices. Unfortunately, the relevant input is difficult to quantify at scale with fine granularity, making this question difficult to resolve. We present a system that identifies three core filler-gap constructions in spoken English corpora -- matrix wh-questions, embedded wh-questions, and r"
+  },
+  {
+    "id": "2603.02081",
+    "title": "GenDB: The Next Generation of Query Processing -- Synthesized, Not Engineered",
+    "authors": "Jiale Lao, Immanuel Trummer",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Traditional query processing relies on engines that are carefully optimized and engineered by many experts. However, new techniques and user requirements evolve rapidly, and existing systems often cannot keep pace. At the same time, these systems are difficult to extend due to their internal complexity, and developing new systems requires substantial engineering effort and cost. In this paper, we argue that recent advances in Large Language Models (LLMs) are starting to shape the next generation"
+  },
+  {
+    "id": "2603.02070",
+    "title": "Exploring Plan Space through Conversation: An Agentic Framework for LLM-Mediated Explanations in Planning",
+    "authors": "Guilhem Fouilhé, Rebecca Eifler, Antonin Poché et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "When automating plan generation for a real-world sequential decision problem, the goal is often not to replace the human planner, but to facilitate an iterative reasoning and elicitation process, where the human's role is to guide the AI planner according to their preferences and expertise. In this context, explanations that respond to users' questions are crucial to improve their understanding of potential solutions and increase their trust in the system. To enable natural interaction with such"
+  },
+  {
+    "id": "2603.02041",
+    "title": "EstLLM: Enhancing Estonian Capabilities in Multilingual LLMs via Continued Pretraining and Post-Training",
+    "authors": "Aleksei Dorkin, Taido Purason, Emil Kalbaliyev et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) are predominantly trained on English-centric data, resulting in uneven performance for smaller languages. We study whether continued pretraining (CPT) can substantially improve Estonian capabilities in a pretrained multilingual LLM while preserving its English and general reasoning performance. Using Llama 3.1 8B as the main base model, we perform CPT on a mixture that increases Estonian exposure while approximating the original training distribution through English "
+  },
+  {
+    "id": "2603.02026",
+    "title": "Learning to Read Where to Look: Disease-Aware Vision-Language Pretraining for 3D CT",
+    "authors": "Simon Ging, Philipp Arnold, Sebastian Walter et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Recent 3D CT vision-language models align volumes with reports via contrastive pretraining, but typically rely on limited public data and provide only coarse global supervision. We train a 3D CT vision-language model on 98k report-volume pairs (50k patients) collected at a single hospital, combined with public datasets, using SigLIP-style contrastive pretraining together with prompt-based disease supervision in the shared vision-text embedding space. On CT-RATE, our model achieves state-of-the-a"
+  },
+  {
+    "id": "2603.02024",
+    "title": "MMR-Life: Piecing Together Real-life Scenes for Multimodal Multi-image Reasoning",
+    "authors": "Jiachun Li, Shaoping Huang, Zhuoran Jin et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Recent progress in the reasoning capabilities of multimodal large language models (MLLMs) has empowered them to address more complex tasks such as scientific analysis and mathematical reasoning. Despite their promise, MLLMs' reasoning abilities across different scenarios in real life remain largely unexplored and lack standardized benchmarks for evaluation. To address this gap, we introduce MMR-Life, a comprehensive benchmark designed to evaluate the diverse multimodal multi-image reasoning capa"
+  },
+  {
+    "id": "2603.02023",
+    "title": "PonderLM-3: Adaptive Token-Wise Pondering with Differentiable Masking",
+    "authors": "He Li, Feichen Song, Boyi Zeng et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Test-time scaling has shown that allocating more additional computation at inference can improve generation quality, motivating a natural follow-up question: where should this computation be spent? Building on this insight, we introduce PonderLM-3, a pretraining framework for token-wise adaptive pondering that learns to selectively allocate additional computation under purely self-supervised objectives, built on top of the PonderLM-2 backbone. This makes additional inference computation an alloc"
+  },
+  {
+    "id": "2603.01990",
+    "title": "According to Me: Long-Term Personalized Referential Memory QA",
+    "authors": "Jingbiao Mei, Jinghong Chen, Guangyu Yang et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Personalized AI assistants must recall and reason over long-term user memory, which naturally spans multiple modalities and sources such as images, videos, and emails. However, existing Long-term Memory benchmarks focus primarily on dialogue history, failing to capture realistic personalized references grounded in lived experience. We introduce ATM-Bench, the first benchmark for multimodal, multi-source personalized referential Memory QA. ATM-Bench contains approximately four years of privacy-pr"
+  },
+  {
+    "id": "2603.01973",
+    "title": "CharacterFlywheel: Scaling Iterative Improvement of Engaging and Steerable LLMs in Production",
+    "authors": "Yixin Nie, Lin Guan, Zhongyao Ma et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "This report presents CharacterFlywheel, an iterative flywheel process for improving large language models (LLMs) in production social chat applications across Instagram, WhatsApp, and Messenger. Starting from LLaMA 3.1, we refined models across 15 generations using data from both internal and external real-user traffic. Through continuous deployments from July 2024 to April 2025, we conducted controlled 7-day A/B tests showing consistent engagement improvements: 7 of 8 newly deployed models demo"
+  },
+  {
+    "id": "2603.01966",
+    "title": "AMemGym: Interactive Memory Benchmarking for Assistants in Long-Horizon Conversations",
+    "authors": "Cheng Jiayang, Dongyu Ru, Lin Qiu et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Long-horizon interactions between users and LLM-based assistants necessitate effective memory management, yet current approaches face challenges in training and evaluation of memory. Existing memory benchmarks rely on static, off-policy data as context, limiting evaluation reliability and scalability. To address these gaps, we introduce AMemGym, an interactive environment enabling on-policy evaluation and optimization for memory-driven personalization. AMemGym employs structured data sampling to"
+  },
+  {
+    "id": "2603.01950",
+    "title": "Semantic Similarity is a Spurious Measure of Comic Understanding: Lessons Learned from Hallucinations in a Benchmarking Experiment",
+    "authors": "Christopher Driggers-Ellis, Nachiketh Tibrewal, Rohit Bogulla et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "A system that enables blind or visually impaired users to access comics/manga would introduce a new medium of storytelling to this community. However, no such system currently exists. Generative vision-language models (VLMs) have shown promise in describing images and understanding comics, but most research on comic understanding is limited to panel-level analysis. To fully support blind and visually impaired users, greater attention must be paid to page-level understanding and interpretation. I"
+  },
+  {
+    "id": "2603.01945",
+    "title": "When Numbers Tell Half the Story: Human-Metric Alignment in Topic Model Evaluation",
+    "authors": "Thibault Prouteau, Francis Lareau, Nicolas Dugué et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Topic models uncover latent thematic structures in text corpora, yet evaluating their quality remains challenging, particularly in specialized domains. Existing methods often rely on automated metrics like topic coherence and diversity, which may not fully align with human judgment. Human evaluation tasks, such as word intrusion, provide valuable insights but are costly and primarily validated on general-domain corpora. This paper introduces Topic Word Mixing (TWM), a novel human evaluation task"
+  },
+  {
+    "id": "2603.01930",
+    "title": "From Variance to Invariance: Qualitative Content Analysis for Narrative Graph Annotation",
+    "authors": "Junbo Huang, Max Weinig, Ulrich Fritsche et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Narratives in news discourse play a critical role in shaping public understanding of economic events, such as inflation. Annotating and evaluating these narratives in a structured manner remains a key challenge for Natural Language Processing (NLP). In this work, we introduce a narrative graph annotation framework that integrates principles from qualitative content analysis (QCA) to prioritize annotation quality by reducing annotation errors. We present a dataset of inflation narratives annotate"
+  },
+  {
+    "id": "2603.01914",
+    "title": "AdaPonderLM: Gated Pondering Language Models with Token-Wise Adaptive Depth",
+    "authors": "Shixiang Song, He Li, Zitong Wang et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Test-time scaling via recurrent/iterative Transformers enables large language models to spend more computation at inference, but most pretrained recurrent LMs run a fixed number of iterations, wasting compute on easy tokens and lacking token-wise adaptivity. Following the core idea of Adaptive Computation Time(ACT) and Early Exit(EE), we propose AdaPonderLM, a self-supervised recurrent language model that learns token-wise early exiting during pretraining without manually tuned per-token/per-lay"
+  },
+  {
+    "id": "2603.01912",
+    "title": "Demonstrating ViviDoc: Generating Interactive Documents through Human-Agent Collaboration",
+    "authors": "Yinghao Tang, Yupeng Xie, Yingchaojie Feng et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Interactive articles help readers engage with complex ideas through exploration, yet creating them remains costly, requiring both domain expertise and web development skills. Recent LLM-based agents can automate content creation, but naively applying them yields uncontrollable and unverifiable outputs. We present ViviDoc, a human-agent collaborative system that generates interactive educational documents from a single topic input. ViviDoc introduces a multi-agent pipeline (Planner, Executor, Eva"
+  },
+  {
+    "id": "2603.01910",
+    "title": "FLANS at SemEval-2026 Task 7: RAG with Open-Sourced Smaller LLMs for Everyday Knowledge Across Diverse Languages and Cultures",
+    "authors": "Liliia Bogdanova, Shiran Sun, Lifeng Han et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety"
+    ],
+    "abstract": "This system paper describes our participation in the SemEval-2025 Task-7 ``Everyday Knowledge Across Diverse Languages and Cultures''. We attended two subtasks, i.e., Track 1: Short Answer Questions (SAQ), and Track 2: Multiple-Choice Questions (MCQ). The methods we used are retrieval augmented generation (RAGs) with open-sourced smaller LLMs (OS-sLLMs). To better adapt to this shared task, we created our own culturally aware knowledge base (CulKBs) by extracting Wikipedia content using keyword "
+  },
+  {
+    "id": "2603.01907",
+    "title": "Efficient RLVR Training via Weighted Mutual Information Data Selection",
+    "authors": "Xinyu Zhou, Boyu Zhu, Haotian Zhang et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety"
+    ],
+    "abstract": "Reinforcement learning (RL) plays a central role in improving the reasoning and alignment of large language models, yet its efficiency critically depends on how training data are selected. Existing online selection strategies predominantly rely on difficulty-based heuristics, favouring datapoints with intermediate success rates, implicitly equating difficulty with informativeness and neglecting epistemic uncertainty arising from limited evidence. We introduce InSight, an INformation-guided data "
+  },
+  {
+    "id": "2603.02156",
+    "title": "How Small Can 6G Reason? Scaling Tiny Language Models for AI-Native Networks",
+    "authors": "Mohamed Amine Ferrag, Abderrahmane Lakas, Merouane Debbah",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Emerging 6G visions, reflected in ongoing standardization efforts within 3GPP, IETF, ETSI, ITU-T, and the O-RAN Alliance, increasingly characterize networks as AI-native systems in which high-level semantic reasoning layers operate above standardized control and data-plane functions. Although frontier-scale large language models (LLMs) such as Qwen2.5-7B and Olmo-3-7B demonstrate strong reasoning capability, their computational footprint limits deployment in latency-sensitive, edge-native infras"
+  },
+  {
+    "id": "2603.01952",
+    "title": "LiveCultureBench: a Multi-Agent, Multi-Cultural Benchmark for Large Language Models in Dynamic Social Simulations",
+    "authors": "Viet-Thanh Pham, Lizhen Qu, Thuy-Trang Vu et al.",
+    "year": 2026,
+    "date": "2026-03-02",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) are increasingly deployed as autonomous agents, yet evaluations focus primarily on task success rather than cultural appropriateness or evaluator reliability. We introduce LiveCultureBench, a multi-cultural, dynamic benchmark that embeds LLMs as agents in a simulated town and evaluates them on both task completion and adherence to socio-cultural norms. The simulation models a small city as a location graph with synthetic residents having diverse demographic and cultu"
+  },
+  {
     "id": "2602.24289v1",
     "title": "Mode Seeking meets Mean Seeking for Fast Long Video Generation",
     "authors": "Shengqu Cai, Weili Nie, Chao Liu et al.",

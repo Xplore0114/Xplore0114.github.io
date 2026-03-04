@@ -57,6 +57,7 @@ if os.path.exists("papers.json"):
         existing = json.load(f)
 
 existing_map = {p["id"]: p for p in existing}
+existing_ids = set(existing_map.keys())
 new_papers = []
 
 for tag, query in QUERIES:
@@ -71,7 +72,7 @@ for tag, query in QUERIES:
             existing_tags = existing_map[p["id"]].get("tags", [])
             if tag not in existing_tags:
                 existing_map[p["id"]]["tags"] = existing_tags + [tag]
-    print(f"  Got {len(results)} papers, {sum(1 for p in results if p['id'] not in {x['id'] for x in existing})} new")
+    print(f"  Got {len(results)} papers")
     time.sleep(3)  # be polite to arXiv
 
 # Sort: newest first
