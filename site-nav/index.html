@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kevin · 页面导航</title>
+  <meta name="description" content="Xplore0114.github.io 页面导航" />
+  <style>
+    :root {
+      --bg: #f4f7ff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --line: #dbe2f0;
+      --card: #ffffff;
+      --brand: #0f766e;
+      --brand-2: #0ea5e9;
+      --chip: #eef2ff;
+      --ok: #059669;
+      --bad: #dc2626;
+      --shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "Avenir Next", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background:
+        radial-gradient(900px 400px at 10% -10%, #bfdbfe 0%, transparent 45%),
+        radial-gradient(900px 400px at 90% 0%, #a7f3d0 0%, transparent 42%),
+        var(--bg);
+    }
+
+    .wrap { width: min(1120px, 92vw); margin: 0 auto; padding: 40px 0 64px; }
+    .hero {
+      background: linear-gradient(130deg, rgba(15,118,110,0.92), rgba(14,165,233,0.9));
+      border-radius: 20px; padding: 28px; color: #f8fafc; box-shadow: var(--shadow);
+    }
+    .hero h1 { margin: 0; font-size: clamp(28px, 4vw, 42px); letter-spacing: 0.01em; }
+    .hero p { margin: 10px 0 0; opacity: 0.95; line-height: 1.65; }
+    .hero .meta { margin-top: 12px; font-size: 13px; opacity: 0.9; }
+
+    .section { margin-top: 24px; }
+    .section-title { margin: 0 0 12px; font-size: 18px; display: flex; align-items: center; gap: 8px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+
+    .card {
+      display: block; color: inherit; text-decoration: none; background: var(--card);
+      border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow);
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .card:hover { transform: translateY(-3px); border-color: #93c5fd; box-shadow: 0 14px 30px rgba(14, 116, 144, 0.18); }
+
+    .thumb {
+      height: 86px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: flex-start;
+      background: linear-gradient(145deg, #e0f2fe, #ecfeff 55%, #dcfce7); border-bottom: 1px solid var(--line);
+    }
+    .thumb .emoji { font-size: 26px; }
+    .badge {
+      font-size: 12px; color: #155e75; background: rgba(255,255,255,0.78);
+      border: 1px solid #bae6fd; border-radius: 999px; padding: 3px 9px; white-space: nowrap;
+    }
+
+    .content { padding: 14px; }
+    .title { font-size: 18px; font-weight: 700; margin: 0; }
+    .desc { margin: 8px 0 10px; color: var(--muted); line-height: 1.6; min-height: 48px; }
+    .url {
+      font-size: 12px; color: #334155; background: #f8fafc; border: 1px solid var(--line);
+      border-radius: 8px; padding: 4px 8px; display: inline-block;
+    }
+
+    .groups { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .chip {
+      font-size: 12px; border-radius: 999px; border: 1px solid #cbd5e1;
+      background: var(--chip); color: #334155; padding: 4px 10px; cursor: pointer; user-select: none;
+    }
+    .chip.active { background: #0f172a; color: #f8fafc; border-color: #0f172a; }
+
+    .status { margin-top: 18px; font-size: 13px; color: var(--muted); }
+    .ok { color: var(--ok); }
+    .bad { color: var(--bad); }
+
+    @media (max-width: 700px) {
+      .hero { padding: 20px; }
+      .thumb { height: 78px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <h1>Kevin · 页面导航</h1>
+      <p>一个入口，直达主页、LLM Tracker 和核心仓库。后续新增页面只需改 routes.json。</p>
+      <div class="meta" id="metaLine">正在加载导航数据...</div>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">⭐ 推荐入口</h2>
+      <div class="grid" id="featuredGrid"></div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">🧭 全部页面</h2>
+      <div class="groups" id="groupChips"></div>
+      <div class="grid" id="allGrid"></div>
+      <div class="status" id="statusLine"></div>
+    </section>
+  </main>
+
+  <script>
+    const metaLine = document.getElementById("metaLine");
+    const featuredGrid = document.getElementById("featuredGrid");
+    const allGrid = document.getElementById("allGrid");
+    const groupChips = document.getElementById("groupChips");
+    const statusLine = document.getElementById("statusLine");
+
+    let allItems = [];
+    let activeGroup = "全部";
+
+    function escapeHtml(text) {
+      return String(text)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function normalizePath(path) {
+      if (/^https?:\/\//.test(path)) return path;
+      if (path.startsWith("/")) return path;
+      return "/" + path;
+    }
+
+    function cardHtml(item) {
+      const path = normalizePath(item.path || "/");
+      const safe = escapeHtml(path);
+      const isExternal = /^https?:\/\//.test(path);
+      return `
+        <a class="card" href="${safe}" ${isExternal ? 'target="_blank" rel="noopener"' : ""}>
+          <div class="thumb">
+            <div class="emoji">${escapeHtml(item.emoji || "🔗")}</div>
+            <div class="badge">${escapeHtml(item.badge || "页面")}</div>
+          </div>
+          <div class="content">
+            <p class="title">${escapeHtml(item.title || "未命名")}</p>
+            <p class="desc">${escapeHtml(item.desc || "")}</p>
+            <span class="url">${safe}</span>
+          </div>
+        </a>`;
+    }
+
+    function renderGroups(items) {
+      const groups = ["全部", ...Array.from(new Set(items.map(i => i.group || "其他")))];
+      groupChips.innerHTML = groups
+        .map(g => `<button class="chip ${g === activeGroup ? "active" : ""}" data-group="${escapeHtml(g)}">${escapeHtml(g)}</button>`)
+        .join("");
+
+      groupChips.querySelectorAll(".chip").forEach(btn => {
+        btn.addEventListener("click", () => {
+          activeGroup = btn.dataset.group || "全部";
+          renderAll();
+          renderGroups(allItems);
+        });
+      });
+    }
+
+    function renderAll() {
+      const data = activeGroup === "全部"
+        ? allItems
+        : allItems.filter(i => (i.group || "其他") === activeGroup);
+      allGrid.innerHTML = data.map(cardHtml).join("");
+    }
+
+    async function checkRoute(path) {
+      const url = normalizePath(path);
+      if (/^https?:\/\//.test(url)) return { path: url, ok: true, code: "EXT" };
+      try {
+        const res = await fetch(url, { method: "HEAD", cache: "no-store" });
+        return { path: url, ok: res.ok, code: res.status };
+      } catch (_) {
+        return { path: url, ok: false, code: "ERR" };
+      }
+    }
+
+    async function loadRoutes() {
+      const resp = await fetch("./routes.json", { cache: "no-store" });
+      if (!resp.ok) throw new Error("routes.json 加载失败");
+      return resp.json();
+    }
+
+    (async function init() {
+      try {
+        const data = await loadRoutes();
+        allItems = Array.isArray(data.items) ? data.items : [];
+
+        const featured = allItems.filter(i => i.featured);
+        featuredGrid.innerHTML = featured.map(cardHtml).join("");
+
+        renderGroups(allItems);
+        renderAll();
+
+        const gen = data.generated_at ? new Date(data.generated_at).toLocaleString("zh-CN") : "-";
+        metaLine.textContent = `共 ${allItems.length} 个入口 · 最近生成 ${gen}`;
+
+        const checks = await Promise.all(allItems.map(i => checkRoute(i.path)));
+        const bad = checks.filter(r => !r.ok);
+        if (bad.length === 0) {
+          statusLine.innerHTML = '<span class="ok">可达性检查通过</span> · 页面链接正常';
+        } else {
+          statusLine.innerHTML = '<span class="bad">部分页面不可访问：</span> ' + bad.map(r => `${r.path} (${r.code})`).join(", ");
+        }
+      } catch (err) {
+        metaLine.textContent = "导航数据加载失败";
+        featuredGrid.innerHTML = "";
+        allGrid.innerHTML = "";
+        statusLine.innerHTML = '<span class="bad">错误：</span>' + (err && err.message ? err.message : "未知错误");
+      }
+    })();
+  </script>
+</body>
+</html>
