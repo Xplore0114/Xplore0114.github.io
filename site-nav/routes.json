@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-04T20:06:29+08:00",
+  "generated_at": "2026-03-08T11:10:30+08:00",
   "items": [
     {
       "title": "主页",
@@ -51,6 +51,22 @@
       "emoji": "🐙",
       "badge": "External",
       "desc": "查看完整仓库列表与开源动态"
+    },
+    {
+      "title": "FoxCode Token 余量",
+      "path": "https://foxcode.rjj.cc/api-keys",
+      "group": "模型 Token 余量",
+      "emoji": "🦊",
+      "badge": "External",
+      "desc": "FoxCode 模型 token 余量查询入口"
+    },
+    {
+      "title": "Love Gwen Token 余量",
+      "path": "https://ai.love-gwen.top/admin-next/api-stats",
+      "group": "模型 Token 余量",
+      "emoji": "💗",
+      "badge": "External",
+      "desc": "Love Gwen 模型 token 余量与统计查询入口"
     },
     {
       "title": "system-prompts-and-models-of-ai-tools",
