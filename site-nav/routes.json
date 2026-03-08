@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-08T11:28:30+08:00",
+  "generated_at": "2026-03-08T11:34:00+08:00",
   "items": [
     {
       "title": "主页",
@@ -75,6 +75,14 @@
       "emoji": "📰",
       "badge": "External",
       "desc": "科技资讯聚合页面，方便快速查看每日更新"
+    },
+    {
+      "title": "浙大站点",
+      "path": "https://zheda.site/",
+      "group": "外部链接",
+      "emoji": "🎓",
+      "badge": "External",
+      "desc": "zheda.site 主页入口"
     },
     {
       "title": "system-prompts-and-models-of-ai-tools",
