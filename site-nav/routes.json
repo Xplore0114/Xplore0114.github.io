@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-08T11:10:30+08:00",
+  "generated_at": "2026-03-08T11:28:30+08:00",
   "items": [
     {
       "title": "主页",
@@ -67,6 +67,14 @@
       "emoji": "💗",
       "badge": "External",
       "desc": "Love Gwen 模型 token 余量与统计查询入口"
+    },
+    {
+      "title": "Tech News",
+      "path": "https://zhaorunrunrun.github.io/tech-news/",
+      "group": "外部链接",
+      "emoji": "📰",
+      "badge": "External",
+      "desc": "科技资讯聚合页面，方便快速查看每日更新"
     },
     {
       "title": "system-prompts-and-models-of-ai-tools",
