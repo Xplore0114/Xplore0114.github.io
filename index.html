@@ -4,24 +4,19 @@ description: "Kevin 的技术博客：AI 应用开发、工业数据智能、大
 ---
 
 <style>
-.intro-section { margin-bottom: 40px; padding: 30px; background: #fafafa; border-left: 4px solid #667eea; }
-.intro-section h1 { margin: 0 0 12px; font-size: 32px; font-weight: 600; }
-.intro-section .subtitle { font-size: 16px; color: #666; margin-bottom: 16px; }
-.intro-section .bio { font-size: 15px; line-height: 1.8; color: #333; }
-
-.stats-bar { display: flex; gap: 40px; margin: 20px 0; flex-wrap: wrap; }
-.stat-item { }
-.stat-item .number { font-size: 24px; font-weight: 600; color: #667eea; }
-.stat-item .label { font-size: 13px; color: #666; margin-top: 4px; }
+.home-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; margin-bottom: 24px; }
+.home-card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 18px; box-shadow: 0 4px 14px rgba(0,0,0,.04); }
+.home-card h3 { margin: 0 0 8px; font-size: 20px; }
+.home-card p { margin: 0 0 8px; color: #666; }
+.pill { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; margin: 0 6px 6px 0; }
+.pill.ai { background:#e3f2fd; color:#1565c0; }
+.pill.oss { background:#e8f5e9; color:#2e7d32; }
+.pill.system { background:#fff3e0; color:#ef6c00; }
+.pill.product { background:#f3e5f5; color:#7b1fa2; }
+.quick-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+.quick-links a { border:1px solid #ddd; border-radius:8px; padding:8px 12px; font-size:13px; text-decoration:none; }
 
 .section-title { margin: 50px 0 20px; font-size: 24px; font-weight: 600; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-
-.tech-stack { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px; }
-.tech-category { }
-.tech-category h3 { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #333; }
-.tech-category ul { list-style: none; padding: 0; margin: 0; }
-.tech-category li { padding: 6px 0; font-size: 14px; color: #666; }
-.tech-category li::before { content: "▸ "; color: #667eea; font-weight: bold; }
 
 .project-list { }
 .project-item { margin-bottom: 30px; padding: 20px; background: #fff; border: 1px solid #eee; border-radius: 8px; }
@@ -42,71 +37,40 @@ description: "Kevin 的技术博客：AI 应用开发、工业数据智能、大
 .contact-links a:hover { text-decoration: underline; }
 
 @media (max-width: 768px) {
-  .intro-section { padding: 20px; }
-  .stats-bar { gap: 20px; }
-  .tech-stack { grid-template-columns: 1fr; }
+  .home-grid { grid-template-columns: 1fr; }
 }
 </style>
 
-<div class="intro-section">
-  <h1>Kevin</h1>
-  <div class="subtitle">浙江大学控制工程硕士 · AI 应用开发 · 工业数据智能</div>
-  <div class="bio">
-    专注于将大模型技术落地到实际工业场景，擅长 NL2SQL、时序数据分析与智能诊断系统开发。
-    参与校企联合研发项目，实现 90%+ 查询准确率的自然语言数据库查询系统。
+<div class="home-grid">
+  <div class="home-card">
+    <h3>Kevin 👋</h3>
+    <p>
+      浙江大学控制工程硕士在读，专注 AI 应用开发与工业数据智能。
+      擅长将大模型技术落地到实际工业场景，实现从研究到产品的完整闭环。
+    </p>
+    <p>
+      <strong>教育背景：</strong>浙江大学（研究生）· 北京科技大学（本科）
+    </p>
+    <div>
+      <span class="pill ai">NL2SQL</span>
+      <span class="pill system">工业数据智能</span>
+      <span class="pill oss">大模型工程化</span>
+      <span class="pill product">全栈开发</span>
+    </div>
+    <div class="quick-links">
+      <a href="https://github.com/Xplore0114" target="_blank">🐙 GitHub</a>
+      <a href="/about/">🙋 关于</a>
+    </div>
   </div>
-  <div class="stats-bar">
-    <div class="stat-item">
-      <div class="number">90%+</div>
-      <div class="label">NL2SQL 准确率</div>
-    </div>
-    <div class="stat-item">
-      <div class="number">3</div>
-      <div class="label">工业 AI 项目</div>
-    </div>
-    <div class="stat-item">
-      <div class="number">浙大</div>
-      <div class="label">优秀研究生</div>
-    </div>
+
+  <div class="home-card">
+    <h3>技术能力</h3>
+    <p><strong>AI 工程：</strong>Qwen 系列模型本地部署、NL2SQL、Prompt 优化、结构化推理</p>
+    <p><strong>后端开发：</strong>Python、PostgreSQL、OAuth2 + JWT 权限控制</p>
+    <p><strong>前端开发：</strong>Vue3、TypeScript、现代化交互界面</p>
+    <p><strong>工业场景：</strong>时序数据处理、异常诊断、优化建议生成、CFD 仿真</p>
   </div>
 </div>
-
-<h2 class="section-title">技术栈</h2>
-<div class="tech-stack">
-  <div class="tech-category">
-    <h3>AI 工程</h3>
-    <ul>
-      <li>Qwen 系列模型部署</li>
-      <li>NL2SQL 系统设计</li>
-      <li>Prompt Engineering</li>
-      <li>结构化推理流程</li>
-    </ul>
-  </div>
-  <div class="tech-category">
-    <h3>后端开发</h3>
-    <ul>
-      <li>Python</li>
-      <li>PostgreSQL</li>
-      <li>OAuth2 + JWT</li>
-      <li>RESTful API</li>
-    </ul>
-  </div>
-  <div class="tech-category">
-    <h3>前端开发</h3>
-    <ul>
-      <li>Vue3 + TypeScript</li>
-      <li>现代化 UI 设计</li>
-      <li>响应式布局</li>
-    </ul>
-  </div>
-  <div class="tech-category">
-    <h3>工业场景</h3>
-    <ul>
-      <li>时序数据处理</li>
-      <li>异常诊断系统</li>
-      <li>优化建议生成</li>
-      <li>CFD 仿真分析</li>
-    </ul>
   </div>
 </div>
 
