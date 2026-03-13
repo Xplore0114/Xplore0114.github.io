@@ -1,10 +1,10 @@
 # Site settings
-title: 胡章权的博客
-SEOTitle: 胡章权 | AI 应用开发 & 工业数据智能
+title: Kevin's Blog
+SEOTitle: Kevin | AI 应用开发 & 工业数据智能
 header-img: img/My_Harbour_BG.jpg
-email: zju_hzq@163.com
+email: contact@example.com
 description: "将 AI 技术落地到实际工业场景，实现从研究到产品的完整闭环。"
-keyword: "胡章权,AI,NL2SQL,工业智能,大模型,Qwen,浙江大学"
+keyword: "Kevin,AI,NL2SQL,工业智能,大模型,Qwen"
 url: "https://xplore0114.github.io"
 baseurl: ""
 
