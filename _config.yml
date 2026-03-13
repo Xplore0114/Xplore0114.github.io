@@ -1,16 +1,16 @@
 # Site settings
-title: Kevin's Blog
-SEOTitle: Kevin | Developer & AI Enthusiast
+title: 胡章权的博客
+SEOTitle: 胡章权 | AI 应用开发 & 工业数据智能
 header-img: img/My_Harbour_BG.jpg
-email: 1228626521@qq.com
-description: "Building things with code and curiosity."
-keyword: "Kevin,Blog,AI,Developer,Full-stack"
+email: zju_hzq@163.com
+description: "将 AI 技术落地到实际工业场景，实现从研究到产品的完整闭环。"
+keyword: "胡章权,AI,NL2SQL,工业智能,大模型,Qwen,浙江大学"
 url: "https://xplore0114.github.io"
 baseurl: ""
 
 # Sidebar settings
 sidebar: true
-sidebar-about-description: "Full-stack developer passionate about AI and modern web."
+sidebar-about-description: "浙江大学控制工程硕士 | AI 应用开发 | 工业数据智能"
 sidebar-avatar: /img/Avatar.jpg
 
 # SNS settings

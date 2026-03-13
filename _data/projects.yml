@@ -1,3 +1,46 @@
+- title: "气体运营数据自然语言查询引擎"
+  status: "Active"
+  status_class: "status-active"
+  category: "工业 AI · NL2SQL"
+  description: "基于大语言模型的 NL2SQL 查询系统，面向复杂工业数据库场景，实现自然语言与工业 Schema 的智能对齐。"
+  tags:
+    - label: "NL2SQL"
+      class: "ai"
+    - label: "Qwen"
+      class: "system"
+    - label: "PostgreSQL"
+      class: "oss"
+  links:
+    - label: "项目详情"
+      href: "#"
+  last_update: "2025.12"
+  log:
+    - "海光 DCU 环境本地部署 Qwen 系列模型，对接 PostgreSQL 工业数据库"
+    - "设计"意图识别—任务分解—SQL 生成—自我修正"的结构化推理流程"
+    - "结合 Schema Linking 与 Prompt 优化，查询准确率超过 90%"
+    - "开发 Vue 前端交互界面，集成 OAuth2 + JWT 分级权限控制"
+
+- title: "空分装置运行诊断与优化系统"
+  status: "Active"
+  status_class: "status-active"
+  category: "工业智能 · 运行优化"
+  description: "面向空分装置复杂运行场景，围绕装置稳定性、提取率与单位能耗等关键指标，实现数据接入、状态诊断、优化建议生成的闭环系统。"
+  tags:
+    - label: "时序数据"
+      class: "system"
+    - label: "异常诊断"
+      class: "ai"
+    - label: "优化建议"
+      class: "product"
+  links:
+    - label: "项目详情"
+      href: "#"
+  last_update: "2026.03"
+  log:
+    - "构建工业时序数据标准化处理流程，提升数据可分析性"
+    - "结合机理规则与结构化推理链路，设计闭环分析流程"
+    - "输出可解释的异常识别、证据提取、优化建议与效果验证"
+
 - title: "LLM Papers Tracker"
   status: "Active"
   status_class: "status-active"
@@ -13,70 +56,25 @@
       href: "/llm-tracker/"
     - label: "Timeline"
       href: "/llm-tracker/timeline/"
-  stars: "--"
   last_update: "2026-03-03"
   log:
     - "Heatmap timeline + calendar views with stats across year/month/week."
     - "Company papers feed surface and list view keeps papers actionable."
-  repo_name: ""
 
-- title: "System Prompts & Models Archive"
-  status: "Active"
-  status_class: "status-active"
-  category: "Curated prompts · Agent tooling"
-  description: "Cataloging the latest agent prompts, system templates, and model notes from Cursor, Manus, Same.dev, and others."
+- title: "数据中心能耗模型研究"
+  status: "Archived"
+  status_class: "status-archived"
+  category: "机器学习 · CFD 仿真"
+  description: "利用 ANSYS Fluent 构建机柜网络模型进行 CFD 仿真，结合 SVM、BP 神经网络建立黑箱模型，研究消除热点与降低能耗策略。"
   tags:
-    - label: "Prompts"
-      class: "product"
-    - label: "Open Data"
-      class: "oss"
-  links:
-    - label: "Repo"
-      href: "https://github.com/Xplore0114/system-prompts-and-models-of-ai-tools"
-      blank: true
-  log:
-    - "Source-first approach: harvest open prompts, keep license info, and normalize formats."
-    - "Highlights ready-to-run agents like Replit Agent, Windsurf Agent, and VSCode Agent templates."
-  repo_name: "system-prompts-and-models-of-ai-tools"
-
-- title: "Zotero arXiv Daily"
-  status: "Planning"
-  status_class: "status-planning"
-  category: "Recommendation engine · Research ops"
-  description: "Daily paper recommendations that sync with Zotero libraries, scored by recency and citation context."
-  tags:
-    - label: "Research"
-      class: "ai"
-    - label: "Ops"
+    - label: "CFD"
       class: "system"
-  links:
-    - label: "Repo"
-      href: "https://github.com/Xplore0114/zotero-arxiv-daily"
-      blank: true
-    - label: "Design Notes"
-      href: "#"
-  log:
-    - "Plan to hook Zotero APIs and deliver curated digests via email/feeds."
-    - "Goal: merge personal library signals with arXiv metadata + AI summaries."
-  repo_name: "zotero-arxiv-daily"
-
-- title: "py-nl2sql"
-  status: "Planning"
-  status_class: "status-planning"
-  category: "Prompt tooling · Data interfaces"
-  description: "Toolkit for translating natural language to SQL statements with guardrails for production dashboards."
-  tags:
-    - label: "SQL"
-      class: "oss"
-    - label: "NLP"
+    - label: "机器学习"
       class: "ai"
   links:
-    - label: "Repo"
-      href: "https://github.com/Xplore0114/py-nl2sql"
-      blank: true
-    - label: "Alpha Notes"
+    - label: "项目详情"
       href: "#"
+  last_update: "2022.09"
   log:
-    - "Building SQL-safe templates so agents can query Postgres / MySQL without injecting fragments."
-    - "Working on coverage tests for complex joins and nested filters."
-  repo_name: "py-nl2sql"
+    - "ANSYS Fluent CFD 仿真获取送风温度、速度、机柜发热量等关键数据"
+    - "利用模型反向替代 Fluent 扩充样本数据"
