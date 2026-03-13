@@ -142,12 +142,13 @@
       return "/" + path;
     }
 
-    function cardHtml(item) {
+    function cardHtml(item, index) {
       const path = normalizePath(item.path || "/");
       const safe = escapeHtml(path);
       const isExternal = /^https?:\/\//.test(path);
+      const delay = index * 0.1;
       return `
-        <a class="card" href="${safe}" ${isExternal ? 'target="_blank" rel="noopener"' : ""}>
+        <a class="card fade-in" href="${safe}" style="transition-delay: ${delay}s" ${isExternal ? 'target="_blank" rel="noopener"' : ""}>
           <div class="thumb">
             <div class="emoji">${escapeHtml(item.emoji || "🔗")}</div>
             <div class="badge">${escapeHtml(item.badge || "页面")}</div>
@@ -179,7 +180,8 @@
       const data = activeGroup === "全部"
         ? allItems
         : allItems.filter(i => (i.group || "其他") === activeGroup);
-      allGrid.innerHTML = data.map(cardHtml).join("");
+      allGrid.innerHTML = data.map((item, index) => cardHtml(item, index)).join("");
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     }
 
     async function checkRoute(path) {
@@ -215,7 +217,7 @@
         allItems = Array.isArray(data.items) ? data.items : [];
 
         const featured = allItems.filter(i => i.featured);
-        featuredGrid.innerHTML = featured.map(cardHtml).join("");
+        featuredGrid.innerHTML = featured.map((item, index) => cardHtml(item, index)).join("");
 
         renderGroups(allItems);
         renderAll();

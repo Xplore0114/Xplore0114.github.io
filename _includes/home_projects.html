@@ -1,6 +1,6 @@
 <div class="project-grid">
 {% for project in site.data.projects %}
-  <div class="project fade-in">
+  <div class="project fade-in" style="transition-delay: {{ forloop.index | times: 0.1 }}s">
     <h4>{{ project.title }}</h4>
     <div class="status-row">
       <span class="status-dot {{ project.status_class }}"></span>
