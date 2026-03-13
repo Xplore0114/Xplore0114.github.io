@@ -23,8 +23,8 @@ paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 anchorjs: true
 
-# Gems
-gems: [jekyll-paginate]
+# Plugins
+plugins: [jekyll-paginate]
 
 # Markdown settings
 markdown: kramdown
