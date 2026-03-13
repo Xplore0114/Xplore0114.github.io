@@ -4,286 +4,173 @@ description: "胡章权的技术博客：AI 应用开发、工业数据智能、
 ---
 
 <style>
-.hero-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; padding: 60px 20px; border-radius: 16px; margin-bottom: 40px; text-align: center; }
-.hero-section h1 { margin: 0 0 16px; font-size: 42px; font-weight: 700; }
-.hero-section .tagline { font-size: 18px; opacity: 0.95; margin-bottom: 24px; }
-.hero-stats { display: flex; justify-content: center; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
-.hero-stat { text-align: center; }
-.hero-stat .number { font-size: 36px; font-weight: 700; display: block; }
-.hero-stat .label { font-size: 14px; opacity: 0.9; }
+.intro-section { margin-bottom: 40px; padding: 30px; background: #fafafa; border-left: 4px solid #667eea; }
+.intro-section h1 { margin: 0 0 12px; font-size: 32px; font-weight: 600; }
+.intro-section .subtitle { font-size: 16px; color: #666; margin-bottom: 16px; }
+.intro-section .bio { font-size: 15px; line-height: 1.8; color: #333; }
 
-.badges { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0; justify-content: center; }
-.badge { background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; border: 1px solid rgba(255,255,255,0.3); }
+.stats-bar { display: flex; gap: 40px; margin: 20px 0; flex-wrap: wrap; }
+.stat-item { }
+.stat-item .number { font-size: 24px; font-weight: 600; color: #667eea; }
+.stat-item .label { font-size: 13px; color: #666; margin-top: 4px; }
 
-.tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
-.tech-card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 20px; box-shadow: 0 4px 14px rgba(0,0,0,.04); }
-.tech-card h3 { margin: 0 0 16px; font-size: 18px; display: flex; align-items: center; gap: 8px; }
-.tech-card h3::before { content: ''; width: 4px; height: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 2px; }
+.section-title { margin: 50px 0 20px; font-size: 24px; font-weight: 600; border-bottom: 2px solid #eee; padding-bottom: 10px; }
 
-.skill-bar { margin-bottom: 16px; }
-.skill-bar .skill-name { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 14px; }
-.skill-bar .skill-name .level { color: #999; font-size: 12px; }
-.skill-bar .bar { height: 8px; background: #f0f0f0; border-radius: 4px; overflow: hidden; }
-.skill-bar .bar .fill { height: 100%; background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); border-radius: 4px; transition: width 1s ease; }
+.tech-stack { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px; }
+.tech-category { }
+.tech-category h3 { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #333; }
+.tech-category ul { list-style: none; padding: 0; margin: 0; }
+.tech-category li { padding: 6px 0; font-size: 14px; color: #666; }
+.tech-category li::before { content: "▸ "; color: #667eea; font-weight: bold; }
 
-.github-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0; }
-.stat-card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 4px 14px rgba(0,0,0,.04); }
-.stat-card .icon { font-size: 32px; margin-bottom: 12px; }
-.stat-card .value { font-size: 28px; font-weight: 700; color: #667eea; margin-bottom: 4px; }
-.stat-card .label { font-size: 14px; color: #666; }
+.project-list { }
+.project-item { margin-bottom: 30px; padding: 20px; background: #fff; border: 1px solid #eee; border-radius: 8px; }
+.project-item h3 { margin: 0 0 8px; font-size: 18px; font-weight: 600; }
+.project-item .meta { font-size: 13px; color: #999; margin-bottom: 12px; }
+.project-item .desc { font-size: 14px; line-height: 1.7; color: #666; margin-bottom: 12px; }
+.project-item .highlights { }
+.project-item .highlights li { font-size: 14px; color: #555; margin-bottom: 6px; }
 
-.achievement-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin: 30px 0; }
-.achievement { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 12px; padding: 20px; text-align: center; transition: transform 0.3s ease; }
-.achievement:hover { transform: translateY(-4px); }
-.achievement .emoji { font-size: 40px; margin-bottom: 8px; }
-.achievement .title { font-size: 14px; font-weight: 600; color: #333; margin-bottom: 4px; }
-.achievement .desc { font-size: 12px; color: #666; }
+.timeline { }
+.timeline-item { margin-bottom: 20px; padding-left: 20px; border-left: 2px solid #eee; position: relative; }
+.timeline-item::before { content: ""; width: 8px; height: 8px; background: #667eea; border-radius: 50%; position: absolute; left: -5px; top: 6px; }
+.timeline-item .year { font-size: 14px; font-weight: 600; color: #667eea; margin-bottom: 4px; }
+.timeline-item .content { font-size: 14px; color: #666; }
 
-.home-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; margin-bottom: 24px; }
-.home-card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 18px; box-shadow: 0 4px 14px rgba(0,0,0,.04); }
-.home-card h3 { margin: 0 0 8px; font-size: 20px; }
-.home-card p { margin: 0 0 8px; color: #666; }
-.pill { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; margin: 0 6px 6px 0; }
-.pill.ai { background:#e3f2fd; color:#1565c0; }
-.pill.oss { background:#e8f5e9; color:#2e7d32; }
-.pill.system { background:#fff3e0; color:#ef6c00; }
-.pill.product { background:#f3e5f5; color:#7b1fa2; }
-.quick-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
-.quick-links a { border:1px solid #ddd; border-radius:8px; padding:8px 12px; font-size:13px; text-decoration:none; }
-.section-title { margin: 40px 0 20px; font-size: 28px; font-weight: 700; text-align: center; }
-.project-grid { display:grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap:14px; }
-.project { background:#fff; border:1px solid #eee; border-radius:10px; padding:14px; }
-.project h4 { margin:0 0 6px; font-size:16px; }
-.project .meta { color:#888; font-size:12px; margin-bottom:8px; }
-.roadmap { background:#fff; border:1px solid #eee; border-radius:10px; padding:14px; }
-.roadmap li { margin-bottom:8px; }
-.post-zone { margin-top: 24px; }
-.status-row { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
-.status-dot { width:8px; height:8px; border-radius:50%; display:inline-block; }
-.status-active { background:#2e7d32; box-shadow:0 0 0 4px rgba(46,125,50,.12); }
-.status-planning { background:#ef6c00; box-shadow:0 0 0 4px rgba(239,108,0,.12); }
-.status-archived { background:#777; box-shadow:0 0 0 4px rgba(119,119,119,.12); }
-.status-text { font-size:12px; font-weight:600; color:#666; }
-.project-actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
-.project-actions a { font-size:12px; border:1px solid #ddd; border-radius:999px; padding:4px 10px; text-decoration:none; }
-.project-update { font-size:12px; color:#999; margin-top:8px; }
-.post-meta { font-size:12px; color:#999; margin-top:4px; }
-.fade-in { opacity:0; transform:translateY(30px); transition:opacity .6s ease,transform .6s ease; }
-.fade-in.show { opacity:1; transform:translateY(0); }
-@media (max-width: 900px) {
-  .home-grid, .project-grid, .tech-grid { grid-template-columns: 1fr; }
-  .hero-section h1 { font-size: 32px; }
-  .hero-stats { gap: 20px; }
+.contact-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.contact-links a { font-size: 14px; color: #667eea; text-decoration: none; }
+.contact-links a:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .intro-section { padding: 20px; }
+  .stats-bar { gap: 20px; }
+  .tech-stack { grid-template-columns: 1fr; }
 }
 </style>
 
-<div class="hero-section fade-in">
+<div class="intro-section">
   <h1>胡章权</h1>
-  <p class="tagline">AI 应用开发 · 工业数据智能 · 大模型工程化</p>
-  <div class="badges">
-    <span class="badge">🎓 浙江大学</span>
-    <span class="badge">🤖 NL2SQL 专家</span>
-    <span class="badge">🏭 工业 AI</span>
-    <span class="badge">⚡ 全栈开发</span>
+  <div class="subtitle">浙江大学控制工程硕士 · AI 应用开发 · 工业数据智能</div>
+  <div class="bio">
+    专注于将大模型技术落地到实际工业场景，擅长 NL2SQL、时序数据分析与智能诊断系统开发。
+    参与浙江大学-杭氧联合研发项目，实现 90%+ 查询准确率的自然语言数据库查询系统。
   </div>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <span class="number">90%+</span>
-      <span class="label">NL2SQL 准确率</span>
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="number">90%+</div>
+      <div class="label">NL2SQL 准确率</div>
     </div>
-    <div class="hero-stat">
-      <span class="number">3+</span>
-      <span class="label">工业 AI 项目</span>
+    <div class="stat-item">
+      <div class="number">3</div>
+      <div class="label">工业 AI 项目</div>
     </div>
-    <div class="hero-stat">
-      <span class="number">5+</span>
-      <span class="label">获奖经历</span>
+    <div class="stat-item">
+      <div class="number">浙大</div>
+      <div class="label">优秀研究生</div>
     </div>
   </div>
 </div>
 
-<h2 class="section-title fade-in">🏆 核心成就</h2>
-<div class="achievement-grid fade-in">
-  <div class="achievement">
-    <div class="emoji">🎯</div>
-    <div class="title">90%+ 准确率</div>
-    <div class="desc">NL2SQL 系统</div>
-  </div>
-  <div class="achievement">
-    <div class="emoji">🏭</div>
-    <div class="title">工业 AI 落地</div>
-    <div class="desc">浙大-杭氧联合研发</div>
-  </div>
-  <div class="achievement">
-    <div class="emoji">🎓</div>
-    <div class="title">浙大优秀研究生</div>
-    <div class="desc">多项荣誉</div>
-  </div>
-  <div class="achievement">
-    <div class="emoji">🥇</div>
-    <div class="title">数模竞赛</div>
-    <div class="desc">省级一等奖</div>
-  </div>
-</div>
-
-<h2 class="section-title fade-in">💻 技术栈</h2>
-<div class="tech-grid fade-in">
-  <div class="tech-card">
+<h2 class="section-title">技术栈</h2>
+<div class="tech-stack">
+  <div class="tech-category">
     <h3>AI 工程</h3>
-    <div class="skill-bar">
-      <div class="skill-name">
-        <span>大模型部署 (Qwen)</span>
-        <span class="level">精通</span>
-      </div>
-      <div class="bar"><div class="fill" style="width: 90%"></div></div>
-    </div>
-    <div class="skill-bar">
-      <div class="skill-name">
-        <span>NL2SQL</span>
-        <span class="level">精通</span>
-      </div>
-      <div class="bar"><div class="fill" style="width: 90%"></div></div>
-    </div>
-    <div class="skill-bar">
-      <div class="skill-name">
-        <span>Prompt Engineering</span>
-        <span class="level">熟练</span>
-      </div>
-      <div class="bar"><div class="fill" style="width: 85%"></div></div>
-    </div>
+    <ul>
+      <li>Qwen 系列模型部署</li>
+      <li>NL2SQL 系统设计</li>
+      <li>Prompt Engineering</li>
+      <li>结构化推理流程</li>
+    </ul>
   </div>
-
-  <div class="tech-card">
+  <div class="tech-category">
     <h3>后端开发</h3>
-    <div class="skill-bar">
-      <div class="skill-name">
-        <span>Python</span>
-        <span class="level">精通</span>
-      </div>
-      <div class="bar"><div class="fill" style="width: 90%"></div></div>
-    </div>
-    <div class="skill-bar">
-      <div class="skill-name">
-        <span>PostgreSQL</span>
-        <span class="level">熟练</span>
-      </div>
-      <div class="bar"><div class="fill" style="width: 80%"></div></div>
-    </div>
-    <div class="skill-bar">
-      <div class="skill-name">
-        <span>OAuth2 + JWT</span>
-        <span class="level">熟练</span>
-      </div>
-      <div class="bar"><div class="fill" style="width: 75%"></div></div>
-    </div>
+    <ul>
+      <li>Python</li>
+      <li>PostgreSQL</li>
+      <li>OAuth2 + JWT</li>
+      <li>RESTful API</li>
+    </ul>
   </div>
-
-  <div class="tech-card">
+  <div class="tech-category">
     <h3>前端开发</h3>
-    <div class="skill-bar">
-      <div class="skill-name">
-        <span>Vue3</span>
-        <span class="level">熟练</span>
-      </div>
-      <div class="bar"><div class="fill" style="width: 80%"></div></div>
-    </div>
-    <div class="skill-bar">
-      <div class="skill-name">
-        <span>TypeScript</span>
-        <span class="level">熟练</span>
-      </div>
-      <div class="bar"><div class="fill" style="width: 75%"></div></div>
-    </div>
-    <div class="skill-bar">
-      <div class="skill-name">
-        <span>现代化 UI</span>
-        <span class="level">熟练</span>
-      </div>
-      <div class="bar"><div class="fill" style="width: 80%"></div></div>
-    </div>
+    <ul>
+      <li>Vue3 + TypeScript</li>
+      <li>现代化 UI 设计</li>
+      <li>响应式布局</li>
+    </ul>
   </div>
-
-  <div class="tech-card">
+  <div class="tech-category">
     <h3>工业场景</h3>
-    <div class="skill-bar">
-      <div class="skill-name">
-        <span>时序数据处理</span>
-        <span class="level">精通</span>
-      </div>
-      <div class="bar"><div class="fill" style="width: 85%"></div></div>
+    <ul>
+      <li>时序数据处理</li>
+      <li>异常诊断系统</li>
+      <li>优化建议生成</li>
+      <li>CFD 仿真分析</li>
+    </ul>
+  </div>
+</div>
+
+<h2 class="section-title">核心项目</h2>
+<div class="project-list">
+  <div class="project-item">
+    <h3>气体运营数据自然语言查询引擎</h3>
+    <div class="meta">浙江大学-杭氧联合研发 · 2025.03-2025.12</div>
+    <div class="desc">
+      基于大语言模型的 NL2SQL 查询系统，面向复杂工业数据库场景，实现自然语言与工业 Schema 的智能对齐。
     </div>
-    <div class="skill-bar">
-      <div class="skill-name">
-        <span>异常诊断</span>
-        <span class="level">熟练</span>
-      </div>
-      <div class="bar"><div class="fill" style="width: 80%"></div></div>
+    <ul class="highlights">
+      <li>海光 DCU 环境本地部署 Qwen 系列模型，对接 PostgreSQL 工业数据库</li>
+      <li>设计"意图识别—任务分解—SQL 生成—自我修正"的结构化推理流程</li>
+      <li>查询准确率超过 90%，系统已进入试运行阶段</li>
+      <li>开发 Vue 前端交互界面，集成 OAuth2 + JWT 分级权限控制</li>
+    </ul>
+  </div>
+
+  <div class="project-item">
+    <h3>空分装置运行诊断与优化系统</h3>
+    <div class="meta">工业智能 · 2025.12-至今</div>
+    <div class="desc">
+      面向空分装置复杂运行场景，围绕装置稳定性、提取率与单位能耗等关键指标，实现数据接入、状态诊断、优化建议生成的闭环系统。
     </div>
-    <div class="skill-bar">
-      <div class="skill-name">
-        <span>CFD 仿真</span>
-        <span class="level">熟练</span>
-      </div>
-      <div class="bar"><div class="fill" style="width: 75%"></div></div>
+    <ul class="highlights">
+      <li>构建工业时序数据标准化处理流程</li>
+      <li>结合机理规则与结构化推理链路，设计闭环分析流程</li>
+      <li>输出可解释的异常识别、证据提取、优化建议与效果验证</li>
+    </ul>
+  </div>
+
+  <div class="project-item">
+    <h3>数据中心能耗模型研究</h3>
+    <div class="meta">机器学习 · 2021.12-2022.09</div>
+    <div class="desc">
+      利用 ANSYS Fluent 构建机柜网络模型进行 CFD 仿真，结合 SVM、BP 神经网络建立黑箱模型，研究消除热点与降低能耗策略。
     </div>
   </div>
 </div>
 
-<h2 class="section-title fade-in">🚀 核心项目</h2>
-{% include home_projects.html %}
-
-<h2 class="section-title fade-in">📍 2026 路线图</h2>
-<div class="roadmap fade-in">
-  <ol>
-    <li><strong>Q1：</strong>完成空分装置优化系统开发，实现稳定运行与效果验证</li>
-    <li><strong>Q2：</strong>深化 NL2SQL 系统能力，支持更复杂的多表关联与时序查询</li>
-    <li><strong>Q3：</strong>整理工业 AI 落地经验，输出技术博客与开源工具</li>
-    <li><strong>Q4：</strong>探索 Agent 工作流在工业场景的应用，构建自动化诊断流程</li>
-  </ol>
+<h2 class="section-title">教育与荣誉</h2>
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="year">2024 - 至今</div>
+    <div class="content">浙江大学 国家卓越工程师学院 控制工程专业（硕士）</div>
+  </div>
+  <div class="timeline-item">
+    <div class="year">2020 - 2024</div>
+    <div class="content">北京科技大学 高等工程师学院 自动化专业（本科）</div>
+  </div>
+  <div class="timeline-item">
+    <div class="year">荣誉</div>
+    <div class="content">浙江大学优秀研究生、优秀研究生干部、优秀团干部</div>
+  </div>
+  <div class="timeline-item">
+    <div class="year">竞赛</div>
+    <div class="content">全国大学生数学建模竞赛省级一等奖、中国国际飞行器设计挑战赛全国三等奖</div>
+  </div>
 </div>
 
-<h2 class="section-title fade-in">📝 最新动态</h2>
-<div class="post-zone fade-in">
-{% for post in paginator.posts %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">{{ post.title }}</h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-        {% endif %}
-        <div class="post-content-preview">{{ post.content | strip_html | truncate:200 }}</div>
-    </a>
-    <p class="post-meta">
-        发布于 {{ post.date | date: "%Y年%-m月%-d日" }}
-    </p>
+<h2 class="section-title">联系方式</h2>
+<div class="contact-links">
+  <a href="mailto:zju_hzq@163.com">📧 Email</a>
+  <a href="https://github.com/Xplore0114" target="_blank">🐙 GitHub</a>
+  <a href="/about/">📄 详细简历</a>
 </div>
-<hr>
-{% endfor %}
-
-{% if paginator.total_pages > 1 %}
-<ul class="pager">
-    {% if paginator.previous_page %}
-    <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; 更新中</a>
-    </li>
-    {% endif %}
-    {% if paginator.next_page %}
-    <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">更多内容 &rarr;</a>
-    </li>
-    {% endif %}
-</ul>
-{% endif %}
-</div>
-
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
