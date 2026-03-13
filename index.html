@@ -33,12 +33,14 @@ description: "Kevin 的数字工坊：AI 系统、实战项目、开源探索。
 .project-actions a { font-size:12px; border:1px solid #ddd; border-radius:999px; padding:4px 10px; text-decoration:none; }
 .project-update { font-size:12px; color:#999; margin-top:8px; }
 .post-meta { font-size:12px; color:#999; margin-top:4px; }
+.fade-in { opacity:0; transform:translateY(30px); transition:opacity .6s ease,transform .6s ease; }
+.fade-in.show { opacity:1; transform:translateY(0); }
 @media (max-width: 900px) {
   .home-grid, .project-grid { grid-template-columns: 1fr; }
 }
 </style>
 
-<div class="home-grid">
+<div class="home-grid fade-in">
   <div class="home-card">
     <h3>Kevin 的数字工坊 👋</h3>
     <p>
@@ -72,11 +74,11 @@ description: "Kevin 的数字工坊：AI 系统、实战项目、开源探索。
   </div>
 </div>
 
-<h2 class="section-title">开源项目（进行中）</h2>
+<h2 class="section-title fade-in">开源项目（进行中）</h2>
 {% include home_projects.html %}
 
-<h2 class="section-title">路线图</h2>
-<div class="roadmap">
+<h2 class="section-title fade-in">路线图</h2>
+<div class="roadmap fade-in">
   <ol>
     <li><strong>Q1：</strong>稳定论文流水线，提升引用质量和可视化体验。</li>
     <li><strong>Q2：</strong>发布 PromptOps Toolkit alpha，附带文档与示例。</li>
@@ -85,8 +87,8 @@ description: "Kevin 的数字工坊：AI 系统、实战项目、开源探索。
   </ol>
 </div>
 
-<h2 class="section-title">最新动态</h2>
-<div class="post-zone">
+<h2 class="section-title fade-in">最新动态</h2>
+<div class="post-zone fade-in">
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
@@ -118,3 +120,15 @@ description: "Kevin 的数字工坊：AI 系统、实战项目、开源探索。
 </ul>
 {% endif %}
 </div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
