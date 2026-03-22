@@ -61,6 +61,18 @@ COMPANY_CONFIG = {
         "query": 'ti:ernie OR ti:"wenxin" OR ti:"paddle"',
         "author_keywords": ["baidu"],
     },
+    "Xiaomi": {
+        "query": 'ti:mimo OR ti:xiaomi',
+        "author_keywords": ["xiaomi"],
+    },
+    "MiniMax": {
+        "query": 'ti:minimax OR ti:"MiniMax-01" OR ti:"MiniMax-V"',
+        "author_keywords": ["minimax"],
+    },
+    "Zhipu": {
+        "query": 'ti:glm-4 OR ti:chatglm OR ti:zhipu OR ti:codegeex OR ti:cogvlm',
+        "author_keywords": ["zhipu", "tsinghua", "chatglm"],
+    },
 }
 
 TAG_RULES = [
