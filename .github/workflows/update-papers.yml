@@ -18,7 +18,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add papers.json llm-tracker/papers.json llm-tracker/company-papers.json
+          git add papers.json llm-tracker/papers.json llm-tracker/company-papers.json llm-tracker/timeline-data.json
           git diff --staged --quiet || git commit -m "chore: update papers $(date +%Y-%m-%d)"
           git push
 
