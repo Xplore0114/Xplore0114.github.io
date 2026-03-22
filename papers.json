@@ -1,5 +1,641 @@
 [
   {
+    "id": "2603.19225",
+    "title": "FinTradeBench: A Financial Reasoning Benchmark for LLMs",
+    "authors": "Yogesh Agrawal, Aniruddha Dutta, Md Mahadi Hasan et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Real-world financial decision-making is a challenging problem that requires reasoning over heterogeneous signals, including company fundamentals derived from regulatory filings and trading signals computed from price dynamics. Recently, with the advancement of Large Language Models (LLMs), financial analysts have begun to use them for financial decision-making tasks. However, existing financial question answering benchmarks for testing these models primarily focus on company balance sheet data a"
+  },
+  {
+    "id": "2603.19223",
+    "title": "F2LLM-v2: Inclusive, Performant, and Efficient Embeddings for a Multilingual World",
+    "authors": "Ziyin Zhang, Zihan Liao, Hang Yu et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "We present F2LLM-v2, a new family of general-purpose, multilingual embedding models in 8 distinct sizes ranging from 80M to 14B. Trained on a newly curated composite of 60 million publicly available high-quality data samples, F2LLM-v2 supports more than 200 languages, with a particular emphasis on previously underserved mid- and low-resource languages. By integrating a two-stage LLM-based embedding training pipeline with matryoshka learning, model pruning, and knowledge distillation techniques, "
+  },
+  {
+    "id": "2603.19221",
+    "title": "Online Learning and Equilibrium Computation with Ranking Feedback",
+    "authors": "Mingyang Liu, Yongshan Chen, Zhiyuan Fan et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Online learning in arbitrary, and possibly adversarial, environments has been extensively studied in sequential decision-making, and it is closely connected to equilibrium computation in game theory. Most existing online learning algorithms rely on \\emph{numeric} utility feedback from the environment, which may be unavailable in human-in-the-loop applications and/or may be restricted by privacy concerns. In this paper, we study an online learning model in which the learner only observes a \\emph{"
+  },
+  {
+    "id": "2603.19220",
+    "title": "Nemotron-Cascade 2: Post-Training LLMs with Cascade RL and Multi-Domain On-Policy Distillation",
+    "authors": "Zhuolin Yang, Zihan Liu, Yang Chen et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "We introduce Nemotron-Cascade 2, an open 30B MoE model with 3B activated parameters that delivers best-in-class reasoning and strong agentic capabilities. Despite its compact size, its mathematical and coding reasoning performance approaches that of frontier open models. It is the second open-weight LLM, after DeepSeekV3.2-Speciale-671B-A37B, to achieve Gold Medal-level performance in the 2025 International Mathematical Olympiad (IMO), the International Olympiad in Informatics (IOI), and the ICP"
+  },
+  {
+    "id": "2603.19195",
+    "title": "How Auditory Knowledge in LLM Backbones Shapes Audio Language Models: A Holistic Evaluation",
+    "authors": "Ke-Han Lu, Szu-Wei Fu, Chao-Han Huck Yang et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) have been widely used as knowledge backbones of Large Audio Language Models (LALMs), yet how much auditory knowledge they encode through text-only pre-training and how this affects downstream performance remains unclear. We study this gap by comparing different LLMs under two text-only and one audio-grounded setting: (1) direct probing on AKB-2000, a curated benchmark testing the breadth and depth of auditory knowledge; (2) cascade evaluation, where LLMs reason over "
+  },
+  {
+    "id": "2603.19182",
+    "title": "Box Maze: A Process-Control Architecture for Reliable LLM Reasoning",
+    "authors": "Zou Qiang",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) demonstrate strong generative capabilities but remain vulnerable to hallucination and unreliable reasoning under adversarial prompting. Existing safety approaches -- such as reinforcement learning from human feedback (RLHF) and output filtering -- primarily operate at the behavioral level and may lack explicit architectural mechanisms for enforcing reasoning process integrity. This paper proposes the Box Maze framework, a conceptual process-control architecture that "
+  },
+  {
+    "id": "2603.19167",
+    "title": "Evaluating Counterfactual Strategic Reasoning in Large Language Models",
+    "authors": "Dimitrios Georgousis, Maria Lymperaiou, Angeliki Dimitriou et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "We evaluate Large Language Models (LLMs) in repeated game-theoretic settings to assess whether strategic performance reflects genuine reasoning or reliance on memorized patterns. We consider two canonical games, Prisoner's Dilemma (PD) and Rock-Paper-Scissors (RPS), upon which we introduce counterfactual variants that alter payoff structures and action labels, breaking familiar symmetries and dominance relations. Our multi-metric evaluation framework compares default and counterfactual instantia"
+  },
+  {
+    "id": "2603.19166",
+    "title": "Meanings and Measurements: Multi-Agent Probabilistic Grounding for Vision-Language Navigation",
+    "authors": "Swagat Padhan, Lakshya Jain, Bhavya Minesh Shah et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Robots collaborating with humans must convert natural language goals into actionable, physically grounded decisions. For example, executing a command such as \"go two meters to the right of the fridge\" requires grounding semantic references, spatial relations, and metric constraints within a 3D scene. While recent vision language models (VLMs) demonstrate strong semantic grounding capabilities, they are not explicitly designed to reason about metric constraints in physically defined spaces. In th"
+  },
+  {
+    "id": "2603.19152",
+    "title": "VEPO: Variable Entropy Policy Optimization for Low-Resource Language Foundation Models",
+    "authors": "Chonghan Liu, Yimin Du, Qi An et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models frequently exhibit suboptimal performance on low resource languages, primarily due to inefficient subword segmentation and systemic training data imbalances. In this paper, we propose Variable Entropy Policy Optimization (VEPO), which leverages Reinforcement Learning with Verifiable Rewards to incorporate deterministic structural constraints into the policy alignment process. This framework ensures prescribed sequence length, robust format consistency, and rigorous linguist"
+  },
+  {
+    "id": "2603.19149",
+    "title": "Optimal Splitting of Language Models from Mixtures to Specialized Domains",
+    "authors": "Skyler Seto, Pierre Ablin, Anastasiia Filippova et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Language models achieve impressive performance on a variety of knowledge, language, and reasoning tasks due to the scale and diversity of pretraining data available. The standard training recipe is a two-stage paradigm: pretraining first on the full corpus of data followed by specialization on a subset of high quality, specialized data from the full corpus. In the multi-domain setting, this involves continued pretraining of multiple models on each specialized domain, referred to as split model t"
+  },
+  {
+    "id": "2603.19144",
+    "title": "UGID: Unified Graph Isomorphism for Debiasing Large Language Models",
+    "authors": "Zikang Ding, Junchi Yao, Junhao Li et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) exhibit pronounced social biases. Output-level or data-optimization--based debiasing methods cannot fully resolve these biases, and many prior works have shown that biases are embedded in internal representations. We propose \\underline{U}nified \\underline{G}raph \\underline{I}somorphism for \\underline{D}ebiasing large language models (\\textit{\\textbf{UGID}}), an internal-representation--level debiasing framework for large language models that models the Transformer as"
+  },
+  {
+    "id": "2603.19118",
+    "title": "How Uncertainty Estimation Scales with Sampling in Reasoning Models",
+    "authors": "Maksym Del, Markus Kängsepp, Marharyta Domnich et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Uncertainty estimation is critical for deploying reasoning language models, yet remains poorly understood under extended chain-of-thought reasoning. We study parallel sampling as a fully black-box approach using verbalized confidence and self-consistency. Across three reasoning models and 17 tasks spanning mathematics, STEM, and humanities, we characterize how these signals scale. Both self-consistency and verbalized confidence scale in reasoning models, but self-consistency exhibits lower initi"
+  },
+  {
+    "id": "2603.19097",
+    "title": "DaPT: A Dual-Path Framework for Multilingual Multi-hop Question Answering",
+    "authors": "Yilin Wang, Yuchun Fan, Jiaoyang Li et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Retrieval-augmented generation (RAG) systems have made significant progress in solving complex multi-hop question answering (QA) tasks in the English scenario. However, RAG systems inevitably face the application scenario of retrieving across multilingual corpora and queries, leaving several open challenges. The first one involves the absence of benchmarks that assess RAG systems' capabilities under the multilingual multi-hop (MM-hop) QA setting. The second centers on the overreliance on LLMs' s"
+  },
+  {
+    "id": "2603.19092",
+    "title": "SAVeS: Steering Safety Judgments in Vision-Language Models via Semantic Cues",
+    "authors": "Carlos Hinojosa, Clemens Grange, Bernard Ghanem",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Vision-language models (VLMs) are increasingly deployed in real-world and embodied settings where safety decisions depend on visual context. However, it remains unclear which visual evidence drives these judgments. We study whether multimodal safety behavior in VLMs can be steered by simple semantic cues. We introduce a semantic steering framework that applies controlled textual, visual, and cognitive interventions without changing the underlying scene content. To evaluate these effects, we prop"
+  },
+  {
+    "id": "2603.19087",
+    "title": "Serendipity by Design: Evaluating the Impact of Cross-domain Mappings on Human and LLM Creativity",
+    "authors": "Qiawen Ella Liu, Marina Dubova, Henry Conklin et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Are large language models (LLMs) creative in the same way humans are, and can the same interventions increase creativity in both? We evaluate a promising but largely untested intervention for creativity: forcing creators to draw an analogy from a random, remote source domain (''cross-domain mapping''). Human participants and LLMs generated novel features for ten daily products (e.g., backpack, TV) under two prompts: (i) cross-domain mapping, which required translating a property from a randomly "
+  },
+  {
+    "id": "2603.19082",
+    "title": "A Dataset and Resources for Identifying Patient Health Literacy Information from Clinical Notes",
+    "authors": "Madeline Bittner, Dina Demner-Fushman, Yasmeen Shabazz et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Health literacy is a critical determinant of patient outcomes, yet current screening tools are not always feasible and differ considerably in the number of items, question format, and dimensions of health literacy they capture, making documentation in structured electronic health records difficult to achieve. Automated detection from unstructured clinical notes offers a promising alternative, as these notes often contain richer, more contextual health literacy information, but progress has been "
+  },
+  {
+    "id": "2603.19066",
+    "title": "Parallelograms Strike Back: LLMs Generate Better Analogies than People",
+    "authors": "Qiawen Ella Liu, Raja Marjieh, Jian-Qiao Zhu et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Four-term word analogies (A:B::C:D) are classically modeled geometrically as ''parallelograms,'' yet recent work suggests this model poorly captures how humans produce analogies, with simple local-similarity heuristics often providing a better account (Peterson et al., 2020). But does the parallelogram model fail because it is a bad model of analogical relations, or because people are not very good at generating relation-preserving analogies? We compared human and large language model (LLM) anal"
+  },
+  {
+    "id": "2603.19044",
+    "title": "MoRI: Learning Motivation-Grounded Reasoning for Scientific Ideation in Large Language Models",
+    "authors": "Chenyang Gu, Jiahao Cheng, Meicong Zhang et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Scientific ideation aims to propose novel solutions within a given scientific context. Existing LLM-based agentic approaches emulate human research workflows, yet inadequately model scientific reasoning, resulting in surface-level conceptual recombinations that lack technical depth and scientific grounding. To address this issue, we propose \\textbf{MoRI} (\\textbf{Mo}tivation-grounded \\textbf{R}easoning for Scientific \\textbf{I}deation), a framework that enables LLMs to explicitly learn the reaso"
+  },
+  {
+    "id": "2603.19017",
+    "title": "What Really Controls Temporal Reasoning in Large Language Models: Tokenisation or Representation of Time?",
+    "authors": "Gagan Bhatia, Ahmad Muhammad Isa, Maxime Peyrard et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "We present MultiTempBench, a multilingual temporal reasoning benchmark spanning three tasks, date arithmetic, time zone conversion, and temporal relation extraction across five languages (English, German, Chinese, Arabic, and Hausa) and multiple calendar conventions (Gregorian, Hijri, and Chinese Lunar). MultiTempBench contains $15,000$ examples built by translating $750$ curated English questions and expanding each into controlled date-format variants. We evaluate 20 LLMs and introduce the mult"
+  },
+  {
+    "id": "2603.19008",
+    "title": "Hypothesis-Conditioned Query Rewriting for Decision-Useful Retrieval",
+    "authors": "Hangeol Chang, Changsun Lee, Seungjoon Rho et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Retrieval-Augmented Generation (RAG) improves Large Language Models (LLMs) by grounding generation in external, non-parametric knowledge. However, when a task requires choosing among competing options, simply grounding generation in broadly relevant context is often insufficient to drive the final decision. Existing RAG methods typically rely on a single initial query, which often favors topical relevance over decision-relevant evidence, and therefore retrieves background information that can fa"
+  },
+  {
+    "id": "2603.19002",
+    "title": "RADIUS: Ranking, Distribution, and Significance - A Comprehensive Alignment Suite for Survey Simulation",
+    "authors": "Weronika Łajewska, Paul Missault, George Davidson et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Simulation of surveys using LLMs is emerging as a powerful application for generating human-like responses at scale. Prior work evaluates survey simulation using metrics borrowed from other domains, which are often ad hoc, fragmented, and non-standardized, leading to results that are difficult to compare. Moreover, existing metrics focus mainly on accuracy or distributional measures, overlooking the critical dimension of ranking alignment. In practice, a simulation can achieve high accuracy whil"
+  },
+  {
+    "id": "2603.18945",
+    "title": "A conceptual framework for ideology beyond the left and right",
+    "authors": "Kenneth Joseph, Kim Williams, David Lazer",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "NLP+CSS work has operationalized ideology almost exclusively on a left/right partisan axis. This approach obscures the fact that people hold interpretations of many different complex and more specific ideologies on issues like race, climate, and gender. We introduce a framework that understands ideology as an attributed, multi-level socio-cognitive concept network, and explains how ideology manifests in discourse in relation to other relevant social processes like framing. We demonstrate how thi"
+  },
+  {
+    "id": "2603.18940",
+    "title": "Entropy trajectory shape predicts LLM reasoning reliability: A diagnostic study of uncertainty dynamics in chain-of-thought",
+    "authors": "Xinghao Zhao",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Chain-of-thought (CoT) reasoning improves LLM accuracy, yet detecting failures cheaply remains elusive. We study whether the shape of uncertainty dynamics across reasoning steps--captured by sampling a few answer completions per step--predicts correctness. We introduce entropy-trajectory monotonicity: a chain is monotone if its per-step answer-distribution entropy decreases at every step. On GSM8K (n=300) with Qwen2.5-7B-Instruct, monotone chains achieve 68.8% accuracy vs. 46.8% for non-monotone"
+  },
+  {
+    "id": "2603.18911",
+    "title": "Progressive Training for Explainable Citation-Grounded Dialogue: Reducing Hallucination to Zero in English-Hindi LLMs",
+    "authors": "Vedant Pandya",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Knowledge-grounded dialogue systems aim to generate informative, contextually relevant responses by conditioning on external knowledge sources. However, most existing approaches focus exclusively on English, lack explicit citation mechanisms for verifying factual claims, and offer limited transparency into model decision-making. We present XKD-Dial, a progressive four-stage training pipeline for explainable, knowledge-grounded dialogue generation in a bilingual (English-Hindi) setting, comprisin"
+  },
+  {
+    "id": "2603.18886",
+    "title": "Reasoning over mathematical objects: on-policy reward modeling and test time aggregation",
+    "authors": "Pranjal Aggarwal, Marjan Ghazvininejad, Seungone Kim et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "The ability to precisely derive mathematical objects is a core requirement for downstream STEM applications, including mathematics, physics, and chemistry, where reasoning must culminate in formally structured expressions. Yet, current LM evaluations of mathematical and scientific reasoning rely heavily on simplified answer formats such as numerical values or multiple choice options due to the convenience of automated assessment. In this paper we provide three contributions for improving reasoni"
+  },
+  {
+    "id": "2603.18879",
+    "title": "A Human-in/on-the-Loop Framework for Accessible Text Generation",
+    "authors": "Lourdes Moreno, Paloma Martínez",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Plain Language and Easy-to-Read formats in text simplification are essential for cognitive accessibility. Yet current automatic simplification and evaluation pipelines remain largely automated, metric-driven, and fail to reflect user comprehension or normative standards. This paper introduces a hybrid framework that explicitly integrates human participation into LLM-based accessible text generation. Human-in-the-Loop (HiTL) contributions guide adjustments during generation, while Human-on-the-Lo"
+  },
+  {
+    "id": "2603.18873",
+    "title": "Evaluating LLM-Generated Lessons from the Language Learning Students' Perspective: A Short Case Study on Duolingo",
+    "authors": "Carlos Rafael Catalan, Patricia Nicole Monderin, Lheane Marie Dizon et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety"
+    ],
+    "abstract": "Popular language learning applications such as Duolingo use large language models (LLMs) to generate lessons for its users. Most lessons focus on general real-world scenarios such as greetings, ordering food, or asking directions, with limited support for profession-specific contexts. This gap can hinder learners from achieving professional-level fluency, which we define as the ability to communicate comfortably various work-related and domain-specific information in the target language. We surv"
+  },
+  {
+    "id": "2603.18863",
+    "title": "Why Better Cross-Lingual Alignment Fails for Better Cross-Lingual Transfer: Case of Encoders",
+    "authors": "Yana Veitsman, Yihong Liu, Hinrich Schütze",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety"
+    ],
+    "abstract": "Better cross-lingual alignment is often assumed to yield better cross-lingual transfer. However, explicit alignment techniques -- despite increasing embedding similarity -- frequently fail to improve token-level downstream performance. In this work, we show that this mismatch arises because alignment and downstream task objectives are largely orthogonal, and because the downstream benefits from alignment vary substantially across languages and task types. We analyze four XLM-R encoder models ali"
+  },
+  {
+    "id": "2603.18859",
+    "title": "RewardFlow: Topology-Aware Reward Propagation on State Graphs for Agentic RL with Large Language Models",
+    "authors": "Xiao Feng, Bo Han, Zhanke Zhou et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning",
+      "Safety"
+    ],
+    "abstract": "Reinforcement learning (RL) holds significant promise for enhancing the agentic reasoning capabilities of large language models (LLMs) with external environments. However, the inherent sparsity of terminal rewards hinders fine-grained, state-level optimization. Although process reward modeling offers a promising alternative, training dedicated reward models often entails substantial computational costs and scaling difficulties. To address these challenges, we introduce RewardFlow, a lightweight "
+  },
+  {
+    "id": "2603.18822",
+    "title": "Detecting Basic Values in A Noisy Russian Social Media Text Data: A Multi-Stage Classification Framework",
+    "authors": "Maria Milkova, Maksim Rudnev",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "MCP",
+      "Reasoning",
+      "Multimodal",
+      "Fine-tuning"
+    ],
+    "abstract": "This study presents a multi-stage classification framework for detecting human values in noisy Russian language social media, validated on a random sample of 7.5 million public text posts. Drawing on Schwartz's theory of basic human values, we design a multi-stage pipeline that includes spam and nonpersonal content filtering, targeted selection of value relevant and politically relevant posts, LLM based annotation, and multi-label classification. Particular attention is given to verifying the qu"
+  },
+  {
+    "id": "2603.19011",
+    "title": "Security awareness in LLM agents: the NDAI zone case",
+    "authors": "Enrico Bottazzi, Pia Park",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "NDAI zones let inventor and investor agents negotiate inside a Trusted Execution Environment (TEE) where any disclosed information is deleted if no deal is reached. This makes full IP disclosure the rational strategy for the inventor's agent. Leveraging this infrastructure, however, requires agents to distinguish a secure environment from an insecure one, a capability LLM agents lack natively, since they can rely only on evidence passed through the context window to form awareness of their execu"
+  },
+  {
+    "id": "2603.18897",
+    "title": "Act While Thinking: Accelerating LLM Agents via Pattern-Aware Speculative Tool Execution",
+    "authors": "Yifan Sui, Han Zhao, Rui Ma et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "LLM-powered agents are emerging as a dominant paradigm for autonomous task solving. Unlike standard inference workloads, agents operate in a strictly serial \"LLM-tool\" loop, where the LLM must wait for external tool execution at every step. This execution model introduces severe latency bottlenecks. To address this problem, we propose PASTE, a Pattern-Aware Speculative Tool Execution method designed to hide tool latency through speculation. PASTE is based on the insight that although agent reque"
+  },
+  {
+    "id": "2603.18908",
+    "title": "Secure Linear Alignment of Large Language Models",
+    "authors": "Matt Gorbett, Suman Jana",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Language models increasingly appear to learn similar representations, despite differences in training objectives, architectures, and data modalities. This emerging compatibility between independently trained models introduces new opportunities for cross-model alignment to downstream objectives. Moreover, it unlocks new potential application domains, such as settings where security, privacy, or competitive constraints prohibit direct data or model sharing. In this work, we propose a privacy-prese"
+  },
+  {
+    "id": "2603.19028",
+    "title": "SEM: Sparse Embedding Modulation for Post-Hoc Debiasing of Vision-Language Models",
+    "authors": "Quentin Guimard, Federico Bartsch, Simone Caldarella et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Models that bridge vision and language, such as CLIP, are key components of multimodal AI, yet their large-scale, uncurated training data introduce severe social and spurious biases. Existing post-hoc debiasing methods often operate directly in the dense CLIP embedding space, where bias and task-relevant information are highly entangled. This entanglement limits their ability to remove bias without degrading semantic fidelity. In this work, we propose Sparse Embedding Modulation (SEM), a post-ho"
+  },
+  {
+    "id": "2603.18893",
+    "title": "Quantitative Introspection in Language Models: Tracking Internal States Across Conversation",
+    "authors": "Nicolas Martorell",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Tracking the internal states of large language models across conversations is important for safety, interpretability, and model welfare, yet current methods are limited. Linear probes and other white-box methods compress high-dimensional representations imperfectly and are harder to apply with increasing model size. Taking inspiration from human psychology, where numeric self-report is a widely used tool for tracking internal states, we ask whether LLMs' own numeric self-reports can track probe-"
+  },
+  {
+    "id": "2603.18892",
+    "title": "MultihopSpatial: Multi-hop Compositional Spatial Reasoning Benchmark for Vision-Language Model",
+    "authors": "Youngwan Lee, Soojin Jang, Yoorhim Cho et al.",
+    "year": 2026,
+    "date": "2026-03-19",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Spatial reasoning is foundational for Vision-Language Models (VLMs), particularly when deployed as Vision-Language-Action (VLA) agents in physical environments. However, existing benchmarks predominantly focus on elementary, single-hop relations, neglecting the multi-hop compositional reasoning and precise visual grounding essential for real-world scenarios. To address this, we introduce MultihopSpatial, offering three key contributions: (1) A comprehensive benchmark designed for multi-hop and c"
+  },
+  {
     "id": "2603.03249",
     "title": "Using Learning Progressions to Guide AI Feedback for Science Learning",
     "authors": "Xin Xia, Nejla Yuruk, Yun Wang et al.",
