@@ -176,6 +176,76 @@ def auto_tag(title, abstract=''):
     return [t for t, p in TAG_RULES if re.search(p, text)] or ['LLM']
 
 
+def classify_existing_by_title(all_papers):
+    """Classify existing papers by title patterns (fallback when arXiv queries fail).
+
+    Only matches when model name is the SUBJECT of the paper (title prefix),
+    not when it's merely mentioned or compared against.
+    """
+    RULES = {
+        'OpenAI': {
+            'match': [r'^gpt-?\d', r'^gpt-oss', r'^chatgpt\b', r'^openai\b',
+                      r'gpt-4o[\s\-:]', r'^o1[\s\-:] system card', r'^o3[\s\-:]'],
+            'exclude': [r'comparative study', r'vs\.?\s', r'benchmarking.*gpt'],
+        },
+        'Google': {
+            'match': [r'^gemini\b', r'^gemma\b', r'^palm[\s\-2]', r'^google (?:gemini|deepmind)'],
+            'exclude': [r'vs\.?\s*gemini', r'compared.*gemini'],
+        },
+        'Anthropic': {
+            'match': [r'^claude\b', r'^anthropic\b', r'constitutional ai'],
+            'exclude': [r'vs\.?\s*claude', r'better call claude'],
+        },
+        'Meta': {
+            'match': [r'^llama[\s\-23]', r'^llama\b.*(?:open|foundation|chat)'],
+            'exclude': [r'meta-reasoning', r'meta-learning', r'meta-lo?ra', r'meta-analysis'],
+        },
+        'DeepSeek': {
+            'match': [r'^deepseek[\s\-v]', r'^deepseek\b.*(?:pushing|technical|report|incentivizing)'],
+            'exclude': [r'vs\.?\s*deepseek', r'deepseek performs better'],
+        },
+        'Qwen': {
+            'match': [r'^qwen[\s\-2]', r'^qwen\b.*(?:technical report|developing)'],
+            'exclude': [r'qwen vs', r'qwen it detect', r'from bert to qwen'],
+        },
+        'Mistral': {
+            'match': [r'^mistral 7b', r'^mistral\b.*(?:model|release)', r'^mixtral\b'],
+            'exclude': [r'mistral-splade', r'mistral-c2f'],
+        },
+        'Baidu': {
+            'match': [r'^ernie\b', r'^ernie-?\d', r'^wenxin\b'],
+            'exclude': [],
+        },
+        'Xiaomi': {
+            'match': [r'^mimo\b'],
+            'exclude': [],
+        },
+        'MiniMax': {
+            'match': [r'^minimax[\s\-]'],
+            'exclude': [],
+        },
+        'Zhipu': {
+            'match': [r'^glm-?\d', r'^chatglm[\s\-23]', r'^codegeex[\s\-2]', r'^cogvlm\b', r'^cogview\b'],
+            'exclude': [],
+        },
+    }
+
+    classified = {}
+    for p in all_papers:
+        title = p.get('title', '').lower().strip()
+        for company, rules in RULES.items():
+            for pat in rules['match']:
+                if re.search(pat, title, re.IGNORECASE):
+                    excluded = any(re.search(ex, title, re.IGNORECASE) for ex in rules['exclude'])
+                    if not excluded:
+                        classified.setdefault(company, []).append(p)
+                    break
+            else:
+                continue
+            break
+    return classified
+
+
 def generate_timeline(all_papers):
     """Generate timeline-data.json grouped by year-month and company."""
     timeline = {}
@@ -287,6 +357,32 @@ def main():
                      "title_zh": p.get("title_zh", ""),
                      "company": p["company"], "date": p.get("date", ""),
                      "tags": p.get("tags", [])} for p in company_list[:300]]
+
+    # ── Offline classification fallback ─────────────────
+    # If arXiv queries returned too few company papers, classify from existing data
+    if len(company_out) < 20:
+        print(f"\nFew company papers ({len(company_out)}), running offline title classification...")
+        classified = classify_existing_by_title(all_papers)
+        for company, items in classified.items():
+            for p in items:
+                pid = p['id']
+                if pid not in existing_company_map:
+                    entry = {"id": pid, "title": p.get("title", ""),
+                              "title_zh": p.get("title_zh", ""),
+                              "company": company, "date": p.get("date", ""),
+                              "tags": p.get("tags", ["LLM"])}
+                    existing_company_map[pid] = entry
+                    if 'company' not in existing_map.get(pid, {}):
+                        existing_map[pid]['company'] = company
+                print(f"  {company}: +{len(items)} from offline classification")
+
+        company_list = sorted(existing_company_map.values(),
+                              key=lambda p: p.get("date", ""), reverse=True)
+        company_out = [{"id": p["id"], "title": p["title"],
+                         "title_zh": p.get("title_zh", ""),
+                         "company": p["company"], "date": p.get("date", ""),
+                         "tags": p.get("tags", [])} for p in company_list[:300]]
+
     with open("llm-tracker/company-papers.json", "w") as f:
         json.dump(company_out, f, ensure_ascii=False)
     print(f"Company papers: {len(company_out)}")
