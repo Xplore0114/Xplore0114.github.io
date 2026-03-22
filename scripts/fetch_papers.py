@@ -20,7 +20,7 @@ def fetch_arxiv(query, tag, max_results=30):
         "sortBy": "submittedDate",
         "sortOrder": "descending"
     })
-    url = "http://export.arxiv.org/api/query?" + params
+    url = "https://export.arxiv.org/api/query?" + params
     try:
         with urllib.request.urlopen(url, timeout=20) as r:
             content = r.read().decode()
