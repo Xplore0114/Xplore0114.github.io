@@ -247,28 +247,26 @@ def classify_existing_by_title(all_papers):
 
 
 def generate_timeline(all_papers):
-    """Generate timeline-data.json grouped by year-month and company."""
-    timeline = {}
+    """Generate timeline-data.json as individual paper list (for heatmap calendar)."""
+    timeline = []
     for p in all_papers:
         date = p.get('date', '')
-        if not date or len(date) < 7:
-            continue
-        ym = date[:7]
-        company = p.get('company', '')
-        if not company:
-            continue
-        if ym not in timeline:
-            timeline[ym] = {}
-        if company not in timeline[ym]:
-            timeline[ym][company] = 0
-        timeline[ym][company] += 1
-
-    result = []
-    for ym in sorted(timeline.keys(), reverse=True):
-        entry = {"month": ym}
-        entry.update(timeline[ym])
-        result.append(entry)
-    return result
+        if not date or len(date) < 10:
+            year = str(p.get('year', ''))
+            if year and len(year) == 4:
+                date = year + '-01-01'
+            else:
+                continue
+        timeline.append({
+            'id': p.get('id', ''),
+            'title': p.get('title', ''),
+            'date': date,
+            'year': p.get('year', 2025),
+            'cite': p.get('cite', 0),
+            'tags': p.get('tags', []),
+        })
+    timeline.sort(key=lambda p: p.get('date', ''), reverse=True)
+    return timeline
 
 
 def main():
