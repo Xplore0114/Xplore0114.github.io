@@ -1,40 +1,67 @@
 #!/usr/bin/env python3
-"""Fetch LLM papers from arXiv with full accumulation.
+"""Fetch LLM papers from arXiv with full accumulation and proper company classification.
 
-Key improvements over original:
-- max_results=100 per query (vs 30) to catch more papers
-- Company papers properly accumulated across runs
-- Generates timeline-data.json for the timeline page
-- Better error handling and logging
+Key improvements:
+- Correct arXiv query syntax: (cat:cs.CL OR cat:cs.AI) AND (query)
+- Company papers validated by author/affiliation only (not abstract)
+- max_results=100 per topic, 50 per company
+- Generates timeline-data.json
+- Accumulates all data across runs
 
 Usage: python3 fetch_papers.py
-Requires: GITHUB_PAT env var (for nothing in this script, but used by workflow)
 """
 import urllib.request, urllib.parse, json, os, re, time, shutil
 from datetime import datetime
 
-# ── Topic queries ──────────────────────────────────────────
+# ── Topic queries (for general papers) ─────────────────────
 QUERIES = [
-    ("RAG",         'ti:"retrieval augmented generation" OR ti:RAG AND ti:LLM'),
+    ("RAG",         'ti:"retrieval augmented generation" OR (ti:RAG AND ti:LLM)'),
     ("Agent",       'ti:"LLM agent" OR ti:"language model agent" OR ti:"autonomous agent"'),
     ("MCP",         'ti:"model context protocol" OR (ti:"tool use" AND ti:"language model")'),
-    ("Reasoning",   'ti:"chain of thought" OR ti:"reasoning" AND ti:"large language model"'),
-    ("Multimodal",  'ti:"multimodal" AND (ti:"language model" OR ti:LLM OR ti:VLM)'),
+    ("Reasoning",   'ti:"chain of thought" OR (ti:reasoning AND ti:"large language model")'),
+    ("Multimodal",  'ti:multimodal AND (ti:"language model" OR ti:LLM OR ti:VLM)'),
     ("Fine-tuning", 'ti:LoRA OR ti:QLoRA OR ti:RLHF OR (ti:"instruction tuning" AND ti:LLM)'),
-    ("Safety",      'ti:"AI safety" OR ti:"alignment" AND ti:"language model" OR ti:"harmless"'),
-    ("LLM",         'ti:"large language model" OR ti:"foundation model" OR ti:"language model"'),
+    ("Safety",      'ti:"AI safety" OR (ti:alignment AND ti:"language model")'),
+    ("LLM",         'ti:"large language model" OR ti:"foundation model"'),
 ]
 
-COMPANY_QUERIES = [
-    ("OpenAI",    'au:openai'),
-    ("Google",    'au:google AND (cat:cs.CL OR cat:cs.AI)'),
-    ("Meta",      'au:meta AND ti:llama'),
-    ("Mistral",   'ti:mistral OR au:mistral'),
-    ("Qwen",      'ti:qwen OR au:alibaba AND cat:cs.CL'),
-    ("DeepSeek",  'ti:deepseek OR au:deepseek'),
-    ("Anthropic", 'au:anthropic'),
-    ("Baidu",     'au:baidu AND (cat:cs.CL OR cat:cs.AI)'),
-]
+# ── Company queries (title-based + author validation) ─────
+# Each company has: (query, author_keywords)
+# author_keywords: list of strings that MUST appear in author names or affiliations
+COMPANY_CONFIG = {
+    "OpenAI": {
+        "query": 'ti:gpt-4o OR ti:"o1" OR ti:"o3" OR ti:o4-mini OR ti:sora OR ti:chatgpt OR ti:codex',
+        "author_keywords": ["openai"],
+    },
+    "Google": {
+        "query": 'ti:gemini OR ti:gemma OR ti:palm OR ti:bard',
+        "author_keywords": ["google", "deepmind", "google research", "google deepmind"],
+    },
+    "Anthropic": {
+        "query": 'ti:claude',
+        "author_keywords": ["anthropic"],
+    },
+    "Meta": {
+        "query": 'ti:llama OR ti:"llama-" OR ti:fairseq',
+        "author_keywords": ["meta ai", "meta platforms", "fair", "facebook ai", "meta research", "facebook ai research"],
+    },
+    "DeepSeek": {
+        "query": 'ti:deepseek',
+        "author_keywords": ["deepseek"],
+    },
+    "Qwen": {
+        "query": 'ti:qwen OR ti:"tongyi qianwen"',
+        "author_keywords": ["alibaba", "qwen", "tongyi", "damo"],
+    },
+    "Mistral": {
+        "query": 'ti:mistral OR ti:mixtral OR ti:pixtral',
+        "author_keywords": ["mistral"],
+    },
+    "Baidu": {
+        "query": 'ti:ernie OR ti:"wenxin" OR ti:"paddle"',
+        "author_keywords": ["baidu"],
+    },
+}
 
 TAG_RULES = [
     ('RAG',        r'retrieval|rag\b|knowledge base'),
@@ -44,17 +71,17 @@ TAG_RULES = [
     ('Fine-tuning',r'lora|rlhf|fine.tun|instruction tun|sft\b|dpo\b'),
     ('Safety',     r'safety|alignment|red.team|harmful|jailbreak'),
     ('LLM',        r'large language model|llm\b|foundation model'),
-    ('MCP',        r'model context protocol|mcp\b|tool use'),
+    ('MCP',        r'model context protocol|mcp\b|tool integration'),
 ]
 
-MAX_RESULTS_TOPIC = 100   # per topic query
-MAX_RESULTS_COMPANY = 50  # per company query
+MAX_RESULTS_TOPIC = 100
+MAX_RESULTS_COMPANY = 50
 
 
 def fetch_arxiv(query, tag, max_results=30):
-    """Fetch papers from arXiv API (HTTPS only)."""
+    """Fetch papers from arXiv API with correct query syntax."""
     params = urllib.parse.urlencode({
-        "search_query": f"cat:cs.CL OR cat:cs.AI AND ({query})",
+        "search_query": f"(cat:cs.CL OR cat:cs.AI) AND ({query})",
         "start": 0,
         "max_results": max_results,
         "sortBy": "submittedDate",
@@ -82,14 +109,25 @@ def fetch_arxiv(query, tag, max_results=30):
         abstract = re.sub(r'\s+', ' ', get('summary'))[:500]
         authors_raw = re.findall(r'<name>(.*?)</name>', entry)
         authors = ', '.join(authors_raw[:3]) + (' et al.' if len(authors_raw) > 3 else '')
+        affiliations = re.findall(r'<arxiv:affiliation[^>]*>(.*?)</arxiv:affiliation>', entry)
         published = get('published')[:10]
         year = int(published[:4]) if published else 2025
+
         papers.append({
             "id": pid, "title": title, "authors": authors,
+            "author_list": authors_raw,
+            "affiliations": affiliations,
             "year": year, "date": published, "cite": 0,
             "tags": [tag], "abstract": abstract
         })
     return papers
+
+
+def verify_company(paper, company, author_keywords):
+    """Verify paper is actually from the company by checking authors/affiliations only."""
+    # Check author names and affiliations only (NOT abstract)
+    author_text = ' '.join(paper.get('author_list', []) + paper.get('affiliations', [])).lower()
+    return any(kw in author_text for kw in author_keywords)
 
 
 def auto_tag(title, abstract=''):
@@ -99,14 +137,13 @@ def auto_tag(title, abstract=''):
 
 
 def generate_timeline(all_papers):
-    """Generate timeline-data.json from all papers."""
-    # Group papers by year-month
+    """Generate timeline-data.json grouped by year-month and company."""
     timeline = {}
     for p in all_papers:
         date = p.get('date', '')
         if not date or len(date) < 7:
             continue
-        ym = date[:7]  # "2026-03"
+        ym = date[:7]
         company = p.get('company', '')
         if not company:
             continue
@@ -116,13 +153,11 @@ def generate_timeline(all_papers):
             timeline[ym][company] = 0
         timeline[ym][company] += 1
 
-    # Convert to sorted list
     result = []
     for ym in sorted(timeline.keys(), reverse=True):
         entry = {"month": ym}
         entry.update(timeline[ym])
         result.append(entry)
-
     return result
 
 
@@ -134,16 +169,16 @@ def main():
     if os.path.exists("papers.json"):
         with open("papers.json") as f:
             existing = json.load(f)
-
     existing_map = {p["id"]: p for p in existing}
-    existing_ids = set(existing_map.keys())
     new_papers = []
 
     # ── Fetch topic papers ──────────────────────────────
     for tag, query in QUERIES:
-        print(f"Fetching [{tag}]...")
+        print(f"Fetching topic [{tag}]...")
         results = fetch_arxiv(query, tag, max_results=MAX_RESULTS_TOPIC)
         for p in results:
+            p.pop('author_list', None)
+            p.pop('affiliations', None)
             if p["id"] not in existing_map:
                 new_papers.append(p)
                 existing_map[p["id"]] = p
@@ -151,72 +186,72 @@ def main():
                 existing_tags = existing_map[p["id"]].get("tags", [])
                 if tag not in existing_tags:
                     existing_map[p["id"]]["tags"] = existing_tags + [tag]
-        print(f"  Got {len(results)} papers (total unique: {len(existing_map)})")
+        print(f"  Got {len(results)} (total unique: {len(existing_map)})")
         time.sleep(3)
 
-    # ── Sort: newest first ──────────────────────────────
     all_papers = sorted(existing_map.values(), key=lambda p: p.get("date", ""), reverse=True)
-
-    # ── Save papers.json ────────────────────────────────
     with open("papers.json", "w") as f:
         json.dump(all_papers, f, ensure_ascii=False, indent=2)
     print(f"\nTopic papers: {len(all_papers)} total, {len(new_papers)} new")
 
-    # ── Daily summary ───────────────────────────────────
     with open("daily_summary.txt", "w") as f:
         f.write(f"今日新增 {len(new_papers)} 篇论文，共收录 {len(all_papers)} 篇\n\n")
         for p in new_papers[:5]:
             f.write(f"• [{p['tags'][0]}] {p['title'][:60]}\n  https://arxiv.org/abs/{p['id']}\n\n")
 
-    # ── Sync to llm-tracker/ ───────────────────────────
     if os.path.exists("llm-tracker"):
         shutil.copy("papers.json", "llm-tracker/papers.json")
         print("Synced papers.json → llm-tracker/")
 
-    # ── Company papers ──────────────────────────────────
-    # Load existing company papers for accumulation
+    # ── Company papers (with author verification) ────────
     existing_company = []
     if os.path.exists("llm-tracker/company-papers.json"):
         with open("llm-tracker/company-papers.json") as f:
             existing_company = json.load(f)
     existing_company_map = {p["id"]: p for p in existing_company}
 
-    for company, query in COMPANY_QUERIES:
+    for company, config in COMPANY_CONFIG.items():
+        query = config["query"]
+        keywords = config["author_keywords"]
         print(f"Fetching company [{company}]...")
-        results = fetch_arxiv(f"({query})", company, max_results=MAX_RESULTS_COMPANY)
-        for p in results:
+        raw_results = fetch_arxiv(f"({query})", company, max_results=MAX_RESULTS_COMPANY)
+
+        confirmed = 0
+        for p in raw_results:
+            if not verify_company(p, company, keywords):
+                continue  # Skip - not actually from this company
+            confirmed += 1
             p['company'] = company
             p['tags'] = auto_tag(p['title'], p.get('abstract', ''))
-            # Update main papers list
+            p.pop('author_list', None)
+            p.pop('affiliations', None)
+
             if p['id'] not in existing_map:
                 existing_map[p['id']] = p
                 all_papers.append(p)
             else:
                 existing_map[p['id']]['company'] = company
-            # Update company papers list
+
             if p['id'] not in existing_company_map:
                 existing_company_map[p['id']] = p
             else:
                 existing_company_map[p['id']]['company'] = company
-                if not existing_company_map[p['id']].get('tags') or \
-                   existing_company_map[p['id']]['tags'] == [company]:
-                    existing_company_map[p['id']]['tags'] = p['tags']
-        print(f"  Got {len(results)} papers")
+
+        print(f"  Got {len(raw_results)} raw, {confirmed} confirmed")
         time.sleep(3)
 
-    # Rebuild company-papers.json (all accumulated, newest first)
+    # Save company papers (accumulated, newest first)
     company_list = sorted(existing_company_map.values(),
                           key=lambda p: p.get("date", ""), reverse=True)
     company_out = [{"id": p["id"], "title": p["title"],
                      "title_zh": p.get("title_zh", ""),
                      "company": p["company"], "date": p.get("date", ""),
-                     "tags": p.get("tags", [])} for p in company_list[:200]]
-
+                     "tags": p.get("tags", [])} for p in company_list[:300]]
     with open("llm-tracker/company-papers.json", "w") as f:
         json.dump(company_out, f, ensure_ascii=False)
     print(f"Company papers: {len(company_out)}")
 
-    # ── Generate timeline data ──────────────────────────
+    # ── Timeline data ───────────────────────────────────
     all_papers_final = sorted(existing_map.values(),
                                key=lambda p: p.get("date", ""), reverse=True)
     timeline_data = generate_timeline(all_papers_final)
@@ -224,7 +259,7 @@ def main():
         json.dump(timeline_data, f, ensure_ascii=False)
     print(f"Timeline: {len(timeline_data)} months")
 
-    print(f"\n✅ Done! {len(all_papers_final)} total papers, {len(new_papers)} new today")
+    print(f"\n✅ Done! {len(all_papers_final)} total, {len(new_papers)} new today")
 
 
 if __name__ == '__main__':
