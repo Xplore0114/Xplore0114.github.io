@@ -136,8 +136,36 @@ def fetch_arxiv(query, tag, max_results=30):
 
 
 def verify_company(paper, company, author_keywords):
-    """Verify paper is actually from the company by checking authors/affiliations only."""
-    # Check author names and affiliations only (NOT abstract)
+    """Verify paper is actually from the company.
+
+    Strategy 1: Check if company model name appears as a title prefix
+    (e.g., "DeepSeek-V3: ..." is almost certainly from DeepSeek)
+    Strategy 2: Check authors/affiliations for company keywords
+    """
+    title = paper.get('title', '').lower()
+
+    # Title prefix check: most reliable for model release papers
+    # Models are named like "DeepSeek-V3", "Qwen2.5", "Llama-3", "Claude 3", etc.
+    company_prefixes = {
+        'OpenAI': ['gpt-4', 'gpt-5', 'chatgpt', 'o1 ', 'o3 ', 'o1-', 'o3-', 'o4-', 'sora', 'codex', 'gpt-oss'],
+        'Google': ['gemini', 'gemma', 'palm ', 'palm-'],
+        'Anthropic': ['claude'],
+        'Meta': ['llama', 'llama-', 'fairseq'],
+        'DeepSeek': ['deepseek'],
+        'Qwen': ['qwen', 'tongyi'],
+        'Mistral': ['mistral', 'mixtral', 'pixtral', 'lesstral'],
+        'Baidu': ['ernie', 'wenxin', 'paddle'],
+        'Xiaomi': ['mimo', 'xiaomi'],
+        'MiniMax': ['minimax'],
+        'Zhipu': ['glm-4', 'glm-3', 'chatglm', 'codegeex', 'cogvlm', 'cogview'],
+    }
+    prefixes = company_prefixes.get(company, [])
+    for prefix in prefixes:
+        # Check if model name appears at start of title or after common prefixes
+        if title.startswith(prefix) or f' {prefix}' in title or f': {prefix}' in title:
+            return True
+
+    # Fallback: check author/affiliation text
     author_text = ' '.join(paper.get('author_list', []) + paper.get('affiliations', [])).lower()
     return any(kw in author_text for kw in author_keywords)
 
