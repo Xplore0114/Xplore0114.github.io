@@ -2,7 +2,7 @@ name: Update Papers Daily
 
 on:
   schedule:
-    - cron: "0 1 * * *"
+    - cron: '0 1 * * *'
   workflow_dispatch:
 
 jobs:
@@ -29,16 +29,14 @@ jobs:
         run: |
           if [ -f daily_summary.txt ]; then
             MSG=$(cat daily_summary.txt)
-            python3 -c "
-import urllib.request, json, os
-webhook = os.environ['FEISHU_WEBHOOK']
-msg = open('daily_summary.txt').read()
-text = '📚 LLM Papers 每日更新
-' + msg + '
-查看：https://xplore0114.github.io/llm-tracker.html'
-data = json.dumps({'msg_type':'text','content':{'text':text}}).encode()
-req = urllib.request.Request(webhook, data=data, headers={'Content-Type':'application/json'})
-res = urllib.request.urlopen(req).read()
-print(res.decode())
-"
+            python3 << 'PYEOF'
+          import urllib.request, json, os
+          webhook = os.environ['FEISHU_WEBHOOK']
+          msg = open('daily_summary.txt').read()
+          text = '📚 LLM Papers 每日更新\n' + msg + '\n查看：https://xplore0114.github.io/llm-tracker.html'
+          data = json.dumps({'msg_type':'text','content':{'text':text}}).encode()
+          req = urllib.request.Request(webhook, data=data, headers={'Content-Type':'application/json'})
+          res = urllib.request.urlopen(req).read()
+          print(res.decode())
+          PYEOF
           fi
