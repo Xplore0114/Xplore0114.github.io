@@ -102,6 +102,8 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
   <button class="tab" onclick="showTab('topics',this)">🏷️ 主题</button>
   <button class="tab" onclick="showTab('favorites',this)">⭐ 收藏</button>
   <a class="tab" href="timeline/">📅 时间轴</a>
+  <button class="tab" onclick="refreshData()" title="重新加载数据">🔄 刷新</button>
+  <button class="tab" id="btn-update" onclick="triggerUpdate()" title="触发 GitHub Actions 自动抓取最新论文">⚡ 更新数据</button>
 </div>
 <div class="main-layout">
   <!-- Left sidebar: company timeline -->
@@ -333,6 +335,77 @@ fetch('papers.json?t='+Date.now()).then(r=>r.json()).then(data=>{
 }).catch(()=>{
   document.getElementById('latest').innerHTML='<div class="empty">数据加载失败，请刷新重试</div>';
 });
+
+// ── Manual update ──────────────────────────────────────────
+function showToast(msg, duration) {
+  duration = duration || 3000;
+  let t = document.getElementById('toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'toast';
+    t.style.cssText = 'position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:#302b63;color:white;padding:.7rem 1.5rem;border-radius:2rem;font-size:.85rem;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:opacity .3s';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.style.opacity = '1';
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => { t.style.opacity = '0'; }, duration);
+}
+
+function refreshData() {
+  showToast('🔄 正在刷新数据...');
+  const ts = Date.now();
+  Promise.all([
+    fetch('papers.json?t=' + ts).then(r => r.json()),
+    fetch('company-papers.json?t=' + ts).then(r => r.json())
+  ]).then(([papers, companyPapers]) => {
+    PAPERS = papers;
+    ALL_COMPANY_PAPERS = companyPapers;
+    document.getElementById('header-sub').textContent = `AI 大模型前沿论文追踪 · 共 ${PAPERS.length} 篇 · 每日自动更新`;
+    filterTimeline();
+    renderSection(currentPage);
+    showToast('✅ 数据已刷新！共 ' + PAPERS.length + ' 篇论文');
+  }).catch(() => {
+    showToast('❌ 刷新失败，请稍后重试', 5000);
+  });
+}
+
+function triggerUpdate() {
+  const btn = document.getElementById('btn-update');
+  btn.textContent = '⏳ 提交中...';
+  btn.disabled = true;
+
+  fetch('https://api.github.com/repos/Xplore0114/Xplore0114.github.io/actions/workflows/update-papers.yml/dispatches', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/vnd.github+json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ ref: 'master' })
+  }).then(res => {
+    if (res.ok) {
+      showToast('✅ 已触发更新！数据将在 1~2 分钟内刷新', 5000);
+      btn.textContent = '✅ 已提交';
+      setTimeout(() => {
+        btn.textContent = '⚡ 更新数据';
+        btn.disabled = false;
+      }, 10000);
+    } else if (res.status === 401 || res.status === 403) {
+      // Not logged in — open GitHub Actions page
+      showToast('🔑 请先登录 GitHub，已为您打开页面', 4000);
+      window.open('https://github.com/Xplore0114/Xplore0114.github.io/actions', '_blank');
+      btn.textContent = '⚡ 更新数据';
+      btn.disabled = false;
+    } else {
+      throw new Error('HTTP ' + res.status);
+    }
+  }).catch(() => {
+    showToast('❌ 触发失败，请手动前往 GitHub Actions', 5000);
+    window.open('https://github.com/Xplore0114/Xplore0114.github.io/actions', '_blank');
+    btn.textContent = '⚡ 更新数据';
+    btn.disabled = false;
+  });
+}
 </script>
 </body>
 </html>
