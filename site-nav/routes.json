@@ -1,112 +1,113 @@
 {
-  "generated_at": "2026-03-08T11:34:00+08:00",
-  "items": [
-    {
-      "title": "主页",
-      "path": "/",
-      "group": "站点",
-      "emoji": "🏠",
-      "badge": "Home",
-      "desc": "个人主页与最新动态总入口",
-      "featured": true
-    },
-    {
-      "title": "LLM Papers Tracker",
-      "path": "/llm-tracker/",
-      "group": "AI 项目",
-      "emoji": "🤖",
-      "badge": "Active",
-      "desc": "LLM 论文追踪主页面，支持检索和多维筛选",
-      "featured": true
-    },
-    {
-      "title": "LLM 时间轴",
-      "path": "/llm-tracker/timeline/",
-      "group": "AI 项目",
-      "emoji": "📅",
-      "badge": "Timeline",
-      "desc": "按时间查看论文趋势、热度和主题分布",
-      "featured": true
-    },
-    {
-      "title": "关于",
-      "path": "/about/",
-      "group": "站点",
-      "emoji": "🙋",
-      "badge": "About",
-      "desc": "查看个人介绍、合作方向与联系方式"
-    },
-    {
-      "title": "标签",
-      "path": "/tags/",
-      "group": "站点",
-      "emoji": "🏷️",
-      "badge": "Tags",
-      "desc": "浏览全部文章标签并按主题筛选内容"
-    },
-    {
-      "title": "GitHub 主页",
-      "path": "https://github.com/Xplore0114",
-      "group": "外部链接",
-      "emoji": "🐙",
-      "badge": "External",
-      "desc": "查看完整仓库列表与开源动态"
-    },
-    {
-      "title": "FoxCode Token 余量",
-      "path": "https://foxcode.rjj.cc/api-keys",
-      "group": "模型 Token 余量",
-      "emoji": "🦊",
-      "badge": "External",
-      "desc": "FoxCode 模型 token 余量查询入口"
-    },
-    {
-      "title": "Love Gwen Token 余量",
-      "path": "https://ai.love-gwen.top/admin-next/api-stats",
-      "group": "模型 Token 余量",
-      "emoji": "💗",
-      "badge": "External",
-      "desc": "Love Gwen 模型 token 余量与统计查询入口"
-    },
-    {
-      "title": "Tech News",
-      "path": "https://zhaorunrunrun.github.io/tech-news/",
-      "group": "外部链接",
-      "emoji": "📰",
-      "badge": "External",
-      "desc": "科技资讯聚合页面，方便快速查看每日更新"
-    },
-    {
-      "title": "浙大站点",
-      "path": "https://zheda.site/",
-      "group": "外部链接",
-      "emoji": "🎓",
-      "badge": "External",
-      "desc": "zheda.site 主页入口"
-    },
-    {
-      "title": "system-prompts-and-models-of-ai-tools",
-      "path": "https://github.com/Xplore0114/system-prompts-and-models-of-ai-tools",
-      "group": "仓库",
-      "emoji": "🧠",
-      "badge": "Repo",
-      "desc": "系统提示词与模型资料归档项目"
-    },
-    {
-      "title": "zotero-arxiv-daily",
-      "path": "https://github.com/Xplore0114/zotero-arxiv-daily",
-      "group": "仓库",
-      "emoji": "📚",
-      "badge": "Repo",
-      "desc": "面向 Zotero 的 arXiv 每日推荐项目"
-    },
-    {
-      "title": "py-nl2sql",
-      "path": "https://github.com/Xplore0114/py-nl2sql",
-      "group": "仓库",
-      "emoji": "🛠️",
-      "badge": "Repo",
-      "desc": "自然语言转 SQL 的工具链与实验仓库"
-    }
-  ]
+    "generated_at":  "2026-04-05T11:03:00+08:00",
+    "items":  [
+                  {
+                      "desc":  "个人主页与最新动态总入口",
+                      "badge":  "Home",
+                      "featured":  true,
+                      "path":  "/",
+                      "emoji":  "🏠",
+                      "title":  "主页",
+                      "group":  "站点"
+                  },
+                  {
+                      "desc":  "LLM 论文追踪主页面，支持检索和多维筛选",
+                      "badge":  "Active",
+                      "featured":  true,
+                      "path":  "/llm-tracker/",
+                      "emoji":  "🤖",
+                      "title":  "LLM Papers Tracker",
+                      "group":  "AI 项目"
+                  },
+                  {
+                      "desc":  "按时间查看论文趋势、热度和主题分布",
+                      "badge":  "Timeline",
+                      "featured":  true,
+                      "path":  "/llm-tracker/timeline/",
+                      "emoji":  "📅",
+                      "title":  "LLM 时间轴",
+                      "group":  "AI 项目"
+                  },
+                  {
+                      "desc":  "每日自动抓取 Hacker News、GitHub Trending、V2EX 等科技资讯",
+                      "badge":  "New",
+                      "featured":  true,
+                      "path":  "https://xplore0114.github.io/tech-news/",
+                      "emoji":  "📰",
+                      "title":  "日知录 · 科技新闻",
+                      "group":  "AI 项目"
+                  },
+                  {
+                      "desc":  "查看个人介绍、合作方向与联系方式",
+                      "badge":  "About",
+                      "path":  "/about/",
+                      "emoji":  "🙋",
+                      "title":  "关于",
+                      "group":  "站点"
+                  },
+                  {
+                      "desc":  "浏览全部文章标签并按主题筛选内容",
+                      "badge":  "Tags",
+                      "path":  "/tags/",
+                      "emoji":  "🏷️",
+                      "title":  "标签",
+                      "group":  "站点"
+                  },
+                  {
+                      "desc":  "查看完整仓库列表与开源动态",
+                      "badge":  "External",
+                      "path":  "https://github.com/Xplore0114",
+                      "emoji":  "🐙",
+                      "title":  "GitHub 主页",
+                      "group":  "外部链接"
+                  },
+                  {
+                      "desc":  "FoxCode 模型 token 余量查询入口",
+                      "badge":  "External",
+                      "path":  "https://foxcode.rjj.cc/api-keys",
+                      "emoji":  "🦊",
+                      "title":  "FoxCode Token 余量",
+                      "group":  "模型 Token 余量"
+                  },
+                  {
+                      "desc":  "Love Gwen 模型 token 余量与统计查询入口",
+                      "badge":  "External",
+                      "path":  "https://ai.love-gwen.top/admin-next/api-stats",
+                      "emoji":  "💗",
+                      "title":  "Love Gwen Token 余量",
+                      "group":  "模型 Token 余量"
+                  },
+                  {
+                      "desc":  "zheda.site 主页入口",
+                      "badge":  "External",
+                      "path":  "https://zheda.site/",
+                      "emoji":  "🎓",
+                      "title":  "浙大站点",
+                      "group":  "外部链接"
+                  },
+                  {
+                      "desc":  "系统提示词与模型资料归档项目",
+                      "badge":  "Repo",
+                      "path":  "https://github.com/Xplore0114/system-prompts-and-models-of-ai-tools",
+                      "emoji":  "🧠",
+                      "title":  "system-prompts-and-models-of-ai-tools",
+                      "group":  "仓库"
+                  },
+                  {
+                      "desc":  "面向 Zotero 的 arXiv 每日推荐项目",
+                      "badge":  "Repo",
+                      "path":  "https://github.com/Xplore0114/zotero-arxiv-daily",
+                      "emoji":  "📚",
+                      "title":  "zotero-arxiv-daily",
+                      "group":  "仓库"
+                  },
+                  {
+                      "desc":  "自然语言转 SQL 的工具链与实验仓库",
+                      "badge":  "Repo",
+                      "path":  "https://github.com/Xplore0114/py-nl2sql",
+                      "emoji":  "🛠️",
+                      "title":  "py-nl2sql",
+                      "group":  "仓库"
+                  }
+              ]
 }
