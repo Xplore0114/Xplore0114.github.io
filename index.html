@@ -1,0 +1,119 @@
+---
+layout: page
+description: "Kevin — AI 应用开发 & 工业数据智能"
+---
+
+<style>
+  .hero { text-align: center; padding: 40px 0 30px; }
+  .hero h1 { font-size: 28px; margin-bottom: 8px; }
+  .hero p { color: #888; font-size: 15px; line-height: 1.6; }
+  .hero .tags { margin-top: 14px; }
+  .hero .tag { display: inline-block; background: #f5f5f5; color: #555; padding: 4px 12px; border-radius: 6px; font-size: 12px; margin: 0 4px 6px 0; }
+
+  .repo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: 24px; }
+  .repo-card { border: 1px solid #eee; border-radius: 10px; padding: 16px; text-decoration: none; color: inherit; transition: box-shadow .2s; }
+  .repo-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+  .repo-card h3 { margin: 0 0 6px; font-size: 16px; font-weight: 600; }
+  .repo-card h3 a { color: #1a73e8; text-decoration: none; }
+  .repo-card .desc { font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 8px; }
+  .repo-card .meta { font-size: 12px; color: #999; }
+
+  .section-title { margin: 40px 0 16px; font-size: 20px; font-weight: 600; }
+
+  .links { text-align: center; margin-top: 32px; }
+  .links a { display: inline-block; margin: 0 12px; color: #1a73e8; text-decoration: none; font-size: 14px; }
+  .links a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .repo-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="hero">
+  <h1>Kevin 👋</h1>
+  <p>浙江大学控制工程硕士 · AI 应用开发 & 工业数据智能</p>
+  <p>将大模型技术落地到实际工业场景，从研究到产品的完整闭环。</p>
+  <div class="tags">
+    <span class="tag">NL2SQL</span>
+    <span class="tag">工业数据智能</span>
+    <span class="tag">大模型工程化</span>
+    <span class="tag">全栈开发</span>
+  </div>
+</div>
+
+<h2 class="section-title">开源项目</h2>
+<div class="repo-grid">
+  <div class="repo-card">
+    <h3><a href="https://github.com/Xplore-LAB/openai-compatible-proxy" target="_blank">openai-compatible-proxy</a></h3>
+    <div class="desc">将任意 LLM API 转换为 OpenAI 兼容端点，支持快速集成各类大模型服务。</div>
+    <div class="meta">Python · ⭐ 1</div>
+  </div>
+
+  <div class="repo-card">
+    <h3><a href="https://github.com/Xplore-LAB/llm-gateway-lite" target="_blank">llm-gateway-lite</a></h3>
+    <div class="desc">轻量级 Python LLM 网关，支持 OpenAI / DeepSeek / Qwen / Claude 多模型路由。</div>
+    <div class="meta">Python</div>
+  </div>
+
+  <div class="repo-card">
+    <h3><a href="https://github.com/Xplore-LAB/DataLens" target="_blank">DataLens</a></h3>
+    <div class="desc">工业控制性能分析工具 · 单文件离线运行 · CSV 导入即分析 · 脱硝优化 · 空分节能</div>
+    <div class="meta">HTML · MIT</div>
+  </div>
+
+  <div class="repo-card">
+    <h3><a href="https://github.com/Xplore-LAB/nl2sql-toolkit" target="_blank">nl2sql-toolkit</a></h3>
+    <div class="desc">自然语言转 SQL 工具包，支持多种大模型后端。</div>
+    <div class="meta">Python · MIT</div>
+  </div>
+
+  <div class="repo-card">
+    <h3><a href="https://github.com/Xplore-LAB/word-mail-merge-batch-sender" target="_blank">word-mail-merge-batch-sender</a></h3>
+    <div class="desc">Word + Outlook VBA 工具，支持从 Excel 批量发送邮件，每行数据可附带独立附件。</div>
+    <div class="meta">VBA · ⭐ 1 · MIT</div>
+  </div>
+
+  <div class="repo-card">
+    <h3><a href="https://github.com/Xplore-LAB/3DGS-REAL" target="_blank">3DGS-REAL</a></h3>
+    <div class="desc">Flutter 应用，支持引导式物体拍摄与 3D Gaussian Splatting 重建。</div>
+    <div class="meta">Dart</div>
+  </div>
+
+  <div class="repo-card">
+    <h3><a href="https://github.com/Xplore-LAB/tech-news" target="_blank">tech-news</a></h3>
+    <div class="desc">技术资讯聚合。</div>
+    <div class="meta">Python</div>
+  </div>
+
+  <div class="repo-card">
+    <h3><a href="https://github.com/Xplore-LAB/qclaw-skills" target="_blank">qclaw-skills</a></h3>
+    <div class="desc">本地 Skills 集合。</div>
+    <div class="meta">JavaScript · ⭐ 1</div>
+  </div>
+</div>
+
+<h2 class="section-title">研究项目</h2>
+<div class="repo-grid">
+  <div class="repo-card">
+    <h3>气体运营数据 NL2SQL 查询引擎</h3>
+    <div class="desc">基于大语言模型的 NL2SQL 系统，面向复杂工业数据库场景，查询准确率 > 90%。</div>
+    <div class="meta">校企联合研发 · 2025</div>
+  </div>
+
+  <div class="repo-card">
+    <h3>空分装置运行诊断与优化系统</h3>
+    <div class="desc">围绕装置稳定性、提取率与单位能耗，实现数据接入 → 状态诊断 → 优化建议的闭环。</div>
+    <div class="meta">工业智能 · 2025-至今</div>
+  </div>
+
+  <div class="repo-card">
+    <h3>数据中心能耗模型</h3>
+    <div class="desc">CFD 仿真 + SVM/BP 神经网络黑箱模型，研究消除热点与降低能耗策略。</div>
+    <div class="meta">机器学习 · 2021-2022</div>
+  </div>
+</div>
+
+<div class="links">
+  <a href="https://github.com/Xplore-LAB" target="_blank">🐙 GitHub</a>
+  <a href="/about/">🙋 关于我</a>
+</div>

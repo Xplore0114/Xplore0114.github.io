@@ -1,0 +1,89 @@
+{
+    "generated_at": "2026-06-14T01:15:00+08:00",
+    "items": [
+        {
+            "desc": "个人主页与开源项目总入口",
+            "badge": "Home",
+            "featured": true,
+            "path": "/",
+            "emoji": "🏠",
+            "title": "主页",
+            "group": "站点"
+        },
+        {
+            "desc": "查看个人介绍、研究方向与联系方式",
+            "badge": "About",
+            "featured": true,
+            "path": "/about/",
+            "emoji": "🙋",
+            "title": "关于",
+            "group": "站点"
+        },
+        {
+            "desc": "浏览全部文章标签并按主题筛选内容",
+            "badge": "Tags",
+            "path": "/tags/",
+            "emoji": "🏷️",
+            "title": "标签",
+            "group": "站点"
+        },
+        {
+            "desc": "将任意 LLM API 转换为 OpenAI 兼容端点",
+            "badge": "Python",
+            "featured": true,
+            "path": "https://github.com/Xplore-LAB/openai-compatible-proxy",
+            "emoji": "🔌",
+            "title": "openai-compatible-proxy",
+            "group": "开源项目"
+        },
+        {
+            "desc": "轻量级 Python LLM 网关，多模型路由",
+            "badge": "Python",
+            "path": "https://github.com/Xplore-LAB/llm-gateway-lite",
+            "emoji": "🚪",
+            "title": "llm-gateway-lite",
+            "group": "开源项目"
+        },
+        {
+            "desc": "工业控制性能分析工具 · 单文件离线运行 · CSV 导入即分析",
+            "badge": "HTML",
+            "path": "https://github.com/Xplore-LAB/DataLens",
+            "emoji": "📊",
+            "title": "DataLens",
+            "group": "开源项目"
+        },
+        {
+            "desc": "自然语言转 SQL 的工具链与实验仓库",
+            "badge": "Python",
+            "path": "https://github.com/Xplore-LAB/nl2sql-toolkit",
+            "emoji": "🛠️",
+            "title": "nl2sql-toolkit",
+            "group": "开源项目"
+        },
+        {
+            "desc": "Word + Outlook VBA 批量邮件工具",
+            "badge": "VBA",
+            "path": "https://github.com/Xplore-LAB/word-mail-merge-batch-sender",
+            "emoji": "📧",
+            "title": "word-mail-merge-batch-sender",
+            "group": "开源项目"
+        },
+        {
+            "desc": "Flutter 应用 · 引导式物体拍摄与 3D Gaussian Splatting 重建",
+            "badge": "Dart",
+            "path": "https://github.com/Xplore-LAB/3DGS-REAL",
+            "emoji": "📱",
+            "title": "3DGS-REAL",
+            "group": "开源项目"
+        },
+        {
+            "desc": "查看完整仓库列表与开源动态",
+            "badge": "GitHub",
+            "featured": true,
+            "path": "https://github.com/Xplore-LAB",
+            "emoji": "🐙",
+            "title": "GitHub 主页",
+            "group": "外部链接"
+        }
+    ]
+}
