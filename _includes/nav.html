@@ -22,9 +22,7 @@
                     <li>
                         <a href="/site-nav/" style="color:#0ea5e9;font-weight:600">🧭 页面导航</a>
                     </li>
-                    <li>
-                        <a href="/llm-tracker/" style="color:#a78bfa;font-weight:600">🤖 LLM Tracker</a>
-                    </li>
+
                     {% for page in site.pages %}{% if page.title %}
                     <li>
                         <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
