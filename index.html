@@ -19,6 +19,7 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
   .repo-card .meta { font-size: 12px; color: #999; }
 
   .section-title { margin: 40px 0 16px; font-size: 20px; font-weight: 600; }
+  .section-desc { color: #888; font-size: 14px; margin: -8px 0 0; }
 
   .links { text-align: center; margin-top: 32px; }
   .links a { display: inline-block; margin: 0 12px; color: #1a73e8; text-decoration: none; font-size: 14px; }
@@ -38,82 +39,116 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
     <span class="tag">工业数据智能</span>
     <span class="tag">大模型工程化</span>
     <span class="tag">全栈开发</span>
+    <span class="tag">LangGraph</span>
+    <span class="tag">RAG</span>
   </div>
 </div>
 
-<h2 class="section-title">开源项目</h2>
+<!-- ============ 🔬 大项目 ============ -->
+<h2 class="section-title">🔬 大项目</h2>
+<p class="section-desc">从研究到产品的核心系统，涵盖 NL2SQL、工业智能与 3D 重建。</p>
 <div class="repo-grid">
   <div class="repo-card">
-    <h3><a href="https://github.com/Xplore-LAB/openai-compatible-proxy" target="_blank">openai-compatible-proxy</a></h3>
-    <div class="desc">将任意 LLM API 转换为 OpenAI 兼容端点，支持快速集成各类大模型服务。</div>
-    <div class="meta">Python · ⭐ 1</div>
-  </div>
-
-  <div class="repo-card">
-    <h3><a href="https://github.com/Xplore-LAB/llm-gateway-lite" target="_blank">llm-gateway-lite</a></h3>
-    <div class="desc">轻量级 Python LLM 网关，支持 OpenAI / DeepSeek / Qwen / Claude 多模型路由。</div>
-    <div class="meta">Python</div>
+    <h3><a href="https://github.com/Xplore-LAB/py-nl2sql" target="_blank">py-nl2sql</a></h3>
+    <div class="desc">基于大模型的工业数据 NL2SQL 查询引擎。设计"意图识别→任务分解→Schema Linking→SQL生成→执行反馈"多阶段推理链路，Qwen 私有化部署 + PostgreSQL 对接，融合 RAG 检索增强与多轮对话，查询准确率 > 90%。</div>
+    <div class="meta">Python · Qwen · RAG · 校企联合研发</div>
   </div>
 
   <div class="repo-card">
     <h3><a href="https://github.com/Xplore-LAB/DataLens" target="_blank">DataLens</a></h3>
-    <div class="desc">工业控制性能分析工具 · 单文件离线运行 · CSV 导入即分析 · 脱硝优化 · 空分节能</div>
-    <div class="meta">HTML · MIT</div>
-  </div>
-
-  <div class="repo-card">
-    <h3><a href="https://github.com/Xplore-LAB/nl2sql-toolkit" target="_blank">nl2sql-toolkit</a></h3>
-    <div class="desc">自然语言转 SQL 工具包，支持多种大模型后端。</div>
-    <div class="meta">Python · MIT</div>
-  </div>
-
-  <div class="repo-card">
-    <h3><a href="https://github.com/Xplore-LAB/word-mail-merge-batch-sender" target="_blank">word-mail-merge-batch-sender</a></h3>
-    <div class="desc">Word + Outlook VBA 工具，支持从 Excel 批量发送邮件，每行数据可附带独立附件。</div>
-    <div class="meta">VBA · ⭐ 1 · MIT</div>
+    <div class="desc">工业控制性能分析工具。单文件离线运行，CSV 导入即分析，支持脱硝优化、空分节能等场景的数据可视化与性能评估，零依赖开箱即用。</div>
+    <div class="meta">HTML · 单文件离线 · MIT</div>
   </div>
 
   <div class="repo-card">
     <h3><a href="https://github.com/Xplore-LAB/3DGS-REAL" target="_blank">3DGS-REAL</a></h3>
-    <div class="desc">Flutter 应用，支持引导式物体拍摄与 3D Gaussian Splatting 重建。</div>
-    <div class="meta">Dart</div>
+    <div class="desc">基于 3D Gaussian Splatting 的物体三维重建 Flutter 应用。引导式多角度拍摄 → 点云重建 → 实时渲染，移动端即可完成从拍摄到 3D 模型的全流程。</div>
+    <div class="meta">Dart · Flutter · 3DGS</div>
+  </div>
+
+  <div class="repo-card">
+    <h3>空分装置智能诊断与优化系统</h3>
+    <div class="desc">基于 LangGraph 设计节点化 Agent 流程，构建"数据质量门禁→特征提取→异常识别→证据链推理→优化建议"分层诊断链路，引入领域知识库 RAG + 机理约束推理。</div>
+    <div class="meta">LangGraph · Agent · 在研</div>
+  </div>
+</div>
+
+<!-- ============ 🛠️ 工具与效率 ============ -->
+<h2 class="section-title">🛠️ 工具与效率</h2>
+<p class="section-desc">日常开发中打磨的实用工具，解决真实痛点。</p>
+<div class="repo-grid">
+  <div class="repo-card">
+    <h3><a href="https://github.com/Xplore-LAB/openai-compatible-proxy" target="_blank">openai-compatible-proxy</a></h3>
+    <div class="desc">将任意 LLM API 转换为 OpenAI 兼容端点。几分钟即可接入 DeepSeek、Qwen、Claude 等模型，无缝对接现有 OpenAI 生态工具链。</div>
+    <div class="meta">Python · ⭐ 1 · MIT</div>
+  </div>
+
+  <div class="repo-card">
+    <h3><a href="https://github.com/Xplore-LAB/llm-gateway-lite" target="_blank">llm-gateway-lite</a></h3>
+    <div class="desc">轻量级 Python LLM 网关。支持 OpenAI / DeepSeek / Qwen / Claude 多模型统一路由、负载均衡与费用监控，零配置快速启动。</div>
+    <div class="meta">Python · 多模型路由</div>
+  </div>
+
+  <div class="repo-card">
+    <h3><a href="https://github.com/Xplore-LAB/word-mail-merge-batch-sender" target="_blank">word-mail-merge-batch-sender</a></h3>
+    <div class="desc">Word + Outlook VBA 批量邮件工具。从 Excel 逐行读取数据，自动生成个性化邮件并附带独立附件，适合通知、对账、证书发放等场景。</div>
+    <div class="meta">VBA · ⭐ 1 · MIT</div>
   </div>
 
   <div class="repo-card">
     <h3><a href="https://github.com/Xplore-LAB/tech-news" target="_blank">tech-news</a></h3>
-    <div class="desc">技术资讯聚合。</div>
-    <div class="meta">Python</div>
+    <div class="desc">每日科技新闻自动聚合。定时抓取多源技术资讯，自动摘要与分类，支持推送到飞书/Telegram 等渠道。</div>
+    <div class="meta">Python · 自动更新</div>
+  </div>
+
+  <div class="repo-card">
+    <h3><a href="https://github.com/Xplore-LAB/osssync" target="_blank">osssync</a></h3>
+    <div class="desc">阿里云 OSS 存储桶自动同步桌面工具。Flutter Windows 应用，可视化管理文件同步任务，支持增量上传与断点续传。</div>
+    <div class="meta">Dart · Flutter · Windows</div>
+  </div>
+
+  <div class="repo-card">
+    <h3><a href="https://github.com/Xplore-LAB/cc-switch" target="_blank">cc-switch</a></h3>
+    <div class="desc">跨平台桌面 All-in-One 助手。统一管理 Claude Code、Codex、OpenCode、OpenClaw、Gemini CLI 等 AI 编程工具，一键切换。</div>
+    <div class="meta">跨平台 · AI 工具管理</div>
+  </div>
+</div>
+
+<!-- ============ 📦 Skills & 配置 ============ -->
+<h2 class="section-title">📦 Skills & 配置</h2>
+<p class="section-desc">OpenClaw 技能包与自动化配置集合。</p>
+<div class="repo-grid">
+  <div class="repo-card">
+    <h3><a href="https://github.com/Xplore-LAB/Xplore-LAB-skills" target="_blank">Xplore-LAB-skills</a></h3>
+    <div class="desc">个人 OpenClaw Skills 仓库。涵盖自动化工作流、知识管理、内容生成等自定义技能，持续迭代中。</div>
+    <div class="meta">Mermaid · OpenClaw</div>
   </div>
 
   <div class="repo-card">
     <h3><a href="https://github.com/Xplore-LAB/qclaw-skills" target="_blank">qclaw-skills</a></h3>
-    <div class="desc">本地 Skills 集合。</div>
+    <div class="desc">本地 Skills 集合。快速部署的实用技能包，适配多种 AI Agent 框架。</div>
     <div class="meta">JavaScript · ⭐ 1</div>
+  </div>
+
+  <div class="repo-card">
+    <h3><a href="https://github.com/Xplore-LAB/system-prompts-and-models-of-ai-tools" target="_blank">system-prompts-and-models-of-ai-tools</a></h3>
+    <div class="desc">AI 工具 System Prompt 合集。收录 v0、Cursor、Manus、Devin、Windsurf 等主流 AI 编程工具的系统提示词与模型信息。</div>
+    <div class="meta">⭐ 1 · 逆向工程</div>
   </div>
 </div>
 
-<h2 class="section-title">研究项目</h2>
+<!-- ============ 🔬 研究背景 ============ -->
+<h2 class="section-title">📚 研究背景</h2>
 <div class="repo-grid">
   <div class="repo-card">
-    <h3>气体运营数据 NL2SQL 查询引擎</h3>
-    <div class="desc">基于大语言模型的 NL2SQL 系统，面向复杂工业数据库场景，查询准确率 > 90%。</div>
-    <div class="meta">校企联合研发 · 2025</div>
-  </div>
-
-  <div class="repo-card">
-    <h3>空分装置运行诊断与优化系统</h3>
-    <div class="desc">围绕装置稳定性、提取率与单位能耗，实现数据接入 → 状态诊断 → 优化建议的闭环。</div>
-    <div class="meta">工业智能 · 2025-至今</div>
-  </div>
-
-  <div class="repo-card">
     <h3>数据中心能耗模型</h3>
-    <div class="desc">CFD 仿真 + SVM/BP 神经网络黑箱模型，研究消除热点与降低能耗策略。</div>
-    <div class="meta">机器学习 · 2021-2022</div>
+    <div class="desc">CFD 仿真 + SVM/BP 神经网络黑箱模型，研究消除热点与降低能耗策略，发表相关学术论文。</div>
+    <div class="meta">机器学习 · CFD · 2021-2022</div>
   </div>
 </div>
 
 <div class="links">
   <a href="https://github.com/Xplore-LAB" target="_blank">🐙 GitHub</a>
   <a href="/about/">🙋 关于我</a>
+  <a href="https://xplore-lab.github.io" target="_blank">📝 博客</a>
 </div>
