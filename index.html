@@ -4,19 +4,34 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
 ---
 
 <style>
-  .hero { text-align: center; padding: 40px 0 30px; }
-  .hero h1 { font-size: 28px; margin-bottom: 8px; }
-  .hero p { color: #888; font-size: 15px; line-height: 1.6; }
-  .hero .tags { margin-top: 14px; }
-  .hero .tag { display: inline-block; background: #f5f5f5; color: #555; padding: 4px 12px; border-radius: 6px; font-size: 12px; margin: 0 4px 6px 0; }
+  .hero {
+    text-align: center;
+    padding: 50px 0 40px;
+    background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+    border-radius: 12px;
+    margin-bottom: 30px;
+  }
+  .hero .typing-svg { margin-bottom: 14px; }
+  .hero p { color: #666; font-size: 15px; line-height: 1.6; }
+  .hero .tags { margin-top: 16px; }
+  .hero .tag {
+    display: inline-block;
+    background: #e8f0fe;
+    color: #1a73e8;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin: 0 4px 8px 0;
+    font-weight: 500;
+  }
 
-  .about-section { max-width: 700px; margin: 30px auto 0; text-align: left; }
+  .about-section { max-width: 700px; margin: 0 auto; text-align: left; }
   .about-section h2 { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
   .about-section p { color: #555; font-size: 14px; line-height: 1.8; }
   .about-section .highlight { background: #fff3cd; padding: 2px 6px; border-radius: 4px; }
 
   .tech-stack { text-align: center; margin: 30px 0; }
-  .tech-stack img { margin: 3px 2px; }
+  .tech-stack img { margin: 4px 3px; }
 
   .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 700px; margin: 30px auto; }
   .stats-grid img { width: 100%; border-radius: 8px; }
@@ -42,13 +57,21 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
   }
 </style>
 
-<!-- ========== HERO ========== -->
 <div class="hero">
-  <img src="https://github-readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=1a73e8&center=true&vCenter=true&multiline=true&repeat=true&width=450&lines=Hi%2C+I'm+Kevin+%F0%9F%91%8B;AI+%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91+%26+%E5%B7%A5%E4%B8%9A%E6%95%B0%E6%8D%AE%E6%99%BA%E8%83%BD;From+Research+to+Production" alt="Typing SVG" />
-  <p style="margin-top:12px;">浙江大学控制工程硕士 · 将大模型技术落地到实际工业场景</p>
+  <div class="typing-svg">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=1a73e8&center=true&vCenter=true&multiline=true&repeat=true&width=460&height=100&lines=Hi%2C+I'm+Kevin!;AI+App+Dev+%26+Industrial+Data+Intelligence;From+Research+to+Production" alt="Hi, I'm Kevin! AI App Dev & Industrial Data Intelligence" />
+  </div>
+  <p>浙江大学控制工程硕士 · 将大模型技术落地到实际工业场景</p>
+  <div class="tags">
+    <span class="tag">NL2SQL</span>
+    <span class="tag">工业数据智能</span>
+    <span class="tag">大模型工程化</span>
+    <span class="tag">LangGraph Agent</span>
+    <span class="tag">RAG</span>
+    <span class="tag">全栈开发</span>
+  </div>
 </div>
 
-<!-- ========== 关于我 ========== -->
 <div class="about-section">
   <h2>🧑‍💻 关于我</h2>
   <p>
@@ -66,7 +89,6 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
   </p>
 </div>
 
-<!-- ========== 技术栈 ========== -->
 <div class="tech-stack">
   <h2 style="font-size:20px;font-weight:600;margin-bottom:16px;">🛠️ 技术栈</h2>
   <p>
@@ -82,13 +104,11 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
   </p>
 </div>
 
-<!-- ========== GitHub Stats ========== -->
 <div class="stats-grid">
   <img src="https://github-readme-stats.vercel.app/api?username=Xplore-LAB&show_icons=true&theme=default&hide_border=true&count_private=true&include_all_commits=true" alt="GitHub Stats" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Xplore-LAB&layout=compact&theme=default&hide_border=true" alt="Top Languages" />
 </div>
 
-<!-- ========== 🔬 大项目 ========== -->
 <h2 class="section-title">🔬 大项目</h2>
 <p class="section-desc">从研究到产品的核心系统，涵盖工业智能与性能分析。</p>
 <div class="repo-grid">
@@ -97,13 +117,11 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
     <div class="desc">工业控制性能分析工具。单文件离线运行，CSV 导入即分析，支持脱硝优化、空分节能等场景的数据可视化与性能评估，零依赖开箱即用。</div>
     <div class="meta">HTML · 单文件离线 · MIT</div>
   </div>
-
   <div class="repo-card">
     <h3>空分装置智能诊断与优化系统</h3>
     <div class="desc">基于 LangGraph 设计节点化 Agent 流程，构建"数据质量门禁→特征提取→异常识别→证据链推理→优化建议"分层诊断链路，引入领域知识库 RAG + 机理约束推理。</div>
     <div class="meta">LangGraph · Agent · 在研</div>
   </div>
-
   <div class="repo-card">
     <h3>气体运营数据 NL2SQL 查询引擎</h3>
     <div class="desc">基于 Qwen 的工业数据 NL2SQL 系统，设计多阶段推理链路（意图识别→Schema Linking→SQL生成→执行反馈），融合 RAG 检索增强与多轮对话，查询准确率 > 90%。</div>
@@ -111,7 +129,6 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
   </div>
 </div>
 
-<!-- ========== 📦 Skills ========== -->
 <h2 class="section-title">📦 Skills & 配置</h2>
 <p class="section-desc">OpenClaw 技能包与自动化配置集合。</p>
 <div class="repo-grid">
@@ -120,7 +137,6 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
     <div class="desc">个人 OpenClaw Skills 仓库。涵盖自动化工作流、知识管理、内容生成等自定义技能，持续迭代中。</div>
     <div class="meta">Mermaid · OpenClaw</div>
   </div>
-
   <div class="repo-card">
     <h3><a href="https://github.com/Xplore-LAB/openclaw-scholar-pack" target="_blank">openclaw-scholar-pack</a></h3>
     <div class="desc">OpenClaw 学术研究技能包，辅助论文阅读、文献管理与学术写作。</div>
@@ -128,7 +144,6 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
   </div>
 </div>
 
-<!-- ========== 🛠️ 工具 ========== -->
 <h2 class="section-title">🛠️ 工具与效率</h2>
 <p class="section-desc">日常开发中打磨的实用工具，解决真实痛点。</p>
 <div class="repo-grid">
@@ -137,19 +152,16 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
     <div class="desc">将任意 LLM API 转换为 OpenAI 兼容端点。几分钟即可接入 DeepSeek、Qwen、Claude 等模型，无缝对接现有 OpenAI 生态工具链。</div>
     <div class="meta">Python · ⭐ 1 · MIT</div>
   </div>
-
   <div class="repo-card">
     <h3><a href="https://github.com/Xplore-LAB/llm-gateway-lite" target="_blank">llm-gateway-lite</a></h3>
     <div class="desc">轻量级 Python LLM 网关。支持 OpenAI / DeepSeek / Qwen / Claude 多模型统一路由、负载均衡与费用监控，零配置快速启动。</div>
     <div class="meta">Python · 多模型路由</div>
   </div>
-
   <div class="repo-card">
     <h3><a href="https://github.com/Xplore-LAB/word-mail-merge-batch-sender" target="_blank">word-mail-merge-batch-sender</a></h3>
     <div class="desc">Word + Outlook VBA 批量邮件工具。从 Excel 逐行读取数据，自动生成个性化邮件并附带独立附件，适合通知、对账、证书发放等场景。</div>
     <div class="meta">VBA · ⭐ 1 · MIT</div>
   </div>
-
   <div class="repo-card">
     <h3><a href="https://github.com/Xplore-LAB/tech-news" target="_blank">tech-news</a></h3>
     <div class="desc">每日科技新闻自动聚合。定时抓取多源技术资讯，自动摘要与分类，支持推送到飞书/Telegram 等渠道。</div>
@@ -157,7 +169,6 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
   </div>
 </div>
 
-<!-- ========== 📚 研究 ========== -->
 <h2 class="section-title">📚 研究背景</h2>
 <div class="repo-grid">
   <div class="repo-card">
@@ -167,7 +178,6 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
   </div>
 </div>
 
-<!-- ========== 联系 ========== -->
 <div class="links">
   <a href="https://github.com/Xplore-LAB" target="_blank">🐙 GitHub</a>
   <a href="/about/">🙋 关于我</a>
