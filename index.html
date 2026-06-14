@@ -10,6 +10,17 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
   .hero .tags { margin-top: 14px; }
   .hero .tag { display: inline-block; background: #f5f5f5; color: #555; padding: 4px 12px; border-radius: 6px; font-size: 12px; margin: 0 4px 6px 0; }
 
+  .about-section { max-width: 700px; margin: 30px auto 0; text-align: left; }
+  .about-section h2 { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+  .about-section p { color: #555; font-size: 14px; line-height: 1.8; }
+  .about-section .highlight { background: #fff3cd; padding: 2px 6px; border-radius: 4px; }
+
+  .tech-stack { text-align: center; margin: 30px 0; }
+  .tech-stack img { margin: 3px 2px; }
+
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 700px; margin: 30px auto; }
+  .stats-grid img { width: 100%; border-radius: 8px; }
+
   .repo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: 24px; }
   .repo-card { border: 1px solid #eee; border-radius: 10px; padding: 16px; text-decoration: none; color: inherit; transition: box-shadow .2s; }
   .repo-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); }
@@ -21,30 +32,63 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
   .section-title { margin: 40px 0 16px; font-size: 20px; font-weight: 600; }
   .section-desc { color: #888; font-size: 14px; margin: -8px 0 0; }
 
-  .links { text-align: center; margin-top: 32px; }
-  .links a { display: inline-block; margin: 0 12px; color: #1a73e8; text-decoration: none; font-size: 14px; }
+  .links { text-align: center; margin-top: 32px; padding: 20px 0; }
+  .links a { display: inline-block; margin: 0 16px; color: #1a73e8; text-decoration: none; font-size: 15px; font-weight: 500; }
   .links a:hover { text-decoration: underline; }
 
   @media (max-width: 640px) {
     .repo-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr; }
   }
 </style>
 
+<!-- ========== HERO ========== -->
 <div class="hero">
-  <h1>Kevin 👋</h1>
-  <p>浙江大学控制工程硕士 · AI 应用开发 & 工业数据智能</p>
-  <p>将大模型技术落地到实际工业场景，从研究到产品的完整闭环。</p>
-  <div class="tags">
-    <span class="tag">NL2SQL</span>
-    <span class="tag">工业数据智能</span>
-    <span class="tag">大模型工程化</span>
-    <span class="tag">全栈开发</span>
-    <span class="tag">LangGraph</span>
-    <span class="tag">RAG</span>
-  </div>
+  <img src="https://github-readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=1a73e8&center=true&vCenter=true&multiline=true&repeat=true&width=450&lines=Hi%2C+I'm+Kevin+%F0%9F%91%8B;AI+%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91+%26+%E5%B7%A5%E4%B8%9A%E6%95%B0%E6%8D%AE%E6%99%BA%E8%83%BD;From+Research+to+Production" alt="Typing SVG" />
+  <p style="margin-top:12px;">浙江大学控制工程硕士 · 将大模型技术落地到实际工业场景</p>
 </div>
 
-<!-- ============ 🔬 大项目 ============ -->
+<!-- ========== 关于我 ========== -->
+<div class="about-section">
+  <h2>🧑‍💻 关于我</h2>
+  <p>
+    我是一名专注于 <strong>AI 应用开发</strong> 和 <strong>工业数据智能</strong> 的研究生，核心方向是把大语言模型真正用到工业场景里——不是做 demo，而是跑在生产环境里解决问题。
+  </p>
+  <p>
+    目前在做的两件事：
+  </p>
+  <p>
+    🔹 <strong>NL2SQL 查询引擎</strong> — 让工程师用自然语言查工业数据库，不用写 SQL，准确率 > 90%<br>
+    🔹 <strong>空分装置智能诊断</strong> — 用 LangGraph 构建 Agent 流程，自动诊断设备异常并给出优化建议
+  </p>
+  <p>
+    从数据接入、模型部署、RAG 检索到前后端交付，我能独立走完 <span class="highlight">研究 → 产品 → 上线</span> 的全流程。
+  </p>
+</div>
+
+<!-- ========== 技术栈 ========== -->
+<div class="tech-stack">
+  <h2 style="font-size:20px;font-weight:600;margin-bottom:16px;">🛠️ 技术栈</h2>
+  <p>
+    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+    <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" />
+    <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logoColor=white" />
+    <img src="https://img.shields.io/badge/Qwen-4FC08D?style=for-the-badge&logoColor=white" />
+    <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" />
+    <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" />
+    <img src="https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white" />
+    <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
+    <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" />
+  </p>
+</div>
+
+<!-- ========== GitHub Stats ========== -->
+<div class="stats-grid">
+  <img src="https://github-readme-stats.vercel.app/api?username=Xplore-LAB&show_icons=true&theme=default&hide_border=true&count_private=true&include_all_commits=true" alt="GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Xplore-LAB&layout=compact&theme=default&hide_border=true" alt="Top Languages" />
+</div>
+
+<!-- ========== 🔬 大项目 ========== -->
 <h2 class="section-title">🔬 大项目</h2>
 <p class="section-desc">从研究到产品的核心系统，涵盖工业智能与性能分析。</p>
 <div class="repo-grid">
@@ -67,7 +111,7 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
   </div>
 </div>
 
-<!-- ============ 📦 Skills & 配置 ============ -->
+<!-- ========== 📦 Skills ========== -->
 <h2 class="section-title">📦 Skills & 配置</h2>
 <p class="section-desc">OpenClaw 技能包与自动化配置集合。</p>
 <div class="repo-grid">
@@ -84,7 +128,7 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
   </div>
 </div>
 
-<!-- ============ 🛠️ 工具与效率 ============ -->
+<!-- ========== 🛠️ 工具 ========== -->
 <h2 class="section-title">🛠️ 工具与效率</h2>
 <p class="section-desc">日常开发中打磨的实用工具，解决真实痛点。</p>
 <div class="repo-grid">
@@ -113,7 +157,7 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
   </div>
 </div>
 
-<!-- ============ 📚 研究背景 ============ -->
+<!-- ========== 📚 研究 ========== -->
 <h2 class="section-title">📚 研究背景</h2>
 <div class="repo-grid">
   <div class="repo-card">
@@ -123,6 +167,7 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
   </div>
 </div>
 
+<!-- ========== 联系 ========== -->
 <div class="links">
   <a href="https://github.com/Xplore-LAB" target="_blank">🐙 GitHub</a>
   <a href="/about/">🙋 关于我</a>
