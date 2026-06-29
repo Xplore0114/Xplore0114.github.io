@@ -11,6 +11,15 @@
             "group": "站点"
         },
         {
+            "desc": "大模型论文追踪·公司研究动态·论文速览",
+            "badge": "Tracker",
+            "featured": true,
+            "path": "https://xplore-lab.github.io/llm-tracker/",
+            "emoji": "🔬",
+            "title": "LLM Papers Tracker",
+            "group": "站点"
+        },
+        {
             "desc": "每日技术资讯·热门文章·行业动态",
             "badge": "Daily",
             "featured": true,
