@@ -11,23 +11,6 @@
             "group": "站点"
         },
         {
-            "desc": "查看个人介绍、研究方向与联系方式",
-            "badge": "About",
-            "featured": true,
-            "path": "/about/",
-            "emoji": "🙋",
-            "title": "关于",
-            "group": "站点"
-        },
-        {
-            "desc": "浏览全部文章标签并按主题筛选内容",
-            "badge": "Tags",
-            "path": "/tags/",
-            "emoji": "🏷️",
-            "title": "标签",
-            "group": "站点"
-        },
-        {
             "desc": "每日技术资讯·热门文章·行业动态",
             "badge": "Daily",
             "featured": true,
