@@ -58,7 +58,7 @@ COMPANY_CONFIG = {
         "author_keywords": ["mistral"],
     },
     "Baidu": {
-        "query": 'ti:ernie OR ti:"wenxin" OR ti:"paddle"',
+        "query": 'ti:ernie OR ti:"wenxin" OR ti:paddleocr',
         "author_keywords": ["baidu"],
     },
     "Xiaomi": {
@@ -134,6 +134,39 @@ COMPANY_CONFIG = {
         "query": 'ti:cohere OR ti:"command a" OR ti:"command r"',
         "author_keywords": ["cohere"],
     },
+    # ── More Chinese model companies ─────────────────
+    "ByteDance": {
+        "query": 'ti:"seed-oss" OR ti:"seed1.5" OR ti:"seed-vl" OR ti:"seed2.0"',
+        "author_keywords": ["bytedance", "seed team"],
+    },
+    "StepFun": {
+        "query": 'ti:"step-3" OR ti:"step-2" OR ti:"step-audio" OR ti:"step-1x"',
+        "author_keywords": ["stepfun", "step fun"],
+    },
+    "Meituan": {
+        "query": 'ti:longcat',
+        "author_keywords": ["meituan", "longcat"],
+    },
+    "AntGroup": {
+        "query": 'ti:"ling-1t" OR ti:"ring-1t" OR ti:"ling-flash" OR ti:"ling-lite" OR ti:"ming-lite"',
+        "author_keywords": ["ant group", "antgroup", "inclusionai", "bailing"],
+    },
+    "ModelBest": {
+        "query": 'ti:minicpm',
+        "author_keywords": ["modelbest", "openbmb", "thunlp", "minicpm"],
+    },
+    "Huawei": {
+        "query": 'ti:pangu',
+        "author_keywords": ["huawei", "pangu"],
+    },
+    "Skywork": {
+        "query": 'ti:skywork',
+        "author_keywords": ["skywork", "kunlun"],
+    },
+    "SenseTime": {
+        "query": 'ti:sensenova OR ti:sensechat',
+        "author_keywords": ["sensetime", "sense time"],
+    },
 }
 
 TAG_RULES = [
@@ -151,12 +184,12 @@ MAX_RESULTS_TOPIC = 120
 MAX_RESULTS_COMPANY = 50
 
 
-def fetch_arxiv(query, tag, max_results=30):
+def fetch_arxiv(query, tag, max_results=30, start=0):
     """Fetch papers from arXiv API with correct query syntax and 429 retry."""
     import http.client
     params = urllib.parse.urlencode({
         "search_query": f"(cat:cs.CL OR cat:cs.AI) AND ({query})",
-        "start": 0,
+        "start": start,
         "max_results": max_results,
         "sortBy": "submittedDate",
         "sortOrder": "descending"
@@ -231,7 +264,7 @@ def verify_company(paper, company, author_keywords):
         'DeepSeek': ['deepseek'],
         'Qwen': ['qwen', 'tongyi'],
         'Mistral': ['mistral', 'mixtral', 'pixtral', 'lesstral'],
-        'Baidu': ['ernie', 'wenxin', 'paddle'],
+        'Baidu': ['ernie', 'wenxin', 'paddleocr'],
         'Xiaomi': ['mimo', 'xiaomi'],
         'MiniMax': ['minimax'],
         'Zhipu': ['glm-4', 'glm-3', 'chatglm', 'codegeex', 'cogvlm', 'cogview'],
@@ -250,6 +283,14 @@ def verify_company(paper, company, author_keywords):
         'AI21': ['jamba'],
         'LG': ['exaone'],
         'Cohere': ['cohere', 'command a', 'command r'],
+        'ByteDance': ['seed-oss-', 'seed1.5', 'seed-vl', 'seed2.0'],
+        'StepFun': ['step-3', 'step-2', 'step-audio', 'step-1x'],
+        'Meituan': ['longcat'],
+        'AntGroup': ['ling-1t', 'ring-1t', 'ling-flash', 'ling-lite', 'ming-lite'],
+        'ModelBest': ['minicpm'],
+        'Huawei': ['pangu'],
+        'Skywork': ['skywork'],
+        'SenseTime': ['sensenova', 'sensechat'],
     }
     # Companies whose model names collide with common words use strict
     # CASE-SENSITIVE title regexes (brand capitalization: MiMo/MiniMax/Grok)
@@ -401,6 +442,38 @@ def classify_existing_by_title(all_papers):
         'Cohere': {
             'match': [r'^cohere[\s\-:]', r'^command [ra][\s\-:+]'],
             'exclude': [r'^coherence'],
+        },
+        'ByteDance': {
+            'match': [r'^seed-oss', r'^seed1\.5', r'^seed-vl', r'^seed2\.0'],
+            'exclude': [],
+        },
+        'StepFun': {
+            'match': [r'^step-[123][\s\-:]', r'^step-audio', r'^step-1x'],
+            'exclude': [r'step-by-step', r'step-?up'],
+        },
+        'Meituan': {
+            'match': [r'^longcat[\s\-:]'],
+            'exclude': [],
+        },
+        'AntGroup': {
+            'match': [r'^ling-1t', r'^ring-1t', r'^ling-flash', r'^ling-lite', r'^ming-lite'],
+            'exclude': [],
+        },
+        'ModelBest': {
+            'match': [r'^minicpm[\s\-:\d]'],
+            'exclude': [],
+        },
+        'Huawei': {
+            'match': [r'^pangu[\s\-:]'],
+            'exclude': [],
+        },
+        'Skywork': {
+            'match': [r'^skywork[\s\-:]'],
+            'exclude': [],
+        },
+        'SenseTime': {
+            'match': [r'^sensenova[\s\-:]', r'^sensechat[\s\-:]'],
+            'exclude': [],
         },
     }
 
@@ -587,7 +660,7 @@ def main():
     company_out = [{"id": p["id"], "title": p["title"],
                      "title_zh": p.get("title_zh", ""),
                      "company": p["company"], "date": p.get("date", ""),
-                     "tags": p.get("tags", [])} for p in company_list[:600]]
+                     "tags": p.get("tags", [])} for p in company_list[:1200]]
 
     # ── Offline classification fallback ─────────────────
     # If arXiv queries returned too few company papers, classify from existing data
@@ -612,7 +685,7 @@ def main():
         company_out = [{"id": p["id"], "title": p["title"],
                          "title_zh": p.get("title_zh", ""),
                          "company": p["company"], "date": p.get("date", ""),
-                         "tags": p.get("tags", [])} for p in company_list[:600]]
+                         "tags": p.get("tags", [])} for p in company_list[:1200]]
 
     with open("llm-tracker/company-papers.json", "w") as f:
         json.dump(company_out, f, ensure_ascii=False)
