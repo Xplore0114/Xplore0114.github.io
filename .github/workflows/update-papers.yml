@@ -33,7 +33,7 @@ jobs:
           import urllib.request, json, os
           webhook = os.environ['FEISHU_WEBHOOK']
           msg = open('daily_summary.txt').read()
-          text = '📚 LLM Papers 每日更新\n' + msg + '\n查看：https://xplore0114.github.io/llm-tracker.html'
+          text = '📚 LLM Papers 每日更新\n' + msg + '\n查看：https://xplore-lab.github.io/llm-tracker/'
           data = json.dumps({'msg_type':'text','content':{'text':text}}).encode()
           req = urllib.request.Request(webhook, data=data, headers={'Content-Type':'application/json'})
           res = urllib.request.urlopen(req).read()
