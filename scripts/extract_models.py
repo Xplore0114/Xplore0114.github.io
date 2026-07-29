@@ -137,6 +137,29 @@ def main():
                            "date": first.get("date", ""), "id": first["id"],
                            "title": first["title"], "note": first.get("note", ""),
                            "papers": len(papers)})
+
+    # ── merge curated official releases (models-extra.json) ──
+    extras_path = os.path.join(TRACKER, "models-extra.json")
+    if os.path.exists(extras_path):
+        extras = json.load(open(extras_path, encoding="utf-8"))
+        node_map = {(m["company"], dedupe_key(m["model"])): m for m in models}
+        for e in extras:
+            key = (e["company"], dedupe_key(e.get("match") or e["model"]))
+            node = node_map.get(key)
+            if node:
+                # official release date is authoritative when earlier
+                if e["date"] and e["date"] < node.get("date", "9999"):
+                    node["date"] = e["date"]
+                if e.get("url"):
+                    node["url"] = e["url"]
+                if e.get("note") and not node.get("note"):
+                    node["note"] = e["note"]
+            else:
+                models.append({"model": e["model"], "company": e["company"],
+                               "date": e["date"], "id": "",
+                               "url": e.get("url", ""), "title": "",
+                               "note": e.get("note", ""), "papers": 0,
+                               "extra": True})
     models.sort(key=lambda x: x.get("date", ""))
 
     out_groups = []
