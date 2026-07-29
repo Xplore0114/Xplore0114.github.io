@@ -261,6 +261,63 @@ def classify_existing_by_title(all_papers):
     return classified
 
 
+def generate_notes(papers, batch_size=10):
+    """Generate one-line Chinese notes for papers via an OpenAI-compatible LLM API.
+
+    Enabled only when LLM_API_KEY is set (otherwise skipped silently).
+    Optional env: LLM_BASE_URL (default Moonshot), LLM_MODEL.
+    """
+    if not papers:
+        return
+    api_key = os.environ.get("LLM_API_KEY", "")
+    if not api_key:
+        print("LLM_API_KEY not set, skipping note generation")
+        return
+    base_url = os.environ.get("LLM_BASE_URL", "https://api.moonshot.cn/v1").rstrip("/")
+    model = os.environ.get("LLM_MODEL", "moonshot-v1-8k")
+
+    sys_prompt = (
+        "你在为大模型论文追踪网站生成中文一句话介绍。"
+        "对每篇论文写一条不超过60个汉字的编辑式点评：以方法名或动词开头，"
+        "说清这篇论文做了什么以及亮点/价值；综述类论文注明是综述；"
+        "不要用'本文'开头，不要臆造摘要中没有的具体数字。"
+        "只输出一个 JSON 对象，键是论文 id，值是介绍字符串。"
+    )
+    total = 0
+    for i in range(0, len(papers), batch_size):
+        batch = papers[i:i + batch_size]
+        items = [{"id": p["id"], "title": p["title"],
+                  "abstract": (p.get("abstract") or "")[:350]} for p in batch]
+        body = json.dumps({
+            "model": model,
+            "temperature": 0.3,
+            "messages": [
+                {"role": "system", "content": sys_prompt},
+                {"role": "user", "content": json.dumps(items, ensure_ascii=False)},
+            ],
+        }).encode()
+        req = urllib.request.Request(
+            base_url + "/chat/completions", data=body,
+            headers={"Content-Type": "application/json",
+                     "Authorization": "Bearer " + api_key})
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                resp = json.loads(r.read().decode())
+            content = resp["choices"][0]["message"]["content"]
+            m = re.search(r'\{.*\}', content, re.DOTALL)
+            notes = json.loads(m.group(0)) if m else {}
+            for p in batch:
+                note = notes.get(p["id"])
+                if isinstance(note, str) and note.strip():
+                    p["note"] = note.strip()[:80]
+                    total += 1
+            print(f"  Notes batch {i // batch_size + 1}: {total} notes so far")
+        except Exception as e:
+            print(f"  Note generation failed for batch {i // batch_size + 1}: {e}")
+        time.sleep(2)
+    print(f"Generated notes for {total}/{len(papers)} papers")
+
+
 def generate_timeline(all_papers):
     """Generate timeline-data.json as individual paper list (for heatmap calendar)."""
     timeline = []
@@ -332,6 +389,7 @@ def main():
         with open("llm-tracker/company-papers.json") as f:
             existing_company = json.load(f)
     existing_company_map = {p["id"]: p for p in existing_company}
+    company_new = []
 
     for company, config in COMPANY_CONFIG.items():
         query = config["query"]
@@ -352,6 +410,7 @@ def main():
             if p['id'] not in existing_map:
                 existing_map[p['id']] = p
                 all_papers.append(p)
+                company_new.append(p)
             else:
                 existing_map[p['id']]['company'] = company
 
@@ -399,6 +458,20 @@ def main():
     with open("llm-tracker/company-papers.json", "w") as f:
         json.dump(company_out, f, ensure_ascii=False)
     print(f"Company papers: {len(company_out)}")
+
+    # ── Chinese one-line notes for today's new papers ────
+    note_targets = [p for p in new_papers + company_new if not p.get("note")]
+    if note_targets:
+        print(f"\nGenerating notes for {len(note_targets)} new papers...")
+        generate_notes(note_targets)
+        # Re-save main data so notes are persisted
+        all_with_notes = sorted(existing_map.values(),
+                                key=lambda p: p.get("date", ""), reverse=True)
+        with open("papers.json", "w") as f:
+            json.dump(all_with_notes, f, ensure_ascii=False, indent=2)
+        if os.path.exists("llm-tracker"):
+            shutil.copy("papers.json", "llm-tracker/papers.json")
+        print("Saved papers.json with notes")
 
     # ── Timeline data ───────────────────────────────────
     all_papers_final = sorted(existing_map.values(),
