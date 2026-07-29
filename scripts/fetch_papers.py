@@ -268,9 +268,15 @@ def verify_company(paper, company, author_keywords):
     else:
         prefixes = company_prefixes.get(company, [])
         for prefix in prefixes:
-            # Model name must stand on its own: preceded by start/space/colon
-            # and NOT followed by another letter (kills grokking/coherence/paddles)
-            if re.search(r'(^|[\s:])' + re.escape(prefix) + r'(?![a-z])', title):
+            # Model name must stand on its own: preceded by start/space/colon.
+            # A prefix ending in a letter must NOT be followed by another
+            # letter (kills grokking/coherence/paddles); a prefix ending in
+            # '-' or a digit is followed by the version string (gpt-4o,
+            # yi-lightning), so no lookahead there.
+            pat = r'(^|[\s:])' + re.escape(prefix)
+            if prefix[-1].isalpha():
+                pat += r'(?![a-z])'
+            if re.search(pat, title):
                 return True
 
     # Fallback: check author/affiliation text
