@@ -219,6 +219,7 @@ def verify_company(paper, company, author_keywords):
     Strategy 2: Check authors/affiliations for company keywords
     """
     title = paper.get('title', '').lower()
+    title_orig = paper.get('title', '')
 
     # Title prefix check: most reliable for model release papers
     # Models are named like "DeepSeek-V3", "Qwen2.5", "Llama-3", "Claude 3", etc.
@@ -250,18 +251,19 @@ def verify_company(paper, company, author_keywords):
         'LG': ['exaone'],
         'Cohere': ['cohere', 'command a', 'command r'],
     }
-    # Companies whose model names collide with common words use a strict
-    # title regex instead of the loose prefix list below.
+    # Companies whose model names collide with common words use strict
+    # CASE-SENSITIVE title regexes (brand capitalization: MiMo/MiniMax/Grok)
+    # instead of the loose prefix list below.
     strict_title_patterns = {
-        'Xiaomi':   r'(^|[\s:])mimo[-:]|(^|[\s:])xiaomi(?![a-z])',
-        'MiniMax':  r'(^|[\s:])minimax(-|:|\s+sparse)',
-        'TII':      r'(^|[\s:])falcon(-?h\dr?|[- ]?\d| mamba| series| llm)(?![a-z])',
-        'xAI':      r'(^|[\s:])grok(?![a-z])',
-        'IBM':      r'(^|[\s:])granite(?![a-z])(?!.*(?:byzantine|gossip|geology|batholith|quarry))',
-        'Moonshot': r'(^|[\s:])kimi(?![a-z])|(^|[\s:])moonshot(?![a-z])(?!.*(?:mathematics|math|factory|initiative|project))',
+        'Xiaomi':   r'(^|[\s:])MiMo[-:]|(^|[\s:])Xiaomi(?![a-zA-Z])',
+        'MiniMax':  r'(^|[\s:])MiniMax(-|:|\s+sparse|\s+Sparse)',
+        'TII':      r'(^|[\s:])[Ff]alcon(-?[hH]\d[rR]?|[- ]?\d| [Mm]amba| [Ss]eries| [Ll][Ll][Mm])(?![a-zA-Z])',
+        'xAI':      r'(^|[\s:])Grok(?![a-zA-Z])',
+        'IBM':      r'(^|[\s:])Granite(?![a-zA-Z])(?!.*(?:[Bb]yzantine|gossip|geology|batholith|quarry))',
+        'Moonshot': r'(^|[\s:])Kimi(?![a-zA-Z])|(^|[\s:])Moonshot(?![a-zA-Z])(?!.*(?:mathematics|math|factory|initiative|project))',
     }
     if company in strict_title_patterns:
-        if re.search(strict_title_patterns[company], title):
+        if re.search(strict_title_patterns[company], title_orig):
             return True
     else:
         prefixes = company_prefixes.get(company, [])
