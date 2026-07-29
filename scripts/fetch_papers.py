@@ -654,6 +654,13 @@ def main():
     except Exception as e:
         print(f"PDF download failed (non-fatal): {e}")
 
+    # ── Extract architecture figures from reports ───
+    try:
+        import extract_figures
+        extract_figures.main()
+    except Exception as e:
+        print(f"Figure extraction failed (non-fatal): {e}")
+
     print(f"\n✅ Done! {len(all_papers_final)} total, {len(new_papers)} new today")
 
 

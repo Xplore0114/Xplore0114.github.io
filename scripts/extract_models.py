@@ -84,6 +84,22 @@ def dedupe_key(model):
     return re.sub(r'[\s\-.]', '', model).lower()
 
 
+def canonical_paper(papers):
+    """Pick the paper most likely to be the official report of the series.
+
+    Preference: title says 'technical report' -> title starts with the
+    family word -> earliest date.
+    """
+    def score(p):
+        t = p.get("title", "").lower()
+        s = 0
+        if "technical report" in t:
+            s += 2
+        return s
+    ranked = sorted(papers, key=lambda p: (-score(p), p.get("date", "")))
+    return ranked[0]
+
+
 def extract_model(title, company):
     pat = MODEL_PATTERNS.get(company)
     if not pat:
@@ -132,9 +148,9 @@ def main():
     for co, g in groups.items():
         for key, slot in g["series"].items():
             papers = sorted(slot["papers"], key=lambda x: x.get("date", ""))
-            first = papers[0]
+            first = canonical_paper(slot["papers"])
             models.append({"model": display_name(slot), "company": co,
-                           "date": first.get("date", ""), "id": first["id"],
+                           "date": papers[0].get("date", ""), "id": first["id"],
                            "title": first["title"], "note": first.get("note", ""),
                            "papers": len(papers)})
 
