@@ -92,10 +92,13 @@ def extract_figure(pdf_path, out_path):
 
 
 def get_pdf(pid, tmp_dir):
-    """Return path to the paper's PDF, downloading if necessary."""
+    """Return (path, is_tmp) to the paper's PDF, downloading if necessary.
+    In FIGS_LOCAL_ONLY mode, returns (None, False) when not already local."""
     local = os.path.join(PDF_DIR, pid + ".pdf")
     if os.path.exists(local):
         return local, False
+    if os.environ.get("FIGS_LOCAL_ONLY"):
+        return None, False
     tmp = os.path.join(tmp_dir, pid + ".pdf")
     if not os.path.exists(tmp):
         req = urllib.request.Request(f"https://arxiv.org/pdf/{pid}",
@@ -118,9 +121,18 @@ def main():
     for g in data.get("groups", []):
         for s in g["series"]:
             key = f"{g['company']}|{dedupe_key(s['model'])}"
-            papers = sorted(s["papers"],
-                            key=lambda p: (-("technical report" in p.get("title", "").lower()),
-                                           p.get("date", "")))
+            mkey = dedupe_key(s["model"])
+
+            def ck(p, mkey=mkey):
+                t = p.get("title", "").lower()
+                norm = re.sub(r'[\s\-.]', '', t)
+                starts = norm.startswith(mkey) or norm.startswith("the" + mkey)
+                return (-bool(starts),
+                        -("technical report" in t),
+                        -(mkey in norm),
+                        len(t),
+                        p.get("date", ""))
+            papers = sorted(s["papers"], key=ck)
             series_map[key] = papers
     os.makedirs(IMG_DIR, exist_ok=True)
     tmp_dir = os.path.join(TRACKER, "models", ".tmp_pdf")
@@ -138,13 +150,16 @@ def main():
             figures[key] = f"img/{fname}"
             skipped += 1
             continue
-        candidates = series_map.get(key) or [{"id": m["id"], "title": m.get("title", ""), "date": ""}]
+        candidates = ([{"id": m["id"], "title": m.get("title", ""), "date": ""}]
+                      + [p for p in series_map.get(key, []) if p["id"] != m["id"]])
         how = None
         for cand in candidates[:4]:
             if not cand.get("id"):
                 continue
             try:
                 pdf, is_tmp = get_pdf(cand["id"], tmp_dir)
+                if not pdf:
+                    continue
                 how = extract_figure(pdf, out_path)
                 if is_tmp:
                     os.remove(pdf)
