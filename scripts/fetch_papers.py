@@ -73,6 +73,67 @@ COMPANY_CONFIG = {
         "query": 'ti:glm-4 OR ti:chatglm OR ti:zhipu OR ti:codegeex OR ti:cogvlm',
         "author_keywords": ["zhipu", "tsinghua", "chatglm"],
     },
+    # ── Open-weights model companies ──────────────────────
+    "Moonshot": {
+        "query": 'ti:kimi OR ti:moonshot',
+        "author_keywords": ["moonshot", "kimi"],
+    },
+    "Tencent": {
+        "query": 'ti:hunyuan',
+        "author_keywords": ["tencent", "hunyuan"],
+    },
+    "Microsoft": {
+        "query": 'ti:"phi-2" OR ti:"phi-3" OR ti:"phi-4"',
+        "author_keywords": ["microsoft"],
+    },
+    "Nvidia": {
+        "query": 'ti:nemotron',
+        "author_keywords": ["nvidia", "nemotron"],
+    },
+    "IBM": {
+        "query": 'ti:granite',
+        "author_keywords": ["ibm", "granite"],
+    },
+    "AllenAI": {
+        "query": 'ti:olmo',
+        "author_keywords": ["allen institute", "allenai", "ai2", "olmo"],
+    },
+    "TII": {
+        "query": 'ti:falcon',
+        "author_keywords": ["technology innovation institute", "tii", "falcon"],
+    },
+    "xAI": {
+        "query": 'ti:grok',
+        "author_keywords": ["xai", "grok"],
+    },
+    "01.AI": {
+        "query": 'ti:"yi-34b" OR ti:"yi-6b" OR ti:"yi-9b" OR ti:"yi-1.5" OR ti:"yi-large" OR ti:"yi-coder" OR ti:"yi-vl" OR ti:"yi-lightning"',
+        "author_keywords": ["01.ai", "lingyi", "yi-"],
+    },
+    "Baichuan": {
+        "query": 'ti:baichuan',
+        "author_keywords": ["baichuan"],
+    },
+    "InternLM": {
+        "query": 'ti:internlm OR ti:internvl OR ti:internvideo',
+        "author_keywords": ["shanghai ai laboratory", "internlm", "pjlab", "opengvlab"],
+    },
+    "Databricks": {
+        "query": 'ti:dbrx',
+        "author_keywords": ["databricks", "mosaic"],
+    },
+    "AI21": {
+        "query": 'ti:jamba',
+        "author_keywords": ["ai21", "jamba"],
+    },
+    "LG": {
+        "query": 'ti:exaone',
+        "author_keywords": ["lg ai", "lg research", "exaone"],
+    },
+    "Cohere": {
+        "query": 'ti:cohere OR ti:"command a" OR ti:"command r"',
+        "author_keywords": ["cohere"],
+    },
 }
 
 TAG_RULES = [
@@ -173,6 +234,21 @@ def verify_company(paper, company, author_keywords):
         'Xiaomi': ['mimo', 'xiaomi'],
         'MiniMax': ['minimax'],
         'Zhipu': ['glm-4', 'glm-3', 'chatglm', 'codegeex', 'cogvlm', 'cogview'],
+        'Moonshot': ['kimi', 'moonshot'],
+        'Tencent': ['hunyuan'],
+        'Microsoft': ['phi-'],
+        'Nvidia': ['nemotron'],
+        'IBM': ['granite'],
+        'AllenAI': ['olmo'],
+        'TII': ['falcon'],
+        'xAI': ['grok'],
+        '01.AI': ['yi-'],
+        'Baichuan': ['baichuan'],
+        'InternLM': ['internlm', 'internvl', 'internvideo'],
+        'Databricks': ['dbrx'],
+        'AI21': ['jamba'],
+        'LG': ['exaone'],
+        'Cohere': ['cohere', 'command a', 'command r'],
     }
     prefixes = company_prefixes.get(company, [])
     for prefix in prefixes:
@@ -242,6 +318,66 @@ def classify_existing_by_title(all_papers):
         'Zhipu': {
             'match': [r'^glm-?\d', r'^chatglm[\s\-23]', r'^codegeex[\s\-2]', r'^cogvlm\b', r'^cogview\b'],
             'exclude': [],
+        },
+        'Moonshot': {
+            'match': [r'^kimi[\s\-:]', r'^moonshot[\s\-:]'],
+            'exclude': [],
+        },
+        'Tencent': {
+            'match': [r'^hunyuan[\s\-:]'],
+            'exclude': [],
+        },
+        'Microsoft': {
+            'match': [r'^phi[\s\-]'],
+            'exclude': [],
+        },
+        'Nvidia': {
+            'match': [r'^nemotron[\s\-:]'],
+            'exclude': [],
+        },
+        'IBM': {
+            'match': [r'^granite[\s\-:]'],
+            'exclude': [r'granite (?:rock|stone|quarry|belt|batholith)'],
+        },
+        'AllenAI': {
+            'match': [r'^olmo[\s\-:]'],
+            'exclude': [],
+        },
+        'TII': {
+            'match': [r'^falcon[\s\-:]'],
+            'exclude': [r'falcon (?:9|heavy|rocket)', r'^falcon-x'],
+        },
+        'xAI': {
+            'match': [r'^grok[\s\-:]'],
+            'exclude': [r'^grokking'],
+        },
+        '01.AI': {
+            'match': [r'^yi[\-\s]'],
+            'exclude': [r'^yi et al', r'yield'],
+        },
+        'Baichuan': {
+            'match': [r'^baichuan[\s\-:]'],
+            'exclude': [],
+        },
+        'InternLM': {
+            'match': [r'^internlm[\s\-:]', r'^internvl[\s\-:]', r'^internvideo[\s\-:]'],
+            'exclude': [],
+        },
+        'Databricks': {
+            'match': [r'^dbrx[\s\-:]'],
+            'exclude': [],
+        },
+        'AI21': {
+            'match': [r'^jamba[\s\-:]'],
+            'exclude': [],
+        },
+        'LG': {
+            'match': [r'^exaone[\s\-:]'],
+            'exclude': [],
+        },
+        'Cohere': {
+            'match': [r'^cohere[\s\-:]', r'^command [ra][\s\-:+]'],
+            'exclude': [r'^coherence'],
         },
     }
 
@@ -428,7 +564,7 @@ def main():
     company_out = [{"id": p["id"], "title": p["title"],
                      "title_zh": p.get("title_zh", ""),
                      "company": p["company"], "date": p.get("date", ""),
-                     "tags": p.get("tags", [])} for p in company_list[:300]]
+                     "tags": p.get("tags", [])} for p in company_list[:600]]
 
     # ── Offline classification fallback ─────────────────
     # If arXiv queries returned too few company papers, classify from existing data
@@ -453,7 +589,7 @@ def main():
         company_out = [{"id": p["id"], "title": p["title"],
                          "title_zh": p.get("title_zh", ""),
                          "company": p["company"], "date": p.get("date", ""),
-                         "tags": p.get("tags", [])} for p in company_list[:300]]
+                         "tags": p.get("tags", [])} for p in company_list[:600]]
 
     with open("llm-tracker/company-papers.json", "w") as f:
         json.dump(company_out, f, ensure_ascii=False)
