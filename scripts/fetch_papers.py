@@ -250,11 +250,26 @@ def verify_company(paper, company, author_keywords):
         'LG': ['exaone'],
         'Cohere': ['cohere', 'command a', 'command r'],
     }
-    prefixes = company_prefixes.get(company, [])
-    for prefix in prefixes:
-        # Check if model name appears at start of title or after common prefixes
-        if title.startswith(prefix) or f' {prefix}' in title or f': {prefix}' in title:
+    # Companies whose model names collide with common words use a strict
+    # title regex instead of the loose prefix list below.
+    strict_title_patterns = {
+        'Xiaomi':   r'(^|[\s:])mimo[-:]|(^|[\s:])xiaomi(?![a-z])',
+        'MiniMax':  r'(^|[\s:])minimax(-|:|\s+sparse)',
+        'TII':      r'(^|[\s:])falcon(-?h\dr?|[- ]?\d| mamba| series| llm)(?![a-z])',
+        'xAI':      r'(^|[\s:])grok(?![a-z])',
+        'IBM':      r'(^|[\s:])granite(?![a-z])(?!.*(?:byzantine|gossip|geology|batholith|quarry))',
+        'Moonshot': r'(^|[\s:])kimi(?![a-z])|(^|[\s:])moonshot(?![a-z])(?!.*(?:mathematics|math|factory|initiative|project))',
+    }
+    if company in strict_title_patterns:
+        if re.search(strict_title_patterns[company], title):
             return True
+    else:
+        prefixes = company_prefixes.get(company, [])
+        for prefix in prefixes:
+            # Model name must stand on its own: preceded by start/space/colon
+            # and NOT followed by another letter (kills grokking/coherence/paddles)
+            if re.search(r'(^|[\s:])' + re.escape(prefix) + r'(?![a-z])', title):
+                return True
 
     # Fallback: check author/affiliation text
     author_text = ' '.join(paper.get('author_list', []) + paper.get('affiliations', [])).lower()
@@ -308,11 +323,11 @@ def classify_existing_by_title(all_papers):
             'exclude': [],
         },
         'Xiaomi': {
-            'match': [r'^mimo\b'],
+            'match': [r'^mimo[-:]', r'^xiaomi'],
             'exclude': [],
         },
         'MiniMax': {
-            'match': [r'^minimax[\s\-]'],
+            'match': [r'^minimax[-:]', r'^minimax sparse'],
             'exclude': [],
         },
         'Zhipu': {
@@ -321,7 +336,7 @@ def classify_existing_by_title(all_papers):
         },
         'Moonshot': {
             'match': [r'^kimi[\s\-:]', r'^moonshot[\s\-:]'],
-            'exclude': [],
+            'exclude': [r'moonshot (?:mathematics|math|factory|initiative|project)'],
         },
         'Tencent': {
             'match': [r'^hunyuan[\s\-:]'],
@@ -337,14 +352,14 @@ def classify_existing_by_title(all_papers):
         },
         'IBM': {
             'match': [r'^granite[\s\-:]'],
-            'exclude': [r'granite (?:rock|stone|quarry|belt|batholith)'],
+            'exclude': [r'granite (?:rock|stone|quarry|belt|batholith)', r'byzantine|gossip'],
         },
         'AllenAI': {
             'match': [r'^olmo[\s\-:]'],
             'exclude': [],
         },
         'TII': {
-            'match': [r'^falcon[\s\-:]'],
+            'match': [r'^falcon(-?h\dr?|[- ]?\d| mamba| series| llm)'],
             'exclude': [r'falcon (?:9|heavy|rocket)', r'^falcon-x'],
         },
         'xAI': {
