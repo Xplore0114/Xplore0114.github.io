@@ -640,6 +640,20 @@ def main():
         json.dump(timeline_data, f, ensure_ascii=False)
     print(f"Timeline: {len(timeline_data)} months")
 
+    # ── Model release timeline ──────────────────────
+    try:
+        import extract_models
+        extract_models.main()
+    except Exception as e:
+        print(f"Model extraction failed (non-fatal): {e}")
+
+    # ── Download company paper PDFs (the gems) ──────
+    try:
+        import download_pdfs
+        download_pdfs.main()
+    except Exception as e:
+        print(f"PDF download failed (non-fatal): {e}")
+
     print(f"\n✅ Done! {len(all_papers_final)} total, {len(new_papers)} new today")
 
 
