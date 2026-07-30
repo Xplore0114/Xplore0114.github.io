@@ -41,6 +41,10 @@ def main():
                 data = r.read()
             if not data.startswith(b"%PDF"):
                 raise ValueError("not a PDF (rate limited?)")
+            if len(data) > 15 * 1024 * 1024:
+                print(f"  SKIP {pid}: {len(data) // 1024 // 1024} MB over 15MB cap")
+                failed += 1
+                continue
             with open(dest, "wb") as f:
                 f.write(data)
             downloaded += 1

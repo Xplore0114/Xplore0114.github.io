@@ -24,9 +24,23 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add papers.json llm-tracker/papers.json llm-tracker/company-papers.json llm-tracker/timeline-data.json llm-tracker/models.json llm-tracker/pdfs-index.json llm-tracker/pdfs/ llm-tracker/models-figures.json llm-tracker/models/img/
+          git add papers.json llm-tracker/papers.json llm-tracker/company-papers.json llm-tracker/timeline-data.json llm-tracker/models.json llm-tracker/pdfs-index.json llm-tracker/models-figures.json llm-tracker/models/img/
           git diff --staged --quiet || git commit -m "chore: update papers $(date +%Y-%m-%d)"
           git push
+
+      - name: Publish PDFs to orphan branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan pdfs-tmp
+          git rm -rf --cached . 2>/dev/null || true
+          mkdir -p pdfs
+          cp llm-tracker/pdfs/*.pdf pdfs/ 2>/dev/null || true
+          git add pdfs/
+          git diff --staged --quiet || git commit -m "chore: pdf archive $(date +%Y-%m-%d)"
+          git push -f origin HEAD:pdfs
+          git checkout -f master
+          git clean -fd
 
       - name: Send Feishu notification
         if: env.FEISHU_WEBHOOK != ''
