@@ -1,5 +1,8 @@
 {
-  "featured_repos": ["openai-compatible-proxy", "careerflow-agent"],
+  "featured_repos": [
+    "openai-compatible-proxy",
+    "careerflow-agent"
+  ],
   "items": [
     {
       "desc": "个人主页与开源项目总入口",
@@ -37,5 +40,15 @@
       "title": "GitHub 主页",
       "group": "外部链接"
     }
-  ]
+  ],
+  "desc_overrides": {
+    "minimax-h3-dgx-spark": "在 NVIDIA DGX Spark/GB10 上运行 MiniMax H3（文/图生视频带声音）：全容器化 ComfyUI v0.30.0 + NGC PyTorch 25.11，HTTP API 工作流",
+    "careerflow-agent": "秋招智能体：Agent 驱动的求职信息流与可解释推荐，官方岗位源入库，按简历画像排序，每条记录可溯源",
+    "llm-tracker": "🤖 大模型情报局 | 每日自动追踪 arXiv 前沿论文：13k+ 论文、34 个实验室、模型时间线与学习路径",
+    "pc-doctor": "🩺💻 Claude Code 电脑健康检查技能：快速/深度双模式，保守阈值，只读安全",
+    "OKC-SFT-Dataset": "SFT 指令微调数据集（详见仓库 README）",
+    "openclaw-scholar-pack": "OpenClaw 学术技能包：面向科研场景的 Agent 技能合集",
+    "word-mail-merge-batch-sender": "Word + Outlook VBA 批量邮件工具：按 Excel 每行数据生成邮件并附对应附件",
+    "openai-compatible-proxy": "几分钟内把任意 LLM API 转成 OpenAI 兼容端点"
+  }
 }

@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-08-05T00:42:55.268060+08:00",
+    "generated_at": "2026-08-05T00:46:45.744435+08:00",
     "items": [
         {
             "desc": "个人主页与开源项目总入口",
@@ -47,7 +47,7 @@
             "group": "开源项目"
         },
         {
-            "desc": "Run MiniMax H3 (text/image-to-video with sound) on NVIDIA DGX Spark/GB10 — fully containerized ComfyUI v0.30.0, NGC PyTorch 25.11, torchaudio source-build, HTTP API workflows",
+            "desc": "在 NVIDIA DGX Spark/GB10 上运行 MiniMax H3（文/图生视频带声音）：全容器化 ComfyUI v0.30.0 + NGC PyTorch 25.11，HTTP API 工作流",
             "badge": "Shell",
             "featured": false,
             "path": "https://github.com/Xplore-LAB/minimax-h3-dgx-spark",
@@ -56,7 +56,7 @@
             "group": "开源项目"
         },
         {
-            "desc": "Agent-driven, provenance-first job feed & explainable recommender for China campus recruitment (秋招). Ingests official ATS/job postings into an independent Source Hub, ranks by resume profile, every record traceable to the official page. FastAPI + Playwright + LLM.",
+            "desc": "秋招智能体：Agent 驱动的求职信息流与可解释推荐，官方岗位源入库，按简历画像排序，每条记录可溯源",
             "badge": "Python",
             "featured": true,
             "path": "https://github.com/Xplore-LAB/careerflow-agent",
@@ -65,7 +65,7 @@
             "group": "开源项目"
         },
         {
-            "desc": "🤖 大模型情报局 | 每日自动追踪 arXiv 大模型前沿论文 | Daily LLM research tracker: 13k+ papers, 34 AI labs, model timeline & learning path",
+            "desc": "🤖 大模型情报局 | 每日自动追踪 arXiv 前沿论文：13k+ 论文、34 个实验室、模型时间线与学习路径",
             "badge": "HTML",
             "featured": false,
             "path": "https://github.com/Xplore-LAB/llm-tracker",
@@ -74,7 +74,7 @@
             "group": "开源项目"
         },
         {
-            "desc": "🩺💻 Bilingual computer health check skill for Claude Code. Light (~30s) + deep (~5min) modes, conservative thresholds, read-only.",
+            "desc": "🩺💻 Claude Code 电脑健康检查技能：快速/深度双模式，保守阈值，只读安全",
             "badge": "Shell",
             "featured": false,
             "path": "https://github.com/Xplore-LAB/pc-doctor",
@@ -92,7 +92,7 @@
             "group": "开源项目"
         },
         {
-            "desc": "暂无描述，点击查看仓库详情",
+            "desc": "SFT 指令微调数据集（详见仓库 README）",
             "badge": "Shell",
             "featured": false,
             "path": "https://github.com/Xplore-LAB/OKC-SFT-Dataset",
@@ -101,7 +101,7 @@
             "group": "开源项目"
         },
         {
-            "desc": "暂无描述，点击查看仓库详情",
+            "desc": "OpenClaw 学术技能包：面向科研场景的 Agent 技能合集",
             "badge": "JavaScript",
             "featured": false,
             "path": "https://github.com/Xplore-LAB/openclaw-scholar-pack",
@@ -119,7 +119,7 @@
             "group": "开源项目"
         },
         {
-            "desc": "A Word + Outlook VBA tool for batch emails with per-row attachments from Excel.",
+            "desc": "Word + Outlook VBA 批量邮件工具：按 Excel 每行数据生成邮件并附对应附件",
             "badge": "VBA",
             "featured": false,
             "path": "https://github.com/Xplore-LAB/word-mail-merge-batch-sender",
@@ -128,7 +128,7 @@
             "group": "开源项目"
         },
         {
-            "desc": "Turn any LLM API into an OpenAI-compatible endpoint in minutes.",
+            "desc": "几分钟内把任意 LLM API 转成 OpenAI 兼容端点",
             "badge": "Python",
             "featured": true,
             "path": "https://github.com/Xplore-LAB/openai-compatible-proxy",

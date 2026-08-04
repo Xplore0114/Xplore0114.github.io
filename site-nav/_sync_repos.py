@@ -67,10 +67,13 @@ def main():
     repos.sort(key=lambda r: r["pushed_at"], reverse=True)
 
     featured = set(base.get("featured_repos", []))
+    desc_overrides = base.get("desc_overrides", {})
     auto_items = [repo_to_item(r) for r in repos]
     for item in auto_items:
         if item["title"] in featured:
             item["featured"] = True
+        if item["title"] in desc_overrides:
+            item["desc"] = desc_overrides[item["title"]]
 
     items = list(base.get("items", [])) + auto_items
 
