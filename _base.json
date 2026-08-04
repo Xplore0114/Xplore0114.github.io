@@ -5,15 +5,6 @@
   ],
   "items": [
     {
-      "desc": "个人主页与开源项目总入口",
-      "badge": "Home",
-      "featured": true,
-      "path": "/",
-      "emoji": "🏠",
-      "title": "主页",
-      "group": "站点"
-    },
-    {
       "desc": "大模型论文追踪·公司研究动态·论文速览",
       "badge": "Tracker",
       "featured": true,

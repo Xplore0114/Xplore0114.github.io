@@ -6,8 +6,8 @@ on:
   push:
     branches: ["master"]
     paths:
-      - "site-nav/_base.json"
-      - "site-nav/_sync_repos.py"
+      - "_base.json"
+      - "_sync_repos.py"
       - ".github/workflows/site-nav-sync.yml"
   workflow_dispatch:
 
@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: 生成 routes.json
-        run: python3 site-nav/_sync_repos.py
+        run: python3 _sync_repos.py
         env:
           REPO_OWNER: Xplore-LAB
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
