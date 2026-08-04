@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-06-14T01:15:00+08:00",
+    "generated_at": "2026-08-05T00:42:55.268060+08:00",
     "items": [
         {
             "desc": "个人主页与开源项目总入口",
@@ -29,55 +29,6 @@
             "group": "站点"
         },
         {
-            "desc": "将任意 LLM API 转换为 OpenAI 兼容端点",
-            "badge": "Python",
-            "featured": true,
-            "path": "https://github.com/Xplore-LAB/openai-compatible-proxy",
-            "emoji": "🔌",
-            "title": "openai-compatible-proxy",
-            "group": "开源项目"
-        },
-        {
-            "desc": "轻量级 Python LLM 网关，多模型路由",
-            "badge": "Python",
-            "path": "https://github.com/Xplore-LAB/llm-gateway-lite",
-            "emoji": "🚪",
-            "title": "llm-gateway-lite",
-            "group": "开源项目"
-        },
-        {
-            "desc": "工业控制性能分析工具 · 单文件离线运行 · CSV 导入即分析",
-            "badge": "HTML",
-            "path": "https://github.com/Xplore-LAB/DataLens",
-            "emoji": "📊",
-            "title": "DataLens",
-            "group": "开源项目"
-        },
-        {
-            "desc": "自然语言转 SQL 的工具链与实验仓库",
-            "badge": "Python",
-            "path": "https://github.com/Xplore-LAB/nl2sql-toolkit",
-            "emoji": "🛠️",
-            "title": "nl2sql-toolkit",
-            "group": "开源项目"
-        },
-        {
-            "desc": "Word + Outlook VBA 批量邮件工具",
-            "badge": "VBA",
-            "path": "https://github.com/Xplore-LAB/word-mail-merge-batch-sender",
-            "emoji": "📧",
-            "title": "word-mail-merge-batch-sender",
-            "group": "开源项目"
-        },
-        {
-            "desc": "Flutter 应用 · 引导式物体拍摄与 3D Gaussian Splatting 重建",
-            "badge": "Dart",
-            "path": "https://github.com/Xplore-LAB/3DGS-REAL",
-            "emoji": "📱",
-            "title": "3DGS-REAL",
-            "group": "开源项目"
-        },
-        {
             "desc": "查看完整仓库列表与开源动态",
             "badge": "GitHub",
             "featured": true,
@@ -85,6 +36,105 @@
             "emoji": "🐙",
             "title": "GitHub 主页",
             "group": "外部链接"
+        },
+        {
+            "desc": "每日科技新闻自动聚合 - 多源抓取/自动摘要/定时更新",
+            "badge": "Python",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/tech-news",
+            "emoji": "🐍",
+            "title": "tech-news",
+            "group": "开源项目"
+        },
+        {
+            "desc": "Run MiniMax H3 (text/image-to-video with sound) on NVIDIA DGX Spark/GB10 — fully containerized ComfyUI v0.30.0, NGC PyTorch 25.11, torchaudio source-build, HTTP API workflows",
+            "badge": "Shell",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/minimax-h3-dgx-spark",
+            "emoji": "🐚",
+            "title": "minimax-h3-dgx-spark",
+            "group": "开源项目"
+        },
+        {
+            "desc": "Agent-driven, provenance-first job feed & explainable recommender for China campus recruitment (秋招). Ingests official ATS/job postings into an independent Source Hub, ranks by resume profile, every record traceable to the official page. FastAPI + Playwright + LLM.",
+            "badge": "Python",
+            "featured": true,
+            "path": "https://github.com/Xplore-LAB/careerflow-agent",
+            "emoji": "🐍",
+            "title": "careerflow-agent",
+            "group": "开源项目"
+        },
+        {
+            "desc": "🤖 大模型情报局 | 每日自动追踪 arXiv 大模型前沿论文 | Daily LLM research tracker: 13k+ papers, 34 AI labs, model timeline & learning path",
+            "badge": "HTML",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/llm-tracker",
+            "emoji": "🌐",
+            "title": "llm-tracker",
+            "group": "开源项目"
+        },
+        {
+            "desc": "🩺💻 Bilingual computer health check skill for Claude Code. Light (~30s) + deep (~5min) modes, conservative thresholds, read-only.",
+            "badge": "Shell",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/pc-doctor",
+            "emoji": "🐚",
+            "title": "pc-doctor",
+            "group": "开源项目"
+        },
+        {
+            "desc": "工业控制性能分析工具 · 单文件离线运行 · CSV导入即分析 · 脱硝优化 · 空分节能 · 零依赖",
+            "badge": "HTML",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/DataLens",
+            "emoji": "🌐",
+            "title": "DataLens",
+            "group": "开源项目"
+        },
+        {
+            "desc": "暂无描述，点击查看仓库详情",
+            "badge": "Shell",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/OKC-SFT-Dataset",
+            "emoji": "🐚",
+            "title": "OKC-SFT-Dataset",
+            "group": "开源项目"
+        },
+        {
+            "desc": "暂无描述，点击查看仓库详情",
+            "badge": "JavaScript",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/openclaw-scholar-pack",
+            "emoji": "🟨",
+            "title": "openclaw-scholar-pack",
+            "group": "开源项目"
+        },
+        {
+            "desc": "轻量级 Python LLM 网关，支持 OpenAI / DeepSeek / Qwen / Claude 多模型统一路由",
+            "badge": "Python",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/llm-gateway-lite",
+            "emoji": "🐍",
+            "title": "llm-gateway-lite",
+            "group": "开源项目"
+        },
+        {
+            "desc": "A Word + Outlook VBA tool for batch emails with per-row attachments from Excel.",
+            "badge": "VBA",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/word-mail-merge-batch-sender",
+            "emoji": "📧",
+            "title": "word-mail-merge-batch-sender",
+            "group": "开源项目"
+        },
+        {
+            "desc": "Turn any LLM API into an OpenAI-compatible endpoint in minutes.",
+            "badge": "Python",
+            "featured": true,
+            "path": "https://github.com/Xplore-LAB/openai-compatible-proxy",
+            "emoji": "🐍",
+            "title": "openai-compatible-proxy",
+            "group": "开源项目"
         }
     ]
 }

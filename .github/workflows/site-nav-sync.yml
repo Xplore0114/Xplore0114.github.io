@@ -1,0 +1,44 @@
+name: site-nav 自动同步
+
+on:
+  schedule:
+    - cron: "17 1 * * *"   # 每天 09:17 北京时间 (UTC+8)
+  push:
+    branches: ["master"]
+    paths:
+      - "site-nav/_base.json"
+      - "site-nav/_sync_repos.py"
+      - ".github/workflows/site-nav-sync.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: site-nav-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 生成 routes.json
+        run: python3 site-nav/_sync_repos.py
+        env:
+          REPO_OWNER: Xplore-LAB
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 有变化则提交推送
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site-nav/routes.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(site-nav): 自动同步开源仓库"
+            git push
+            echo "已推送更新"
+          else
+            echo "无变化，跳过"
+          fi
