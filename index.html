@@ -247,7 +247,7 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
 
 
 <!-- ========== 🧭 全部入口 (导航页合并) ========== -->
-<h2 class="section-title">🧭 全部入口</h2>
+<h2 class="section-title" id="all-entries">🧭 全部入口</h2>
 <p class="section-desc" id="navMetaLine">正在加载导航数据...</p>
 
 <h3 class="nav-section-title">⭐ 推荐入口</h3>
@@ -345,7 +345,7 @@ description: "Kevin — AI 应用开发 & 工业数据智能"
     }
 
     async function loadRoutes() {
-      const resp = await fetch("./routes.json", { cache: "no-store" });
+      const resp = await fetch("./site-nav/routes.json", { cache: "no-store" });
       if (!resp.ok) throw new Error("routes.json 加载失败");
       return resp.json();
     }
