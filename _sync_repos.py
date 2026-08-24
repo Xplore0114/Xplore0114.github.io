@@ -16,7 +16,7 @@ from datetime import datetime
 OWNER = os.environ.get("REPO_OWNER", "Xplore-LAB")
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE_PATH = os.path.join(HERE, "_base.json")
-OUT_PATH = os.path.join(HERE, "routes.json")
+OUT_PATH = os.path.join(HERE, "site-nav", "routes.json")
 
 # 语言 -> emoji 映射 (没有映射的用 📦)
 LANG_EMOJI = {
