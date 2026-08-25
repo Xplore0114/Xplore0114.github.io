@@ -30,6 +30,78 @@
       "emoji": "🐙",
       "title": "GitHub 主页",
       "group": "外部链接"
+    },
+    {
+      "desc": "算法与数据结构系统教程，秋招刷题主线",
+      "badge": "算法",
+      "featured": false,
+      "path": "https://labuladong.online",
+      "emoji": "🔖",
+      "title": "labuladong 算法笔记",
+      "group": "推荐网站"
+    },
+    {
+      "desc": "AI 资讯热榜聚合，每日情报速览",
+      "badge": "AI 资讯",
+      "featured": false,
+      "path": "https://aihot.virxact.com/",
+      "emoji": "🤖",
+      "title": "AIHOT",
+      "group": "推荐网站"
+    },
+    {
+      "desc": "模型与数据集社区，LLM 工作日常入口",
+      "badge": "社区",
+      "featured": false,
+      "path": "https://huggingface.co",
+      "emoji": "🤗",
+      "title": "Hugging Face",
+      "group": "推荐网站"
+    },
+    {
+      "desc": "Lilian Weng 的技术长文博客",
+      "badge": "博客",
+      "featured": false,
+      "path": "https://lilianweng.github.io/",
+      "emoji": "✍️",
+      "title": "Lil'Log",
+      "group": "推荐网站"
+    },
+    {
+      "desc": "科技爱好者周刊与技术教程",
+      "badge": "博客",
+      "featured": false,
+      "path": "https://www.ruanyifeng.com/blog/",
+      "emoji": "📰",
+      "title": "阮一峰的网络日志",
+      "group": "推荐网站"
+    },
+    {
+      "desc": "论文预印本库，llm-tracker 的上游",
+      "badge": "论文",
+      "featured": false,
+      "path": "https://arxiv.org",
+      "emoji": "📄",
+      "title": "arXiv",
+      "group": "推荐网站"
+    },
+    {
+      "desc": "算法竞赛知识库",
+      "badge": "算法",
+      "featured": false,
+      "path": "https://oi-wiki.org",
+      "emoji": "📚",
+      "title": "OI Wiki",
+      "group": "推荐网站"
+    },
+    {
+      "desc": "开源项目热榜，发现新工具",
+      "badge": "开源",
+      "featured": false,
+      "path": "https://github.com/trending",
+      "emoji": "🔥",
+      "title": "GitHub Trending",
+      "group": "推荐网站"
     }
   ],
   "desc_overrides": {
