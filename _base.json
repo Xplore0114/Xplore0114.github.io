@@ -134,11 +134,5 @@
       "word-mail-merge-batch-sender"
     ]
   },
-  "private_repos": [
-    "DataLens",
-    "minimax-h3-dgx-spark",
-    "openai-compatible-proxy",
-    "llm-gateway-lite",
-    "word-mail-merge-batch-sender"
-  ]
+  "private_repos": []
 }
