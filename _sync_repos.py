@@ -43,7 +43,7 @@ def fetch_repos():
 
 
 # 分组展示顺序（未匹配的组排最后）
-GROUP_ORDER = ["站点", "大项目", "Agent 技能", "小工具", "外部链接", "开源项目"]
+GROUP_ORDER = ["站点", "大项目", "Agent 技能", "小工具", "推荐网站", "外部链接", "开源项目"]
 
 
 def repo_to_item(r, name_to_group=None):
