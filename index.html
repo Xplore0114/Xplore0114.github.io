@@ -172,11 +172,28 @@ h2.section-title .count { font-family: var(--sans); font-size: 13px; font-weight
 .muted { color: var(--ink-faint); font-size: 15px; }
 
 /* 全部入口 */
-.entry-group { margin-bottom: 22px; }
+.entry-group { margin-bottom: 14px; }
 .entry-group h3 {
   font-size: 13px; font-weight: 600; letter-spacing: .12em;
   color: var(--ink-faint); text-transform: uppercase; margin: 0 0 8px;
+  display: flex; align-items: baseline; gap: 8px;
+  cursor: pointer; user-select: none;
+  transition: color .2s ease;
 }
+.entry-group h3:hover { color: var(--ink-soft); }
+.entry-group h3 .gcount { font-weight: 400; letter-spacing: 0; text-transform: none; }
+.entry-group h3 .gchev {
+  margin-left: auto; font-size: 12px;
+  transition: transform .3s var(--ease-natural), color .2s ease;
+}
+.entry-group.open h3 .gchev { transform: rotate(90deg); color: var(--accent); }
+/* 分组内容折叠：grid 行动画，自然展开收起 */
+.group-items {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows .38s var(--ease-natural);
+}
+.group-items > .group-inner { overflow: hidden; min-height: 0; }
+.entry-group.open .group-items { grid-template-rows: 1fr; }
 .entry {
   display: flex; gap: 10px;
   padding: 8px; margin: 0 -8px; border-radius: 8px;
@@ -485,9 +502,15 @@ footer a:hover { color: var(--accent); }
         var g = it.group || '其他';
         (groups[g] = groups[g] || []).push(it);
       });
+      var DEFAULT_OPEN = ['站点', '大项目'];
       var html = '';
       Object.keys(groups).forEach(function (g) {
-        html += '<div class="entry-group reveal"><h3>' + esc(g) + '</h3>';
+        var openCls = DEFAULT_OPEN.indexOf(g) >= 0 ? ' open' : '';
+        html += '<div class="entry-group reveal' + openCls + '">'
+          + '<h3 class="group-head">' + esc(g)
+          + '<span class="gcount">' + groups[g].length + ' 个</span>'
+          + '<span class="gchev">›</span></h3>'
+          + '<div class="group-items"><div class="group-inner">';
         groups[g].forEach(function (it) {
           html += '<div class="entry">'
             + '<span class="ico">' + esc(it.emoji || '·') + '</span>'
@@ -500,12 +523,18 @@ footer a:hover { color: var(--accent); }
             + (it.desc ? '<div class="entry-detail"><span class="desc">' + esc(it.desc) + '</span></div>' : '')
             + '</div></div>';
         });
-        html += '</div>';
+        html += '</div></div></div>';
       });
       document.getElementById('entries').innerHTML = html;
       /* 动态渲染的入口同样渐入 */
       document.querySelectorAll('#entries .reveal').forEach(function (el) {
         el.classList.add('visible');
+      });
+      /* 分组折叠：点击组名切换 */
+      document.querySelectorAll('#entries .group-head').forEach(function (el) {
+        el.addEventListener('click', function () {
+          el.closest('.entry-group').classList.toggle('open');
+        });
       });
       /* 触屏设备：点按条目切换展开（点链接仍正常跳转） */
       document.querySelectorAll('#entries .entry').forEach(function (el) {
