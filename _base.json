@@ -132,5 +132,15 @@
       "llm-gateway-lite",
       "word-mail-merge-batch-sender"
     ]
-  }
+  },
+  "private_repos": [
+    "DataLens",
+    "minimax-h3-dgx-spark",
+    "pc-doctor",
+    "openclaw-scholar-pack",
+    "dsh-plugin-asmemory",
+    "openai-compatible-proxy",
+    "llm-gateway-lite",
+    "word-mail-merge-batch-sender"
+  ]
 }
