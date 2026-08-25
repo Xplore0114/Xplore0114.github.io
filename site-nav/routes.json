@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-08-25T10:56:27.194880+00:00",
+    "generated_at": "2026-08-25T11:39:02.932191+00:00",
     "items": [
         {
             "desc": "大模型论文追踪·公司研究动态·论文速览",
@@ -65,30 +65,39 @@
             "group": "大项目"
         },
         {
+            "desc": "Action-State Memory Engine: typed time-series memory (states + actions) with trend/anomaly/causal analysis for DeepSeek Harness",
+            "badge": "Python",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/dsh-plugin-asmemory",
+            "emoji": "🐍",
+            "title": "dsh-plugin-asmemory",
+            "group": "Agent 技能"
+        },
+        {
+            "desc": "个人 Agent Skills 工具箱（WorkBuddy / Claude Code 可复用技能）",
+            "badge": "JavaScript",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/Xplore-LAB-skills",
+            "emoji": "🟨",
+            "title": "Xplore-LAB-skills",
+            "group": "Agent 技能"
+        },
+        {
             "desc": "🩺💻 Claude Code 电脑健康检查技能：快速/深度双模式，保守阈值，只读安全",
-            "badge": "私有",
+            "badge": "Shell",
             "featured": false,
             "path": "https://github.com/Xplore-LAB/pc-doctor",
-            "emoji": "🔒",
+            "emoji": "🐚",
             "title": "pc-doctor",
             "group": "Agent 技能"
         },
         {
             "desc": "OpenClaw 学术技能包：面向科研场景的 Agent 技能合集",
-            "badge": "私有",
+            "badge": "JavaScript",
             "featured": false,
             "path": "https://github.com/Xplore-LAB/openclaw-scholar-pack",
-            "emoji": "🔒",
+            "emoji": "🟨",
             "title": "openclaw-scholar-pack",
-            "group": "Agent 技能"
-        },
-        {
-            "desc": "私有仓库，暂未公开",
-            "badge": "私有",
-            "featured": false,
-            "path": "https://github.com/Xplore-LAB/dsh-plugin-asmemory",
-            "emoji": "🔒",
-            "title": "dsh-plugin-asmemory",
             "group": "Agent 技能"
         },
         {
