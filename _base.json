@@ -41,5 +41,24 @@
     "openclaw-scholar-pack": "OpenClaw 学术技能包：面向科研场景的 Agent 技能合集",
     "word-mail-merge-batch-sender": "Word + Outlook VBA 批量邮件工具：按 Excel 每行数据生成邮件并附对应附件",
     "openai-compatible-proxy": "几分钟内把任意 LLM API 转成 OpenAI 兼容端点"
+  },
+  "repo_groups": {
+    "大项目": [
+      "llm-tracker",
+      "tech-news",
+      "DataLens",
+      "OKC-SFT-Dataset",
+      "minimax-h3-dgx-spark"
+    ],
+    "Agent 技能": [
+      "pc-doctor",
+      "openclaw-scholar-pack",
+      "dsh-plugin-asmemory"
+    ],
+    "小工具": [
+      "openai-compatible-proxy",
+      "llm-gateway-lite",
+      "word-mail-merge-batch-sender"
+    ]
   }
 }
