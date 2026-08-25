@@ -42,9 +42,14 @@ def fetch_repos():
         return json.load(resp)
 
 
-def repo_to_item(r):
+# 分组展示顺序（未匹配的组排最后）
+GROUP_ORDER = ["站点", "大项目", "Agent 技能", "小工具", "外部链接", "开源项目"]
+
+
+def repo_to_item(r, name_to_group=None):
     lang = r.get("language") or ""
     desc = (r.get("description") or "").strip()
+    group = (name_to_group or {}).get(r["name"], "开源项目")
     return {
         "desc": desc or "暂无描述，点击查看仓库详情",
         "badge": lang or "Repo",
@@ -52,7 +57,7 @@ def repo_to_item(r):
         "path": r["html_url"],
         "emoji": LANG_EMOJI.get(lang, "📦"),
         "title": r["name"],
-        "group": "开源项目",
+        "group": group,
     }
 
 
@@ -68,7 +73,9 @@ def main():
 
     featured = set(base.get("featured_repos", []))
     desc_overrides = base.get("desc_overrides", {})
-    auto_items = [repo_to_item(r) for r in repos]
+    repo_groups = base.get("repo_groups", {})
+    name_to_group = {name: g for g, names in repo_groups.items() for name in names}
+    auto_items = [repo_to_item(r, name_to_group) for r in repos]
     for item in auto_items:
         if item["title"] in featured:
             item["featured"] = True
@@ -76,6 +83,10 @@ def main():
             item["desc"] = desc_overrides[item["title"]]
 
     items = list(base.get("items", [])) + auto_items
+
+    # 稳定排序：按 GROUP_ORDER 组序展示，组内保持原顺序
+    order = {g: i for i, g in enumerate(GROUP_ORDER)}
+    items.sort(key=lambda it: order.get(it.get("group"), len(order)))
 
     # 幂等检查：仓库列表没变就不动文件，避免每日无意义提交
     if os.path.exists(OUT_PATH):
