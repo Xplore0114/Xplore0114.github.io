@@ -32,7 +32,7 @@ kramdown:
   input: GFM
 
 # Featured Tags
-featured-tags: true
+featured-tags: false
 featured-condition-size: 1
 
 # Progressive Web Apps
