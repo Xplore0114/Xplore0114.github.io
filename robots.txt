@@ -1,0 +1,3 @@
+# llm-tracker 站点内容不开放索引与抓取（含搜索引擎与 AI 训练爬虫）
+User-agent: *
+Disallow: /llm-tracker/
