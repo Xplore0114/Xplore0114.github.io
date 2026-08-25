@@ -2,7 +2,6 @@
 title: Kevin's Blog
 SEOTitle: Kevin | AI 应用开发 & 工业数据智能
 header-img: img/home-bg-geek.jpg
-email: contact@example.com
 description: "将 AI 技术落地到实际工业场景，实现从研究到产品的完整闭环。"
 keyword: "Kevin,AI,NL2SQL,工业智能,大模型,Qwen"
 url: "https://xplore-lab.github.io"
@@ -11,7 +10,7 @@ baseurl: ""
 # Sidebar settings
 sidebar: true
 sidebar-about-description: "浙江大学控制工程硕士 | AI 应用开发 | 工业数据智能"
-sidebar-avatar: /img/Avatar.jpg
+sidebar-avatar: /img/avatar.svg
 
 # SNS settings
 RSS: false
@@ -39,11 +38,3 @@ featured-condition-size: 1
 # Progressive Web Apps
 chrome-tab-theme-color: "#000000"
 service-worker: true
-
-# Friends
-friends: [
-    {
-        title: "GitHub",
-        href: "https://github.com/Xplore-LAB"
-    }
-]
