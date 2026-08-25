@@ -191,7 +191,13 @@ h2.section-title .count { font-family: var(--sans); font-size: 13px; font-weight
   flex-shrink: 0; font-size: 11px; color: var(--accent);
   border: 1px solid rgba(14,165,233,.4); border-radius: 99px; padding: 0 8px;
 }
-.entry-main { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+.entry-main { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; flex: 1; }
+.entry .chev {
+  margin-left: auto; flex-shrink: 0;
+  font-size: 13px; color: var(--ink-faint);
+  transition: transform .25s ease, color .2s ease;
+}
+.entry:hover .chev, .entry.expanded .chev { transform: rotate(90deg); color: var(--accent); }
 /* 详情默认收起，悬停或点按展开 */
 .entry-detail {
   max-height: 0; opacity: 0; overflow: hidden;
@@ -470,7 +476,7 @@ footer a:hover { color: var(--accent); }
       var items = Array.isArray(data.items) ? data.items : [];
       var meta = document.getElementById('entries-meta');
       var gen = data.generated_at ? new Date(data.generated_at).toLocaleString('zh-CN') : '-';
-      meta.textContent = '共 ' + items.length + ' 个入口 · 最近生成 ' + gen;
+      meta.textContent = '共 ' + items.length + ' 个入口 · 最近生成 ' + gen + ' · 悬停条目查看详情';
       document.getElementById('entries-count').textContent = items.length ? items.length + ' 个' : '';
       var groups = {};
       items.forEach(function (it) {
@@ -487,6 +493,7 @@ footer a:hover { color: var(--accent); }
             + '<span class="entry-main">'
             + '<a href="' + esc(it.path) + '" target="_blank" rel="noopener">' + esc(it.title) + '</a>'
             + (it.badge ? '<span class="badge">' + esc(it.badge) + '</span>' : '')
+            + '<span class="chev">›</span>'
             + '</span>'
             + (it.desc ? '<div class="entry-detail"><span class="desc">' + esc(it.desc) + '</span></div>' : '')
             + '</div></div>';
