@@ -125,7 +125,8 @@
     "Agent 技能": [
       "pc-doctor",
       "openclaw-scholar-pack",
-      "dsh-plugin-asmemory"
+      "dsh-plugin-asmemory",
+      "Xplore-LAB-skills"
     ],
     "小工具": [
       "openai-compatible-proxy",
@@ -136,9 +137,6 @@
   "private_repos": [
     "DataLens",
     "minimax-h3-dgx-spark",
-    "pc-doctor",
-    "openclaw-scholar-pack",
-    "dsh-plugin-asmemory",
     "openai-compatible-proxy",
     "llm-gateway-lite",
     "word-mail-merge-batch-sender"
