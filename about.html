@@ -1,48 +1,251 @@
 ---
-layout: page
-title: "About"
-description: "Hey, I'm Kevin."
-header-img: "img/post-bg-rwd.jpg"
+title: About
 ---
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About | Kevin</title>
+<meta name="description" content="Kevin：浙江大学控制工程硕士，AI 应用开发与工业数据智能。">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+:root {
+  --accent: #0ea5e9;
+  --accent-deep: #6366f1;
+  --ink: #24292f;
+  --ink-soft: #57606a;
+  --ink-faint: #8b949e;
+  --line: #e5e9ee;
+  --wash: #f6f8fa;
+  --ease-natural: cubic-bezier(0.22, 1, 0.36, 1);
+  --serif: Georgia, "Times New Roman", "Songti SC", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: rgba(14,165,233,.18); }
+#progress {
+  position: fixed; top: 0; left: 0; z-index: 20;
+  height: 2px; width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-deep));
+}
+.page { max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+nav {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 28px 0 0;
+}
+.wordmark {
+  font-family: var(--serif); font-size: 20px; font-weight: 700;
+  color: var(--ink); text-decoration: none;
+}
+.nav-links { display: flex; gap: 22px; }
+.nav-links a {
+  color: var(--ink-soft); text-decoration: none; font-size: 15px;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1.5px; background-repeat: no-repeat; background-position: left 96%;
+  transition: background-size .3s var(--ease-natural), color .2s ease;
+  padding-bottom: 2px;
+}
+.nav-links a:hover { color: var(--ink); background-size: 100% 1.5px; }
 
-<div class="zh post-container">
+header.about-hero { padding: 64px 0 30px; display: flex; gap: 22px; align-items: center; }
+.about-hero .avatar {
+  width: 84px; height: 84px; border-radius: 50%;
+  box-shadow: 0 4px 18px rgba(14,165,233,.28); flex-shrink: 0;
+}
+.about-hero h1 {
+  font-family: var(--serif); font-size: clamp(30px, 6vw, 40px);
+  margin: 0 0 6px;
+}
+.about-hero .role { margin: 0; font-size: 14px; color: var(--ink-faint); letter-spacing: .04em; }
 
-    <blockquote><p>将 AI 技术落地到实际工业场景，实现从研究到产品的完整闭环。</p></blockquote>
+.motto {
+  margin: 0 0 8px; padding: 14px 18px;
+  border-left: 3px solid var(--accent); background: var(--wash);
+  border-radius: 0 8px 8px 0;
+  color: var(--ink-soft); font-size: 15px;
+}
+.intro { color: var(--ink); }
 
-    <p>Hi，我是 <strong>Kevin</strong>，浙江大学控制工程专业硕士在读，专注于 AI 应用开发与工业数据智能。</p>
+section { padding: 26px 0 4px; }
+h2.section-title {
+  font-family: var(--serif); font-size: 22px; font-weight: 700;
+  margin: 0 0 16px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+ul.plain { list-style: none; margin: 0; padding: 0; }
+ul.plain li { padding: 7px 0; border-bottom: 1px dashed var(--line); }
+ul.plain li:last-child { border-bottom: none; }
+ul.plain .lead { color: var(--ink); }
+ul.plain .sub { color: var(--ink-faint); font-size: 14px; }
+ul.plain .metric { color: var(--accent); font-size: 14px; }
 
-    <h5>教育背景</h5>
-    <ul>
-        <li>🎓 <strong>浙江大学</strong> 国家卓越工程师学院 控制工程专业（研究生）</li>
-        <li>🎓 <strong>北京科技大学</strong> 高等工程师学院 自动化专业（本科）</li>
+.cat { margin-bottom: 14px; }
+.cat h3 { font-size: 14px; font-weight: 600; margin: 0 0 4px; color: var(--ink); }
+.cat p { margin: 0; font-size: 15px; color: var(--ink-soft); }
+
+footer {
+  margin-top: 60px; padding-top: 22px;
+  border-top: 1px solid var(--line);
+  font-size: 13px; color: var(--ink-faint);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+footer a { color: var(--ink-soft); text-decoration: none; }
+footer a:hover { color: var(--accent); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.js .reveal { opacity: 0; transform: translateY(10px); transition: opacity .6s var(--ease-natural), transform .6s var(--ease-natural); }
+.js .reveal.visible { opacity: 1; transform: none; }
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .nav-links { gap: 16px; }
+  header.about-hero { padding: 44px 0 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<div class="page">
+  <nav>
+    <a class="wordmark" href="/">Kevin</a>
+    <div class="nav-links">
+      <a href="/tags/">Writing</a>
+      <a href="/about/">About</a>
+      <a href="https://github.com/Xplore-LAB">GitHub</a>
+    </div>
+  </nav>
+
+  <header class="about-hero">
+    <img class="avatar" src="/img/avatar.svg" alt="Kevin 字母标识头像">
+    <div>
+      <h1>Kevin</h1>
+      <p class="role">浙江大学控制工程硕士 · AI 应用开发 · 工业数据智能</p>
+    </div>
+  </header>
+
+  <p class="motto reveal">将 AI 技术落地到实际工业场景，实现从研究到产品的完整闭环。</p>
+  <p class="intro reveal">Hi，我是 Kevin，浙江大学控制工程专业硕士在读，专注于 AI 应用开发与工业数据智能，目前在腾讯从事 LLM 方向研究。</p>
+
+  <section class="reveal">
+    <h2 class="section-title">教育经历</h2>
+    <ul class="plain">
+      <li><span class="lead">浙江大学</span> <span class="sub">国家卓越工程师学院 · 控制工程（硕士）</span></li>
+      <li><span class="lead">北京科技大学</span> <span class="sub">高等工程师学院 · 自动化（本科）</span></li>
     </ul>
+  </section>
 
-    <h5>技术能力</h5>
-    <ul>
-        <li>🤖 <strong>AI 工程：</strong>Qwen 系列模型本地部署、NL2SQL、Prompt 优化、结构化推理、LangGraph Agent 编排</li>
-        <li>⚙️ <strong>后端开发：</strong>Python、PostgreSQL、FastAPI、OAuth2 + JWT 权限控制</li>
-        <li>💻 <strong>前端开发：</strong>Vue3、TypeScript、Flutter 跨平台开发</li>
-        <li>🏭 <strong>工业场景：</strong>时序数据处理、异常诊断、优化建议生成、CFD 仿真</li>
+  <section class="reveal">
+    <h2 class="section-title">技术能力</h2>
+    <div class="cat">
+      <h3>AI 工程</h3>
+      <p>Qwen 系列模型本地部署、NL2SQL、Prompt 优化、结构化推理、LangGraph Agent 编排</p>
+    </div>
+    <div class="cat">
+      <h3>后端开发</h3>
+      <p>Python、PostgreSQL、FastAPI、OAuth2 + JWT 权限控制</p>
+    </div>
+    <div class="cat">
+      <h3>前端开发</h3>
+      <p>Vue3、TypeScript、Flutter 跨平台开发</p>
+    </div>
+    <div class="cat">
+      <h3>工业场景</h3>
+      <p>时序数据处理、异常诊断、优化建议生成、CFD 仿真</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2 class="section-title">项目与研究</h2>
+    <ul class="plain">
+      <li>
+        <span class="lead">气体运营数据 NL2SQL 查询引擎</span>
+        <span class="metric">98% 可执行率</span><br>
+        <span class="sub">基于 Qwen 的端到端自然语言查询系统，覆盖 10 表 / 307 字段 / 90 万行工业数据</span>
+      </li>
+      <li>
+        <span class="lead">OKC-SFT 工业诊断微调</span>
+        <span class="metric">幻觉率 34.4% → 15.6%</span><br>
+        <span class="sub">空分装置异常工况处置的操作知识链监督微调，一作论文投稿 CAC 2026 在审，<a href="https://github.com/Xplore-LAB/OKC-SFT-Dataset">数据集开源</a></span>
+      </li>
+      <li>
+        <span class="lead">空分装置运行诊断与优化系统</span><br>
+        <span class="sub">LangGraph Agent 驱动的工业时序数据诊断与优化建议生成</span>
+      </li>
+      <li>
+        <span class="lead">DataLens</span><br>
+        <span class="sub">工业控制性能分析工具，单文件离线运行，CSV 导入即分析</span>
+      </li>
+      <li>
+        <span class="lead">数据中心能耗模型研究</span><br>
+        <span class="sub">CFD 仿真与机器学习结合的能耗优化研究</span>
+      </li>
     </ul>
+  </section>
 
-    <h5>核心项目</h5>
-    <ul>
-        <li><strong>气体运营数据自然语言查询引擎</strong> — 基于 Qwen 的 NL2SQL 系统，查询准确率 90%+</li>
-        <li><strong>空分装置运行诊断与优化系统</strong> — LangGraph Agent 驱动的工业时序数据诊断与优化建议生成</li>
-        <li><strong>DataLens</strong> — 工业控制性能分析工具，单文件离线运行，CSV 导入即分析</li>
-        <li><strong>数据中心能耗模型研究</strong> — CFD 仿真 + 机器学习的能耗优化研究</li>
+  <section class="reveal">
+    <h2 class="section-title">荣誉奖项</h2>
+    <ul class="plain">
+      <li><span class="lead">浙江大学优秀研究生、优秀研究生干部、优秀团干部</span></li>
+      <li><span class="lead">全国大学生数学建模竞赛</span> <span class="sub">省级一等奖</span></li>
+      <li><span class="lead">中国国际飞行器设计挑战赛</span> <span class="sub">全国三等奖</span></li>
     </ul>
+  </section>
 
-    <h5>获奖经历</h5>
-    <ul>
-        <li>🏆 浙江大学优秀研究生、优秀研究生干部、优秀团干部</li>
-        <li>🥇 全国大学生数学建模竞赛 省级一等奖</li>
-        <li>🥉 中国国际飞行器设计挑战赛 全国三等奖</li>
+  <section class="reveal">
+    <h2 class="section-title">联系</h2>
+    <ul class="plain">
+      <li><span class="lead"><a href="https://github.com/Xplore-LAB">GitHub · Xplore-LAB</a></span> <span class="sub">项目与代码都在这里</span></li>
     </ul>
+  </section>
 
-    <h5>联系方式</h5>
-    <ul>
-        <li>🐙 <a href="https://github.com/Xplore-LAB">GitHub</a></li>
-    </ul>
-
+  <footer>
+    <span>© 2026 Kevin</span>
+    <span><a href="/">Home</a> · <a href="/tags/">Writing</a> · <a href="https://github.com/Xplore-LAB">GitHub</a></span>
+  </footer>
 </div>
+
+{% raw %}
+<script>
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  if (reduced || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(function (el, i) {
+      el.style.transitionDelay = (i % 6) * 60 + 'ms';
+      io.observe(el);
+    });
+  }
+  var progress = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  }
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+{% endraw %}
+</body>
+</html>
