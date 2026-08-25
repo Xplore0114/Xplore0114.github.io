@@ -1,393 +1,422 @@
 ---
-layout: page
-description: "Kevin — AI 应用开发 & 工业数据智能"
+title: Kevin | AI 应用开发 & 工业数据智能
+description: 浙江大学控制工程硕士，专注工业场景的 LLM 工程化。NL2SQL、OKC-SFT、llm-tracker。
 ---
-
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kevin | AI 应用开发 & 工业数据智能</title>
+<meta name="description" content="浙江大学控制工程硕士，专注工业场景的 LLM 工程化。NL2SQL、OKC-SFT、llm-tracker。">
+<meta property="og:title" content="Kevin | AI 应用开发 & 工业数据智能">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xplore-lab.github.io/">
+<script>document.documentElement.classList.add('js');</script>
 <style>
-  .hero {
-    text-align: center;
-    padding: 50px 0 40px;
-    background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
-    border-radius: 12px;
-    margin-bottom: 30px;
-  }
-  .hero h1 { font-size: 28px; font-weight: 600; margin-bottom: 10px; color: #1a1a2e; }
-  .hero p { color: #666; font-size: 15px; line-height: 1.6; }
-  .hero .tags { margin-top: 16px; }
-  .hero .tag {
-    display: inline-block;
-    background: #e8f0fe;
-    color: #1a73e8;
-    padding: 5px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    margin: 0 4px 8px 0;
-    font-weight: 500;
-  }
+:root {
+  --accent: #0ea5e9;
+  --accent-deep: #6366f1;
+  --ink: #24292f;
+  --ink-soft: #57606a;
+  --ink-faint: #8b949e;
+  --line: #e5e9ee;
+  --wash: #f6f8fa;
+  --serif: Georgia, "Times New Roman", "Songti SC", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: rgba(14,165,233,.18); }
 
-  .about-section { max-width: 700px; margin: 0 auto; text-align: left; }
-  .about-section h2 { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
-  .about-section p { color: #555; font-size: 14px; line-height: 1.8; }
-  .about-section .highlight { background: #fff3cd; padding: 2px 6px; border-radius: 4px; }
+/* 背景层：粒子画布 + 鼠标光斑 */
+#bg-canvas {
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none; opacity: .55;
+}
+#spotlight {
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(560px circle at var(--mx, 50%) var(--my, 20%), rgba(14,165,233,.07), transparent 62%);
+}
+/* 顶部阅读进度条 */
+#progress {
+  position: fixed; top: 0; left: 0; z-index: 20;
+  height: 2px; width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-deep));
+}
 
-  .tech-stack { text-align: center; margin: 30px 0; }
-  .tech-stack img { margin: 4px 3px; }
+.page { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
 
-  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 700px; margin: 30px auto; }
-  .stats-grid img { width: 100%; border-radius: 8px; }
+/* 导航 */
+nav {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 28px 0 0;
+}
+.wordmark {
+  font-family: var(--serif); font-size: 20px; font-weight: 700;
+  color: var(--ink); text-decoration: none; letter-spacing: .02em;
+}
+.nav-links { display: flex; gap: 22px; }
+.nav-links a {
+  color: var(--ink-soft); text-decoration: none; font-size: 15px;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1.5px; background-repeat: no-repeat; background-position: left 96%;
+  transition: background-size .25s ease, color .2s ease;
+  padding-bottom: 2px;
+}
+.nav-links a:hover { color: var(--ink); background-size: 100% 1.5px; }
 
-  .repo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: 24px; }
-  .repo-card { border: 1px solid #eee; border-radius: 10px; padding: 16px; text-decoration: none; color: inherit; transition: box-shadow .2s; }
-  .repo-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); }
-  .repo-card h3 { margin: 0 0 6px; font-size: 16px; font-weight: 600; }
-  .repo-card h3 a { color: #1a73e8; text-decoration: none; }
-  .repo-card .desc { font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 8px; }
-  .repo-card .meta { font-size: 12px; color: #999; }
+/* Hero */
+header.hero { padding: 88px 0 40px; }
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(38px, 7vw, 52px);
+  line-height: 1.15; margin: 0 0 10px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-deep), var(--accent));
+  background-size: 220% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation: hue 9s linear infinite;
+}
+@keyframes hue { to { background-position: 220% 0; } }
+.hero .role { font-size: 15px; color: var(--ink-faint); letter-spacing: .06em; margin: 0 0 26px; }
+.hero p.intro { margin: 0 0 14px; color: var(--ink); }
+.hero p.intro a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(14,165,233,.35); }
+.hero .meta { font-size: 14px; color: var(--ink-faint); margin-top: 22px; }
+.hero .meta span + span::before { content: "·"; margin: 0 8px; }
 
-  .section-title { margin: 40px 0 16px; font-size: 20px; font-weight: 600; }
-  .section-desc { color: #888; font-size: 14px; margin: -8px 0 0; }
+/* 区块 */
+section { padding: 34px 0 6px; }
+h2.section-title {
+  font-family: var(--serif); font-size: 22px; font-weight: 700;
+  margin: 0 0 20px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+h2.section-title .count { font-family: var(--sans); font-size: 13px; font-weight: 400; color: var(--ink-faint); margin-left: 8px; }
 
-  .links { text-align: center; margin-top: 32px; padding: 20px 0; }
-  .links a { display: inline-block; margin: 0 16px; color: #1a73e8; text-decoration: none; font-size: 15px; font-weight: 500; }
-  .links a:hover { text-decoration: underline; }
+/* 精选项目 */
+.project { padding: 14px 14px 14px 0; border-radius: 8px; transition: background .2s ease, transform .2s ease; }
+.project:hover { background: var(--wash); transform: translateX(4px); }
+.project h3 { margin: 0 0 4px; font-size: 17px; }
+.project h3 a { color: var(--ink); text-decoration: none; }
+.project h3 a:hover { color: var(--accent); }
+.project h3 .metric { font-size: 13px; font-weight: 400; color: var(--accent); margin-left: 8px; }
+.project p { margin: 0; font-size: 15px; color: var(--ink-soft); }
+.project .tags { margin-top: 6px; font-size: 13px; color: var(--ink-faint); }
+.project .tags span + span::before { content: "·"; margin: 0 6px; }
 
-  @media (max-width: 640px) {
-    .repo-grid { grid-template-columns: 1fr; }
-    .stats-grid { grid-template-columns: 1fr; }
-  }
+/* Writing 列表 */
+.post-list { list-style: none; margin: 0; padding: 0; }
+.post-list li {
+  display: flex; gap: 16px; align-items: baseline;
+  padding: 9px 0; border-bottom: 1px dashed var(--line);
+}
+.post-list li:last-child { border-bottom: none; }
+.post-list .date { font-size: 13px; color: var(--ink-faint); font-variant-numeric: tabular-nums; flex-shrink: 0; }
+.post-list a {
+  color: var(--ink); text-decoration: none;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1.5px; background-repeat: no-repeat; background-position: left 96%;
+  transition: background-size .25s ease, color .2s ease;
+}
+.post-list a:hover { color: var(--accent); background-size: 100% 1.5px; }
+.more-link { display: inline-block; margin-top: 14px; font-size: 14px; color: var(--accent); text-decoration: none; }
+.more-link:hover { text-decoration: underline; }
+.muted { color: var(--ink-faint); font-size: 15px; }
+
+/* 全部入口 */
+.entry-group { margin-bottom: 22px; }
+.entry-group h3 {
+  font-size: 13px; font-weight: 600; letter-spacing: .12em;
+  color: var(--ink-faint); text-transform: uppercase; margin: 0 0 8px;
+}
+.entry {
+  display: flex; gap: 10px; align-items: baseline;
+  padding: 7px 0; border-radius: 6px;
+  transition: background .2s ease, transform .2s ease;
+}
+.entry:hover { background: var(--wash); transform: translateX(4px); }
+.entry .ico { flex-shrink: 0; }
+.entry a { color: var(--ink); text-decoration: none; font-size: 15px; }
+.entry a:hover { color: var(--accent); }
+.entry .desc { font-size: 13px; color: var(--ink-faint); }
+.entry .badge {
+  flex-shrink: 0; font-size: 11px; color: var(--accent);
+  border: 1px solid rgba(14,165,233,.4); border-radius: 99px; padding: 0 8px;
+}
+.entry-main { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+#entries-meta { font-size: 13px; color: var(--ink-faint); margin: 0 0 18px; }
+
+/* 页脚 */
+footer {
+  margin-top: 60px; padding-top: 22px;
+  border-top: 1px solid var(--line);
+  font-size: 13px; color: var(--ink-faint);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+footer a { color: var(--ink-soft); text-decoration: none; }
+footer a:hover { color: var(--accent); }
+
+/* 滚动渐入：仅 JS 可用时先隐藏，避免无 JS 时内容不可见 */
+.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .55s ease, transform .55s ease; }
+.js .reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  header.hero { padding: 60px 0 30px; }
+  .nav-links { gap: 16px; }
+  #bg-canvas { opacity: .35; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero h1 { animation: none; background: none; -webkit-text-fill-color: var(--ink); color: var(--ink); }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
 </style>
+</head>
+<body>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+<div id="spotlight" aria-hidden="true"></div>
+<div id="progress" aria-hidden="true"></div>
 
-<!-- ===== 导航区块样式 (自动生成) ===== -->
-<style>
-.nav-wrap { width: min(1120px, 92vw); margin: 0 auto; padding: 40px 0 64px; }
-    .nav-hero {
-      background: linear-gradient(130deg, rgba(15,118,110,0.92), rgba(14,165,233,0.9));
-      border-radius: 20px; padding: 28px; color: #f8fafc; box-shadow: var(--nav-shadow);
-    }
-    .nav-hero h1 { margin: 0; font-size: clamp(28px, 4vw, 42px); letter-spacing: 0.01em; }
-    .nav-hero p { margin: 10px 0 0; opacity: 0.95; line-height: 1.65; }
-    .nav-hero .nav-meta { margin-top: 12px; font-size: 13px; opacity: 0.9; }
+<div class="page">
+  <nav>
+    <a class="wordmark" href="/">Kevin</a>
+    <div class="nav-links">
+      <a href="/tags/">Writing</a>
+      <a href="/about/">About</a>
+      <a href="https://github.com/Xplore-LAB">GitHub</a>
+    </div>
+  </nav>
 
-    .nav-section { margin-top: 24px; }
-    .nav-section-title { margin: 0 0 12px; font-size: 18px; display: flex; align-items: center; gap: 8px; }
-    .nav-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  <header class="hero">
+    <h1>Kevin</h1>
+    <p class="role">AI 应用开发 · 工业数据智能</p>
+    <p class="intro reveal">浙江大学控制工程硕士，专注把大语言模型用到真实工业场景。做过 90 万行工业数据库上的 NL2SQL 查询引擎（98% 可执行率），以一作发表 EI 论文 OKC-SFT（幻觉率 34.4% → 15.6%），目前在腾讯从事 LLM 方向研究。</p>
+    <p class="intro reveal">这里记录我的项目、文章，以及几个每天自动更新的小站，例如 <a href="https://xplore-lab.github.io/llm-tracker/">LLM Papers Tracker</a>。</p>
+    <p class="meta reveal"><span>杭州</span><span>浙江大学</span><span>腾讯实习</span></p>
+  </header>
 
-    .nav-card {
-      display: block; color: inherit; text-decoration: none; background: var(--nav-card);
-      border: 1px solid var(--nav-line); border-radius: 16px; overflow: hidden; box-shadow: var(--nav-shadow);
-      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-    }
-    .nav-card:hover { transform: translateY(-3px); border-color: #93c5fd; box-shadow: 0 14px 30px rgba(14, 116, 144, 0.18); }
+  <section id="projects">
+    <h2 class="section-title">精选项目</h2>
+    <div class="project reveal">
+      <h3>NL2SQL 工业查询引擎<span class="metric">98% 可执行率</span></h3>
+      <p>面向气体运营数据的端到端自然语言查询 Agent，覆盖 10 表 / 307 字段 / 90 万行。</p>
+      <div class="tags"><span>LLM Agent</span><span>Schema Linking</span><span>工业数据</span></div>
+    </div>
+    <div class="project reveal">
+      <h3><a href="https://github.com/Xplore-LAB/OKC-SFT-Dataset">OKC-SFT</a><span class="metric">幻觉率 34.4% → 15.6%</span></h3>
+      <p>空分装置异常工况诊断的 LLM 微调方法与数据集，EI 一作，含完整评测循环。</p>
+      <div class="tags"><span>SFT</span><span>工业诊断</span><span>EI 论文</span></div>
+    </div>
+    <div class="project reveal">
+      <h3><a href="https://github.com/Xplore-LAB/DataLens">DataLens</a><span class="metric">单文件离线运行</span></h3>
+      <p>工业控制性能分析工具，CSV 导入即分析，服务脱硝优化场景。</p>
+      <div class="tags"><span>数据可视化</span><span>HTML</span><span>工业控制</span></div>
+    </div>
+  </section>
 
-    .nav-thumb {
-      height: 86px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: flex-start;
-      background: linear-gradient(145deg, #e0f2fe, #ecfeff 55%, #dcfce7); border-bottom: 1px solid var(--nav-line);
-    }
-    .nav-thumb .nav-emoji { font-size: 26px; }
-    .nav-badge {
-      font-size: 12px; color: #155e75; background: rgba(255,255,255,0.78);
-      border: 1px solid #bae6fd; border-radius: 999px; padding: 3px 9px; white-space: nowrap;
-    }
+  <section id="writing">
+    <h2 class="section-title">Writing</h2>
+    {% if site.posts.size > 0 %}
+    <ul class="post-list">
+      {% for post in site.posts limit:5 %}
+      <li class="reveal">
+        <span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    <a class="more-link" href="/tags/">全部文章 →</a>
+    {% else %}
+    <p class="muted">文章筹备中，先看看下面的全部入口。</p>
+    {% endif %}
+  </section>
 
-    .nav-content { padding: 14px; }
-    .nav-title { font-size: 18px; font-weight: 700; margin: 0; }
-    .nav-desc { margin: 8px 0 10px; color: var(--nav-muted); line-height: 1.6; min-height: 48px; }
-    .nav-url {
-      font-size: 12px; color: #334155; background: #f8fafc; border: 1px solid var(--nav-line);
-      border-radius: 8px; padding: 4px 8px; display: inline-block;
-    }
+  <section id="all-entries">
+    <h2 class="section-title">全部入口<span class="count" id="entries-count"></span></h2>
+    <p id="entries-meta">加载中…</p>
+    <div id="entries"></div>
+  </section>
 
-    .nav-groups { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .nav-chip {
-      font-size: 12px; border-radius: 999px; border: 1px solid #cbd5e1;
-      background: var(--nav-chip); color: #334155; padding: 4px 10px; cursor: pointer; user-select: none;
-    }
-    .nav-chip.nav-active { background: #0f172a; color: #f8fafc; border-color: #0f172a; }
-
-    .nav-status { margin-top: 18px; font-size: 13px; color: var(--nav-muted); }
-    .nav-ok { color: var(--nav-ok); }
-    .nav-bad { color: var(--nav-bad); }
-
-    .nav-fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .nav-fade-in.nav-show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 700px) {
-      .nav-hero { padding: 20px; }
-      .nav-thumb { height: 78px; }
-    }
-  
-
-</style>
-<!-- ========== HERO ========== -->
-<div class="hero">
-  <h1>Kevin 👋</h1>
-  <p>浙江大学控制工程硕士 · AI 应用开发 & 工业数据智能</p>
-  <p>将大模型技术落地到实际工业场景，从研究到产品的完整闭环。</p>
-  <div class="tags">
-    <span class="tag">NL2SQL</span>
-    <span class="tag">工业数据智能</span>
-    <span class="tag">大模型工程化</span>
-    <span class="tag">LangGraph Agent</span>
-    <span class="tag">RAG</span>
-    <span class="tag">全栈开发</span>
-  </div>
+  <footer>
+    <span>© 2026 Kevin · 入口数据每日自动同步</span>
+    <span><a href="https://github.com/Xplore-LAB">GitHub</a> · <a href="/about/">About</a></span>
+  </footer>
 </div>
 
-<!-- ========== 关于我 ========== -->
-<div class="about-section">
-  <h2>🧑‍💻 关于我</h2>
-  <p>
-    我是一名专注于 <strong>AI 应用开发</strong> 和 <strong>工业数据智能</strong> 的研究生，核心方向是把大语言模型真正用到工业场景里——不是做 demo，而是跑在生产环境里解决问题。
-  </p>
-  <p>目前在做的两件事：</p>
-  <p>
-    🔹 <strong>NL2SQL 查询引擎</strong> — 让工程师用自然语言查工业数据库，不用写 SQL，准确率 > 90%<br>
-    🔹 <strong>空分装置智能诊断</strong> — 用 LangGraph 构建 Agent 流程，自动诊断设备异常并给出优化建议
-  </p>
-  <p>
-    从数据接入、模型部署、RAG 检索到前后端交付，我能独立走完 <span class="highlight">研究 → 产品 → 上线</span> 的全流程。
-  </p>
-</div>
-
-<!-- ========== 技术栈 ========== -->
-<div class="tech-stack">
-  <h2 style="font-size:20px;font-weight:600;margin-bottom:16px;">🛠️ 技术栈</h2>
-  <p>
-    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-    <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch" />
-    <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logoColor=white" alt="LangChain" />
-    <img src="https://img.shields.io/badge/Qwen-4FC08D?style=for-the-badge&logoColor=white" alt="Qwen" />
-    <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
-    <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-    <img src="https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white" alt="Vue.js" />
-    <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
-    <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter" />
-  </p>
-</div>
-
-<!-- ========== 🔬 大项目 ========== -->
-<h2 class="section-title">🔬 大项目</h2>
-<p class="section-desc">从研究到产品的核心系统，涵盖工业智能与性能分析。</p>
-<div class="repo-grid">
-  <div class="repo-card">
-    <h3><a href="https://github.com/Xplore-LAB/DataLens" target="_blank">DataLens</a></h3>
-    <div class="desc">工业控制性能分析工具。单文件离线运行，CSV 导入即分析，支持脱硝优化、空分节能等场景的数据可视化与性能评估，零依赖开箱即用。</div>
-    <div class="meta">HTML · 单文件离线 · MIT</div>
-  </div>
-  <div class="repo-card">
-    <h3>空分装置智能诊断与优化系统</h3>
-    <div class="desc">基于 LangGraph 设计节点化 Agent 流程，构建"数据质量门禁→特征提取→异常识别→证据链推理→优化建议"分层诊断链路，引入领域知识库 RAG + 机理约束推理。</div>
-    <div class="meta">LangGraph · Agent · 在研</div>
-  </div>
-  <div class="repo-card">
-    <h3>气体运营数据 NL2SQL 查询引擎</h3>
-    <div class="desc">基于 Qwen 的工业数据 NL2SQL 系统，设计多阶段推理链路（意图识别→Schema Linking→SQL生成→执行反馈），融合 RAG 检索增强与多轮对话，查询准确率 > 90%。</div>
-    <div class="meta">Python · Qwen · RAG · 校企联合研发</div>
-  </div>
-</div>
-
-<!-- ========== 📦 Skills ========== -->
-<h2 class="section-title">📦 Skills & 配置</h2>
-<p class="section-desc">OpenClaw 技能包与自动化配置集合。</p>
-<div class="repo-grid">
-  <div class="repo-card">
-    <h3><a href="https://github.com/Xplore-LAB/Xplore-LAB-skills" target="_blank">Xplore-LAB-skills</a></h3>
-    <div class="desc">个人 OpenClaw Skills 仓库。涵盖自动化工作流、知识管理、内容生成等自定义技能，持续迭代中。</div>
-    <div class="meta">Mermaid · OpenClaw</div>
-  </div>
-  <div class="repo-card">
-    <h3><a href="https://github.com/Xplore-LAB/OKC-SFT-Dataset" target="_blank">OKC-SFT-Dataset</a></h3>
-    <div class="desc">工业控制领域 SFT 数据集，用于大模型微调训练。</div>
-    <div class="meta">Shell · 数据集</div>
-  </div>
-</div>
-
-<!-- ========== 🛠️ 工具 ========== -->
-<h2 class="section-title">🛠️ 工具与效率</h2>
-<p class="section-desc">日常开发中打磨的实用工具，解决真实痛点。</p>
-<div class="repo-grid">
-  <div class="repo-card">
-    <h3><a href="https://github.com/Xplore-LAB/openai-compatible-proxy" target="_blank">openai-compatible-proxy</a></h3>
-    <div class="desc">将任意 LLM API 转换为 OpenAI 兼容端点。几分钟即可接入 DeepSeek、Qwen、Claude 等模型，无缝对接现有 OpenAI 生态工具链。</div>
-    <div class="meta">Python · ⭐ 1 · MIT</div>
-  </div>
-  <div class="repo-card">
-    <h3><a href="https://github.com/Xplore-LAB/llm-gateway-lite" target="_blank">llm-gateway-lite</a></h3>
-    <div class="desc">轻量级 Python LLM 网关。支持 OpenAI / DeepSeek / Qwen / Claude 多模型统一路由、负载均衡与费用监控，零配置快速启动。</div>
-    <div class="meta">Python · 多模型路由</div>
-  </div>
-  <div class="repo-card">
-    <h3><a href="https://github.com/Xplore-LAB/word-mail-merge-batch-sender" target="_blank">word-mail-merge-batch-sender</a></h3>
-    <div class="desc">Word + Outlook VBA 批量邮件工具。从 Excel 逐行读取数据，自动生成个性化邮件并附带独立附件，适合通知、对账、证书发放等场景。</div>
-    <div class="meta">VBA · ⭐ 1 · MIT</div>
-  </div>
-  <div class="repo-card">
-    <h3><a href="https://github.com/Xplore-LAB/tech-news" target="_blank">tech-news</a></h3>
-    <div class="desc">每日科技新闻自动聚合。定时抓取多源技术资讯，自动摘要与分类，支持推送到飞书/Telegram 等渠道。</div>
-    <div class="meta">Python · 自动更新</div>
-  </div>
-</div>
-
-<!-- ========== 📚 研究 ========== -->
-<h2 class="section-title">📚 研究背景</h2>
-<div class="repo-grid">
-  <div class="repo-card">
-    <h3>数据中心能耗模型</h3>
-    <div class="desc">CFD 仿真 + SVM/BP 神经网络黑箱模型，研究消除热点与降低能耗策略，发表相关学术论文。</div>
-    <div class="meta">机器学习 · CFD · 2021-2022</div>
-  </div>
-</div>
-
-
-<!-- ========== 🧭 全部入口 (导航页合并) ========== -->
-<h2 class="section-title" id="all-entries">🧭 全部入口</h2>
-<p class="section-desc" id="navMetaLine">正在加载导航数据...</p>
-
-<h3 class="nav-section-title">⭐ 推荐入口</h3>
-<div class="nav-grid" id="navFeaturedGrid"></div>
-
-<h3 class="nav-section-title">📂 全部页面</h3>
-<div class="nav-groups" id="navGroupChips"></div>
-<div class="nav-grid" id="navAllGrid"></div>
-<div class="nav-status" id="navStatusLine"></div>
-
-<!-- ========== 联系 ========== -->
-<div class="links">
-  <a href="https://github.com/Xplore-LAB" target="_blank">🐙 GitHub</a>
-  <a href="/about/">🙋 关于我</a>
-</div>
-
+{% raw %}
 <script>
-/* ===== 导航区块逻辑 (自动生成) ===== */
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia('(pointer: fine)').matches;
 
-    const navMetaLine = document.getElementById("navMetaLine");
-    const navFeaturedGrid = document.getElementById("navFeaturedGrid");
-    const navAllGrid = document.getElementById("navAllGrid");
-    const navGroupChips = document.getElementById("navGroupChips");
-    const navStatusLine = document.getElementById("navStatusLine");
-
-    let allItems = [];
-    let activeGroup = "全部";
-
-    function escapeHtml(text) {
-      return String(text)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#39;");
-    }
-
-    function normalizePath(path) {
-      if (/^https?:\/\//.test(path)) return path;
-      if (path.startsWith("/")) return path;
-      return "/" + path;
-    }
-
-    function cardHtml(item, index) {
-      const path = normalizePath(item.path || "/");
-      const safe = escapeHtml(path);
-      const isExternal = /^https?:\/\//.test(path);
-      const delay = index * 0.1;
-      return `
-        <a class="nav-card nav-fade-in" href="${safe}" style="transition-delay: ${delay}s" ${isExternal ? 'target="_blank" rel="noopener"' : ""}>
-          <div class="nav-thumb">
-            <div class="nav-emoji">${escapeHtml(item.emoji || "🔗")}</div>
-            <div class="nav-badge">${escapeHtml(item.badge || "页面")}</div>
-          </div>
-          <div class="nav-content">
-            <p class="nav-title">${escapeHtml(item.title || "未命名")}</p>
-            <p class="nav-desc">${escapeHtml(item.desc || "")}</p>
-            <span class="nav-url">${safe}</span>
-          </div>
-        </a>`;
-    }
-
-    function renderGroups(items) {
-      const groups = ["全部", ...Array.from(new Set(items.map(i => i.group || "其他")))];
-      navGroupChips.innerHTML = groups
-        .map(g => `<button class="nav-chip ${g === activeGroup ? "nav-active" : ""}" data-group="${escapeHtml(g)}">${escapeHtml(g)}</button>`)
-        .join("");
-
-      navGroupChips.querySelectorAll(".nav-chip").forEach(btn => {
-        btn.addEventListener("click", () => {
-          activeGroup = btn.dataset.group || "全部";
-          renderAll();
-          renderGroups(allItems);
-        });
-      });
-    }
-
-    function renderAll() {
-      const data = activeGroup === "全部"
-        ? allItems
-        : allItems.filter(i => (i.group || "其他") === activeGroup);
-      navAllGrid.innerHTML = data.map((item, index) => cardHtml(item, index)).join("");
-      document.querySelectorAll('.nav-fade-in').forEach(el => observer.observe(el));
-    }
-
-    async function checkRoute(path) {
-      const url = normalizePath(path);
-      if (/^https?:\/\//.test(url)) return { path: url, ok: true, code: "EXT" };
-      try {
-        const res = await fetch(url, { method: "HEAD", cache: "no-store" });
-        return { path: url, ok: res.ok, code: res.status };
-      } catch (_) {
-        return { path: url, ok: false, code: "ERR" };
-      }
-    }
-
-    async function loadRoutes() {
-      const resp = await fetch("./site-nav/routes.json", { cache: "no-store" });
-      if (!resp.ok) throw new Error("routes.json 加载失败");
-      return resp.json();
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('nav-show');
-        }
+  /* 滚动渐入 */
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  if (reduced || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
       });
     }, { threshold: 0.1 });
+    revealEls.forEach(function (el, i) {
+      el.style.transitionDelay = (i % 6) * 45 + 'ms';
+      io.observe(el);
+    });
+  }
 
-    document.querySelectorAll('.nav-fade-in').forEach(el => observer.observe(el));
+  /* 顶部阅读进度条 */
+  var progress = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  }
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-    (async function init() {
-      try {
-        const data = await loadRoutes();
-        allItems = Array.isArray(data.items) ? data.items : [];
+  /* 鼠标光斑（仅精确指针设备） */
+  if (finePointer && !reduced) {
+    var spot = document.getElementById('spotlight');
+    var tx = innerWidth / 2, ty = innerHeight * 0.2, cx = tx, cy = ty, raf = null;
+    function loop() {
+      cx += (tx - cx) * 0.12; cy += (ty - cy) * 0.12;
+      spot.style.setProperty('--mx', cx + 'px');
+      spot.style.setProperty('--my', cy + 'px');
+      raf = (Math.abs(tx - cx) > 0.5 || Math.abs(ty - cy) > 0.5) ? requestAnimationFrame(loop) : null;
+    }
+    document.addEventListener('mousemove', function (e) {
+      tx = e.clientX; ty = e.clientY;
+      if (!raf) raf = requestAnimationFrame(loop);
+    }, { passive: true });
+  }
 
-        const featured = allItems.filter(i => i.featured);
-        navFeaturedGrid.innerHTML = featured.map((item, index) => cardHtml(item, index)).join("");
+  /* 粒子背景：稀疏漂浮质点 + 邻近连线 */
+  if (!reduced) {
+    var canvas = document.getElementById('bg-canvas');
+    var ctx = canvas.getContext('2d');
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var W, H, pts = [], running = true;
+    var isMobile = window.matchMedia('(max-width: 640px)').matches;
+    var DENSITY = isMobile ? 42000 : 24000;
+    var LINK = isMobile ? 0 : 110;
 
-        renderGroups(allItems);
-        renderAll();
-
-        const gen = data.generated_at ? new Date(data.generated_at).toLocaleString("zh-CN") : "-";
-        navMetaLine.textContent = `共 ${allItems.length} 个入口 · 最近生成 ${gen}`;
-
-        const checks = await Promise.all(allItems.map(i => checkRoute(i.path)));
-        const bad = checks.filter(r => !r.ok);
-        if (bad.length === 0) {
-          navStatusLine.innerHTML = '<span class="nav-ok">可达性检查通过</span> · 页面链接正常';
-        } else {
-          navStatusLine.innerHTML = '<span class="nav-bad">部分页面不可访问：</span> ' + bad.map(r => `${r.path} (${r.code})`).join(", ");
-        }
-      } catch (err) {
-        navMetaLine.textContent = "导航数据加载失败";
-        navFeaturedGrid.innerHTML = "";
-        navAllGrid.innerHTML = "";
-        navStatusLine.innerHTML = '<span class="nav-bad">错误：</span>' + (err && err.message ? err.message : "未知错误");
+    function resize() {
+      W = canvas.width = innerWidth * dpr;
+      H = canvas.height = innerHeight * dpr;
+      canvas.style.width = innerWidth + 'px';
+      canvas.style.height = innerHeight + 'px';
+      var n = Math.min(isMobile ? 18 : 44, Math.floor(innerWidth * innerHeight / DENSITY));
+      pts = [];
+      for (var i = 0; i < n; i++) {
+        pts.push({
+          x: Math.random() * W, y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.14 * dpr,
+          vy: (Math.random() - 0.5) * 0.14 * dpr,
+          r: (Math.random() * 1.4 + 0.7) * dpr
+        });
       }
-    })();
-  
-</script>
+    }
+    function tick() {
+      if (!running) return;
+      ctx.clearRect(0, 0, W, H);
+      var i, j, p, q, dx, dy, d;
+      for (i = 0; i < pts.length; i++) {
+        p = pts[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(14,165,233,0.30)';
+        ctx.fill();
+      }
+      if (LINK) {
+        for (i = 0; i < pts.length; i++) {
+          for (j = i + 1; j < pts.length; j++) {
+            p = pts[i]; q = pts[j];
+            dx = p.x - q.x; dy = p.y - q.y; d = Math.sqrt(dx * dx + dy * dy);
+            if (d < LINK * dpr) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
+              ctx.strokeStyle = 'rgba(14,165,233,' + (0.07 * (1 - d / (LINK * dpr))) + ')';
+              ctx.lineWidth = dpr * 0.6;
+              ctx.stroke();
+            }
+          }
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+    document.addEventListener('visibilitychange', function () {
+      running = !document.hidden;
+      if (running) tick();
+    });
+    tick();
+  } else {
+    document.getElementById('bg-canvas').remove();
+    document.getElementById('spotlight').remove();
+  }
 
+  /* 全部入口：读取每日自动同步的 routes.json */
+  var esc = function (s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  };
+  fetch('./site-nav/routes.json', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error('load failed'); return r.json(); })
+    .then(function (data) {
+      var items = Array.isArray(data.items) ? data.items : [];
+      var meta = document.getElementById('entries-meta');
+      var gen = data.generated_at ? new Date(data.generated_at).toLocaleString('zh-CN') : '-';
+      meta.textContent = '共 ' + items.length + ' 个入口 · 最近生成 ' + gen;
+      document.getElementById('entries-count').textContent = items.length ? items.length + ' 个' : '';
+      var groups = {};
+      items.forEach(function (it) {
+        var g = it.group || '其他';
+        (groups[g] = groups[g] || []).push(it);
+      });
+      var html = '';
+      Object.keys(groups).forEach(function (g) {
+        html += '<div class="entry-group reveal"><h3>' + esc(g) + '</h3>';
+        groups[g].forEach(function (it) {
+          html += '<div class="entry">'
+            + '<span class="ico">' + esc(it.emoji || '·') + '</span>'
+            + '<span class="entry-main">'
+            + '<a href="' + esc(it.path) + '" target="_blank" rel="noopener">' + esc(it.title) + '</a>'
+            + (it.badge ? '<span class="badge">' + esc(it.badge) + '</span>' : '')
+            + (it.desc ? '<span class="desc">' + esc(it.desc) + '</span>' : '')
+            + '</span></div>';
+        });
+        html += '</div>';
+      });
+      document.getElementById('entries').innerHTML = html;
+      /* 动态渲染的入口同样渐入 */
+      document.querySelectorAll('#entries .reveal').forEach(function (el) {
+        el.classList.add('visible');
+      });
+    })
+    .catch(function () {
+      document.getElementById('entries-meta').textContent = '入口数据加载失败，请稍后刷新。';
+    });
+})();
+</script>
+{% endraw %}
+</body>
+</html>
