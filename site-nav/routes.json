@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-08-25T10:32:02.340301+00:00",
+    "generated_at": "2026-08-25T10:56:27.194880+00:00",
     "items": [
         {
             "desc": "大模型论文追踪·公司研究动态·论文速览",
@@ -20,6 +20,24 @@
             "group": "站点"
         },
         {
+            "desc": "🤖 大模型情报局 | 每日自动追踪 arXiv 前沿论文：13k+ 论文、34 个实验室、模型时间线与学习路径",
+            "badge": "HTML",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/llm-tracker",
+            "emoji": "🌐",
+            "title": "llm-tracker",
+            "group": "大项目"
+        },
+        {
+            "desc": "每日科技新闻自动聚合 - 多源抓取/自动摘要/定时更新",
+            "badge": "Python",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/tech-news",
+            "emoji": "🐍",
+            "title": "tech-news",
+            "group": "大项目"
+        },
+        {
             "desc": "SFT 指令微调数据集（详见仓库 README）",
             "badge": "Shell",
             "featured": false,
@@ -27,6 +45,78 @@
             "emoji": "🐚",
             "title": "OKC-SFT-Dataset",
             "group": "大项目"
+        },
+        {
+            "desc": "私有仓库，暂未公开",
+            "badge": "私有",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/DataLens",
+            "emoji": "🔒",
+            "title": "DataLens",
+            "group": "大项目"
+        },
+        {
+            "desc": "在 NVIDIA DGX Spark/GB10 上运行 MiniMax H3（文/图生视频带声音）：全容器化 ComfyUI v0.30.0 + NGC PyTorch 25.11，HTTP API 工作流",
+            "badge": "私有",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/minimax-h3-dgx-spark",
+            "emoji": "🔒",
+            "title": "minimax-h3-dgx-spark",
+            "group": "大项目"
+        },
+        {
+            "desc": "🩺💻 Claude Code 电脑健康检查技能：快速/深度双模式，保守阈值，只读安全",
+            "badge": "私有",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/pc-doctor",
+            "emoji": "🔒",
+            "title": "pc-doctor",
+            "group": "Agent 技能"
+        },
+        {
+            "desc": "OpenClaw 学术技能包：面向科研场景的 Agent 技能合集",
+            "badge": "私有",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/openclaw-scholar-pack",
+            "emoji": "🔒",
+            "title": "openclaw-scholar-pack",
+            "group": "Agent 技能"
+        },
+        {
+            "desc": "私有仓库，暂未公开",
+            "badge": "私有",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/dsh-plugin-asmemory",
+            "emoji": "🔒",
+            "title": "dsh-plugin-asmemory",
+            "group": "Agent 技能"
+        },
+        {
+            "desc": "几分钟内把任意 LLM API 转成 OpenAI 兼容端点",
+            "badge": "私有",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/openai-compatible-proxy",
+            "emoji": "🔒",
+            "title": "openai-compatible-proxy",
+            "group": "小工具"
+        },
+        {
+            "desc": "私有仓库，暂未公开",
+            "badge": "私有",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/llm-gateway-lite",
+            "emoji": "🔒",
+            "title": "llm-gateway-lite",
+            "group": "小工具"
+        },
+        {
+            "desc": "Word + Outlook VBA 批量邮件工具：按 Excel 每行数据生成邮件并附对应附件",
+            "badge": "私有",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/word-mail-merge-batch-sender",
+            "emoji": "🔒",
+            "title": "word-mail-merge-batch-sender",
+            "group": "小工具"
         },
         {
             "desc": "算法与数据结构系统教程，秋招刷题主线",
