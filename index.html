@@ -20,6 +20,7 @@
   --ink-faint: #8b949e;
   --line: #e5e9ee;
   --wash: #f6f8fa;
+  --ease-natural: cubic-bezier(0.22, 1, 0.36, 1);
   --serif: Georgia, "Times New Roman", "Songti SC", serif;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 }
@@ -69,7 +70,7 @@ nav {
   color: var(--ink-soft); text-decoration: none; font-size: 15px;
   background-image: linear-gradient(var(--accent), var(--accent));
   background-size: 0% 1.5px; background-repeat: no-repeat; background-position: left 96%;
-  transition: background-size .25s ease, color .2s ease;
+  transition: background-size .3s var(--ease-natural), color .2s ease;
   padding-bottom: 2px;
 }
 .nav-links a:hover { color: var(--ink); background-size: 100% 1.5px; }
@@ -84,9 +85,9 @@ header.hero { padding: 88px 0 40px; }
   background-size: 220% 100%;
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
-  animation: hue 9s linear infinite;
+  animation: hue 12s ease-in-out infinite alternate;
 }
-@keyframes hue { to { background-position: 220% 0; } }
+@keyframes hue { from { background-position: 0% 0; } to { background-position: 220% 0; } }
 .hero .role { font-size: 15px; color: var(--ink-faint); letter-spacing: .06em; margin: 0 0 26px; }
 .hero p.intro { margin: 0 0 14px; color: var(--ink); }
 .hero p.intro a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(14,165,233,.35); }
@@ -108,7 +109,7 @@ h2.section-title .count { font-family: var(--sans); font-size: 13px; font-weight
   width: 76px; height: 76px; border-radius: 50%;
   box-shadow: 0 4px 18px rgba(14,165,233,.28);
   flex-shrink: 0;
-  transition: transform .3s ease, box-shadow .3s ease;
+  transition: transform .38s var(--ease-natural), box-shadow .38s var(--ease-natural);
 }
 .hero-head .avatar:hover { transform: scale(1.06) rotate(-3deg); box-shadow: 0 8px 26px rgba(99,102,241,.35); }
 
@@ -136,7 +137,7 @@ h2.section-title .count { font-family: var(--sans); font-size: 13px; font-weight
   padding: 16px 18px; margin-bottom: 12px;
   border: 1px solid var(--line); border-left: 3px solid var(--accent);
   border-radius: 10px; background: #fff;
-  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  transition: transform .3s var(--ease-natural), box-shadow .3s var(--ease-natural), border-color .25s ease;
 }
 .project:hover {
   transform: translateY(-3px);
@@ -179,7 +180,7 @@ h2.section-title .count { font-family: var(--sans); font-size: 13px; font-weight
 .entry {
   display: flex; gap: 10px;
   padding: 8px; margin: 0 -8px; border-radius: 8px;
-  transition: background .2s ease;
+  transition: background .25s var(--ease-natural);
 }
 .entry:hover, .entry.expanded { background: var(--wash); }
 .entry .ico { flex-shrink: 0; line-height: 1.7; }
@@ -195,13 +196,13 @@ h2.section-title .count { font-family: var(--sans); font-size: 13px; font-weight
 .entry .chev {
   margin-left: auto; flex-shrink: 0;
   font-size: 13px; color: var(--ink-faint);
-  transition: transform .25s ease, color .2s ease;
+  transition: transform .3s var(--ease-natural), color .2s ease;
 }
 .entry:hover .chev, .entry.expanded .chev { transform: rotate(90deg); color: var(--accent); }
 /* 详情默认收起，悬停或点按展开 */
 .entry-detail {
   max-height: 0; opacity: 0; overflow: hidden;
-  transition: max-height .3s ease, opacity .25s ease, margin .3s ease;
+  transition: max-height .38s var(--ease-natural), opacity .3s ease .06s, margin .38s var(--ease-natural);
 }
 .entry:hover .entry-detail, .entry.expanded .entry-detail {
   max-height: 4.5em; opacity: 1; margin-top: 2px;
@@ -219,7 +220,7 @@ footer a { color: var(--ink-soft); text-decoration: none; }
 footer a:hover { color: var(--accent); }
 
 /* 滚动渐入：仅 JS 可用时先隐藏，避免无 JS 时内容不可见 */
-.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .55s ease, transform .55s ease; }
+.js .reveal { opacity: 0; transform: translateY(10px); transition: opacity .6s var(--ease-natural), transform .6s var(--ease-natural); }
 .js .reveal.visible { opacity: 1; transform: none; }
 
 @media (max-width: 640px) {
@@ -335,7 +336,7 @@ footer a:hover { color: var(--accent); }
       });
     }, { threshold: 0.1 });
     revealEls.forEach(function (el, i) {
-      el.style.transitionDelay = (i % 6) * 45 + 'ms';
+      el.style.transitionDelay = (i % 6) * 60 + 'ms';
       io.observe(el);
     });
   }
@@ -355,7 +356,7 @@ footer a:hover { color: var(--accent); }
     var spot = document.getElementById('spotlight');
     var tx = innerWidth / 2, ty = innerHeight * 0.2, cx = tx, cy = ty, raf = null;
     function loop() {
-      cx += (tx - cx) * 0.12; cy += (ty - cy) * 0.12;
+      cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
       spot.style.setProperty('--mx', cx + 'px');
       spot.style.setProperty('--my', cy + 'px');
       raf = (Math.abs(tx - cx) > 0.5 || Math.abs(ty - cy) > 0.5) ? requestAnimationFrame(loop) : null;
