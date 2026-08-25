@@ -102,9 +102,47 @@ h2.section-title {
 }
 h2.section-title .count { font-family: var(--sans); font-size: 13px; font-weight: 400; color: var(--ink-faint); margin-left: 8px; }
 
+/* Hero 头部：头像 + 姓名 */
+.hero-head { display: flex; align-items: center; gap: 22px; margin-bottom: 26px; }
+.hero-head .avatar {
+  width: 76px; height: 76px; border-radius: 50%;
+  box-shadow: 0 4px 18px rgba(14,165,233,.28);
+  flex-shrink: 0;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.hero-head .avatar:hover { transform: scale(1.06) rotate(-3deg); box-shadow: 0 8px 26px rgba(99,102,241,.35); }
+
+/* 数据带 */
+.stats {
+  display: flex; margin-top: 40px;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.stat { flex: 1; padding: 20px 4px 16px; text-align: center; }
+.stat + .stat { border-left: 1px solid var(--line); }
+.stat .num {
+  display: block; font-family: var(--serif); font-size: 30px; font-weight: 700;
+  font-variant-numeric: tabular-nums; color: var(--ink); line-height: 1.2;
+}
+.stat .label { display: block; font-size: 12px; color: var(--ink-faint); margin-top: 4px; letter-spacing: .02em; }
+@media (max-width: 640px) {
+  .stats { flex-wrap: wrap; }
+  .stat { flex: 0 0 50%; }
+  .stat:nth-child(3) { border-left: none; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+
 /* 精选项目 */
-.project { padding: 14px 14px 14px 0; border-radius: 8px; transition: background .2s ease, transform .2s ease; }
-.project:hover { background: var(--wash); transform: translateX(4px); }
+.project {
+  padding: 16px 18px; margin-bottom: 12px;
+  border: 1px solid var(--line); border-left: 3px solid var(--accent);
+  border-radius: 10px; background: #fff;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.project:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(36,41,47,.09);
+  border-left-color: var(--accent-deep);
+}
 .project h3 { margin: 0 0 4px; font-size: 17px; }
 .project h3 a { color: var(--ink); text-decoration: none; }
 .project h3 a:hover { color: var(--accent); }
@@ -199,11 +237,22 @@ footer a:hover { color: var(--accent); }
   </nav>
 
   <header class="hero">
-    <h1>Kevin</h1>
-    <p class="role">AI 应用开发 · 工业数据智能</p>
+    <div class="hero-head">
+      <img class="avatar" src="/img/avatar.svg" alt="Kevin 字母标识头像">
+      <div>
+        <h1>Kevin</h1>
+        <p class="role">AI 应用开发 · 工业数据智能</p>
+      </div>
+    </div>
     <p class="intro reveal">浙江大学控制工程硕士，专注把大语言模型用到真实工业场景。做过 90 万行工业数据库上的 NL2SQL 查询引擎（98% 可执行率），一作论文 OKC-SFT 投稿 CAC 2026 在审（幻觉率 34.4% → 15.6%），目前在腾讯从事 LLM 方向研究。</p>
     <p class="intro reveal">这里记录我的项目、文章，以及几个每天自动更新的小站，例如 <a href="https://xplore-lab.github.io/llm-tracker/">LLM Papers Tracker</a>。</p>
     <p class="meta reveal"><span>杭州</span><span>浙江大学</span><span>腾讯实习</span></p>
+    <div class="stats reveal">
+      <div class="stat"><span class="num" data-count="13" data-suffix="k+">0</span><span class="label">arXiv 论文日更追踪</span></div>
+      <div class="stat"><span class="num" data-count="34" data-suffix="">0</span><span class="label">覆盖 AI 实验室</span></div>
+      <div class="stat"><span class="num" data-count="98" data-suffix="%">0</span><span class="label">NL2SQL 可执行率</span></div>
+      <div class="stat"><span class="num" data-count="55" data-suffix="%">0</span><span class="label">幻觉率降幅</span></div>
+    </div>
   </header>
 
   <section id="projects">
@@ -309,7 +358,7 @@ footer a:hover { color: var(--accent); }
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     var W, H, pts = [], running = true;
     var isMobile = window.matchMedia('(max-width: 640px)').matches;
-    var DENSITY = isMobile ? 42000 : 24000;
+    var DENSITY = isMobile ? 30000 : 17000;
     var LINK = isMobile ? 0 : 110;
 
     function resize() {
@@ -317,7 +366,7 @@ footer a:hover { color: var(--accent); }
       H = canvas.height = innerHeight * dpr;
       canvas.style.width = innerWidth + 'px';
       canvas.style.height = innerHeight + 'px';
-      var n = Math.min(isMobile ? 18 : 44, Math.floor(innerWidth * innerHeight / DENSITY));
+      var n = Math.min(isMobile ? 24 : 60, Math.floor(innerWidth * innerHeight / DENSITY));
       pts = [];
       for (var i = 0; i < n; i++) {
         pts.push({
@@ -369,6 +418,35 @@ footer a:hover { color: var(--accent); }
   } else {
     document.getElementById('bg-canvas').remove();
     document.getElementById('spotlight').remove();
+  }
+
+  /* 数据带：滚动到可视区时数字递增 */
+  var counters = Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
+  function setFinal(el) {
+    el.textContent = el.getAttribute('data-count') + (el.getAttribute('data-suffix') || '');
+  }
+  function countUp(el) {
+    var target = parseFloat(el.getAttribute('data-count'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    var dur = 1300, t0 = null;
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if (reduced || !('IntersectionObserver' in window)) {
+    counters.forEach(setFinal);
+  } else {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { countUp(e.target); cio.unobserve(e.target); }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function (el) { cio.observe(el); });
   }
 
   /* 全部入口：读取每日自动同步的 routes.json */
