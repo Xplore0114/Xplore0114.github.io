@@ -82,6 +82,15 @@ def main():
         if item["title"] in desc_overrides:
             item["desc"] = desc_overrides[item["title"]]
 
+    # 安全护栏：已映射仓库必须全部抓到，否则判定 API 异常，终止而不覆盖现有文件
+    expected = set(name_to_group.keys())
+    fetched_names = {r["name"] for r in repos}
+    missing = expected - fetched_names
+    if missing:
+        print(f"[site-nav] 抓取异常：缺失 {len(missing)}/{len(expected)} 个已映射仓库: {sorted(missing)}")
+        print("[site-nav] 终止本次同步，不覆盖现有 routes.json")
+        sys.exit(1)
+
     items = list(base.get("items", [])) + auto_items
 
     # 稳定排序：按 GROUP_ORDER 组序展示，组内保持原顺序
