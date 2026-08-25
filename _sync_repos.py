@@ -82,14 +82,29 @@ def main():
         if item["title"] in desc_overrides:
             item["desc"] = desc_overrides[item["title"]]
 
-    # 安全护栏：已映射仓库必须全部抓到，否则判定 API 异常，终止而不覆盖现有文件
-    expected = set(name_to_group.keys())
+    # 安全护栏：已映射且未声明私有的仓库必须全部抓到，否则判定 API 异常，终止而不覆盖现有文件
+    private_repos = set(base.get("private_repos", []))
+    expected = set(name_to_group.keys()) - private_repos
     fetched_names = {r["name"] for r in repos}
     missing = expected - fetched_names
     if missing:
         print(f"[site-nav] 抓取异常：缺失 {len(missing)}/{len(expected)} 个已映射仓库: {sorted(missing)}")
         print("[site-nav] 终止本次同步，不覆盖现有 routes.json")
         sys.exit(1)
+
+    # 已声明私有的映射仓库：保留入口并标注「私有」，日后转公开自动恢复常规卡片
+    for g in GROUP_ORDER:
+        for name in repo_groups.get(g, []):
+            if name in private_repos and name not in fetched_names:
+                auto_items.append({
+                    "desc": desc_overrides.get(name, "私有仓库，暂未公开"),
+                    "badge": "私有",
+                    "featured": False,
+                    "path": f"https://github.com/{OWNER}/{name}",
+                    "emoji": "🔒",
+                    "title": name,
+                    "group": g,
+                })
 
     items = list(base.get("items", [])) + auto_items
 
