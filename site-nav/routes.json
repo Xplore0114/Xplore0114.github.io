@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-08-25T12:15:34.418150+00:00",
+    "generated_at": "2026-08-26T02:40:20.022284+00:00",
     "items": [
         {
             "desc": "大模型论文追踪·公司研究动态·论文速览",
@@ -65,21 +65,21 @@
             "group": "大项目"
         },
         {
-            "desc": "Action-State Memory Engine: typed time-series memory (states + actions) with trend/anomaly/causal analysis for DeepSeek Harness",
-            "badge": "Python",
-            "featured": false,
-            "path": "https://github.com/Xplore-LAB/dsh-plugin-asmemory",
-            "emoji": "🐍",
-            "title": "dsh-plugin-asmemory",
-            "group": "Agent 技能"
-        },
-        {
             "desc": "个人 Agent Skills 工具箱（WorkBuddy / Claude Code 可复用技能）",
             "badge": "JavaScript",
             "featured": false,
             "path": "https://github.com/Xplore-LAB/Xplore-LAB-skills",
             "emoji": "🟨",
             "title": "Xplore-LAB-skills",
+            "group": "Agent 技能"
+        },
+        {
+            "desc": "Action-State Memory Engine: typed time-series memory (states + actions) with trend/anomaly/causal analysis for DeepSeek Harness",
+            "badge": "Python",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/dsh-plugin-asmemory",
+            "emoji": "🐍",
+            "title": "dsh-plugin-asmemory",
             "group": "Agent 技能"
         },
         {
