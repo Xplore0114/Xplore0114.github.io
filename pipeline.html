@@ -134,12 +134,45 @@ footer {
 footer a { color: var(--ink-soft); text-decoration: none; }
 footer a:hover { color: var(--accent); }
 
+/* 教程专用：表格 + 代码块 */
+table.spec { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 0 0 14px; }
+table.spec th, table.spec td {
+  text-align: left; padding: 7px 10px;
+  border-bottom: 1px solid var(--line); vertical-align: top;
+}
+table.spec th {
+  font-size: 11.5px; letter-spacing: .06em; color: var(--ink-faint);
+  text-transform: uppercase; font-weight: 600;
+}
+table.spec td:first-child { white-space: nowrap; color: var(--ink); font-weight: 500; }
+table.spec td { color: var(--ink-soft); }
+table.spec td code { font-family: var(--mono); font-size: 12px; color: var(--ink); background: var(--wash); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+table.spec caption { caption-side: top; text-align: left; font-size: 13px; color: var(--ink-faint); padding: 0 0 6px; font-style: italic; }
+
+pre.codeblock {
+  margin: 0 0 12px; padding: 14px 16px;
+  background: var(--wash); border: 1px solid var(--line); border-radius: 8px;
+  overflow-x: auto;
+  font-family: var(--mono); font-size: 12.5px; line-height: 1.65;
+  color: var(--ink);
+}
+pre.codeblock .c { color: var(--ink-faint); font-style: italic; }
+pre.codeblock .s { color: #b85c00; }
+pre.codeblock .k { color: #cf222e; }
+ol.howto { margin: 0 0 14px; padding-left: 22px; font-size: 14px; color: var(--ink-soft); }
+ol.howto li { margin-bottom: 6px; }
+ol.howto li b { color: var(--ink); font-weight: 600; }
+.steps b { color: var(--ink); font-weight: 600; }
+
 .js .reveal { opacity: 0; transform: translateY(10px); transition: opacity .6s var(--ease-natural), transform .6s var(--ease-natural); }
 .js .reveal.visible { opacity: 1; transform: none; }
 @media (max-width: 640px) {
   body { font-size: 16px; }
   .nav-links { gap: 14px; font-size: 14px; }
   .fig-card { padding: 14px; }
+  table.spec { font-size: 12.5px; }
+  table.spec th, table.spec td { padding: 6px 7px; }
+  pre.codeblock { font-size: 11.5px; padding: 12px 14px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .js .reveal { opacity: 1; transform: none; transition: none; }
@@ -164,7 +197,7 @@ footer a:hover { color: var(--accent); }
   <header class="archive-head">
     <p class="crumbs"><a href="/figures/">/figures/</a> &nbsp;›&nbsp; 真图案例库</p>
     <h1>论文 Pipeline 真图案例库</h1>
-    <p>顶会与工业 LLM 论文中的真实 pipeline / 架构图原图 · 按构图类型分组 · 14 张</p>
+    <p>顶会与工业 LLM 论文中的真实 pipeline / 架构图原图 · 按构图类型分组 · 14 张 + 30 分钟上手教程</p>
   </header>
 
   <section>
@@ -184,6 +217,7 @@ footer a:hover { color: var(--accent); }
       <a href="#g-dual">C · 双流对称 / 汇聚</a>
       <a href="#g-decomp">D · 重参数 / 编解码</a>
       <a href="#g-industrial">E · 工业 LLM 架构</a>
+      <a href="#g-howto">F · 怎么画</a>
     </p>
   </section>
 
@@ -475,6 +509,121 @@ footer a:hover { color: var(--accent); }
         <li>三种路径（feature / patching / case study）用同一蓝色斜体——跨路径守恒，强化「同一种 LLM 输入」。</li>
         <li>顶部红色 LoRA / QLoRA 旗帜——一眼看到「这是基于 LLM 的工作」，图本身就把论文卖点写在顶角。</li>
       </ol>
+    </div>
+  </section>
+
+  <section>
+    <h3 class="group-title" id="g-howto"><span class="gletter">F</span>怎么画出来这些图（30 分钟上手）</h3>
+    <p class="group-note">前面 14 张顶会图 90% 不是"专业软件"画的，而是 <b>draw.io / PowerPoint / matplotlib</b> 三件套。工具不重要，叙事才重要。</p>
+
+    <div class="fig-card reveal">
+      <h3>通用五步法</h3>
+      <p class="why">从叙事到导出，所有 pipeline / 架构图都跑得过下面这张表。</p>
+      <table class="spec">
+        <thead>
+          <tr><th>步骤</th><th>干什么</th><th>检验标准</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1. 写主线</td><td>用一句话说清「X 用几步得到 Y」</td><td>同门 10 秒能复述出来</td></tr>
+          <tr><td>2. 列模块</td><td>拆成 3–6 个模块，标 <code>frozen/trainable</code> + 数字</td><td>每个模块在框里能一行装下</td></tr>
+          <tr><td>3. 套模板</td><td>从本页 A–E 选一个构图</td><td>一眼看不出「这是哪种模板」就对了</td></tr>
+          <tr><td>4. 上色</td><td>固定 3–4 色，每个颜色 = 一种角色</td><td>跨模块、跨子图颜色守恒</td></tr>
+          <tr><td>5. 导出</td><td>矢量 PDF/SVG，字号 7–9pt</td><td>缩到 50% 仍能读</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top:18px;font-size:14px;">工具速查</h3>
+      <table class="spec">
+        <thead>
+          <tr><th>场景</th><th>工具</th><th>上手</th><th>产出</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>想清楚结构</td><td>纸笔 / Excalidraw</td><td>5 min</td><td>草图</td></tr>
+          <tr><td>正式框图（顶会级）</td><td>draw.io</td><td>30 min</td><td>SVG</td></tr>
+          <tr><td>论文里直接拼素材</td><td>PowerPoint</td><td>30 min</td><td>PDF（矢量）</td></tr>
+          <tr><td>代码化、批量、可复现</td><td>matplotlib</td><td>1 h</td><td>PDF</td></tr>
+          <tr><td>LaTeX 原生、期刊要求</td><td>TikZ</td><td>2 h+</td><td>PDF</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fig-card reveal">
+      <h3>最小代码（matplotlib，13 行）</h3>
+      <p class="why">复制下面这段就能跑出上图。任何 pipeline 图都是这个骨架的扩展：改 box 数量 / 改文字 / 改颜色。</p>
+      <pre class="codeblock"><span class="c"># 13 行画一张三框两箭头 pipeline（双栏宽 7.16 inch）</span>
+<span class="k">import</span> matplotlib.pyplot <span class="k">as</span> plt
+<span class="k">from</span> matplotlib.patches <span class="k">import</span> FancyBboxPatch
+
+fig, ax = plt.subplots(figsize=(<span class="s">7.16</span>, <span class="s">1.6</span>))
+ax.set_xlim(<span class="s">0</span>, <span class="s">10</span>); ax.set_ylim(<span class="s">0</span>, <span class="s">3</span>); ax.axis(<span class="s">"off"</span>)
+
+<span class="k">def</span> <span class="k">box</span>(x, text, fc=<span class="s">"#e9f3fa"</span>, ec=<span class="s">"#0072B2"</span>):
+    ax.add_patch(FancyBboxPatch((x, <span class="s">1.1</span>), <span class="s">2.0</span>, <span class="s">0.9</span>,
+        boxstyle=<span class="s">"round,pad=0.08"</span>, fc=fc, ec=ec, lw=<span class="s">1.4</span>))
+    ax.text(x + <span class="s">1.0</span>, <span class="s">1.55</span>, text, ha=<span class="s">"center"</span>, va=<span class="s">"center"</span>, fontsize=<span class="s">11</span>)
+
+<span class="k">def</span> <span class="k">arrow</span>(x0, x1):
+    ax.annotate(<span class="s">""</span>, xy=(x1, <span class="s">1.55</span>), xytext=(x0, <span class="s">1.55</span>),
+        arrowprops=<span class="k">dict</span>(arrowstyle=<span class="s">"-&gt;"</span>, color=<span class="s">"#8b949e"</span>, lw=<span class="s">1.4</span>))
+
+<span class="k">for</span> i, t <span class="k">in</span> enumerate([<span class="s">"Raw Data"</span>, <span class="s">"Your Model"</span>, <span class="s">"Output"</span>]):
+    <span class="k">box</span>(<span class="s">0.5</span> + i * <span class="s">3.2</span>, t)
+    <span class="k">if</span> i &lt; <span class="s">2</span>: <span class="k">arrow</span>(<span class="s">2.6</span> + i * <span class="s">3.2</span>, <span class="s">3.6</span> + i * <span class="s">3.2</span>)
+
+fig.savefig(<span class="s">"pipeline.pdf"</span>, bbox_inches=<span class="s">"tight"</span>)  <span class="c"># 矢量</span></pre>
+      <figure>
+        <img src="/img/pipeline/tutorial-mini.png" alt="教程最小示例输出">
+        <figcaption><b>上面这段代码的输出。</b>把 13 行复制到任何 <code>.py</code> 文件就能跑出这张图。需要更多模块、改颜色、改大小？都是改 <code>box()</code> 调用行的事。</figcaption>
+      </figure>
+      <p class="why" style="margin-top:8px;">
+        <b>完整可运行的 10 个模板</b>（横向 pipeline、Transformer 堆叠、训练曲线、雷达图、热力图、箱线图、小倍数图、帕累托前沿等，每个模板都写了物理尺寸和导出设置）：
+        <a href="/figures/#fig-method" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">/figures/#fig-method</a>
+      </p>
+    </div>
+
+    <div class="fig-card reveal">
+      <h3>手把手 A · draw.io 画「三幕式」（15 min）</h3>
+      <p class="why">draw.io 是顶会作者最常推荐的工具，免费、矢量、所见即所得。本节用 InstructGPT 风格的「三幕」做演练。</p>
+      <ol class="howto steps">
+        <li><b>新建图。</b>打开 <code>app.diagrams.net</code> → Device → <code>Blank Diagram</code>；左侧 Shapes 选 General → 拖入三个 <code>Rectangle</code>。</li>
+        <li><b>改文字 + 圆角。</b>双击矩形输入文字；右侧 Style 把 <code>rounded</code> 设为 <code>1</code>，<code>fontSize</code> 设 <code>14</code>。</li>
+        <li><b>统一尺寸 + 颜色。</b>右侧 Style 设宽 200、高 80；填充 <code>#e9f3fa</code> 浅蓝，描边 <code>#0072B2</code>；选中按 <code>Ctrl+D</code> 复制两份。</li>
+        <li><b>等距对齐（关键一步）。</b>Shift 多选三个框 → 顶部 Align → <code>Align Middle</code> + <code>Distribute Horizontally</code>。</li>
+        <li><b>连接箭头。</b>鼠标悬停矩形边缘出现方向箭头，拖到下一框即连接（带自动跟随）。选线 → Style 设 strokeColor <code>#8b949e</code>。</li>
+        <li><b>语义分层。</b>数据流用实线；参数更新（PPO ↔ RM、LoRA ↔ Backbone）选中线 → Style 设 <code>dashPattern</code> 为 <code>8 4</code>。</li>
+        <li><b>虚线分组框。</b>拖一个大 Rectangle → 改填充 <code>#f6f8fa</code>、虚线 <code>dashPattern 8 4</code> → 右键 <code>Send to Back</code> 把矩形放最底层，作为「幕」背景。</li>
+        <li><b>导出矢量。</b><code>File → Export as → SVG</code>，勾选 <code>Embed fonts</code> 和 <code>Include a copy of diagram</code>。投稿时再导出 PDF 一份作为兜底。</li>
+      </ol>
+    </div>
+
+    <div class="fig-card reveal">
+      <h3>手把手 B · PowerPoint 画法要点（20 min）</h3>
+      <p class="why">很多人论文里的「原图」其实是 PPT 拼出来的——尤其是融合多个 PDF 截图的图。下面是 PPT 画 pipeline 不会出错的几件事。</p>
+      <ol class="howto steps">
+        <li><b>先把画布尺寸改对。</b>Design → Slide Size → Custom（双栏图 7.16 in × 3.5 in；单栏 3.5 × 3.5 in）。先定尺寸再画，否则最后缩放比例全乱。</li>
+        <li><b>Insert → Shapes → Rounded Rectangle。</b>按住 Shift 等比缩放；Shift 多选所有框 → Format → Align → <code>Align Middle</code> + <code>Distribute Horizontally</code>（等距神器）。</li>
+        <li><b>箭头用形状里的 <code>Right Arrow</code>。</b>不要用带渐变 / 阴影的「SmartArt」，印刷不友好。同样的 Align 步骤对齐到中线。</li>
+        <li><b>Ctrl+G 把同一组打成组。</b>防止后面对齐时散架。需要复用样式就复制整个组，组内样式继承。</li>
+        <li><b>导出 PDF，不要截图。</b>文件 → 另存为 → PDF（不是 PNG！）。PDF 才是矢量，期刊才会收。字号 7–9pt 与正文一致。</li>
+      </ol>
+    </div>
+
+    <div class="fig-card reveal">
+      <h3>配色守恒 · 反例清单</h3>
+      <p class="why">下面这些坑一旦出现，几乎等同于「我看不懂你在画什么」。投稿前自查一遍。</p>
+      <table class="spec">
+        <thead>
+          <tr><th>常见反例</th><th>为什么坏</th><th>改正</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>彩虹色 / 高饱和渐变</td><td>读者无法把颜色和角色绑定</td><td>固定 3–4 色，每个颜色只代表一种角色</td></tr>
+          <tr><td>3D 效果 / 阴影 / 玻璃感</td><td>印刷不友好，IEEE/ACM 直接拒</td><td>全平面，纯色块</td></tr>
+          <tr><td>图标题写在图内</td><td>图标题是 caption 的事</td><td>图内只留图例、关键标签</td></tr>
+          <tr><td>字号 &lt; 7 pt 或 &gt; 12 pt</td><td>缩到双栏宽度后不可读 / 喧宾夺主</td><td>图内字号 7–9 pt 与正文一致</td></tr>
+          <tr><td>箭头全用同一种</td><td>读者分不清数据流 / 参数更新 / 反馈环</td><td>实线 / 虚线 / 双向 = 不同语义</td></tr>
+          <tr><td>同一组用不同色</td><td>读者误以为左右两栏是不同模型</td><td>颜色守恒：角色 = 颜色</td></tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
