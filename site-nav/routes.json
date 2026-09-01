@@ -20,6 +20,15 @@
             "group": "站点"
         },
         {
+            "desc": "论文级图表示例·matplotlib 模板·配色素材",
+            "badge": "Guide",
+            "featured": true,
+            "path": "https://xplore-lab.github.io/figures/",
+            "emoji": "📈",
+            "title": "科研绘图",
+            "group": "站点"
+        },
+        {
             "desc": "每日科技新闻自动聚合 - 多源抓取/自动摘要/定时更新",
             "badge": "Python",
             "featured": false,

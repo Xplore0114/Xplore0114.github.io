@@ -1,0 +1,1653 @@
+---
+title: 科研绘图
+description: 论文级图表示例、可直接复制的 matplotlib 模板与配色素材
+---
+<!doctype html>
+<html lang="zh-CN" data-page-node-id="iGaJsuxOxYE0tmgK6ppG51">
+<head data-page-node-id="MIiRtO8SGsbHgzB1GifBx3">
+<meta charset="utf-8" data-page-node-id="XE9otJLpTbEK0okvTeD93O">
+<meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="9Cv3Ee8qFJ7wbamExep9GU">
+<title>科研绘图 | Kevin</title>
+<meta name="description" content="论文级图表示例、可直接复制的 matplotlib 模板与配色素材" data-page-node-id="tmdQ9AhkFoDTxJxNo59uw6">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+:root {
+  --accent: #0ea5e9;
+  --accent-deep: #6366f1;
+  --ink: #24292f;
+  --ink-soft: #57606a;
+  --ink-faint: #8b949e;
+  --line: #e5e9ee;
+  --wash: #f6f8fa;
+  --ease-natural: cubic-bezier(0.22, 1, 0.36, 1);
+  --serif: Georgia, "Times New Roman", "Songti SC", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --mono: "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: rgba(14,165,233,.18); }
+#progress {
+  position: fixed; top: 0; left: 0; z-index: 20;
+  height: 2px; width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-deep));
+}
+.page { max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+nav {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 28px 0 0;
+}
+.wordmark {
+  font-family: var(--serif); font-size: 20px; font-weight: 700;
+  color: var(--ink); text-decoration: none;
+}
+.nav-links { display: flex; gap: 22px; }
+.nav-links a {
+  color: var(--ink-soft); text-decoration: none; font-size: 15px;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1.5px; background-repeat: no-repeat; background-position: left 96%;
+  transition: background-size .3s var(--ease-natural), color .2s ease;
+  padding-bottom: 2px;
+}
+.nav-links a:hover { color: var(--ink); background-size: 100% 1.5px; }
+
+header.archive-head { padding: 64px 0 24px; }
+header.archive-head h1 {
+  font-family: var(--serif); font-size: clamp(32px, 6vw, 42px);
+  margin: 0 0 8px;
+}
+header.archive-head p { margin: 0; color: var(--ink-faint); font-size: 15px; }
+
+section { padding: 30px 0 4px; }
+h2.section-title {
+  font-family: var(--serif); font-size: 22px; font-weight: 700;
+  margin: 0 0 18px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+h3.sub-title { font-size: 16px; margin: 26px 0 10px; }
+h3.group-title {
+  font-family: var(--serif); font-size: 17px; font-weight: 700;
+  margin: 30px 0 4px;
+}
+h3.group-title .gletter {
+  color: var(--accent); margin-right: 8px;
+}
+p.group-note { font-size: 13.5px; color: var(--ink-faint); margin: 0 0 14px; }
+p.note { font-size: 14px; color: var(--ink-soft); margin: 0 0 12px; }
+p.toc { font-size: 13.5px; margin: -4px 0 10px; color: var(--ink-faint); }
+p.toc a { color: var(--accent); text-decoration: none; margin-right: 16px; }
+p.toc a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* 图例卡片 */
+.fig-card {
+  border: 1px solid var(--line); border-radius: 10px;
+  padding: 18px 18px 12px; margin-bottom: 18px; background: #fff;
+  transition: box-shadow .3s var(--ease-natural);
+}
+.fig-card:hover { box-shadow: 0 10px 28px rgba(36,41,47,.08); }
+.fig-card h3 { margin: 0 0 2px; font-size: 16px; }
+.fig-card h3 .fnum { color: var(--accent); font-family: var(--serif); margin-right: 8px; }
+.fig-card .why { font-size: 14px; color: var(--ink-soft); margin: 0 0 12px; }
+.fig-card svg { display: block; width: 100%; height: auto; margin: 4px 0 8px; }
+
+/* 代码块 */
+details.code { margin-top: 4px; }
+details.code summary {
+  list-style: none; cursor: pointer; user-select: none;
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--ink-faint);
+  padding: 6px 0;
+  transition: color .2s ease;
+}
+details.code summary::-webkit-details-marker { display: none; }
+details.code summary::before {
+  content: "›"; font-size: 13px;
+  transition: transform .3s var(--ease-natural), color .2s ease;
+}
+details.code[open] summary::before { transform: rotate(90deg); color: var(--accent); }
+details.code summary:hover { color: var(--accent); }
+.code-wrap { position: relative; }
+.code-wrap pre {
+  margin: 0 0 8px; padding: 14px 16px;
+  background: var(--wash); border: 1px solid var(--line); border-radius: 8px;
+  overflow-x: auto;
+  font-family: var(--mono); font-size: 12.5px; line-height: 1.65;
+  color: var(--ink);
+}
+.copy-btn {
+  position: absolute; top: 8px; right: 8px;
+  font-family: var(--sans); font-size: 11.5px;
+  color: var(--ink-faint); background: #fff;
+  border: 1px solid var(--line); border-radius: 6px;
+  padding: 3px 10px; cursor: pointer;
+  transition: color .2s ease, border-color .2s ease;
+}
+.copy-btn:hover { color: var(--accent); border-color: rgba(14,165,233,.5); }
+.copy-btn.copied { color: #009e73; border-color: rgba(0,158,115,.5); }
+
+/* 规范表格 */
+table.spec { width: 100%; border-collapse: collapse; font-size: 14px; margin: 0 0 8px; }
+table.spec th, table.spec td {
+  text-align: left; padding: 8px 10px;
+  border-bottom: 1px solid var(--line); vertical-align: top;
+}
+table.spec th {
+  font-size: 12px; letter-spacing: .08em; color: var(--ink-faint);
+  text-transform: uppercase; font-weight: 600;
+}
+table.spec td:first-child { white-space: nowrap; color: var(--ink); font-weight: 500; }
+table.spec td { color: var(--ink-soft); }
+table.spec td code { font-family: var(--mono); font-size: 12.5px; color: var(--ink); }
+
+/* 技巧列表 */
+ol.tips { margin: 0 0 8px; padding-left: 22px; font-size: 15px; color: var(--ink-soft); }
+ol.tips li { margin-bottom: 8px; }
+ol.tips li b { color: var(--ink); font-weight: 600; }
+ol.tips code { font-family: var(--mono); font-size: 12.5px; color: var(--ink); background: var(--wash); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+
+/* 调色板 */
+.palette { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 6px; }
+.swatch {
+  width: 56px; cursor: pointer; text-align: center;
+  border: none; background: none; padding: 0;
+  transition: transform .25s var(--ease-natural);
+}
+.swatch:hover { transform: translateY(-3px); }
+.swatch .chip {
+  display: block; height: 34px; border-radius: 7px;
+  border: 1px solid rgba(36,41,47,.08);
+}
+.swatch .hex {
+  display: block; font-family: var(--mono); font-size: 10px;
+  color: var(--ink-faint); margin-top: 4px;
+}
+.palette-meta { font-size: 12.5px; color: var(--ink-faint); margin: 0 0 16px; }
+
+/* 复制反馈 */
+#toast {
+  position: fixed; left: 50%; bottom: 32px; z-index: 30;
+  transform: translate(-50%, 12px); opacity: 0;
+  background: var(--ink); color: #fff;
+  font-size: 13px; padding: 7px 16px; border-radius: 99px;
+  pointer-events: none;
+  transition: opacity .3s var(--ease-natural), transform .3s var(--ease-natural);
+}
+#toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+footer {
+  margin-top: 60px; padding-top: 22px;
+  border-top: 1px solid var(--line);
+  font-size: 13px; color: var(--ink-faint);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+footer a { color: var(--ink-soft); text-decoration: none; }
+footer a:hover { color: var(--accent); }
+
+.js .reveal { opacity: 0; transform: translateY(10px); transition: opacity .6s var(--ease-natural), transform .6s var(--ease-natural); }
+.js .reveal.visible { opacity: 1; transform: none; }
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .nav-links { gap: 16px; }
+  table.spec { font-size: 13px; }
+  table.spec th, table.spec td { padding: 7px 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+</style>
+</head>
+<body data-page-node-id="Oi5ZWb3jv24drQvmok1FCC">
+<div id="progress" aria-hidden="true" data-page-node-id="CaRvGBuSOgrJiwbTkCjONR"></div>
+<div class="page" data-page-node-id="tF38aq1iT5r2M0VTDB5QD4">
+  <nav data-page-node-id="Gxn0jjXBZhLvXHmHML3soY">
+    <a class="wordmark" href="/" data-page-node-id="lIZzCeMdAGHB6jCXWk9owI">Kevin</a>
+    <div class="nav-links" data-page-node-id="AU4x4ICuNY0tqB6yTz5UuB">
+      <a href="/tags/" data-page-node-id="t3Ack9SBEyexluiXYHplnL">Writing</a>
+      <a href="/figures/" data-page-node-id="qHyExjjs6woFY6QET8cWEU">绘图</a>
+      <a href="/about/" data-page-node-id="m7vbwZlsd5n9QobrFjDTGu">About</a>
+      <a href="https://github.com/Xplore-LAB" data-page-node-id="0qIcQcPkmg5C4judLI4H1L">GitHub</a>
+    </div>
+  </nav>
+
+  <header class="archive-head" data-page-node-id="ZoLoD82QwyBBuaJG5BtLo9">
+    <h1 data-page-node-id="0JzHPfIQ2RGJyC4Kho2ixA">科研绘图</h1>
+    <p data-page-node-id="jDxaxKQ26el5Hu2uT0qtPQ">论文级图表示例 · 可直接复制的 matplotlib 模板 · 配色与工具素材</p>
+  </header>
+
+  <section id="gallery" data-page-node-id="ID59MS8rwYLYrVCjI2DBqw">
+    <h2 class="section-title" data-page-node-id="Xx3pQ9WV2fbAQ9VE4MN1Sb">图例速览</h2>
+    <p class="note" data-page-node-id="bGnMRe18fGqyCtXmzSD0KZ">按论文结构分三组，图表类型标注在每条标题里。每张图附完整可运行的 matplotlib 代码，点开「查看代码」复制即用。配色统一采用 Okabe-Ito 色盲友好方案。</p>
+    <p class="toc">分组直达：<a href="#fig-method">A · 方法与流程</a><a href="#fig-results">B · 实验结果</a><a href="#fig-analysis">C · 消融与分析</a></p>
+
+    <h3 class="group-title" id="fig-method"><span class="gletter">A</span>方法与流程（Method）</h3>
+    <p class="group-note">论文 Method 章节的流程图与架构图，用 matplotlib 的 Patch 与箭头即可画，无需切换到其他工具。</p>
+
+    <div class="fig-card reveal">
+      <h3><span class="fnum">01</span>横向 Pipeline 流程图（框图）</h3>
+      <p class="why">方法章节的门面。横向四到六个模块最顺口，核心创新模块用主题色描边提亮，数据规模写进框内，读者十秒看懂全流程。</p>
+      <svg viewBox="0 0 632 190" role="img" aria-label="横向 Pipeline 流程图示例">
+        <g font-family="Georgia, serif" font-size="8.5" fill="#8b949e" letter-spacing="1.5" text-anchor="middle">
+          <text x="82" y="54">STAGE 1</text>
+          <text x="236" y="54">STAGE 2</text>
+          <text x="390" y="54">STAGE 3</text>
+          <text x="544" y="54">STAGE 4</text>
+        </g>
+        <!-- 模块框 -->
+        <rect x="24" y="64" width="116" height="56" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+        <rect x="178" y="64" width="116" height="56" rx="8" fill="#e9f3fa" stroke="#0072B2" stroke-width="1.5"/>
+        <rect x="332" y="64" width="116" height="56" rx="8" fill="#e9f3fa" stroke="#0072B2" stroke-width="1.5"/>
+        <rect x="486" y="64" width="116" height="56" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+        <!-- 框内文字 -->
+        <g font-family="Georgia, serif" text-anchor="middle">
+          <text x="82" y="88" font-size="10.5" fill="#24292f">Raw QA Pairs</text>
+          <text x="82" y="104" font-size="8.5" fill="#57606a">858 pairs</text>
+          <text x="236" y="88" font-size="10.5" fill="#24292f">Rule Filtering</text>
+          <text x="236" y="104" font-size="8.5" fill="#57606a">schema rules</text>
+          <text x="390" y="88" font-size="10.5" fill="#24292f">Ontology Align</text>
+          <text x="390" y="104" font-size="8.5" fill="#57606a">KG mapping</text>
+          <text x="544" y="88" font-size="10.5" fill="#24292f">SFT Dataset</text>
+          <text x="544" y="104" font-size="8.5" fill="#57606a">611 pairs</text>
+        </g>
+        <!-- 箭头 -->
+        <g stroke="#57606a" stroke-width="1.2">
+          <line x1="140" y1="92" x2="170" y2="92"/>
+          <line x1="294" y1="92" x2="324" y2="92"/>
+          <line x1="448" y1="92" x2="478" y2="92"/>
+        </g>
+        <g fill="#57606a">
+          <polygon points="178,92 169,87.5 169,96.5"/>
+          <polygon points="332,92 323,87.5 323,96.5"/>
+          <polygon points="486,92 477,87.5 477,96.5"/>
+        </g>
+        <!-- 核心标注 -->
+        <text x="313" y="150" text-anchor="middle" font-family="Georgia, serif" font-size="9" font-style="italic" fill="#0072B2">core contribution: ontology-guided construction</text>
+      </svg>
+      <details class="code">
+        <summary>查看 matplotlib 代码</summary>
+        <div class="code-wrap">
+          <button class="copy-btn" type="button">复制</button>
+          <pre><code>import matplotlib.pyplot as plt
+from matplotlib.patches import FancyBboxPatch
+
+stages = [
+    ("Raw QA Pairs", "858 pairs", False),
+    ("Rule Filtering", "schema rules", True),
+    ("Ontology Align", "KG mapping", True),
+    ("SFT Dataset", "611 pairs", False),
+]
+
+fig, ax = plt.subplots(figsize=(7.16, 1.9))
+ax.set_xlim(0, 10)
+ax.set_ylim(0, 3)
+ax.axis("off")
+
+for i, (title, sub, hot) in enumerate(stages):
+    x = 0.25 + i * 2.55
+    ax.add_patch(FancyBboxPatch(
+        (x, 1.0), 1.9, 1.0, boxstyle="round,pad=0.06",
+        facecolor="#e9f3fa" if hot else "#f6f8fa",
+        edgecolor="#0072B2" if hot else "#d0d7de",
+        linewidth=1.5 if hot else 1.0))
+    ax.text(x + 0.95, 1.66, title, ha="center", fontsize=9.5)
+    ax.text(x + 0.95, 1.30, sub, ha="center", fontsize=7.5,
+            color="#57606a")
+    if i &lt; 3:
+        ax.annotate("", xy=(x + 2.52, 1.5), xytext=(x + 2.02, 1.5),
+                    arrowprops=dict(arrowstyle="-|&gt;",
+                                    color="#57606a", lw=1.2))
+
+fig.savefig("fig_pipeline.pdf")</code></pre>
+        </div>
+      </details>
+    </div>
+
+    <div class="fig-card reveal">
+      <h3><span class="fnum">02</span>Transformer 堆叠架构图（结构框图）</h3>
+      <p class="why">模型结构用纵向堆叠最直观，数据流自下而上。重复层收进虚线框加 ×N，左侧标注张量形状，结构与维度变化一图说完。</p>
+      <svg viewBox="0 0 632 300" role="img" aria-label="Transformer 堆叠架构图示例">
+        <!-- 输出 -->
+        <text x="316" y="14" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#57606a">Next-token Probabilities</text>
+        <line x1="316" y1="28" x2="316" y2="24" stroke="#57606a" stroke-width="1.2"/>
+        <polygon points="316,19 311,26 321,26" fill="#57606a"/>
+        <!-- LM Head -->
+        <rect x="216" y="30" width="200" height="32" rx="6" fill="#f6f8fa" stroke="#d0d7de"/>
+        <text x="316" y="49" text-anchor="middle" font-family="Georgia, serif" font-size="10.5" fill="#24292f">LM Head + Softmax</text>
+        <!-- 箭头 container -> LM -->
+        <line x1="316" y1="74" x2="316" y2="68" stroke="#57606a" stroke-width="1.2"/>
+        <polygon points="316,61 311,69 321,69" fill="#57606a"/>
+        <!-- 重复容器 -->
+        <rect x="206" y="76" width="220" height="108" rx="6" fill="none" stroke="#8b949e" stroke-width="1" stroke-dasharray="5 4"/>
+        <rect x="226" y="88" width="180" height="40" rx="6" fill="#e9f3fa" stroke="#0072B2" stroke-width="1.4"/>
+        <text x="316" y="111" text-anchor="middle" font-family="Georgia, serif" font-size="10.5" fill="#24292f">Multi-Head Attention</text>
+        <rect x="226" y="140" width="180" height="40" rx="6" fill="#e9f3fa" stroke="#0072B2" stroke-width="1.4"/>
+        <text x="316" y="163" text-anchor="middle" font-family="Georgia, serif" font-size="10.5" fill="#24292f">Feed-Forward Network</text>
+        <text x="440" y="134" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#57606a">× N</text>
+        <!-- 箭头 embedding -> container -->
+        <line x1="316" y1="198" x2="316" y2="192" stroke="#57606a" stroke-width="1.2"/>
+        <polygon points="316,183 311,191 321,191" fill="#57606a"/>
+        <!-- Embedding -->
+        <rect x="216" y="200" width="200" height="32" rx="6" fill="#f6f8fa" stroke="#d0d7de"/>
+        <text x="316" y="219" text-anchor="middle" font-family="Georgia, serif" font-size="10.5" fill="#24292f">Token + Position Embedding</text>
+        <!-- 箭头 input -> embedding -->
+        <line x1="316" y1="256" x2="316" y2="240" stroke="#57606a" stroke-width="1.2"/>
+        <polygon points="316,233 311,241 321,241" fill="#57606a"/>
+        <!-- Input -->
+        <rect x="216" y="258" width="200" height="30" rx="6" fill="#f6f8fa" stroke="#d0d7de"/>
+        <text x="316" y="277" text-anchor="middle" font-family="Georgia, serif" font-size="10.5" fill="#24292f">Input Tokens</text>
+        <!-- 张量形状标注 -->
+        <g font-family="Georgia, serif" font-size="8.5" fill="#8b949e" text-anchor="end">
+          <text x="198" y="276">B × L</text>
+          <text x="198" y="219">B × L × d</text>
+          <text x="198" y="111">B × L × d</text>
+          <text x="198" y="49">B × L × |V|</text>
+        </g>
+      </svg>
+      <details class="code">
+        <summary>查看 matplotlib 代码</summary>
+        <div class="code-wrap">
+          <button class="copy-btn" type="button">复制</button>
+          <pre><code>import matplotlib.pyplot as plt
+from matplotlib.patches import FancyBboxPatch, Rectangle
+
+def block(ax, x, y, w, h, text, fc="#f6f8fa", ec="#d0d7de"):
+    ax.add_patch(FancyBboxPatch((x, y), w, h,
+                                boxstyle="round,pad=0.05",
+                                facecolor=fc, edgecolor=ec))
+    ax.text(x + w / 2, y + h / 2, text,
+            ha="center", va="center", fontsize=9.5)
+
+fig, ax = plt.subplots(figsize=(3.5, 4.6))
+ax.set_xlim(0, 6)
+ax.set_ylim(0, 9)
+ax.axis("off")
+
+block(ax, 1.8, 0.3, 2.4, 0.62, "Input Tokens")
+block(ax, 1.8, 1.5, 2.4, 0.62, "Token + Position Embedding")
+ax.add_patch(Rectangle((1.55, 2.75), 2.9, 3.2, fill=False,
+                       edgecolor="#8b949e", linestyle="--"))
+block(ax, 1.8, 4.9, 2.4, 0.8, "Multi-Head Attention",
+      fc="#e9f3fa", ec="#0072B2")
+block(ax, 1.8, 3.15, 2.4, 0.8, "Feed-Forward Network",
+      fc="#e9f3fa", ec="#0072B2")
+ax.text(4.65, 4.35, "× N", fontsize=12, style="italic")
+block(ax, 1.8, 6.6, 2.4, 0.62, "LM Head + Softmax")
+ax.text(3.0, 8.35, "Next-token Probabilities",
+        ha="center", fontsize=9.5, color="#57606a")
+
+for y0, y1 in [(0.92, 1.5), (2.12, 2.75), (5.95, 6.6), (7.22, 8.1)]:
+    ax.annotate("", xy=(3.0, y1), xytext=(3.0, y0),
+                arrowprops=dict(arrowstyle="-|&gt;",
+                                color="#57606a", lw=1.2))
+
+for y, s in [(0.61, "B × L"), (1.81, "B × L × d"),
+             (5.3, "B × L × d"), (6.91, "B × L × V")]:
+    ax.text(1.5, y, s, ha="right", va="center",
+            fontsize=7.5, color="#8b949e")
+
+fig.savefig("fig_arch.pdf")</code></pre>
+        </div>
+      </details>
+    </div>
+
+    <h3 class="sub-title" id="fig-pipeline-cases">顶会 Pipeline 案例解剖</h3>
+    <p class="group-note">以下五张是简化重绘的示意图（原图版权归属各论文），分析只谈绘图技法：构图、流向、配色、抽象粒度。所有手法都能用 matplotlib 或 draw.io 复现。</p>
+
+    <div class="fig-card reveal">
+      <h3><span class="fnum">P1</span>InstructGPT（NeurIPS 2022）：三幕式流程</h3>
+      <p class="why">RLHF 三阶段图是近年被引用最多的 pipeline 图之一，结构极简却信息完整。</p>
+      <svg viewBox="0 0 632 190" role="img" aria-label="InstructGPT 三阶段流程示意">
+        <defs>
+          <marker id="arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#8b949e"/>
+          </marker>
+        </defs>
+        <!-- 三个幕布 -->
+        <g fill="#f6f8fa" stroke="#e5e9ee">
+          <rect x="8" y="26" width="196" height="126" rx="8"/>
+          <rect x="216" y="26" width="196" height="126" rx="8"/>
+          <rect x="424" y="26" width="196" height="126" rx="8"/>
+        </g>
+        <g font-family="Georgia, serif" font-size="10" fill="#0ea5e9" font-weight="bold">
+          <text x="22" y="46">STEP 1</text>
+          <text x="230" y="46">STEP 2</text>
+          <text x="438" y="46">STEP 3</text>
+        </g>
+        <g font-size="11" fill="#24292f">
+          <text x="22" y="63">监督微调 SFT</text>
+          <text x="230" y="63">训练奖励模型</text>
+          <text x="438" y="63">PPO 强化学习</text>
+        </g>
+        <!-- 幕 1 -->
+        <g font-size="9.5" text-anchor="middle">
+          <rect x="22" y="80" width="76" height="26" rx="5" fill="#fff" stroke="#0072B2"/>
+          <text x="60" y="97" fill="#24292f">Prompt 数据</text>
+          <rect x="114" y="80" width="76" height="26" rx="5" fill="#0072B2"/>
+          <text x="152" y="97" fill="#fff">GPT-3 SFT</text>
+          <line x1="98" y1="93" x2="112" y2="93" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arr)"/>
+        </g>
+        <!-- 幕 2 -->
+        <g font-size="9.5" text-anchor="middle">
+          <rect x="228" y="80" width="88" height="26" rx="5" fill="#fff" stroke="#0072B2"/>
+          <text x="272" y="97" fill="#24292f">Prompt+多回答</text>
+          <rect x="330" y="80" width="68" height="26" rx="5" fill="#fff" stroke="#E69F00"/>
+          <text x="364" y="97" fill="#24292f">人工排序</text>
+          <line x1="316" y1="93" x2="328" y2="93" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arr)"/>
+          <rect x="272" y="122" width="88" height="24" rx="5" fill="#E69F00"/>
+          <text x="316" y="138" fill="#fff">奖励模型 RM</text>
+          <line x1="364" y1="106" x2="330" y2="120" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arr)"/>
+        </g>
+        <!-- 幕 3 -->
+        <g font-size="9.5" text-anchor="middle">
+          <rect x="436" y="80" width="64" height="26" rx="5" fill="#fff" stroke="#0072B2"/>
+          <text x="468" y="97" fill="#24292f">Prompt</text>
+          <rect x="516" y="80" width="76" height="26" rx="5" fill="#009E73"/>
+          <text x="554" y="97" fill="#fff">PPO 策略</text>
+          <line x1="500" y1="93" x2="514" y2="93" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arr)"/>
+          <rect x="480" y="122" width="80" height="24" rx="5" fill="#E69F00"/>
+          <text x="520" y="138" fill="#fff">RM 打分</text>
+          <line x1="535" y1="122" x2="550" y2="108" stroke="#8b949e" stroke-width="1.2" stroke-dasharray="3 2" marker-end="url(#arr)"/>
+        </g>
+        <text x="316" y="178" text-anchor="middle" font-size="9.5" fill="#8b949e">实线 = 数据流　虚线 = 训练更新（全图仅此两种箭头）</text>
+      </svg>
+      <ol class="tips">
+        <li><b>构图即叙事。</b>三幕横向编号，阅读顺序与训练顺序一致；阶段之间用浅灰底块分隔，替代显式大箭头。</li>
+        <li><b>抽象粒度只到「谁先谁后」。</b>每幕仅 2 到 3 个框，模型内部结构、超参全部让给正文。</li>
+        <li><b>箭头语义分层。</b>实线表示数据流，虚线表示参数更新，两种箭头构成全部图例，读者零成本解码。</li>
+        <li><b>颜色守恒。</b>Prompt（蓝）、RM（橙）、策略（绿）三个角色跨幕固定颜色，视线可追踪。</li>
+      </ol>
+    </div>
+
+    <div class="fig-card reveal">
+      <h3><span class="fnum">P2</span>BERT（NAACL 2019）：双联并置</h3>
+      <p class="why">预训练与微调画成左右镜像双子图，用「图元复用」表达参数共享，是双阶段方法的标准画法。</p>
+      <svg viewBox="0 0 632 190" role="img" aria-label="BERT 预训练与微调双联图示意">
+        <g font-family="Georgia, serif" font-size="12" fill="#24292f" text-anchor="middle">
+          <text x="160" y="28">Pre-Training</text>
+          <text x="472" y="28">Fine-Tuning</text>
+        </g>
+        <line x1="316" y1="16" x2="316" y2="162" stroke="#e5e9ee" stroke-width="1" stroke-dasharray="4 3"/>
+        <!-- 左：预训练 -->
+        <g text-anchor="middle" font-size="8.5">
+          <rect x="100" y="44" width="120" height="20" rx="4" fill="#0072B2"/>
+          <text x="160" y="58" fill="#fff">[CLS] 句对分类头</text>
+          <g fill="#dceaf5" stroke="#0072B2" stroke-width="0.8">
+            <rect x="90" y="76" width="140" height="14" rx="2"/>
+            <rect x="90" y="94" width="140" height="14" rx="2"/>
+            <rect x="90" y="112" width="140" height="14" rx="2"/>
+          </g>
+          <g font-size="8" fill="#24292f">
+            <text x="160" y="86">Trm</text><text x="160" y="104">Trm</text><text x="160" y="122">Trm</text>
+          </g>
+          <g stroke="#b0b8c0" stroke-width="0.8" fill="#fff">
+            <rect x="86" y="140" width="26" height="16" rx="2"/>
+            <rect x="118" y="140" width="26" height="16" rx="2" fill="#E69F00" stroke="#E69F00"/>
+            <rect x="150" y="140" width="26" height="16" rx="2"/>
+            <rect x="182" y="140" width="26" height="16" rx="2"/>
+            <rect x="214" y="140" width="26" height="16" rx="2"/>
+          </g>
+          <text x="131" y="151" font-size="7.5" fill="#fff">[MASK]</text>
+        </g>
+        <!-- 右：微调 -->
+        <g text-anchor="middle" font-size="8.5">
+          <rect x="412" y="44" width="120" height="20" rx="4" fill="#009E73"/>
+          <text x="472" y="58" fill="#fff">任务头（问答/NER…）</text>
+          <g fill="#dceaf5" stroke="#0072B2" stroke-width="0.8">
+            <rect x="402" y="76" width="140" height="14" rx="2"/>
+            <rect x="402" y="94" width="140" height="14" rx="2"/>
+            <rect x="402" y="112" width="140" height="14" rx="2"/>
+          </g>
+          <g font-size="8" fill="#24292f">
+            <text x="472" y="86">Trm</text><text x="472" y="104">Trm</text><text x="472" y="122">Trm</text>
+          </g>
+          <g stroke="#b0b8c0" stroke-width="0.8" fill="#fff">
+            <rect x="398" y="140" width="26" height="16" rx="2"/>
+            <rect x="430" y="140" width="26" height="16" rx="2"/>
+            <rect x="462" y="140" width="26" height="16" rx="2"/>
+            <rect x="494" y="140" width="26" height="16" rx="2"/>
+            <rect x="526" y="140" width="26" height="16" rx="2"/>
+          </g>
+        </g>
+        <text x="316" y="180" text-anchor="middle" font-size="9.5" fill="#8b949e">两子图共享同一套 Trm 图元与坐标系，唯一差异在顶部任务头</text>
+      </svg>
+      <ol class="tips">
+        <li><b>双联并置表达「同一架构两阶段」。</b>左右子图共享图元、尺寸与坐标，读者视线自动对齐，差异只剩顶部任务头。</li>
+        <li><b>图元复用替代文字。</b>「参数共享」靠画成一模一样来表达，比加一行注释更直接。</li>
+        <li><b>单点高亮讲机制。</b>掩码 token 是全场唯一暖色块，MLM 机制无需文字即可定位。</li>
+      </ol>
+    </div>
+    <div class="fig-card reveal">
+      <h3><span class="fnum">P3</span>Transformer（NeurIPS 2017）：对称双塔</h3>
+      <p class="why">被引超十万的架构图。对称构图中唯一的斜线就是创新点，值得逐像素学习。</p>
+      <svg viewBox="0 0 632 220" role="img" aria-label="Transformer 编码器解码器双塔示意">
+        <defs>
+          <marker id="arr2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#8b949e"/>
+          </marker>
+        </defs>
+        <!-- 编码器塔 -->
+        <g text-anchor="middle">
+          <rect x="96" y="60" width="140" height="106" rx="8" fill="#f6f8fa" stroke="#8b949e" stroke-width="0.8"/>
+          <text x="244" y="76" font-size="10" fill="#57606a">N×</text>
+          <rect x="110" y="74" width="112" height="24" rx="4" fill="#dceaf5" stroke="#0072B2" stroke-width="0.8"/>
+          <text x="166" y="90" font-size="9.5" fill="#24292f">Multi-Head Attn</text>
+          <rect x="110" y="106" width="112" height="24" rx="4" fill="#fff" stroke="#b0b8c0" stroke-width="0.8"/>
+          <text x="166" y="122" font-size="9.5" fill="#24292f">Feed Forward</text>
+          <text x="166" y="152" font-size="8.5" fill="#8b949e">Add &amp; Norm × 2</text>
+          <rect x="116" y="184" width="100" height="20" rx="4" fill="#fff" stroke="#0072B2"/>
+          <text x="166" y="198" font-size="9" fill="#24292f">Inputs + Embed</text>
+          <line x1="166" y1="184" x2="166" y2="168" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arr2)"/>
+        </g>
+        <!-- 解码器塔 -->
+        <g text-anchor="middle">
+          <rect x="396" y="46" width="150" height="120" rx="8" fill="#f6f8fa" stroke="#8b949e" stroke-width="0.8"/>
+          <text x="554" y="62" font-size="10" fill="#57606a">N×</text>
+          <rect x="410" y="60" width="122" height="22" rx="4" fill="#dceaf5" stroke="#0072B2" stroke-width="0.8"/>
+          <text x="471" y="75" font-size="9.5" fill="#24292f">Masked MHA</text>
+          <rect x="410" y="88" width="122" height="22" rx="4" fill="#fdeeda" stroke="#E69F00" stroke-width="0.8"/>
+          <text x="471" y="103" font-size="9.5" fill="#24292f">Cross MHA</text>
+          <rect x="410" y="116" width="122" height="22" rx="4" fill="#fff" stroke="#b0b8c0" stroke-width="0.8"/>
+          <text x="471" y="131" font-size="9.5" fill="#24292f">Feed Forward</text>
+          <rect x="416" y="184" width="110" height="20" rx="4" fill="#fff" stroke="#0072B2"/>
+          <text x="471" y="198" font-size="9" fill="#24292f">Outputs (右移)</text>
+          <line x1="471" y1="184" x2="471" y2="168" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arr2)"/>
+          <rect x="416" y="12" width="110" height="20" rx="4" fill="#009E73"/>
+          <text x="471" y="26" font-size="9" fill="#fff">Linear + Softmax</text>
+          <line x1="471" y1="46" x2="471" y2="34" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arr2)"/>
+        </g>
+        <!-- 交叉注意力：全场唯一斜线 -->
+        <line x1="236" y1="86" x2="408" y2="94" stroke="#D55E00" stroke-width="1.4" marker-end="url(#arr2)"/>
+        <line x1="236" y1="98" x2="408" y2="102" stroke="#D55E00" stroke-width="1.4" marker-end="url(#arr2)"/>
+        <text x="318" y="66" text-anchor="middle" font-size="9" fill="#D55E00" font-style="italic">cross attention</text>
+        <text x="166" y="44" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#24292f">Encoder</text>
+        <text x="471" y="216" text-anchor="middle" font-size="9.5" fill="#8b949e"> </text>
+      </svg>
+      <ol class="tips">
+        <li><b>对称构图制造反差。</b>双塔垂直镜像、走线全部竖直，全场唯一的两条斜线恰好落在 cross-attention 上，视觉焦点即论文创新点。</li>
+        <li><b>N× 角标折叠重复。</b>6 层堆叠收进一个圆角块加角标，密度骤降，结构感保留。</li>
+        <li><b>流向与阅读方向一致。</b>数据自下而上，输入在下、输出在顶，读者不需要方向图例。</li>
+        <li><b>次要元素降饱和度。</b>Add &amp; Norm 只用一行小字带过，线稿浅灰，不抢主体的戏。</li>
+      </ol>
+    </div>
+
+    <div class="fig-card reveal">
+      <h3><span class="fnum">P4</span>CLIP（ICML 2021）：双流汇聚</h3>
+      <p class="why">双流编码加相似度矩阵的构图被后续所有对比学习论文沿用，矩阵本身就是结果的可视化。</p>
+      <svg viewBox="0 0 632 200" role="img" aria-label="CLIP 双流对比学习示意">
+        <defs>
+          <marker id="arr3" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#8b949e"/>
+          </marker>
+        </defs>
+        <!-- 图像流 -->
+        <g>
+          <g fill="#dceaf5" stroke="#0072B2" stroke-width="0.8">
+            <rect x="20" y="26" width="38" height="38" rx="3"/>
+            <rect x="66" y="26" width="38" height="38" rx="3"/>
+            <rect x="112" y="26" width="38" height="38" rx="3"/>
+          </g>
+          <circle cx="39" cy="45" r="8" fill="#0072B2" opacity="0.5"/>
+          <path d="M70,58 L82,40 L92,50 L104,36" stroke="#0072B2" stroke-width="1.5" fill="none"/>
+          <rect x="122" y="36" width="18" height="12" fill="#009E73" opacity="0.6"/>
+          <line x1="150" y1="45" x2="176" y2="45" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arr3)"/>
+          <rect x="180" y="32" width="110" height="26" rx="5" fill="#0072B2"/>
+          <text x="235" y="49" text-anchor="middle" font-size="9.5" fill="#fff">Image Encoder</text>
+          <line x1="290" y1="45" x2="316" y2="45" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arr3)"/>
+          <g font-size="8" text-anchor="middle">
+            <rect x="320" y="34" width="26" height="20" rx="2" fill="#dceaf5" stroke="#0072B2" stroke-width="0.8"/>
+            <text x="333" y="47" fill="#24292f">I1</text>
+            <rect x="352" y="34" width="26" height="20" rx="2" fill="#dceaf5" stroke="#0072B2" stroke-width="0.8"/>
+            <text x="365" y="47" fill="#24292f">I2</text>
+            <rect x="384" y="34" width="26" height="20" rx="2" fill="#dceaf5" stroke="#0072B2" stroke-width="0.8"/>
+            <text x="397" y="47" fill="#24292f">I3</text>
+          </g>
+        </g>
+        <!-- 文本流 -->
+        <g>
+          <g fill="#fdf3e3" stroke="#E69F00" stroke-width="0.8">
+            <rect x="20" y="140" width="40" height="18" rx="9"/>
+            <rect x="68" y="140" width="40" height="18" rx="9"/>
+            <rect x="116" y="140" width="40" height="18" rx="9"/>
+          </g>
+          <g font-size="7.5" fill="#8b949e" text-anchor="middle">
+            <text x="40" y="152">a dog</text><text x="88" y="152">a cat</text><text x="136" y="152">a car</text>
+          </g>
+          <line x1="158" y1="149" x2="176" y2="149" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arr3)"/>
+          <rect x="180" y="136" width="110" height="26" rx="5" fill="#E69F00"/>
+          <text x="235" y="153" text-anchor="middle" font-size="9.5" fill="#fff">Text Encoder</text>
+          <line x1="290" y1="149" x2="316" y2="149" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arr3)"/>
+          <g font-size="8" text-anchor="middle">
+            <rect x="320" y="140" width="26" height="20" rx="2" fill="#fdf3e3" stroke="#E69F00" stroke-width="0.8"/>
+            <text x="333" y="153" fill="#24292f">T1</text>
+            <rect x="352" y="140" width="26" height="20" rx="2" fill="#fdf3e3" stroke="#E69F00" stroke-width="0.8"/>
+            <text x="365" y="153" fill="#24292f">T2</text>
+            <rect x="384" y="140" width="26" height="20" rx="2" fill="#fdf3e3" stroke="#E69F00" stroke-width="0.8"/>
+            <text x="397" y="153" fill="#24292f">T3</text>
+          </g>
+        </g>
+        <!-- 汇聚虚线 -->
+        <line x1="410" y1="44" x2="462" y2="70" stroke="#8b949e" stroke-width="1" stroke-dasharray="3 2"/>
+        <line x1="410" y1="150" x2="462" y2="130" stroke="#8b949e" stroke-width="1" stroke-dasharray="3 2"/>
+        <!-- 相似度矩阵 -->
+        <g stroke="#ffffff" stroke-width="1.5">
+          <rect x="466" y="46" width="36" height="36" fill="#0072B2" opacity="0.9"/>
+          <rect x="502" y="46" width="36" height="36" fill="#dfe7ee"/>
+          <rect x="538" y="46" width="36" height="36" fill="#eef1f4"/>
+          <rect x="466" y="82" width="36" height="36" fill="#eef1f4"/>
+          <rect x="502" y="82" width="36" height="36" fill="#0072B2" opacity="0.9"/>
+          <rect x="538" y="82" width="36" height="36" fill="#dfe7ee"/>
+          <rect x="466" y="118" width="36" height="36" fill="#dfe7ee"/>
+          <rect x="502" y="118" width="36" height="36" fill="#eef1f4"/>
+          <rect x="538" y="118" width="36" height="36" fill="#0072B2" opacity="0.9"/>
+        </g>
+        <text x="520" y="176" text-anchor="middle" font-size="9" fill="#8b949e">N×N 相似度矩阵，对角线为正样本对</text>
+      </svg>
+      <ol class="tips">
+        <li><b>双流镜像构图。</b>图像流与文本流上下对称，汇聚到右侧矩阵，对比关系由几何位置直接表达。</li>
+        <li><b>颜色即模态。</b>蓝色全程代表图像、橙色全程代表文本，两个角色在任何子图里都不会混淆。</li>
+        <li><b>矩阵自解释。</b>对角线深色块直接编码「正样本在对角」，替代整段文字说明。</li>
+        <li><b>编码器画成黑盒。</b>贡献点在学习目标而非架构，内部结构留白，图面带宽全给对比关系。</li>
+      </ol>
+    </div>
+    <div class="fig-card reveal">
+      <h3><span class="fnum">P5</span>DDPM（NeurIPS 2020）：双向链式</h3>
+      <p class="why">扩散模型的链式图把「状态随时间演化」直接演在节点里，前向与反向两个过程零交叉共存。</p>
+      <svg viewBox="0 0 632 160" role="img" aria-label="DDPM 前向反向链示意">
+        <defs>
+          <marker id="arr4" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#8b949e"/>
+          </marker>
+          <marker id="arr4b" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#0072B2"/>
+          </marker>
+        </defs>
+        <!-- 前向箭头（上排，向右） -->
+        <g stroke="#8b949e" stroke-width="1.2" fill="none">
+          <path d="M104,52 Q145,36 186,52" marker-end="url(#arr4)"/>
+          <path d="M214,52 Q255,36 296,52" marker-end="url(#arr4)"/>
+          <path d="M324,52 Q365,36 406,52" marker-end="url(#arr4)"/>
+          <path d="M434,52 Q475,36 516,52" marker-end="url(#arr4)"/>
+        </g>
+        <text x="310" y="24" text-anchor="middle" font-size="9.5" fill="#57606a" font-style="italic">q：前向逐步加噪</text>
+        <!-- 反向箭头（下排，向左，虚线） -->
+        <g stroke="#0072B2" stroke-width="1.2" fill="none" stroke-dasharray="4 2.5">
+          <path d="M186,98 Q145,114 104,98" marker-end="url(#arr4b)"/>
+          <path d="M296,98 Q255,114 214,98" marker-end="url(#arr4b)"/>
+          <path d="M406,98 Q365,114 324,98" marker-end="url(#arr4b)"/>
+          <path d="M516,98 Q475,114 434,98" marker-end="url(#arr4b)"/>
+        </g>
+        <text x="310" y="132" text-anchor="middle" font-size="9.5" fill="#0072B2" font-style="italic">p_θ：反向逐步去噪（可学习）</text>
+        <!-- 链式节点：填充渐变演出加噪过程 -->
+        <g font-size="9.5" text-anchor="middle">
+          <rect x="76" y="58" width="28" height="28" rx="4" fill="#0072B2"/>
+          <text x="90" y="100" fill="#24292f">x₀</text>
+          <rect x="186" y="58" width="28" height="28" rx="4" fill="#4a90c4"/>
+          <text x="200" y="100" fill="#24292f">x₁</text>
+          <rect x="296" y="58" width="28" height="28" rx="4" fill="#8ab0cf"/>
+          <text x="310" y="100" fill="#24292f">x₂</text>
+          <rect x="406" y="58" width="28" height="28" rx="4" fill="#c0ccd8"/>
+          <text x="420" y="100" fill="#24292f">x₃</text>
+          <rect x="516" y="58" width="28" height="28" rx="4" fill="#e8ebee" stroke="#b0b8c0" stroke-width="0.8"/>
+          <text x="530" y="100" fill="#24292f">x_T</text>
+        </g>
+        <text x="530" y="48" text-anchor="middle" font-size="8.5" fill="#8b949e">纯噪声</text>
+        <text x="90" y="48" text-anchor="middle" font-size="8.5" fill="#8b949e">原图</text>
+      </svg>
+      <ol class="tips">
+        <li><b>链式构图表达马尔可夫性。</b>等距节点加同构箭头，读者一眼看出「每步只依赖上一步」。</li>
+        <li><b>两个过程上下分行。</b>前向走上排实线向右，反向走下排虚线向左，方向、线型、颜色三重区分，零交叉。</li>
+        <li><b>节点填充直接演状态。</b>从实色渐变到空白的填充即「逐渐变噪」的具象化，读者无需图例。</li>
+        <li><b>可学习部分单独着色。</b>只有 p_θ 用主色，标出模型真正要学的部分，其余皆是灰色固定过程。</li>
+      </ol>
+    </div>
+
+    <h3 class="group-title" id="fig-results"><span class="gletter">B</span>实验结果（Experiments）</h3>
+    <p class="group-note">主实验章节的对比图，回答「我的方法比基线好多少」。</p>
+
+    <div class="fig-card reveal" data-page-node-id="yoGgMPgsde6yPvQblQp12E">
+      <h3 data-page-node-id="sDBW0YBMnK7AEO4chl3L31"><span class="fnum" data-page-node-id="vON68TQVjzt6d4voOF65pu">03</span>训练曲线对比（折线图）</h3>
+      <p class="why" data-page-node-id="kjKajBF8ZL7yUDF3F3RZUK">多方法对比的主图。主线用实线加置信带，基线用虚线压低视觉权重，读者一眼锁定你的方法。</p>
+      <svg viewBox="0 0 632 252" role="img" aria-label="训练曲线对比示例图" data-page-node-id="UJXxBNVvZmj3Zp4B8TBBgq">
+        <!-- 网格线 -->
+        <g stroke="#e5e9ee" stroke-width="1" data-page-node-id="G2qGorpkPq1hSKPESTO8Qs">
+          <line x1="58" y1="172.4" x2="606" y2="172.4" data-page-node-id="diWEz0wDrhFBi36E8bEqTf"/>
+          <line x1="58" y1="138.9" x2="606" y2="138.9" data-page-node-id="AsEJrFKFZzJE3Rj7LQloWd"/>
+          <line x1="58" y1="105.4" x2="606" y2="105.4" data-page-node-id="JpEgvtPzroXCHAGnegAskF"/>
+          <line x1="58" y1="71.9" x2="606" y2="71.9" data-page-node-id="ZCiCXECYmuEjBjLqRu322l"/>
+          <line x1="58" y1="38.4" x2="606" y2="38.4" data-page-node-id="RHLocokgW2mSvayrRnTqE0"/>
+        </g>
+        <!-- 置信带 -->
+        <path d="M58,36 C113,108 168,140 223,151 C278,158 440,160 606,162 L606,175 C440,173 278,172 223,166 C168,158 113,128 58,50 Z"
+              fill="#0072B2" opacity="0.14" data-page-node-id="WsJMYvBUlNxUwPyZmgjj5E"/>
+        <!-- 基线：未微调，水平虚线 -->
+        <line x1="58" y1="42.2" x2="606" y2="42.2" stroke="#999999" stroke-width="1.4" stroke-dasharray="5 4" data-page-node-id="anpGAcjUmY7lLpfVmLw7tv"/>
+        <!-- QA-SFT 基线 -->
+        <path d="M58,42.2 C130,55 240,74 333,81.5 C430,87 520,86 606,85.1"
+              fill="none" stroke="#E69F00" stroke-width="2" data-page-node-id="U4zAs8S4PpaBRtjn5KoyE3"/>
+        <!-- OKC-SFT -->
+        <path d="M58,42.2 C113,118 168,152 223,163 C278,168 440,168.5 606,168.4"
+              fill="none" stroke="#0072B2" stroke-width="2.4" data-page-node-id="qNfXGgRaNsUP5ap3ETqZyA"/>
+        <!-- 坐标轴 -->
+        <g stroke="#24292f" stroke-width="1.1" data-page-node-id="D4jGP2xMvTw8poP6XKaTkM">
+          <line x1="58" y1="18" x2="58" y2="206" data-page-node-id="64c9FHnEHZu0BJSYN60Cr3"/>
+          <line x1="58" y1="206" x2="606" y2="206" data-page-node-id="Q9O6xImMrZa1p0cuxOCUFi"/>
+        </g>
+        <!-- 刻度 -->
+        <g font-family="Georgia, serif" font-size="10" fill="#57606a" data-page-node-id="MwzB61RRCVMsf8zHRcTrRq">
+          <text x="50" y="176" text-anchor="end" data-page-node-id="gWhY3ySGRHg3DrUSA2D16P">15</text>
+          <text x="50" y="142.5" text-anchor="end" data-page-node-id="FA1r1IjDzvQTEFLX2nMqTC">20</text>
+          <text x="50" y="109" text-anchor="end" data-page-node-id="6vVJobB5c1kp1psi6snJtM">25</text>
+          <text x="50" y="75.5" text-anchor="end" data-page-node-id="xuWmSteFHYSFvwee1yCOPB">30</text>
+          <text x="50" y="42" text-anchor="end" data-page-node-id="CZZyF6Q0hnIyafaeU4B5zI">35</text>
+          <text x="58" y="220" text-anchor="middle" data-page-node-id="FKsCVlks9SoXGAGnN1aH7Q">0</text>
+          <text x="168" y="220" text-anchor="middle" data-page-node-id="sz5nx2HjLuyEJyAZLrOeMv">10</text>
+          <text x="277" y="220" text-anchor="middle" data-page-node-id="EpSDILQx24GPgBvg6PveJi">20</text>
+          <text x="387" y="220" text-anchor="middle" data-page-node-id="dgFr3TS88VAAm2wyo4QqT6">30</text>
+          <text x="496" y="220" text-anchor="middle" data-page-node-id="67Je09J80BCrBC7DcUsJ32">40</text>
+          <text x="606" y="220" text-anchor="middle" data-page-node-id="AU9ePF92bxEp2SevbNRSnK">50</text>
+        </g>
+        <text x="332" y="240" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#24292f" data-page-node-id="TBFASYQa13blmvLYjllScc">Training Steps (epoch)</text>
+        <text x="16" y="112" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#24292f" transform="rotate(-90 16 112)" data-page-node-id="CKtzk4xFNnttNbgbNoxDUB">Hallucination Rate (%)</text>
+        <!-- 图例 -->
+        <g font-family="Georgia, serif" font-size="10.5" fill="#24292f" data-page-node-id="FyuS559v7V3mm86u7u7sKz">
+          <line x1="430" y1="34" x2="452" y2="34" stroke="#0072B2" stroke-width="2.4" data-page-node-id="IeFKU9hZxonVTHFI4fJwHc"/>
+          <text x="458" y="38" data-page-node-id="sS6poq9ckdZg5fyGDIXENU">OKC-SFT (ours)</text>
+          <line x1="430" y1="52" x2="452" y2="52" stroke="#E69F00" stroke-width="2" data-page-node-id="XLDnExZo9Fi6nGmnl6TApF"/>
+          <text x="458" y="56" data-page-node-id="YDBB3jIKMa8pJTL2FpCDeP">QA-SFT baseline</text>
+          <line x1="430" y1="70" x2="452" y2="70" stroke="#999999" stroke-width="1.4" stroke-dasharray="5 4" data-page-node-id="9AZE9jtw9KOZC0tWAsC7tZ"/>
+          <text x="458" y="74" data-page-node-id="N5J0QPG4GALVvvs4s1McnF">Base model</text>
+        </g>
+      </svg>
+      <details class="code" data-page-node-id="oBSMhNQKw8JzXJggDZcz13">
+        <summary data-page-node-id="fbdjAmy0ZpZqeUrEByxtYc">查看 matplotlib 代码</summary>
+        <div class="code-wrap" data-page-node-id="S1GBCBnGiDishh5igGVWRR">
+          <button class="copy-btn" type="button" data-page-node-id="xt4NGd8QeAtrHyBPlYnB9g">复制</button>
+          <pre data-page-node-id="bd6XUeLT7D5EXH9uZBlGXy"><code data-page-node-id="eCxqB7GgPx1FRGhtCMTMCX">import numpy as np
+import matplotlib.pyplot as plt
+
+epochs = np.arange(0, 51)
+okc = 34.4 - (34.4 - 15.6) * (1 - np.exp(-epochs / 8))
+qa = 34.4 - 6.4 * (1 - np.exp(-epochs / 20))
+base = np.full_like(epochs, 34.4)
+
+fig, ax = plt.subplots(figsize=(3.5, 2.6))
+ax.fill_between(epochs, okc - 1.2, okc + 1.2,
+                color="#0072B2", alpha=0.15, linewidth=0)
+ax.plot(epochs, okc, color="#0072B2", lw=1.8, label="OKC-SFT (ours)")
+ax.plot(epochs, qa, color="#E69F00", lw=1.4, label="QA-SFT baseline")
+ax.plot(epochs, base, color="#999999", lw=1.1, ls="--", label="Base model")
+
+ax.set_xlabel("Training Steps (epoch)")
+ax.set_ylabel("Hallucination Rate (%)")
+ax.set_ylim(10, 38)
+ax.spines[["top", "right"]].set_visible(False)
+ax.grid(axis="y", lw=0.6, color="#e5e9ee")
+ax.set_axisbelow(True)
+ax.legend(loc="upper right")
+fig.savefig("fig1_curve.pdf")</code></pre>
+        </div>
+      </details>
+    </div>
+
+    <div class="fig-card reveal" data-page-node-id="uZXX9HqjQPyDFJGXTw4yCr">
+      <h3 data-page-node-id="YcAmpTZcbbndVhMfvOvusu"><span class="fnum" data-page-node-id="RwU7JQoHncvslaX2Uad2AN">04</span>分组柱状图（柱状图）</h3>
+      <p class="why" data-page-node-id="xL0wG5K8QX2YqQMYrpfrlF">离散指标对比的首选。柱顶直接标数值，读者不用回头对着 y 轴估读；组内顺序在全篇论文中保持一致。</p>
+      <svg viewBox="0 0 632 252" role="img" aria-label="分组柱状图示例" data-page-node-id="3vVv25NGcuHuK5MFJGn35E">
+        <g stroke="#e5e9ee" stroke-width="1" data-page-node-id="0MpaCydaD4qDFCKoot4Wzk">
+          <line x1="58" y1="161" x2="606" y2="161" data-page-node-id="UMxXSfU3hnyof0bXucTECY"/>
+          <line x1="58" y1="116" x2="606" y2="116" data-page-node-id="5WOpV1vNMBAuPp7rtSxy1X"/>
+          <line x1="58" y1="71" x2="606" y2="71" data-page-node-id="d8E3E8b5GV2MZTlwNAZz0o"/>
+          <line x1="58" y1="26" x2="606" y2="26" data-page-node-id="XBcxTiNmujkO9ZotFOF9H2"/>
+        </g>
+        <!-- 组 1: 准确率 -->
+        <rect x="83.5" y="40.4" width="26" height="165.6" fill="#0072B2" data-page-node-id="5RmCeiHw1Sm2kJ0hX4GNCI"/>
+        <rect x="113.5" y="53" width="26" height="153" fill="#E69F00" data-page-node-id="x2dFMvH0kANyzV3hLLGIGz"/>
+        <rect x="143.5" y="78.2" width="26" height="127.8" fill="#BBBBBB" data-page-node-id="ilbOi1P8Azz48HdVc30Y1R"/>
+        <!-- 组 2: 覆盖率 -->
+        <rect x="220.5" y="72.8" width="26" height="133.2" fill="#0072B2" data-page-node-id="4zmA3u0AOI0iOQt5i0klec"/>
+        <rect x="250.5" y="83.6" width="26" height="122.4" fill="#E69F00" data-page-node-id="5bAnCOL05e8P9gAtvmjPQ7"/>
+        <rect x="280.5" y="112.4" width="26" height="93.6" fill="#BBBBBB" data-page-node-id="0jxrwBWBM6LlnM3HZSv79c"/>
+        <!-- 组 3: 完整率 -->
+        <rect x="357.5" y="26.4" width="26" height="179.6" fill="#0072B2" data-page-node-id="KQs0XMZtKG9FUS24DGX0zG"/>
+        <rect x="387.5" y="31.4" width="26" height="174.6" fill="#E69F00" data-page-node-id="3rYHqwzHkUr13TJqDfAnkN"/>
+        <rect x="417.5" y="44" width="26" height="162" fill="#BBBBBB" data-page-node-id="Q4iZZkHvwAx6OjEuulD2up"/>
+        <!-- 组 4: 可执行率 -->
+        <rect x="494.5" y="29.6" width="26" height="176.4" fill="#0072B2" data-page-node-id="lDIwAtIiNOFToSNSaSzbfY"/>
+        <rect x="524.5" y="44" width="26" height="162" fill="#E69F00" data-page-node-id="7Ybs6Svk45mtjuMYPGoZbm"/>
+        <rect x="554.5" y="90.8" width="26" height="115.2" fill="#BBBBBB" data-page-node-id="9tYCrTVp9WXJM30VX7FN54"/>
+        <!-- 数值标注 -->
+        <g font-family="Georgia, serif" font-size="8.5" fill="#24292f" text-anchor="middle" data-page-node-id="tdrdlyWslOI5nYyMgd7DdU">
+          <text x="96.5" y="36" data-page-node-id="DIqZj76y8Y4DRSu8CMtUuR">92</text><text x="126.5" y="48.6" data-page-node-id="SVA8Vs6QV9zymGYpcxQ5LC">85</text><text x="156.5" y="73.8" data-page-node-id="ZAPjEfXOKLU87Cq4bFURFW">71</text>
+          <text x="233.5" y="68.4" data-page-node-id="td4HGMXlaQjC9y0rlKVIS6">74</text><text x="263.5" y="79.2" data-page-node-id="bOc8ip7lO1cVDt9PP9WW9Y">68</text><text x="293.5" y="108" data-page-node-id="4PEb837KG9AvGnmsHU7Sh9">52</text>
+          <text x="370.5" y="22" data-page-node-id="ZwZroDBZZjCPmSx1KIR6RJ">99.8</text><text x="400.5" y="27" data-page-node-id="EpSKqfUeIHupY5QcodZK9q">97</text><text x="430.5" y="39.6" data-page-node-id="CzW9wsSdyl7lak17eEILvY">90</text>
+          <text x="507.5" y="25.2" data-page-node-id="AFgSeygxEAYNrfAa47rdmf">98</text><text x="537.5" y="39.6" data-page-node-id="ZUkI3FCBrf86qILRAPnw0d">90</text><text x="567.5" y="86.4" data-page-node-id="L0hmF6PW8yXHc8tpol6tCo">64</text>
+        </g>
+        <g stroke="#24292f" stroke-width="1.1" data-page-node-id="7NLdoE2w92mBTnHnNHuCMz">
+          <line x1="58" y1="206" x2="606" y2="206" data-page-node-id="x65xtG3O74EM7Pylj4HJmc"/>
+        </g>
+        <g font-family="Georgia, serif" font-size="10" fill="#57606a" text-anchor="middle" data-page-node-id="nFl5xLCwUoofykceIAlhXF">
+          <text x="126.5" y="222" data-page-node-id="ojxuvNGMISeGGEECkINDJ2">Accuracy</text>
+          <text x="263.5" y="222" data-page-node-id="MamqrxJzblCS2x6gltASCc">Coverage</text>
+          <text x="400.5" y="222" data-page-node-id="zJI29PS5m0kXC7JpkeZCiJ">Integrity</text>
+          <text x="537.5" y="222" data-page-node-id="D4O90NUsqZkfIEnPa4NNuQ">Executability</text>
+          <text x="50" y="165" text-anchor="end" data-page-node-id="XmpYPSVKrsEWZ4iCoHFOWz">25</text>
+          <text x="50" y="120" text-anchor="end" data-page-node-id="HgfpfA3bbfyFNVXQ0aCPF5">50</text>
+          <text x="50" y="75" text-anchor="end" data-page-node-id="E9UAtEYG8q7oqHwRE0B6gy">75</text>
+          <text x="50" y="30" text-anchor="end" data-page-node-id="qtbBFmiEQKMEi3JE8z8TZz">100</text>
+        </g>
+        <text x="16" y="116" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#24292f" transform="rotate(-90 16 116)" data-page-node-id="rJt1zvpWQJtvE3WHj3Wpmz">Score (%)</text>
+        <g font-family="Georgia, serif" font-size="10.5" fill="#24292f" data-page-node-id="4W125UlOu3BbXDdw3ulg38">
+          <rect x="70" y="8" width="10" height="10" fill="#0072B2" data-page-node-id="kDwlfkqpR9FFhW707eHZxT"/>
+          <text x="85" y="17" data-page-node-id="Kd7Q06JEPT7UkgrtKMBXS8">OKC-SFT</text>
+          <rect x="150" y="8" width="10" height="10" fill="#E69F00" data-page-node-id="YMrOwYZbf8DG8zVi2QnYdS"/>
+          <text x="165" y="17" data-page-node-id="CLvzLLH3M78qoD2hJmVfKl">QA-SFT</text>
+          <rect x="224" y="8" width="10" height="10" fill="#BBBBBB" data-page-node-id="0kH3uFec2CFonEbOGwKOHq"/>
+          <text x="239" y="17" data-page-node-id="cVJnBSGiniWvF3IlbP3AMr">Base</text>
+        </g>
+      </svg>
+      <details class="code" data-page-node-id="KqAUOEdDma1PoaqMaRp3CH">
+        <summary data-page-node-id="8DBscwEKGNpuzwDHfzsaUQ">查看 matplotlib 代码</summary>
+        <div class="code-wrap" data-page-node-id="rVlmekwCuMqfpIdUzxgz4b">
+          <button class="copy-btn" type="button" data-page-node-id="6wsAPrzf4R7AP8rbcuXe6u">复制</button>
+          <pre data-page-node-id="QZyL7mmLAiFtefpAoeb801"><code data-page-node-id="p7dS8ASEAqMl1dKqD28CcE">import numpy as np
+import matplotlib.pyplot as plt
+
+metrics = ["Accuracy", "Coverage", "Integrity", "Executability"]
+scores = {
+    "OKC-SFT": [92, 74, 99.8, 98],
+    "QA-SFT":  [85, 68, 97, 90],
+    "Base":    [71, 52, 90, 64],
+}
+colors = ["#0072B2", "#E69F00", "#BBBBBB"]
+
+x = np.arange(len(metrics))
+width = 0.26
+fig, ax = plt.subplots(figsize=(3.5, 2.6))
+for i, (name, vals) in enumerate(scores.items()):
+    bars = ax.bar(x + (i - 1) * width, vals, width,
+                  label=name, color=colors[i])
+    ax.bar_label(bars, fmt="%.4g", padding=2, fontsize=7)
+
+ax.set_ylabel("Score (%)")
+ax.set_xticks(x, metrics)
+ax.set_ylim(0, 112)
+ax.spines[["top", "right"]].set_visible(False)
+ax.grid(axis="y", lw=0.6, color="#e5e9ee")
+ax.set_axisbelow(True)
+ax.legend(loc="upper right", ncols=3, columnspacing=0.9)
+fig.savefig("fig2_bar.pdf")</code></pre>
+        </div>
+      </details>
+    </div>
+
+    <div class="fig-card reveal" data-page-node-id="7OxFuAluJq6wTCU0oelTXL">
+      <h3 data-page-node-id="5qKHdksAbO6baNCz04djgE"><span class="fnum" data-page-node-id="CUvTmcJq4r6CW88uEnvzBq">05</span>雷达图（多维能力对比）</h3>
+      <p class="why" data-page-node-id="u2CCRPUqIgmhKY9NHUfmkf">两个对象五维以内时清晰好用。维度超过六个或对象超过三个就该换柱状图，面积重叠会失去可读性。</p>
+      <svg viewBox="0 0 632 300" role="img" aria-label="雷达图示例" data-page-node-id="ZCT70OKdj5SUK4wcef5NXn">
+        <!-- 网格环 -->
+        <g fill="none" stroke="#e5e9ee" stroke-width="1" data-page-node-id="L4njm4Fxl8jicBzgNAvu4J">
+          <polygon points="316,125 339.8,142.3 330.7,170.2 301.3,170.2 292.2,142.3" data-page-node-id="Gt6tnOPuulP2RxFIjb4Brs"/>
+          <polygon points="316,100 363.6,134.5 345.4,190.5 286.6,190.5 268.4,134.5" data-page-node-id="R76AvXQH7pE6uN9rLxLs1K"/>
+          <polygon points="316,75 387.3,126.8 360.1,210.7 271.9,210.7 244.7,126.8" data-page-node-id="WKoYuW0uK5VAHM5Lci1WHE"/>
+          <polygon points="316,50 411.1,119.1 374.8,230.9 257.2,230.9 220.9,119.1" data-page-node-id="hoKkQwBD9DPqGmJi2PYybV"/>
+        </g>
+        <!-- 轴线 -->
+        <g stroke="#e5e9ee" stroke-width="1" data-page-node-id="ZaagZSjMSJPoCCEHlOEvAG">
+          <line x1="316" y1="150" x2="316" y2="50" data-page-node-id="kgDFpfdD7lBgyjItTR7ZBV"/>
+          <line x1="316" y1="150" x2="411.1" y2="119.1" data-page-node-id="qWBpATuv7zaQVZ2Qo3FS67"/>
+          <line x1="316" y1="150" x2="374.8" y2="230.9" data-page-node-id="SfCzbuutg3J4SxOHNgdODA"/>
+          <line x1="316" y1="150" x2="257.2" y2="230.9" data-page-node-id="lSHvcUXrdWtKy46wmbkYVj"/>
+          <line x1="316" y1="150" x2="220.9" y2="119.1" data-page-node-id="Q6GZDtxNPXfW1wXflq9bGw"/>
+        </g>
+        <!-- 模型 B -->
+        <polygon points="316,80 396.8,123.7 351.3,198.5 269,214.7 263.7,133"
+                 fill="#E69F00" fill-opacity="0.15" stroke="#E69F00" stroke-width="1.8" data-page-node-id="N2mpE8C2nf8mNBLzN6Huiv"/>
+        <!-- 模型 A -->
+        <polygon points="316,60 373.1,131.5 366,218.8 286.6,190.5 249.4,128.4"
+                 fill="#0072B2" fill-opacity="0.18" stroke="#0072B2" stroke-width="2" data-page-node-id="ZMyPf0n0mxthEAzHPHvGVR"/>
+        <!-- 轴标签 -->
+        <g font-family="Georgia, serif" font-size="10.5" fill="#24292f" data-page-node-id="KVTwT1dEmEbmx02APNHEtY">
+          <text x="316" y="40" text-anchor="middle" data-page-node-id="APtMrtPs7nHBznwLOnVwfx">Capability</text>
+          <text x="420" y="116" text-anchor="start" data-page-node-id="IFUYxb6dBwgxGzN9Yw1S3X">Preference</text>
+          <text x="382" y="248" text-anchor="middle" data-page-node-id="odSsFjrg5sHDZnJqarOzBe">Context</text>
+          <text x="250" y="248" text-anchor="middle" data-page-node-id="TmbHypAkvJZLFevmXR0CvQ">Cost Eff.</text>
+          <text x="212" y="116" text-anchor="end" data-page-node-id="sDF3ZfkRh0hGP8GBkb2cxn">Speed</text>
+        </g>
+        <!-- 图例 -->
+        <g font-family="Georgia, serif" font-size="10.5" fill="#24292f" data-page-node-id="oZz1gjU7LZkHE7uFnZr8Et">
+          <rect x="532" y="36" width="10" height="10" fill="#0072B2" fill-opacity="0.5" stroke="#0072B2" data-page-node-id="FEoxsqmxicTwoFA7IkyWao"/>
+          <text x="548" y="45" data-page-node-id="GbS5uAqQO0pgTbuY1BI0hJ">Model A</text>
+          <rect x="532" y="54" width="10" height="10" fill="#E69F00" fill-opacity="0.5" stroke="#E69F00" data-page-node-id="hbRF6x3WwTG4AxTaqOWCMq"/>
+          <text x="548" y="63" data-page-node-id="WMuFwA3wZgH5oYJ7s3NijE">Model B</text>
+        </g>
+      </svg>
+      <details class="code" data-page-node-id="6ytrUlfQRMd3naoGu1CYXK">
+        <summary data-page-node-id="ru6pAemBuYTCirpcukA4T2">查看 matplotlib 代码</summary>
+        <div class="code-wrap" data-page-node-id="lk9DTueBtASjI1V8qMApWZ">
+          <button class="copy-btn" type="button" data-page-node-id="k5xqPzUj7NJnt3ex4pM8Bn">复制</button>
+          <pre data-page-node-id="9mnUODcPmGDR9SNLF52QvO"><code data-page-node-id="8fjA0CG5TvMQsZsDZ9USdD">import numpy as np
+import matplotlib.pyplot as plt
+
+dims = ["Capability", "Preference", "Context", "Cost Eff.", "Speed"]
+model_a = [0.90, 0.60, 0.85, 0.50, 0.70]
+model_b = [0.70, 0.85, 0.60, 0.80, 0.55]
+
+angles = np.linspace(0, 2 * np.pi, len(dims), endpoint=False)
+angles = np.concatenate([angles, angles[:1]])
+
+fig, ax = plt.subplots(figsize=(3.2, 3.0),
+                       subplot_kw=dict(polar=True))
+ax.set_theta_offset(np.pi / 2)
+ax.set_theta_direction(-1)
+for vals, color, name in [(model_a, "#0072B2", "Model A"),
+                          (model_b, "#E69F00", "Model B")]:
+    v = np.concatenate([vals, vals[:1]])
+    ax.plot(angles, v, color=color, lw=1.6, label=name)
+    ax.fill(angles, v, color=color, alpha=0.15)
+ax.set_xticks(angles[:-1], dims)
+ax.set_ylim(0, 1)
+ax.set_yticks([0.25, 0.5, 0.75, 1.0])
+ax.set_yticklabels([])
+ax.grid(lw=0.6, color="#e5e9ee")
+ax.spines["polar"].set_color("#e5e9ee")
+ax.legend(loc="upper right", bbox_to_anchor=(1.35, 1.1))
+fig.savefig("fig4_radar.pdf")</code></pre>
+        </div>
+      </details>
+    </div>
+
+    <div class="fig-card reveal">
+      <h3><span class="fnum">06</span>Scaling 分析（对数轴散点 + 拟合线）</h3>
+      <p class="why">参数量与指标的幂律关系是对数轴散点的经典场景。散点给原始观测，直线给拟合趋势，log-log 坐标下幂律天然呈直线。</p>
+      <svg viewBox="0 0 632 252" role="img" aria-label="Scaling 对数散点图示例">
+        <!-- 网格 -->
+        <g stroke="#e5e9ee" stroke-width="1">
+          <line x1="58" y1="38" x2="606" y2="38"/>
+          <line x1="58" y1="80" x2="606" y2="80"/>
+          <line x1="58" y1="122" x2="606" y2="122"/>
+          <line x1="58" y1="164" x2="606" y2="164"/>
+        </g>
+        <!-- 拟合线 -->
+        <line x1="145" y1="44" x2="598" y2="150" stroke="#E69F00" stroke-width="1.5"/>
+        <line x1="145" y1="66" x2="598" y2="183" stroke="#0072B2" stroke-width="1.6"/>
+        <!-- 系列 B 方点 -->
+        <g fill="#E69F00">
+          <rect x="141.5" y="42.9" width="7" height="7"/>
+          <rect x="236.9" y="68.1" width="7" height="7"/>
+          <rect x="324.2" y="93.3" width="7" height="7"/>
+          <rect x="419.8" y="114.3" width="7" height="7"/>
+          <rect x="507.1" y="131.1" width="7" height="7"/>
+          <rect x="594.3" y="143.7" width="7" height="7"/>
+        </g>
+        <!-- 系列 A 圆点 -->
+        <g fill="#0072B2">
+          <circle cx="145" cy="71.6" r="3.5"/>
+          <circle cx="240.4" cy="105.2" r="3.5"/>
+          <circle cx="327.7" cy="130.4" r="3.5"/>
+          <circle cx="423.3" cy="151.4" r="3.5"/>
+          <circle cx="510.6" cy="168.2" r="3.5"/>
+          <circle cx="597.8" cy="180.8" r="3.5"/>
+        </g>
+        <!-- 坐标轴 -->
+        <g stroke="#24292f" stroke-width="1.1">
+          <line x1="58" y1="18" x2="58" y2="206"/>
+          <line x1="58" y1="206" x2="606" y2="206"/>
+        </g>
+        <g font-family="Georgia, serif" font-size="10" fill="#57606a">
+          <text x="50" y="42" text-anchor="end">4.0</text>
+          <text x="50" y="84" text-anchor="end">3.5</text>
+          <text x="50" y="126" text-anchor="end">3.0</text>
+          <text x="50" y="168" text-anchor="end">2.5</text>
+          <text x="50" y="210" text-anchor="end">2.0</text>
+          <text x="58" y="220" text-anchor="middle">0.1</text>
+          <text x="240.7" y="220" text-anchor="middle">1</text>
+          <text x="423.3" y="220" text-anchor="middle">10</text>
+          <text x="606" y="220" text-anchor="middle">100</text>
+        </g>
+        <text x="332" y="240" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#24292f">Parameters (B, log scale)</text>
+        <text x="16" y="112" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#24292f" transform="rotate(-90 16 112)">Validation Loss</text>
+        <!-- 图例（左下） -->
+        <g font-family="Georgia, serif" font-size="10.5" fill="#24292f">
+          <circle cx="76" cy="168" r="3.5" fill="#0072B2"/>
+          <text x="86" y="172">Compute-optimal</text>
+          <rect x="72.5" y="180.5" width="7" height="7" fill="#E69F00"/>
+          <text x="86" y="188">Under-trained</text>
+        </g>
+      </svg>
+      <details class="code">
+        <summary>查看 matplotlib 代码</summary>
+        <div class="code-wrap">
+          <button class="copy-btn" type="button">复制</button>
+          <pre><code>import numpy as np
+import matplotlib.pyplot as plt
+
+params = np.array([0.3, 1, 3, 10, 30, 90])
+loss_a = np.array([3.60, 3.20, 2.90, 2.65, 2.45, 2.30])
+loss_b = np.array([3.90, 3.60, 3.30, 3.05, 2.85, 2.70])
+
+def fit_line(p, l):
+    k, b = np.polyfit(np.log10(p), l, 1)
+    xs = np.logspace(np.log10(p.min()), np.log10(p.max()), 50)
+    return xs, k * np.log10(xs) + b
+
+fig, ax = plt.subplots(figsize=(3.5, 2.6))
+ax.scatter(params, loss_a, s=16, color="#0072B2", zorder=3,
+           label="Compute-optimal")
+ax.scatter(params, loss_b, s=16, marker="s", color="#E69F00",
+           zorder=3, label="Under-trained")
+ax.plot(*fit_line(params, loss_a), color="#0072B2", lw=1.4)
+ax.plot(*fit_line(params, loss_b), color="#E69F00", lw=1.4)
+
+ax.set_xscale("log")
+ax.set_xlabel("Parameters (B)")
+ax.set_ylabel("Validation Loss")
+ax.set_ylim(2.0, 4.1)
+ax.spines[["top", "right"]].set_visible(False)
+ax.grid(axis="y", lw=0.6, color="#e5e9ee")
+ax.set_axisbelow(True)
+ax.legend(loc="lower left")
+fig.savefig("fig_scaling.pdf")</code></pre>
+        </div>
+      </details>
+    </div>
+
+    <h3 class="group-title" id="fig-analysis"><span class="gletter">C</span>消融与分析（Ablation &amp; Analysis）</h3>
+    <p class="group-note">消融、稳定性与敏感性分析章节的配图，回答「每个部件是否有用、结果是否稳健」。</p>
+
+    <div class="fig-card reveal" data-page-node-id="K0wwcgMAfsUa6JUURmH5y2">
+      <h3 data-page-node-id="FZhSVDXCK7ZqP6qB8PWLjR"><span class="fnum" data-page-node-id="QB4wYrYgY2iM7jWFWLieb1">07</span>混淆矩阵（热力图）</h3>
+      <p class="why" data-page-node-id="l1A2ztpgjeWIGJ6IaUsVAv">矩阵类数据的标配。单色渐变比彩虹色更专业，数值直接写进格子，色条只作辅助参照。</p>
+      <svg viewBox="0 0 632 268" role="img" aria-label="混淆矩阵热力图示例" data-page-node-id="Wrh6hBrjgNonVZVBJGFWYx">
+        <g font-family="Georgia, serif" font-size="10.5" fill="#57606a" data-page-node-id="YyIT0sBil6HKABqZFH08t1">
+          <text x="140" y="18" text-anchor="middle" data-page-node-id="0eeY65g9mjcBeD6I4Ghb5L">A</text>
+          <text x="180" y="18" text-anchor="middle" data-page-node-id="AB1kJWSgpYUObadbW1Zvci">B</text>
+          <text x="220" y="18" text-anchor="middle" data-page-node-id="Pd0A60gbEIJV7qakFcOXrM">C</text>
+          <text x="260" y="18" text-anchor="middle" data-page-node-id="096bJxd2bZHqhlOG8uJpdA">D</text>
+          <text x="300" y="18" text-anchor="middle" data-page-node-id="vAKC4ZHw9rzrv97yan8vbo">E</text>
+          <text x="116" y="42" text-anchor="end" data-page-node-id="MXMC45OabAg2JUp0navXgt">A</text>
+          <text x="116" y="82" text-anchor="end" data-page-node-id="nBlAr5Pk4LpMjBAtI7H3U3">B</text>
+          <text x="116" y="122" text-anchor="end" data-page-node-id="VdhTOoXHNToxIGvpGXoBaW">C</text>
+          <text x="116" y="162" text-anchor="end" data-page-node-id="byT4es2e4oxkrvYGSe292I">D</text>
+          <text x="116" y="202" text-anchor="end" data-page-node-id="91XJii99W5t9bdwGdHYEu9">E</text>
+        </g>
+        <g stroke="#ffffff" stroke-width="1.5" data-page-node-id="h5dlkJCBtt3nRRBPSfw4Ao">
+          <rect x="120" y="24" width="40" height="40" fill="#0072B2" opacity="0.92" data-page-node-id="FimagUALMDjkxtdDOmPTa2"/>
+          <rect x="160" y="24" width="40" height="40" fill="#0072B2" opacity="0.06" data-page-node-id="B7jtclZIic6t1oe5xW3uvR"/>
+          <rect x="200" y="24" width="40" height="40" fill="#0072B2" opacity="0.04" data-page-node-id="LhUWjed6YRI41M9xQIhFa9"/>
+          <rect x="240" y="24" width="40" height="40" fill="#0072B2" opacity="0.03" data-page-node-id="vilYwxVBBi9ppDSRAQ1y4r"/>
+          <rect x="280" y="24" width="40" height="40" fill="#0072B2" opacity="0.03" data-page-node-id="UMCE026g1prItLHVDnl7OC"/>
+          <rect x="120" y="64" width="40" height="40" fill="#0072B2" opacity="0.07" data-page-node-id="DNUuC2BGc2CnOg6c3q0YLl"/>
+          <rect x="160" y="64" width="40" height="40" fill="#0072B2" opacity="0.85" data-page-node-id="1rme00NNGYDWJIUJT0xJ4b"/>
+          <rect x="200" y="64" width="40" height="40" fill="#0072B2" opacity="0.06" data-page-node-id="eeFBwn9oEaSBHy3RID9ytL"/>
+          <rect x="240" y="64" width="40" height="40" fill="#0072B2" opacity="0.04" data-page-node-id="M6tkWVzkA3XvGvOZcDD3xo"/>
+          <rect x="280" y="64" width="40" height="40" fill="#0072B2" opacity="0.03" data-page-node-id="BcOGiqsfvL91Y05aRZmnHW"/>
+          <rect x="120" y="104" width="40" height="40" fill="#0072B2" opacity="0.04" data-page-node-id="P9Y5KX94ZRSGBy5VGm0fvI"/>
+          <rect x="160" y="104" width="40" height="40" fill="#0072B2" opacity="0.08" data-page-node-id="CNAbgOEYJPNOJed2EwbKQc"/>
+          <rect x="200" y="104" width="40" height="40" fill="#0072B2" opacity="0.88" data-page-node-id="GPYrPRutwvsvyW5R9QMCG4"/>
+          <rect x="240" y="104" width="40" height="40" fill="#0072B2" opacity="0.03" data-page-node-id="kZ9HwGK1icYeqbrDXcWGOv"/>
+          <rect x="280" y="104" width="40" height="40" fill="#0072B2" opacity="0.02" data-page-node-id="w9MwSJqy3srAMJcY4G2xMI"/>
+          <rect x="120" y="144" width="40" height="40" fill="#0072B2" opacity="0.03" data-page-node-id="y6vDSC0AS5QHEp8VoNEXh8"/>
+          <rect x="160" y="144" width="40" height="40" fill="#0072B2" opacity="0.04" data-page-node-id="kfZuYt43y0ximeqi6ClbER"/>
+          <rect x="200" y="144" width="40" height="40" fill="#0072B2" opacity="0.05" data-page-node-id="uFUGtGHLSTVLwjNmg69IGk"/>
+          <rect x="240" y="144" width="40" height="40" fill="#0072B2" opacity="0.90" data-page-node-id="Bh3mpNEfDW8fekJfuBaDlE"/>
+          <rect x="280" y="144" width="40" height="40" fill="#0072B2" opacity="0.03" data-page-node-id="rCjZad5B7Gnzua32cuhD3U"/>
+          <rect x="120" y="184" width="40" height="40" fill="#0072B2" opacity="0.03" data-page-node-id="ZOTyksN50XXZJI5LvLzfjW"/>
+          <rect x="160" y="184" width="40" height="40" fill="#0072B2" opacity="0.03" data-page-node-id="ZSCtcz86SBq09A1dGE6FrW"/>
+          <rect x="200" y="184" width="40" height="40" fill="#0072B2" opacity="0.04" data-page-node-id="G5melFIC7tabEcijLlaOj2"/>
+          <rect x="240" y="184" width="40" height="40" fill="#0072B2" opacity="0.06" data-page-node-id="u58gzhBaWBrLxdhwnqOygE"/>
+          <rect x="280" y="184" width="40" height="40" fill="#0072B2" opacity="0.91" data-page-node-id="1NndeE9WklOVu5aR8Yof8A"/>
+        </g>
+        <g font-family="Georgia, serif" font-size="10" text-anchor="middle" data-page-node-id="hkJqyPzQoUh8zB5SJBBHts">
+          <text x="140" y="48" fill="#ffffff" data-page-node-id="AsGeIpkIRPHzEBT1JIURKs">0.92</text>
+          <text x="180" y="48" fill="#57606a" data-page-node-id="9piOh1EoxvBIm4CehfcLtX">.04</text>
+          <text x="220" y="48" fill="#57606a" data-page-node-id="QrdQeaRKU7me95aoGz2EHR">.02</text>
+          <text x="260" y="48" fill="#57606a" data-page-node-id="uYVnxSFTcBBR5QqzFwwzfd">.01</text>
+          <text x="300" y="48" fill="#57606a" data-page-node-id="5LYNtDwr8WSfSPF773CPie">.01</text>
+          <text x="140" y="88" fill="#57606a" data-page-node-id="msDKoHggCZhhxDQic9XQGA">.06</text>
+          <text x="180" y="88" fill="#ffffff" data-page-node-id="dFpZ0yXRM2oNl7N3ICXap8">0.85</text>
+          <text x="220" y="88" fill="#57606a" data-page-node-id="3yjDHo8DRIODNfGSgNeIlc">.05</text>
+          <text x="260" y="88" fill="#57606a" data-page-node-id="4bSRFbfbwFJjswElYX6D2L">.03</text>
+          <text x="300" y="88" fill="#57606a" data-page-node-id="tlt53SLrZ1PSujy9Tu7t4v">.01</text>
+          <text x="140" y="128" fill="#57606a" data-page-node-id="6DxpFxRdud25Nbu4DixqTc">.03</text>
+          <text x="180" y="128" fill="#57606a" data-page-node-id="DDDtrX5OOCyeLGfzLHdXgg">.07</text>
+          <text x="220" y="128" fill="#ffffff" data-page-node-id="CvSwve5uuJlqhlR6bUsL03">0.88</text>
+          <text x="260" y="128" fill="#57606a" data-page-node-id="McUNqSPWkHTOuPoAOwJDat">.02</text>
+          <text x="300" y="128" fill="#57606a" data-page-node-id="UTBp6OmW3UqPATk4lZOV4Q">.00</text>
+          <text x="140" y="168" fill="#57606a" data-page-node-id="clGrAzsatCxkfuau82eC9o">.01</text>
+          <text x="180" y="168" fill="#57606a" data-page-node-id="AEgfwR6pX8GH3XVLsYPqDY">.03</text>
+          <text x="220" y="168" fill="#57606a" data-page-node-id="QBrZhWLCvfpQabawSwpczt">.04</text>
+          <text x="260" y="168" fill="#ffffff" data-page-node-id="GkZtwHW75MU2B3CgcGrFAx">0.90</text>
+          <text x="300" y="168" fill="#57606a" data-page-node-id="EOYpHgAK9cSo6IQo8Zuige">.02</text>
+          <text x="140" y="208" fill="#57606a" data-page-node-id="k40aVml5DV031sZfoB1D1h">.01</text>
+          <text x="180" y="208" fill="#57606a" data-page-node-id="DHe2H4tovFex3DWlTBpbC5">.01</text>
+          <text x="220" y="208" fill="#57606a" data-page-node-id="UQAeoBoKnidhWbczaIcgkh">.02</text>
+          <text x="260" y="208" fill="#57606a" data-page-node-id="LCIYzO42oc8fT6SeK2CIGD">.05</text>
+          <text x="300" y="208" fill="#ffffff" data-page-node-id="NIHofZi6QVqCqHTXILhgi2">0.91</text>
+        </g>
+        <text x="220" y="246" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#24292f" data-page-node-id="lLkSCIabicJSM4c8jok9rC">Predicted Class</text>
+        <text x="66" y="124" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#24292f" transform="rotate(-90 66 124)" data-page-node-id="loAtcTeviweLXxq4T2DO6n">True Class</text>
+        <!-- 色条 -->
+        <defs data-page-node-id="nxrAu8mJHIWXMHQdDbAJoR">
+          <linearGradient id="cb" x1="0" y1="1" x2="0" y2="0" data-page-node-id="r8aCdW2Qte9AKpVKb3GebP">
+            <stop offset="0" stop-color="#0072B2" stop-opacity="0.03" data-page-node-id="jlfrLXKnKADWN7wK2Rqmkw"/>
+            <stop offset="1" stop-color="#0072B2" stop-opacity="1" data-page-node-id="VQcEJ45hjR5LcyXLm9pun4"/>
+          </linearGradient>
+        </defs>
+        <rect x="352" y="24" width="12" height="200" fill="url(#cb)" stroke="#e5e9ee" data-page-node-id="H20CZa2WQHqru8Rmjz32xE"/>
+        <g font-family="Georgia, serif" font-size="9.5" fill="#57606a" data-page-node-id="HSrGN8JZ1NevppFPLn5Luv">
+          <text x="372" y="228" data-page-node-id="geeZzzjA7ooaLA9AfmESkB">0.0</text>
+          <text x="372" y="128" data-page-node-id="AzqiiZtkNEKJtBQ5Ao1Jv7">0.5</text>
+          <text x="372" y="30" data-page-node-id="QgibiTKS43BXD3An1OjzlO">1.0</text>
+        </g>
+      </svg>
+      <details class="code" data-page-node-id="6CzhBOFrXJQg5hWHV3LnHD">
+        <summary data-page-node-id="ZBDcU45OMllYlLCgCOpqUb">查看 matplotlib 代码</summary>
+        <div class="code-wrap" data-page-node-id="vRsdDCSFGj8wHOi1r2RnNt">
+          <button class="copy-btn" type="button" data-page-node-id="jh3UkEJlBXeVuTbNPHFZxZ">复制</button>
+          <pre data-page-node-id="kG0pNBXHfup2aGZhWdzP1n"><code data-page-node-id="B0IJ9Qakqvashq8EKZroTn">import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap
+
+cm = np.array([
+    [0.92, 0.04, 0.02, 0.01, 0.01],
+    [0.06, 0.85, 0.05, 0.03, 0.01],
+    [0.03, 0.07, 0.88, 0.02, 0.00],
+    [0.01, 0.03, 0.04, 0.90, 0.02],
+    [0.01, 0.01, 0.02, 0.05, 0.91],
+])
+cmap = LinearSegmentedColormap.from_list(
+    "paper", ["#f6f8fa", "#0072B2"])
+
+fig, ax = plt.subplots(figsize=(3.2, 2.8))
+im = ax.imshow(cm, cmap=cmap, vmin=0, vmax=1)
+for i in range(5):
+    for j in range(5):
+        ax.text(j, i, f"{cm[i, j]:.2f}", ha="center", va="center",
+                fontsize=7,
+                color="white" if cm[i, j] &gt; 0.5 else "#57606a")
+ax.set_xticks(range(5), list("ABCDE"))
+ax.set_yticks(range(5), list("ABCDE"))
+ax.set_xlabel("Predicted Class")
+ax.set_ylabel("True Class")
+fig.colorbar(im, ax=ax, shrink=0.85)
+fig.savefig("fig3_heatmap.pdf")</code></pre>
+        </div>
+      </details>
+    </div>
+    <div class="fig-card reveal">
+      <h3><span class="fnum">08</span>多次运行稳定性（箱线图）</h3>
+      <p class="why">只报一个数没有说服力。跑 5 到 30 个种子画箱线图，中位数、离散程度与离群点一图讲清，比文字罗列均值方差直观得多。</p>
+      <svg viewBox="0 0 632 300" role="img" aria-label="多次运行稳定性箱线图示例">
+        <!-- 网格线 -->
+        <g stroke="#e5e9ee" stroke-width="1">
+          <line x1="120" y1="226" x2="580" y2="226"/>
+          <line x1="120" y1="177" x2="580" y2="177"/>
+          <line x1="120" y1="128" x2="580" y2="128"/>
+          <line x1="120" y1="79" x2="580" y2="79"/>
+          <line x1="120" y1="30" x2="580" y2="30"/>
+        </g>
+        <!-- 坐标轴 -->
+        <line x1="120" y1="30" x2="120" y2="250" stroke="#8b949e" stroke-width="1"/>
+        <line x1="120" y1="250" x2="580" y2="250" stroke="#8b949e" stroke-width="1"/>
+        <g font-family="Georgia, serif" font-size="10" fill="#57606a" text-anchor="end">
+          <text x="112" y="230">80</text>
+          <text x="112" y="181">84</text>
+          <text x="112" y="132">88</text>
+          <text x="112" y="83">92</text>
+          <text x="112" y="34">96</text>
+        </g>
+        <g font-family="Georgia, serif" font-size="10.5" fill="#24292f" text-anchor="middle">
+          <text x="160" y="270">Base</text>
+          <text x="270" y="270">+Aug</text>
+          <text x="380" y="270">+OKC</text>
+          <text x="490" y="270">Full</text>
+        </g>
+        <!-- Base -->
+        <g>
+          <line x1="160" y1="79" x2="160" y2="189" stroke="#8b949e" stroke-width="1.2"/>
+          <line x1="149" y1="79" x2="171" y2="79" stroke="#8b949e" stroke-width="1.2"/>
+          <line x1="149" y1="189" x2="171" y2="189" stroke="#8b949e" stroke-width="1.2"/>
+          <rect x="137" y="103" width="46" height="49" fill="#BBBBBB" opacity="0.85"/>
+          <line x1="137" y1="128" x2="183" y2="128" stroke="#ffffff" stroke-width="2"/>
+          <circle cx="160" cy="213" r="2.5" fill="#ffffff" stroke="#8b949e" stroke-width="1.2"/>
+        </g>
+        <!-- +Aug -->
+        <g>
+          <line x1="270" y1="91" x2="270" y2="213" stroke="#8b949e" stroke-width="1.2"/>
+          <line x1="259" y1="91" x2="281" y2="91" stroke="#8b949e" stroke-width="1.2"/>
+          <line x1="259" y1="213" x2="281" y2="213" stroke="#8b949e" stroke-width="1.2"/>
+          <rect x="247" y="122" width="46" height="55" fill="#E69F00" opacity="0.85"/>
+          <line x1="247" y1="152" x2="293" y2="152" stroke="#ffffff" stroke-width="2"/>
+          <circle cx="270" cy="232" r="2.5" fill="#ffffff" stroke="#8b949e" stroke-width="1.2"/>
+          <circle cx="270" cy="67" r="2.5" fill="#ffffff" stroke="#8b949e" stroke-width="1.2"/>
+        </g>
+        <!-- +OKC -->
+        <g>
+          <line x1="380" y1="61" x2="380" y2="146" stroke="#8b949e" stroke-width="1.2"/>
+          <line x1="369" y1="61" x2="391" y2="61" stroke="#8b949e" stroke-width="1.2"/>
+          <line x1="369" y1="146" x2="391" y2="146" stroke="#8b949e" stroke-width="1.2"/>
+          <rect x="357" y="79" width="46" height="37" fill="#0072B2" opacity="0.85"/>
+          <line x1="357" y1="97" x2="403" y2="97" stroke="#ffffff" stroke-width="2"/>
+        </g>
+        <!-- Full -->
+        <g>
+          <line x1="490" y1="52" x2="490" y2="103" stroke="#8b949e" stroke-width="1.2"/>
+          <line x1="479" y1="52" x2="501" y2="52" stroke="#8b949e" stroke-width="1.2"/>
+          <line x1="479" y1="103" x2="501" y2="103" stroke="#8b949e" stroke-width="1.2"/>
+          <rect x="467" y="61" width="46" height="30" fill="#009E73" opacity="0.85"/>
+          <line x1="467" y1="69" x2="513" y2="69" stroke="#ffffff" stroke-width="2"/>
+        </g>
+        <text x="350" y="292" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#24292f">Method</text>
+        <text x="46" y="140" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#24292f" transform="rotate(-90 46 140)">Accuracy (%)</text>
+      </svg>
+      <details class="code">
+        <summary>查看 matplotlib 代码</summary>
+        <div class="code-wrap">
+          <button class="copy-btn" type="button">复制</button>
+          <pre><code>import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(42)
+data = {
+    "Base": rng.normal(88.0, 2.5, 30),
+    "+Aug": rng.normal(86.5, 3.0, 30),
+    "+OKC": rng.normal(90.5, 1.8, 30),
+    "Full": rng.normal(92.5, 1.2, 30),
+}
+
+fig, ax = plt.subplots(figsize=(3.5, 2.6))
+bp = ax.boxplot(data.values(), widths=0.5, patch_artist=True,
+                flierprops=dict(marker="o", markersize=3,
+                                markerfacecolor="white",
+                                markeredgecolor="#8b949e"))
+colors = ["#BBBBBB", "#E69F00", "#0072B2", "#009E73"]
+for patch, c in zip(bp["boxes"], colors):
+    patch.set(facecolor=c, alpha=0.85, edgecolor="none")
+for med in bp["medians"]:
+    med.set(color="white", linewidth=1.5)
+ax.set_xticklabels(data.keys())
+ax.set_ylabel("Accuracy (%)")
+ax.set_xlabel("Method")
+ax.grid(axis="y", linewidth=0.5, alpha=0.4)
+ax.set_axisbelow(True)
+ax.spines[["top", "right"]].set_visible(False)
+fig.savefig("fig_stability_boxplot.pdf")</code></pre>
+        </div>
+      </details>
+    </div>
+    <div class="fig-card reveal">
+      <h3><span class="fnum">09</span>超参敏感性（小倍数图）</h3>
+      <p class="why">审稿人常问「结果对超参有多敏感」。共享坐标轴的 2x2 小倍数图，一眼看出最优区间是否宽、峰值出现在哪。共享 y 轴让四个面板可以直接横向比较。</p>
+      <svg viewBox="0 0 632 340" role="img" aria-label="超参敏感性小倍数图示例">
+        <!-- 面板 1: depth 12 -->
+        <text x="190" y="28" text-anchor="middle" font-family="Georgia, serif" font-size="10.5" fill="#24292f">depth 12</text>
+        <rect x="90" y="40" width="200" height="110" fill="none" stroke="#e5e9ee" stroke-width="1"/>
+        <polyline points="100,138 145,121 190,109 235,124 280,143" fill="none" stroke="#0072B2" stroke-width="1.4"/>
+        <g fill="#0072B2">
+          <circle cx="100" cy="138" r="2.4"/><circle cx="145" cy="121" r="2.4"/>
+          <circle cx="235" cy="124" r="2.4"/><circle cx="280" cy="143" r="2.4"/>
+        </g>
+        <circle cx="190" cy="109" r="4.5" fill="none" stroke="#D55E00" stroke-width="1.4"/>
+        <!-- 面板 2: depth 18 -->
+        <text x="480" y="28" text-anchor="middle" font-family="Georgia, serif" font-size="10.5" fill="#24292f">depth 18</text>
+        <rect x="380" y="40" width="200" height="110" fill="none" stroke="#e5e9ee" stroke-width="1"/>
+        <polyline points="390,131 435,112 480,100 525,117 570,138" fill="none" stroke="#0072B2" stroke-width="1.4"/>
+        <g fill="#0072B2">
+          <circle cx="390" cy="131" r="2.4"/><circle cx="435" cy="112" r="2.4"/>
+          <circle cx="525" cy="117" r="2.4"/><circle cx="570" cy="138" r="2.4"/>
+        </g>
+        <circle cx="480" cy="100" r="4.5" fill="none" stroke="#D55E00" stroke-width="1.4"/>
+        <!-- 面板 3: depth 24 -->
+        <text x="190" y="193" text-anchor="middle" font-family="Georgia, serif" font-size="10.5" fill="#24292f">depth 24</text>
+        <rect x="90" y="205" width="200" height="110" fill="none" stroke="#e5e9ee" stroke-width="1"/>
+        <polyline points="100,303 145,283 190,270 235,287 280,309" fill="none" stroke="#0072B2" stroke-width="1.4"/>
+        <g fill="#0072B2">
+          <circle cx="100" cy="303" r="2.4"/><circle cx="145" cy="283" r="2.4"/>
+          <circle cx="235" cy="287" r="2.4"/><circle cx="280" cy="309" r="2.4"/>
+        </g>
+        <circle cx="190" cy="270" r="4.5" fill="none" stroke="#D55E00" stroke-width="1.4"/>
+        <!-- 面板 4: depth 30 -->
+        <text x="480" y="193" text-anchor="middle" font-family="Georgia, serif" font-size="10.5" fill="#24292f">depth 30</text>
+        <rect x="380" y="205" width="200" height="110" fill="none" stroke="#e5e9ee" stroke-width="1"/>
+        <polyline points="390,309 435,289 480,277 525,304 570,315" fill="none" stroke="#0072B2" stroke-width="1.4"/>
+        <g fill="#0072B2">
+          <circle cx="390" cy="309" r="2.4"/><circle cx="435" cy="289" r="2.4"/>
+          <circle cx="525" cy="304" r="2.4"/><circle cx="570" cy="315" r="2.4"/>
+        </g>
+        <circle cx="480" cy="277" r="4.5" fill="none" stroke="#D55E00" stroke-width="1.4"/>
+        <!-- 共享刻度提示 -->
+        <g font-family="Georgia, serif" font-size="9" fill="#8b949e" text-anchor="middle">
+          <text x="100" y="162">1e-4</text><text x="190" y="162">1e-3</text><text x="280" y="162">1e-2</text>
+          <text x="390" y="162">1e-4</text><text x="480" y="162">1e-3</text><text x="570" y="162">1e-2</text>
+          <text x="100" y="327">1e-4</text><text x="190" y="327">1e-3</text><text x="280" y="327">1e-2</text>
+          <text x="390" y="327">1e-4</text><text x="480" y="327">1e-3</text><text x="570" y="327">1e-2</text>
+        </g>
+        <text x="335" y="338" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#24292f">Learning Rate (log scale)</text>
+        <text x="34" y="170" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#24292f" transform="rotate(-90 34 170)">Accuracy (%)</text>
+      </svg>
+      <details class="code">
+        <summary>查看 matplotlib 代码</summary>
+        <div class="code-wrap">
+          <button class="copy-btn" type="button">复制</button>
+          <pre><code>import numpy as np
+import matplotlib.pyplot as plt
+
+lrs = [1e-4, 3e-4, 1e-3, 3e-3, 1e-2]
+accs = {
+    "depth 12": [85.1, 86.8, 87.9, 86.2, 83.5],
+    "depth 18": [85.8, 87.9, 89.1, 87.4, 84.0],
+    "depth 24": [85.9, 88.4, 89.8, 87.0, 83.2],
+    "depth 30": [85.2, 87.6, 88.9, 85.8, 81.4],
+}
+
+fig, axes = plt.subplots(2, 2, figsize=(7.16, 4.4),
+                         sharex=True, sharey=True)
+for ax, (name, acc) in zip(axes.flat, accs.items()):
+    ax.plot(lrs, acc, marker="o", markersize=3.5,
+            linewidth=1.4, color="#0072B2")
+    best = int(np.argmax(acc))
+    ax.plot(lrs[best], acc[best], marker="o", markersize=7,
+            markerfacecolor="none", markeredgecolor="#D55E00",
+            markeredgewidth=1.4)
+    ax.set_xscale("log")
+    ax.set_title(name, fontsize=9)
+    ax.grid(linewidth=0.5, alpha=0.4)
+    ax.set_axisbelow(True)
+fig.supxlabel("Learning Rate (log scale)")
+fig.supylabel("Accuracy (%)")
+fig.tight_layout()
+fig.savefig("fig_sensitivity_panels.pdf")</code></pre>
+        </div>
+      </details>
+    </div>
+    <div class="fig-card reveal">
+      <h3><span class="fnum">10</span>精度与延迟权衡（帕累托前沿）</h3>
+      <p class="why">部署场景的标准叙事图。前沿线上的模型才有资格进对比表，灰色区域的点被直接淘汰。左上是更好的方向，阴影标出被支配区域。</p>
+      <svg viewBox="0 0 632 300" role="img" aria-label="精度与延迟帕累托前沿图示例">
+        <!-- 被支配区域阴影 -->
+        <polygon points="140,250 140,200 170,150 215,112.5 305,80 470,62.5 560,62.5 560,250"
+                 fill="#f0f1f3"/>
+        <!-- 网格线 -->
+        <g stroke="#e5e9ee" stroke-width="1">
+          <line x1="80" y1="200" x2="560" y2="200"/>
+          <line x1="80" y1="150" x2="560" y2="150"/>
+          <line x1="80" y1="100" x2="560" y2="100"/>
+          <line x1="80" y1="50" x2="560" y2="50"/>
+          <line x1="200" y1="30" x2="200" y2="250"/>
+          <line x1="320" y1="30" x2="320" y2="250"/>
+          <line x1="440" y1="30" x2="440" y2="250"/>
+        </g>
+        <!-- 坐标轴 -->
+        <line x1="80" y1="30" x2="80" y2="250" stroke="#8b949e" stroke-width="1"/>
+        <line x1="80" y1="250" x2="560" y2="250" stroke="#8b949e" stroke-width="1"/>
+        <g font-family="Georgia, serif" font-size="10" fill="#57606a" text-anchor="end">
+          <text x="72" y="254">86</text>
+          <text x="72" y="204">88</text>
+          <text x="72" y="154">90</text>
+          <text x="72" y="104">92</text>
+          <text x="72" y="54">94</text>
+        </g>
+        <g font-family="Georgia, serif" font-size="10" fill="#57606a" text-anchor="middle">
+          <text x="80" y="266">0</text>
+          <text x="200" y="266">80</text>
+          <text x="320" y="266">160</text>
+          <text x="440" y="266">240</text>
+          <text x="560" y="266">320</text>
+        </g>
+        <!-- 帕累托前沿虚线 -->
+        <polyline points="140,200 170,150 215,112.5 305,80 470,62.5"
+                  fill="none" stroke="#D55E00" stroke-width="1.4" stroke-dasharray="5 3"/>
+        <!-- 被支配点 -->
+        <g fill="#BBBBBB">
+          <circle cx="260" cy="175" r="3.5"/>
+          <circle cx="350" cy="137.5" r="3.5"/>
+          <circle cx="425" cy="125" r="3.5"/>
+          <circle cx="230" cy="225" r="3.5"/>
+          <circle cx="530" cy="100" r="3.5"/>
+        </g>
+        <!-- 前沿点 -->
+        <g fill="#0072B2" stroke="#ffffff" stroke-width="1.2">
+          <circle cx="140" cy="200" r="4"/>
+          <circle cx="170" cy="150" r="4"/>
+          <circle cx="215" cy="112.5" r="4"/>
+          <circle cx="305" cy="80" r="4"/>
+          <circle cx="470" cy="62.5" r="4"/>
+        </g>
+        <text x="330" y="58" font-family="Georgia, serif" font-size="10" fill="#D55E00" font-style="italic">Pareto frontier</text>
+        <text x="498" y="215" font-family="Georgia, serif" font-size="9.5" fill="#8b949e" font-style="italic">dominated</text>
+        <!-- 图例 -->
+        <g font-family="Georgia, serif" font-size="10" fill="#24292f">
+          <circle cx="382" cy="238" r="4" fill="#0072B2" stroke="#ffffff" stroke-width="1.2"/>
+          <text x="392" y="242">Pareto front</text>
+          <circle cx="472" cy="238" r="3.5" fill="#BBBBBB"/>
+          <text x="482" y="242">Dominated</text>
+        </g>
+        <text x="320" y="290" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#24292f">Latency (ms)</text>
+        <text x="34" y="140" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#24292f" transform="rotate(-90 34 140)">Accuracy (%)</text>
+      </svg>
+      <details class="code">
+        <summary>查看 matplotlib 代码</summary>
+        <div class="code-wrap">
+          <button class="copy-btn" type="button">复制</button>
+          <pre><code>import numpy as np
+import matplotlib.pyplot as plt
+
+# (latency_ms, accuracy)
+models = [
+    (40, 88.0), (60, 90.0), (90, 91.5), (150, 92.8), (260, 93.5),
+    (120, 89.0), (180, 90.5), (230, 91.0), (100, 87.0), (300, 92.0),
+]
+
+def pareto_front(points):
+    front, best = [], -np.inf
+    for x, y in sorted(points):
+        if y &gt; best:
+            front.append((x, y))
+            best = y
+    return front
+
+front = pareto_front(models)
+fx, fy = zip(*front)
+lat = [m[0] for m in models]
+acc = [m[1] for m in models]
+
+fig, ax = plt.subplots(figsize=(3.5, 2.8))
+ax.fill_between(fx, fy, 86, color="#f0f1f3", zorder=1)
+ax.scatter(lat, acc, s=26, c="#BBBBBB", zorder=2,
+           label="Dominated")
+ax.plot(fx, fy, ls="--", color="#D55E00",
+        linewidth=1.2, zorder=3)
+ax.scatter(fx, fy, s=36, c="#0072B2", zorder=4,
+           label="Pareto front")
+ax.set_xlabel("Latency (ms)")
+ax.set_ylabel("Accuracy (%)")
+ax.set_ylim(86, 94.5)
+ax.legend(loc="lower right")
+ax.grid(linewidth=0.5, alpha=0.4)
+ax.set_axisbelow(True)
+ax.spines[["top", "right"]].set_visible(False)
+fig.savefig("fig_pareto.pdf")</code></pre>
+        </div>
+      </details>
+    </div>
+  </section>
+  <section id="methods">
+    <h2 class="section-title">常用方法</h2>
+
+    <h3 class="sub-title">全局样式模板（rcParams）</h3>
+    <p class="note">放在每个绘图脚本开头，所有图自动获得统一的论文级外观。</p>
+    <div class="code-wrap reveal">
+      <button class="copy-btn" type="button">复制</button>
+      <pre><code>import matplotlib.pyplot as plt
+
+plt.rcParams.update({
+    "font.family": "serif",
+    "font.serif": ["Times New Roman", "Songti SC"],
+    "mathtext.fontset": "stix",
+    "font.size": 9,
+    "axes.linewidth": 0.8,
+    "axes.labelsize": 9,
+    "xtick.labelsize": 8,
+    "ytick.labelsize": 8,
+    "xtick.direction": "in",
+    "ytick.direction": "in",
+    "legend.fontsize": 8,
+    "legend.frameon": False,
+    "figure.dpi": 150,
+    "savefig.dpi": 300,
+    "savefig.bbox": "tight",
+    "pdf.fonttype": 42,   # 嵌入 TrueType，避免 Type 3 被期刊拒收
+    "ps.fonttype": 42,
+})</code></pre>
+    </div>
+
+    <h3 class="sub-title">尺寸与导出规范</h3>
+    <table class="spec reveal">
+      <tr><th>项目</th><th>规范</th><th>说明</th></tr>
+      <tr><td>单栏图宽</td><td><code>figsize=(3.5, h)</code></td><td>IEEE / ACM 单栏 3.5 in（约 8.9 cm）</td></tr>
+      <tr><td>双栏图宽</td><td><code>figsize=(7.16, h)</code></td><td>通栏大图 7.16 in（约 18.2 cm）</td></tr>
+      <tr><td>图高上限</td><td>≤ 9.2 in</td><td>超过会被排版系统压缩</td></tr>
+      <tr><td>线图格式</td><td><code>.pdf</code> / <code>.svg</code></td><td>矢量优先，缩放不失真</td></tr>
+      <tr><td>位图分辨率</td><td><code>dpi=300</code></td><td>热图、照片类 300 起步，投稿常要求 600</td></tr>
+      <tr><td>字体嵌入</td><td><code>pdf.fonttype=42</code></td><td>Type 3 字体会被多数出版方拒收</td></tr>
+      <tr><td>图内字号</td><td>7 ~ 9 pt</td><td>与正文 caption 字号一致，插入后不再缩放</td></tr>
+    </table>
+
+    <h3 class="sub-title">实用技巧</h3>
+    <ol class="tips reveal">
+      <li><b>先定物理尺寸再画图。</b>用 <code>figsize</code> 锁定最终插入论文的尺寸，字号就不会在排版时缩放失真。</li>
+      <li><b>弱化装饰。</b>隐藏上、右脊线（<code>spines</code>），网格只留 y 方向细线并压到数据层下方（<code>set_axisbelow(True)</code>）。</li>
+      <li><b>配色先过色盲关。</b>默认用 Okabe-Ito 方案，避免红绿直接对比；梯度数据用单色深浅渐变。</li>
+      <li><b>误差展示用阴影带。</b><code>fill_between</code> 画置信区间比 <code>errorbar</code> 的密针脚干净得多。</li>
+      <li><b>图内只留图例。</b>标题和结论写进 LaTeX 的 <code>\caption{}</code>，图内标题一律省略。</li>
+      <li><b>组内顺序全篇统一。</b>方法颜色、柱序、线型在所有图里保持同一映射，读者只需记一次图例。</li>
+    </ol>
+  </section>
+
+  <section id="materials">
+    <h2 class="section-title">素材与资源</h2>
+
+    <h3 class="sub-title">Okabe-Ito 色盲友好配色</h3>
+    <p class="note">点击色块复制 HEX。前四色即可覆盖绝大多数对比场景。</p>
+    <div class="palette reveal" id="palette-okabe"></div>
+    <p class="palette-meta">来源：Okabe &amp; Ito (2008)，Color Universal Design，8 色均通过常见色盲模拟校验。</p>
+
+    <h3 class="sub-title">工具清单</h3>
+    <table class="spec reveal">
+      <tr><th>工具</th><th>用途</th></tr>
+      <tr><td><a href="https://matplotlib.org" target="_blank" rel="noopener">matplotlib</a></td><td>Python 绘图底座，论文图的主力</td></tr>
+      <tr><td><a href="https://github.com/garrettj403/SciencePlots" target="_blank" rel="noopener">SciencePlots</a></td><td><code>pip install SciencePlots</code>，一行 <code>plt.style.use('science')</code> 获得 Nature / IEEE 风格</td></tr>
+      <tr><td><a href="https://seaborn.pydata.org" target="_blank" rel="noopener">seaborn</a></td><td>统计图封装，分布图与热力图出图快</td></tr>
+      <tr><td><a href="https://plotly.com/python/" target="_blank" rel="noopener">plotly</a></td><td>交互图，适合网页展示与答辩 demo</td></tr>
+      <tr><td><a href="https://app.diagrams.net" target="_blank" rel="noopener">draw.io</a></td><td>架构图与流程图，导出 SVG 后可进 Illustrator 微调</td></tr>
+      <tr><td><a href="https://colorbrewer2.org" target="_blank" rel="noopener">ColorBrewer</a></td><td>地图与分组数据的经典配色生成器，附色盲安全标注</td></tr>
+    </table>
+  </section>
+
+  <footer>
+    <span>© 2026 Kevin</span>
+    <span><a href="/">Home</a> · <a href="/tags/">Writing</a> · <a href="https://github.com/Xplore-LAB">GitHub</a></span>
+  </footer>
+</div>
+
+<div id="toast" role="status"></div>
+
+<script>
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  if (reduced || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(function (el, i) {
+      el.style.transitionDelay = (i % 6) * 60 + 'ms';
+      io.observe(el);
+    });
+  }
+  var progress = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  }
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* 复制反馈 */
+  var toast = document.getElementById('toast');
+  var toastTimer = null;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 1600);
+  }
+  function copyText(text, done) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+    } else { fallback(); }
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  }
+
+  /* 代码复制按钮 */
+  document.querySelectorAll('.copy-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var pre = btn.parentElement.querySelector('pre');
+      if (!pre) return;
+      copyText(pre.innerText, function () {
+        btn.textContent = '已复制';
+        btn.classList.add('copied');
+        showToast('代码已复制到剪贴板');
+        setTimeout(function () {
+          btn.textContent = '复制';
+          btn.classList.remove('copied');
+        }, 1600);
+      });
+    });
+  });
+
+  /* Okabe-Ito 调色板 */
+  var OKABE_ITO = [
+    ['#0072B2', 'blue'], ['#E69F00', 'orange'], ['#009E73', 'green'],
+    ['#D55E00', 'vermillion'], ['#CC79A7', 'purple'], ['#56B4E9', 'sky'],
+    ['#F0E442', 'yellow'], ['#000000', 'black']
+  ];
+  var palette = document.getElementById('palette-okabe');
+  OKABE_ITO.forEach(function (c) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'swatch';
+    b.title = '点击复制 ' + c[0] + '（' + c[1] + '）';
+    b.innerHTML = '<span class="chip" style="background:' + c[0] + '"></span>'
+      + '<span class="hex">' + c[0] + '</span>';
+    b.addEventListener('click', function () {
+      copyText(c[0], function () { showToast('已复制 ' + c[0]); });
+    });
+    palette.appendChild(b);
+  });
+})();
+</script>
+</body>
+</html>
