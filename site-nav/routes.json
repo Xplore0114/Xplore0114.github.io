@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-08-31T07:03:58.358258+00:00",
+    "generated_at": "2026-09-01T06:15:57.161757+00:00",
     "items": [
         {
             "desc": "大模型论文追踪·公司研究动态·论文速览",
@@ -20,21 +20,21 @@
             "group": "站点"
         },
         {
-            "desc": "🤖 大模型情报局 | 每日自动追踪 arXiv 前沿论文：13k+ 论文、34 个实验室、模型时间线与学习路径",
-            "badge": "HTML",
-            "featured": false,
-            "path": "https://github.com/Xplore-LAB/llm-tracker",
-            "emoji": "🌐",
-            "title": "llm-tracker",
-            "group": "大项目"
-        },
-        {
             "desc": "每日科技新闻自动聚合 - 多源抓取/自动摘要/定时更新",
             "badge": "Python",
             "featured": false,
             "path": "https://github.com/Xplore-LAB/tech-news",
             "emoji": "🐍",
             "title": "tech-news",
+            "group": "大项目"
+        },
+        {
+            "desc": "🤖 大模型情报局 | 每日自动追踪 arXiv 前沿论文：13k+ 论文、34 个实验室、模型时间线与学习路径",
+            "badge": "HTML",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/llm-tracker",
+            "emoji": "🌐",
+            "title": "llm-tracker",
             "group": "大项目"
         },
         {
@@ -65,6 +65,15 @@
             "group": "大项目"
         },
         {
+            "desc": "OpenClaw 学术技能包：面向科研场景的 Agent 技能合集",
+            "badge": "JavaScript",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/openclaw-scholar-pack",
+            "emoji": "🟨",
+            "title": "openclaw-scholar-pack",
+            "group": "Agent 技能"
+        },
+        {
             "desc": "个人 Agent Skills 工具箱（WorkBuddy / Claude Code 可复用技能）",
             "badge": "JavaScript",
             "featured": false,
@@ -92,13 +101,13 @@
             "group": "Agent 技能"
         },
         {
-            "desc": "OpenClaw 学术技能包：面向科研场景的 Agent 技能合集",
-            "badge": "JavaScript",
+            "desc": "轻量级 Python LLM 网关，支持 OpenAI / DeepSeek / Qwen / Claude 多模型统一路由",
+            "badge": "Python",
             "featured": false,
-            "path": "https://github.com/Xplore-LAB/openclaw-scholar-pack",
-            "emoji": "🟨",
-            "title": "openclaw-scholar-pack",
-            "group": "Agent 技能"
+            "path": "https://github.com/Xplore-LAB/llm-gateway-lite",
+            "emoji": "🐍",
+            "title": "llm-gateway-lite",
+            "group": "小工具"
         },
         {
             "desc": "几分钟内把任意 LLM API 转成 OpenAI 兼容端点",
@@ -107,15 +116,6 @@
             "path": "https://github.com/Xplore-LAB/openai-compatible-proxy",
             "emoji": "🐍",
             "title": "openai-compatible-proxy",
-            "group": "小工具"
-        },
-        {
-            "desc": "轻量级 Python LLM 网关，支持 OpenAI / DeepSeek / Qwen / Claude 多模型统一路由",
-            "badge": "Python",
-            "featured": false,
-            "path": "https://github.com/Xplore-LAB/llm-gateway-lite",
-            "emoji": "🐍",
-            "title": "llm-gateway-lite",
             "group": "小工具"
         },
         {
