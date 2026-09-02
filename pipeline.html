@@ -514,7 +514,7 @@ ol.howto li b { color: var(--ink); font-weight: 600; }
 
   <section>
     <h3 class="group-title" id="g-howto"><span class="gletter">F</span>怎么画出来这些图（30 分钟上手）</h3>
-    <p class="group-note">前面 14 张顶会图 90% 不是"专业软件"画的，而是 <b>draw.io / PowerPoint / matplotlib</b> 三件套。工具不重要，叙事才重要。</p>
+    <p class="group-note">前面 14 张顶会图 90% 不是「专业软件」画的，而是 <b>draw.io / PowerPoint / matplotlib</b> 三件套。工具不重要，叙事才重要。下面 10 条经验纪律与全部来源都附可查证的出处；想看完整方法论、投稿自查清单与 10 张可复制 matplotlib 模板，去 <a href="/figures/#howto" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">/figures/#howto</a>。</p>
 
     <div class="fig-card reveal">
       <h3>通用五步法</h3>
@@ -624,6 +624,35 @@ fig.savefig(<span class="s">"pipeline.pdf"</span>, bbox_inches=<span class="s">"
           <tr><td>同一组用不同色</td><td>读者误以为左右两栏是不同模型</td><td>颜色守恒：角色 = 颜色</td></tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="fig-card reveal">
+      <h3>十条绘图纪律（带出处）</h3>
+      <p class="why">把上面 14 张图的套路沉淀成可对表的清单。每条都标了出处，方便投稿前自查时回到原始来源核对。</p>
+      <ol class="tips">
+        <li><b>一图一主张。</b>一张图只讲一件事；两张图讲一件事不如合并，一张图讲两件事必须拆。Rougier 2014 Rule 2</li>
+        <li><b>箭头是动词。</b>实线 = 数据流，虚线 = 训练更新 / 反馈环，粗细 = 数据量级；全图共用一套语义，不要「什么箭头都在用」。Wong 2011「Arrows」</li>
+        <li><b>颜色守恒。</b>一个角色 = 一个颜色，跨模块、跨子图、跨前后图全程沿用；彩色留给主角，配角一律灰阶。Wong 2010「Color coding」</li>
+        <li><b>色盲安全。</b>北欧裔约 8% 男性有红绿色觉缺陷，三位男性审稿人至少一位色盲的概率约 22%；红绿同图必自查。Wong 2011「Color blindness」</li>
+        <li><b>彩虹色阶禁用。</b>jet / rainbow 亮度不均匀，引入的视觉误差可超过数据总变差的 7%；梯度数据换感知均匀色阶（viridis / batlow / ColorBrewer 顺序色）。Crameri, Shephard &amp; Heron 2020</li>
+        <li><b>重复即折叠。</b>N× 角标、省略号、黑盒包装都是合法减法；折叠前先展开一例给读者校验。</li>
+        <li><b>留白是信息。</b>非重点组件画黑盒；每轮迭代删一个元素，删掉后主张不受损就永久删，不承载信息的墨水都是成本。Tufte data-ink ratio；Wong「Negative space」</li>
+        <li><b>字号守底线。</b>先定最终物理尺寸（图内 7–9pt 与 caption 一致），成稿后不再缩放；Rougier 2014 Rule 5「Do Not Trust the Defaults」</li>
+        <li><b>对齐成模数。</b>间距、圆角、线宽取同一基数的倍数（4 / 8 / 16 px）；对齐是免费的秩序感，错位是昂贵的混乱。</li>
+        <li><b>矢量优先。</b>框图与曲线一律 PDF / SVG，位图只留给热力图与照片；matplotlib 记得 <code>pdf.fonttype=42</code>。</li>
+      </ol>
+    </div>
+
+    <div class="fig-card reveal">
+      <h3>经验来源（全部可查证）</h3>
+      <p class="why">纪律要可信，得有出处。下面 4 份是顶会级、被引最广的可公开验证资料，付费墙后的「内训资料」永远不应该取代它们。</p>
+      <ol class="tips">
+        <li><b>Rougier, Droettboom &amp; Bourne (2014)</b> · <a href="https://doi.org/10.1371/journal.pcbi.1003833" target="_blank" rel="noopener">Ten Simple Rules for Better Figures</a> · PLOS Comput Biol 10(9): e1003833 · CC0 开放，可自由转载。十条规则的原始出处。</li>
+        <li><b>Wong B. et al. (2010–2015)</b> · <a href="https://communities.springernature.com/posts/data-visualization-a-view-of-every-points-of-view-column" target="_blank" rel="noopener">Points of View 专栏</a> · Nature Methods · 共 38 篇。本节引用了 Color coding (2010)、Arrows (2011)、Color blindness (2011)、Negative space (2011)、Pencil and paper (2012) 等篇目；专栏汇总页含全部 38 篇的链接。</li>
+        <li><b>Crameri F., Shephard G.E. &amp; Heron P.J. (2020)</b> · <a href="https://doi.org/10.1038/s41467-020-19160-7" target="_blank" rel="noopener">The misuse of colour in science communication</a> · Nature Communications 11: 5444 · CC BY 4.0。彩虹色阶的量化危害与免费科学色阶库（batlow 系列）。</li>
+        <li><b>Tufte E.R. (1983)</b> · <em>The Visual Display of Quantitative Information</em> · Graphics Press · 经典教科书。data-ink ratio、chartjunk 等概念从此处起源，Wong / Rougier 都直接引用过。</li>
+      </ol>
+      <p class="why" style="margin-top:8px;">经验方法都是公开的、可追溯的；缺一不可复制，缺三不可信任。</p>
     </div>
   </section>
 

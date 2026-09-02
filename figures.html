@@ -153,6 +153,18 @@ ol.tips li { margin-bottom: 8px; }
 ol.tips li b { color: var(--ink); font-weight: 600; }
 ol.tips code { font-family: var(--mono); font-size: 12.5px; color: var(--ink); background: var(--wash); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
 
+/* 自查清单 */
+ul.check { list-style: none; margin: 0 0 10px; padding: 0; font-size: 15px; color: var(--ink-soft); }
+ul.check li { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+ul.check input { accent-color: var(--accent); flex: none; width: 15px; height: 15px; transform: translateY(2px); }
+ul.check li:has(input:checked) { color: var(--ink-faint); text-decoration: line-through; }
+
+/* 来源列表 */
+ul.src { margin: 0 0 8px; padding-left: 20px; font-size: 14px; color: var(--ink-soft); }
+ul.src li { margin-bottom: 8px; }
+ul.src a { color: var(--accent); text-decoration: none; }
+ul.src a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
 /* 调色板 */
 .palette { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 6px; }
 .swatch {
@@ -227,7 +239,7 @@ footer a:hover { color: var(--accent); }
   <section id="gallery" data-page-node-id="ID59MS8rwYLYrVCjI2DBqw">
     <h2 class="section-title" data-page-node-id="Xx3pQ9WV2fbAQ9VE4MN1Sb">图例速览</h2>
     <p class="note" data-page-node-id="bGnMRe18fGqyCtXmzSD0KZ">按论文结构分三组，图表类型标注在每条标题里。每张图附完整可运行的 matplotlib 代码，点开「查看代码」复制即用。配色统一采用 Okabe-Ito 色盲友好方案。</p>
-    <p class="toc">分组直达：<a href="#fig-method">A · 方法与流程</a><a href="#fig-results">B · 实验结果</a><a href="#fig-analysis">C · 消融与分析</a></p>
+    <p class="toc">分组直达：<a href="#fig-method">A · 方法与流程</a><a href="#fig-results">B · 实验结果</a><a href="#fig-analysis">C · 消融与分析</a><a href="#howto">绘制方法论</a></p>
 
     <h3 class="group-title" id="fig-method"><span class="gletter">A</span>方法与流程（Method）</h3>
     <p class="group-note">论文 Method 章节的流程图与架构图，用 matplotlib 的 Patch 与箭头即可画，无需切换到其他工具。</p>
@@ -1479,6 +1491,75 @@ fig.savefig("fig_pareto.pdf")</code></pre>
         </div>
       </details>
     </div>
+  </section>
+  <section id="howto">
+    <h2 class="section-title">实图绘制方法论</h2>
+    <p class="note">上面的图例与案例解剖回答「好图长什么样」，这一节回答「怎么亲手画出来」。覆盖从白纸到投稿成稿的全过程，所有纪律与数据均有出处，来源附在节末。</p>
+    <p class="note">想看真实论文原图（顶会截图）按构图类型分组的案例库，见 <a href="/pipeline/" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">/pipeline/</a>（15 张真图案例库）。</p>
+
+    <h3 class="sub-title">五步工作流</h3>
+    <ol class="tips reveal">
+      <li><b>定主张。</b>动笔前用一句话写下「这张图要让读者记住什么」。这句话是所有取舍的裁判，删元素、选配色、定布局时都要回来对表。（Rougier 2014, Rule 2）</li>
+      <li><b>纸笔草图三版。</b>只画方框和箭头，每版五分钟，比的是布局而非细节；纸笔的修改成本最低，最适合快速试错。（Wong 2012「Pencil and paper」）</li>
+      <li><b>选工具、开网格。</b>按图型选工具（见下表），打开 8px 对齐网格；模块间距统一取网格倍数（8/16/24px），视线才能扫出层级。</li>
+      <li><b>先形后字。</b>精绘顺序：布局框架 → 模块形状 → 连线箭头 → 最后才填文字。文字永远最后放，避免为迁就标签而破坏布局。</li>
+      <li><b>缩放盲测。</b>导出 PDF 缩到最终栏宽（单栏 3.5 in / 双栏 7.16 in）后打印或投屏检查字号；再请同事 5 秒盲测，说不出图的主张就回炉。</li>
+    </ol>
+
+    <h3 class="sub-title">实例走查：画一张三阶段训练 Pipeline</h3>
+    <p class="note">以 P1（InstructGPT 风格）为例，五步走一遍，照抄即可迁移到自己的方法图。</p>
+    <ol class="tips reveal">
+      <li><b>主张：</b>「标注反馈把基座模型逐步变成听话的助手」，阶段递进是叙事主轴，奖励模型居中承接。</li>
+      <li><b>草图：</b>第一版横向单行（太宽），第二版三行堆叠（流向来回拐），第三版定稿：三幕从左到右，每幕上下两层。</li>
+      <li><b>工具：</b>draw.io 开 8px 网格；模块统一高度、圆角 4px、水平间距 16px，一套参数贯穿全图。</li>
+      <li><b>先形后字：</b>先摆全部模块与连线，箭头分实线（数据流）与虚线（训练更新），最后填模块名与损失标签。</li>
+      <li><b>盲测：</b>缩到 3.5 in 栏宽，请同事 5 秒复述；能说出「三步训练、中间学奖励」即通过，否则回去删元素。</li>
+    </ol>
+
+    <h3 class="sub-title">工具选型</h3>
+    <table class="spec reveal">
+      <tr><th>工具</th><th>最适合</th><th>优点</th><th>代价与导出</th></tr>
+      <tr><td>draw.io</td><td>pipeline 框图</td><td>免费、图形库全、XML 可入 git 管理</td><td>精细排版能力一般；导出 SVG / PDF</td></tr>
+      <tr><td>PowerPoint</td><td>快速出稿、组会图复用</td><td>上手零成本，大量顶会图出自 PPT</td><td>对齐与复用弱；导 PDF 注意字体嵌入</td></tr>
+      <tr><td>Figma</td><td>双流对称结构、多人协作</td><td>组件复用、自动布局</td><td>需要账号；导出 SVG / PDF</td></tr>
+      <tr><td>TikZ</td><td>需要嵌公式的图</td><td>LaTeX 原生、精确、纯文本可 diff</td><td>学习曲线陡、迭代慢</td></tr>
+      <tr><td>matplotlib</td><td>数据驱动图、简单框图</td><td>代码可复现、与实验图同源</td><td>复杂框图布局繁琐；导出 PDF / SVG</td></tr>
+      <tr><td>Inkscape</td><td>SVG 后处理、多图拼接</td><td>免费开源、路径编辑强</td><td>不适合从零起稿；导出 PDF / SVG</td></tr>
+      <tr><td>Excalidraw</td><td>讨论期草图</td><td>手绘风上手最快</td><td>不适合成稿；导出 SVG / PNG</td></tr>
+    </table>
+
+    <h3 class="sub-title">十条绘图纪律</h3>
+    <ol class="tips reveal">
+      <li><b>一图一主张。</b>图相当于论文里的一个段落，只有一个中心句；一张图想讲两件事，先拆再画。</li>
+      <li><b>箭头是动词。</b>实线表数据流，虚线表梯度回传或参数更新，线宽表数据量级；全图共用一套箭头词汇表，语义变了样式就要变。（Wong 2011「Arrows」）</li>
+      <li><b>颜色守恒。</b>一个角色全篇只占一个颜色，图例、正文、后续图表全部沿用；彩色留给主角，配角一律灰阶。（Wong 2010「Color coding」）</li>
+      <li><b>色盲安全。</b>北欧裔人群约 8% 的男性有红绿色觉缺陷，论文落到三位北欧裔男性审稿人手里，至少一位色盲的概率约 22%；默认 Okabe-Ito，红绿同图必自查。（Wong 2011「Color blindness」）</li>
+      <li><b>彩虹色阶禁用。</b>jet / rainbow 亮度不均匀，会把平滑梯度画出假边界，引入的视觉误差可超过数据总变差的 7%；梯度数据换感知均匀色阶。（Crameri 2020）</li>
+      <li><b>重复即折叠。</b>三层相同模块画一层加 N× 角标，省略号与黑盒包装都是合法减法；折叠前先展开一例给读者校验。</li>
+      <li><b>留白是信息。</b>非重点组件画成黑盒；每轮迭代删一个元素，删掉后主张不受损就永久删除，不承载信息的墨水都是成本。（Tufte 的 data-ink 原则；Wong「Negative space」）</li>
+      <li><b>字号守底线。</b>先定最终物理尺寸再动笔（单栏 3.5 in、双栏 7.16 in），成稿缩放后图内文字与 caption 同级（约 7~9 pt），插入论文后不再缩放。</li>
+      <li><b>对齐成模数。</b>间距、圆角、线宽取同一基数的倍数（如 4/8/16 px）；对齐产生免费的秩序感，错位产生昂贵的混乱。</li>
+      <li><b>矢量优先。</b>框图与曲线一律 PDF / SVG，位图只留给热力图与照片；导出后检查字体嵌入，matplotlib 记得 <code>pdf.fonttype=42</code>。</li>
+    </ol>
+
+    <h3 class="sub-title">投稿前自查清单</h3>
+    <ul class="check reveal">
+      <li><input type="checkbox"><span>缩放到最终栏宽后打印，最小字号可读、细线不断</span></li>
+      <li><input type="checkbox"><span>灰度打印仍能区分所有系列（顺带覆盖色盲场景）</span></li>
+      <li><input type="checkbox"><span>配色、图例、缩写与正文及前后图完全一致</span></li>
+      <li><input type="checkbox"><span>caption 自足，不读正文也能复述图的主张</span></li>
+      <li><input type="checkbox"><span>误差类型写明（SEM / SD、运行次数）</span></li>
+      <li><input type="checkbox"><span>矢量文件字体已嵌入，位图分辨率不低于 300 dpi</span></li>
+      <li><input type="checkbox"><span>图内每个数值能对回实验日志</span></li>
+    </ul>
+
+    <h3 class="sub-title">经验来源</h3>
+    <ul class="src reveal">
+      <li>Rougier N P, Droettboom M, Bourne P E. <a href="https://doi.org/10.1371/journal.pcbi.1003833" target="_blank" rel="noopener">Ten Simple Rules for Better Figures</a>. PLOS Computational Biology, 2014. 十条规则的原始出处，CC0 开放许可。</li>
+      <li>Wong B 等. <a href="https://communities.springernature.com/posts/data-visualization-a-view-of-every-points-of-view-column" target="_blank" rel="noopener">Points of View 专栏</a>. Nature Methods, 2010–2015, 共 38 篇. 本节引用 Color coding、Arrows、Color blindness、Negative space、Pencil and paper 等篇目。</li>
+      <li>Crameri F, Shephard G E, Heron P J. <a href="https://doi.org/10.1038/s41467-020-19160-7" target="_blank" rel="noopener">The misuse of colour in science communication</a>. Nature Communications, 2020. 彩虹色阶的量化危害与免费科学色阶库。</li>
+      <li>Tufte E R. <em>The Visual Display of Quantitative Information</em>. Graphics Press, 1983. data-ink ratio 与 chartjunk 概念出处。</li>
+    </ul>
   </section>
   <section id="methods">
     <h2 class="section-title">常用方法</h2>
