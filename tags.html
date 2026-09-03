@@ -124,16 +124,18 @@ footer a:hover { color: var(--accent); }
 
   <header class="archive-head">
     <h1>Writing</h1>
-    <p>共 {{ site.posts.size }} 篇 · 论文拆解与实践复盘，按类型分组</p>
+    <p>共 {{ site.posts.size }} 篇 · 论文拆解、好文拆解与实践复盘，按类型分组</p>
   </header>
 
-  {% assign posts_by_section = site.posts | group_by: "section" %}
+  {% assign section_order = "论文拆解,好文拆解,实践复盘" | split: "," %}
   {% if site.posts.size > 0 %}
-    {% for group in posts_by_section %}
+    {% for sec in section_order %}
+    {% assign group_posts = site.posts | where: "section", sec %}
+    {% if group_posts.size > 0 %}
     <section class="year-group reveal">
-      <h2>{{ group.name }}<span class="count">{{ group.items.size }} 篇</span></h2>
+      <h2>{{ sec }}<span class="count">{{ group_posts.size }} 篇</span></h2>
       <ul class="post-list">
-        {% for post in group.items %}
+        {% for post in group_posts %}
         <li>
           <span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
@@ -144,6 +146,7 @@ footer a:hover { color: var(--accent); }
         {% endfor %}
       </ul>
     </section>
+    {% endif %}
     {% endfor %}
   {% else %}
     <p class="muted">文章筹备中。</p>
