@@ -6,6 +6,7 @@ date:       2026-09-03
 author:     "Kevin"
 header-img: "img/post-bg-2015.jpg"
 catalog:    true
+section:    论文拆解
 tags:
     - LLM
     - 强化学习

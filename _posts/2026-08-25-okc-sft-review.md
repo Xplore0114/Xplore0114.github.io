@@ -6,6 +6,7 @@ date:       2026-08-25
 author:     "Kevin"
 header-img: "img/post-bg-2015.jpg"
 catalog:    true
+section:    实践复盘
 tags:
     - LLM
     - 工业AI

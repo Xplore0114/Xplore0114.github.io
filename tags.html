@@ -124,19 +124,18 @@ footer a:hover { color: var(--accent); }
 
   <header class="archive-head">
     <h1>Writing</h1>
-    <p>共 {{ site.posts.size }} 篇 · 项目复盘、技术笔记与持续更新的长文</p>
+    <p>共 {{ site.posts.size }} 篇 · 论文拆解与实践复盘，按类型分组</p>
   </header>
 
-  {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
-  {% assign posts_by_year = posts_by_year | sort: "name" | reverse %}
+  {% assign posts_by_section = site.posts | group_by: "section" %}
   {% if site.posts.size > 0 %}
-    {% for year in posts_by_year %}
+    {% for group in posts_by_section %}
     <section class="year-group reveal">
-      <h2>{{ year.name }}<span class="count">{{ year.items.size }} 篇</span></h2>
+      <h2>{{ group.name }}<span class="count">{{ group.items.size }} 篇</span></h2>
       <ul class="post-list">
-        {% for post in year.items %}
+        {% for post in group.items %}
         <li>
-          <span class="date">{{ post.date | date: "%m-%d" }}</span>
+          <span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
           {% if post.tags.size > 0 %}
           <span class="ptags">{{ post.tags | join: " · " }}</span>
