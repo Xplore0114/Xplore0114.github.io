@@ -35,7 +35,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 ::selection { background: rgba(14,165,233,.18); }
-.page { max-width: 760px; margin: 0 auto; padding: 0 24px 80px; }
+.page { max-width: 880px; margin: 0 auto; padding: 0 24px 80px; }
 nav {
   display: flex; justify-content: space-between; align-items: baseline;
   padding: 28px 0 0;
@@ -178,6 +178,55 @@ ol.howto li b { color: var(--ink); font-weight: 600; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* 构图配方卡（左栏 sticky） + 可折叠图卡 */
+.group-body { display: grid; grid-template-columns: 272px minmax(0, 1fr); gap: 26px; align-items: start; }
+aside.draw-recipe {
+  position: sticky; top: 16px;
+  background: var(--wash); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+  border-radius: 10px; padding: 14px 14px 11px;
+  font-size: 13px; line-height: 1.65; color: var(--ink-soft);
+}
+aside.draw-recipe h4 { margin: 0 0 8px; font-size: 13.5px; font-weight: 700; color: var(--ink); }
+aside.draw-recipe .formula {
+  font-family: var(--mono); font-size: 11.5px; line-height: 1.55; color: var(--ink);
+  background: #fff; border: 1px solid var(--line); border-radius: 6px;
+  padding: 7px 9px; margin: 0 0 10px;
+}
+aside.draw-recipe ol { margin: 0 0 10px; padding-left: 18px; }
+aside.draw-recipe ol li { margin-bottom: 5px; }
+aside.draw-recipe ol li b { color: var(--ink); }
+aside.draw-recipe .vs { margin: 0 0 8px; padding-top: 9px; border-top: 1px dashed var(--line); font-size: 12.5px; }
+aside.draw-recipe .vs b { color: var(--ink); }
+aside.draw-recipe .tool { margin: 0; font-size: 12px; color: var(--ink-faint); }
+aside.draw-recipe .tool code {
+  font-family: var(--mono); font-size: 11px; color: var(--ink);
+  background: #fff; border: 1px solid var(--line); border-radius: 4px; padding: 0 4px;
+}
+details.fig-card > summary {
+  cursor: pointer; list-style: none; user-select: none;
+  display: flex; align-items: baseline; gap: 9px; margin: 0;
+}
+details.fig-card > summary::-webkit-details-marker { display: none; }
+details.fig-card > summary .fnum { color: var(--accent); font-family: var(--serif); }
+details.fig-card > summary .card-title { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.45; }
+details.fig-card > summary .tag {
+  display: inline-block; padding: 1px 8px;
+  background: var(--wash); border: 1px solid var(--line);
+  border-radius: 99px; font-size: 11.5px; color: var(--ink-soft);
+  font-family: var(--mono); letter-spacing: .02em; white-space: nowrap;
+}
+details.fig-card > summary .chev {
+  margin-left: auto; flex: none; color: var(--ink-faint); font-size: 12px;
+  transition: transform .25s var(--ease-natural);
+}
+details.fig-card[open] > summary .chev { transform: rotate(180deg); }
+details.fig-card > summary:hover .card-title { color: var(--accent-deep); }
+details.fig-card .card-body { border-top: 1px dashed var(--line); margin-top: 8px; padding-top: 12px; }
+@media (max-width: 780px) {
+  .group-body { grid-template-columns: 1fr; gap: 14px; }
+  aside.draw-recipe { position: static; }
+}
 </style>
 </head>
 <body>
@@ -197,15 +246,18 @@ ol.howto li b { color: var(--ink); font-weight: 600; }
   <header class="archive-head">
     <p class="crumbs"><a href="/figures/">/figures/</a> &nbsp;›&nbsp; 真图案例库</p>
     <h1>论文 Pipeline 真图案例库</h1>
-    <p>顶会与工业 LLM 论文中的真实 pipeline / 架构图原图 · 按构图类型分组 · 14 张 + 30 分钟上手教程</p>
+    <p>真实论文原图 · 按构图类型分组 · 每类一张「怎么画」配方卡 · 图卡点开对照着画</p>
   </header>
 
   <section>
     <h2 class="section-title">这页与 /figures/ 的关系</h2>
     <p class="note">
       <b>/figures/</b> 里的「顶会 Pipeline 案例解剖」给出的是 <b>简化重绘</b> 的示意图，用于剖析构图、流向与配色。
-      这页是它的镜像——直接放上 <b>论文中的原始真图</b>，帮你看清：原作里到底画了多少细节、文字怎么放、配色到底用了什么。
+      这页是它的镜像，直接放上 <b>论文中的原始真图</b>，帮你看清：原作里到底画了多少细节、文字怎么放、配色到底用了什么。
       两页对照读，效果最好。
+    </p>
+    <p class="note">
+      每组左侧是「怎么画」配方卡，滚动右侧真图时常驻可见；图卡默认收起，点开标题即可对照着画，每组第一张已替你展开。
     </p>
     <p class="note">
       所有原图均来自 arXiv 公开 PDF，仅做画幅裁切与 PNG 重编码；版权归各论文。点击图片跳转 arXiv 详情页。
@@ -217,18 +269,34 @@ ol.howto li b { color: var(--ink); font-weight: 600; }
       <a href="#g-dual">C · 双流对称 / 汇聚</a>
       <a href="#g-decomp">D · 重参数 / 编解码</a>
       <a href="#g-industrial">E · 工业 LLM 架构</a>
-      <a href="#g-howto">F · 怎么画</a>
+      <a href="#g-howto">F · 通用教程</a>
     </p>
   </section>
 
   <section>
     <h3 class="group-title" id="g-horizontal"><span class="gletter">A</span>横向多阶段（线性流水线）</h3>
     <p class="group-note">最常见的 pipeline 画法：左→右一条主轴，每段是显式步骤。适合训练阶段、数据加工、模型主链。</p>
+    <div class="group-body">
+      <aside class="draw-recipe reveal">
+        <h4>✎ 怎么画 · 横向多阶段</h4>
+        <div class="formula">主轴左→右 × 3–6 个等宽步骤框 × 每步「输入 → 处理 → 产物」</div>
+        <ol>
+        <li><b>先写主线。</b>一句话说清「X 经几步得到 Y」，超过 6 步先合并。</li>
+        <li><b>等宽等距。</b>步骤框统一尺寸，标题带 step 序号，读者读一行就能复述。</li>
+        <li><b>每步一句动作。</b>框内只放「数据 → 模型 → 产物」小闭环。</li>
+        <li><b>箭头分语义。</b>数据流实线；训练回路 / 反馈用虚线回环另画。</li>
+        <li><b>icon 跨步复用。</b>同一套数据堆叠 / 模型节点符号贯穿全图。</li>
+        </ol>
+        <p class="vs"><b>对照真图</b>：01 三步等宽 + 回环箭头；03 顶部横贯标题点贡献。</p>
+        <p class="tool">draw.io：多选后 <code>Align Middle</code> + <code>Distribute Horizontally</code> 一键等距</p>
+      </aside>
+      <div class="fig-col">
 
-    <div class="fig-card reveal">
-      <h3><span class="fnum">01</span>InstructGPT（NeurIPS 2022）· 三步 RLHF</h3>
+
+        <details class="fig-card reveal" open>
+          <summary><span class="fnum">01</span><span class="card-title">InstructGPT（NeurIPS 2022）· 三步 RLHF</span><span class="tag">三幕式</span><span class="chev">▾</span></summary>
+          <div class="card-body">
       <p class="meta">
-        <span class="tag">三幕式</span>
         Ouyang et al. · 2203.02155 ·
         <a href="https://arxiv.org/abs/2203.02155">arxiv</a>
       </p>
@@ -238,16 +306,17 @@ ol.howto li b { color: var(--ink); font-weight: 600; }
         <figcaption><span class="orig">Figure 2 (p3)</span> · A diagram illustrating the three steps of our method: (1) supervised fine-tuning (SFT), (2) reward model (RM) training, and (3) reinforcement learning via proximal policy optimization (PPO) on this reward model.</figcaption>
       </figure>
       <ol class="tips">
-        <li>三步结构完全等宽对齐，标题统一用蓝色 step 标签，下方配一句动作描述——读者「读一行就能复述流程」。</li>
+        <li>三步结构完全等宽对齐，标题统一用蓝色 step 标签，下方配一句动作描述，读者「读一行就能复述流程」。</li>
         <li>同一套 icon（数据堆叠 / 小人 / 模型节点 / 排序序号）跨步复用，强化「同一条主线」。</li>
         <li>第三步独有的回环箭头（PPO ↔ RM）打破横向单调，把「训练回路」和「数据流」在视觉上拆开。</li>
       </ol>
-    </div>
+          </div>
+        </details>
 
-    <div class="fig-card reveal">
-      <h3><span class="fnum">02</span>Whisper（OpenAI Tech Report 2022）· 多任务到序列到序列</h3>
+        <details class="fig-card reveal">
+          <summary><span class="fnum">02</span><span class="card-title">Whisper（OpenAI Tech Report 2022）· 多任务到序列到序列</span><span class="tag">多段递进</span><span class="chev">▾</span></summary>
+          <div class="card-body">
       <p class="meta">
-        <span class="tag">多段递进</span>
         Radford et al. · 2212.04356 ·
         <a href="https://arxiv.org/abs/2212.04356">arxiv</a>
       </p>
@@ -257,16 +326,17 @@ ol.howto li b { color: var(--ink); font-weight: 600; }
         <figcaption><span class="orig">Figure 1 (p4)</span> · Overview of our approach. A sequence-to-sequence Transformer model is trained on many diverse tasks … Multitask training format uses a set of special tokens that serve as task specifiers or classification targets.</figcaption>
       </figure>
       <ol class="tips">
-        <li>两块大舱用同一灰色边框，舱内各自再分小步骤——读者先看到「数据 / 模型」两件事，再去看舱内细节。</li>
+        <li>两块大舱用同一灰色边框，舱内各自再分小步骤，读者先看到「数据 / 模型」两件事，再去看舱内细节。</li>
         <li>不同 token 类型用颜色块（special / text / timestamp），舱下的小图例就地解释，不强求翻正文。</li>
-        <li>Encoder 与 Decoder 用同一蓝 / 红双色，跨模块守恒——视觉锚定「两边各司其职」。</li>
+        <li>Encoder 与 Decoder 用同一蓝 / 红双色，跨模块守恒，视觉锚定「两边各司其职」。</li>
       </ol>
-    </div>
+          </div>
+        </details>
 
-    <div class="fig-card reveal">
-      <h3><span class="fnum">03</span>RAG（NeurIPS 2020）· 检索 + 生成端到端反传</h3>
+        <details class="fig-card reveal">
+          <summary><span class="fnum">03</span><span class="card-title">RAG（NeurIPS 2020）· 检索 + 生成端到端反传</span><span class="tag">双模块端到端</span><span class="chev">▾</span></summary>
+          <div class="card-body">
       <p class="meta">
-        <span class="tag">双模块端到端</span>
         Lewis et al. · 2005.11401 ·
         <a href="https://arxiv.org/abs/2005.11401">arxiv</a>
       </p>
@@ -276,16 +346,17 @@ ol.howto li b { color: var(--ink); font-weight: 600; }
         <figcaption><span class="orig">Figure 1 (p2)</span> · Overview of our approach. We combine a pre-trained retriever (Query Encoder + Document Index) with a pre-trained seq2seq model (Generator) and fine-tune end-to-end. … the marginalize operation is used to compute the probability of the generated answer.</figcaption>
       </figure>
       <ol class="tips">
-        <li>大标题「End-to-End Backprop through q and p_θ」横贯全图顶，把「端到端」这件事写在视觉中心——论文最重要的贡献被一句话点出。</li>
+        <li>大标题「End-to-End Backprop through q and p_θ」横贯全图顶，把「端到端」这件事写在视觉中心，论文最重要的贡献被一句话点出。</li>
         <li>两类问题（x / y）配色区分但位置对称，体现「输入不同 / 处理同一条管线」。</li>
-        <li>右上角的 d(z) 分布直方图把抽象「软检索」可视化为概率——避免读者把它误解为硬选择。</li>
+        <li>右上角的 d(z) 分布直方图把抽象「软检索」可视化为概率，避免读者把它误解为硬选择。</li>
       </ol>
-    </div>
+          </div>
+        </details>
 
-    <div class="fig-card reveal">
-      <h3><span class="fnum">04</span>FD-LLM（arXiv 2024）· 双路故障特征 + LLM</h3>
+        <details class="fig-card reveal">
+          <summary><span class="fnum">04</span><span class="card-title">FD-LLM（arXiv 2024）· 双路故障特征 + LLM</span><span class="tag">工业时序 + LLM</span><span class="chev">▾</span></summary>
+          <div class="card-body">
       <p class="meta">
-        <span class="tag">工业时序 + LLM</span>
         Wang et al. · 2412.01218 ·
         <a href="https://arxiv.org/abs/2412.01218">arxiv</a>
       </p>
@@ -295,21 +366,40 @@ ol.howto li b { color: var(--ink); font-weight: 600; }
         <figcaption><span class="orig">Figure 1 (p5)</span> · An illustration of the FD-LLM framework using both FFT-processed and statistically processed data pipelines. Each pipeline turns raw vibration signals into prompt tokens that condition a LoRA-fine-tuned LLM to predict fault type.</figcaption>
       </figure>
       <ol class="tips">
-        <li>同色边框（蓝 / 绿）= 同类模块（数据加工 / 提示组装 / LLM），读者一眼看到「三大块」而不是被十几个细节淹没。</li>
-        <li>两条平行子流而非合并表达式——这是论文的核心主张：「两种加工方式都能用」，没有「主次之分」。</li>
-        <li>把 LoRA 模块画得跟 W / A / B 等权重块并排，暗示「微调不重写大模型」——这是节省算力的关键卖点。</li>
+        <li>同色边框（蓝 / 绿）= 同类模块（数据加工 / 提示组装 / LLM），读者一眼看到「三大块」，不被十几个细节淹没。</li>
+        <li>两条平行子流而非合并表达式，这是论文的核心主张：「两种加工方式都能用」，没有「主次之分」。</li>
+        <li>把 LoRA 模块画得跟 W / A / B 等权重块并排，暗示「微调不重写大模型」，这是节省算力的关键卖点。</li>
       </ol>
+          </div>
+        </details>
+      </div>
     </div>
   </section>
 
   <section>
     <h3 class="group-title" id="g-contrast"><span class="gletter">B</span>对比式（左右并列新旧方法）</h3>
     <p class="group-note">把「过去做法」放左边、「我们的做法」放右边，复用同一坐标系让读者一眼看到「我们少做了什么 / 多做了什么」。</p>
+    <div class="group-body">
+      <aside class="draw-recipe reveal">
+        <h4>✎ 怎么画 · 对比式</h4>
+        <div class="formula">同一输入 × 左旧右新（2–4 栏）× 颜色即结论</div>
+        <ol>
+        <li><b>共用输入。</b>两栏用同一组输入 icon，锚定「起点相同」。</li>
+        <li><b>左旧右新。</b>左栏画旧方法完整链，右栏新方法少掉的框就是贡献。</li>
+        <li><b>颜色下结论。</b>一色 = 旧 / 复杂，另一色 = 新 / 简化，全图守恒。</li>
+        <li><b>只画结构差异。</b>对比式构图不画坐标系与公式。</li>
+        <li><b>多栏对齐基座。</b>三方以上对比时对齐到同一基座行。</li>
+        </ol>
+        <p class="vs"><b>对照真图</b>：05 红 = 复杂、绿 = 简化；08 三栏同基座递减。</p>
+        <p class="tool">PPT：Shift 多选 + <code>Distribute Horizontally</code> 等距神器</p>
+      </aside>
+      <div class="fig-col">
 
-    <div class="fig-card reveal">
-      <h3><span class="fnum">05</span>DPO（NeurIPS 2023）· RLHF vs Direct Preference Optimization</h3>
+
+        <details class="fig-card reveal" open>
+          <summary><span class="fnum">05</span><span class="card-title">DPO（NeurIPS 2023）· RLHF vs Direct Preference Optimization</span><span class="tag">方法对比</span><span class="chev">▾</span></summary>
+          <div class="card-body">
       <p class="meta">
-        <span class="tag">方法对比</span>
         Rafailov et al. · 2305.18290 ·
         <a href="https://arxiv.org/abs/2305.18290">arxiv</a>
       </p>
@@ -319,16 +409,17 @@ ol.howto li b { color: var(--ink); font-weight: 600; }
         <figcaption><span class="orig">Figure 1 (p2)</span> · DPO optimizes for human preferences while avoiding reinforcement learning. Existing methods first fit a reward model, then use RL to find a policy. DPO fits the policy directly with a simple classification loss on the preference data.</figcaption>
       </figure>
       <ol class="tips">
-        <li>左右两舱同一红 / 绿主色块——红色 = 复杂度（RLHF 三件套），绿色 = 简化（DPO 单链）。颜色本身就是结论。</li>
+        <li>左右两舱同一红 / 绿主色块，红色 = 复杂度（RLHF 三件套），绿色 = 简化（DPO 单链）。颜色本身就是结论。</li>
         <li>两边共用同一组小 icon（人 / 对话 / 模型节点），保留「输入相同」的视觉锚点。</li>
-        <li>不画任何坐标系或公式——只画结构差异，这是「对比式 pipeline」比曲线图更强的场景。</li>
+        <li>不画任何坐标系或公式，只画结构差异，这是「对比式 pipeline」比曲线图更强的场景。</li>
       </ol>
-    </div>
+          </div>
+        </details>
 
-    <div class="fig-card reveal">
-      <h3><span class="fnum">06</span>Self-RAG（ICLR 2024）· RAG vs Self-RAG</h3>
+        <details class="fig-card reveal">
+          <summary><span class="fnum">06</span><span class="card-title">Self-RAG（ICLR 2024）· RAG vs Self-RAG</span><span class="tag">方法对比</span><span class="chev">▾</span></summary>
+          <div class="card-body">
       <p class="meta">
-        <span class="tag">方法对比</span>
         Asai et al. · 2310.11511 ·
         <a href="https://arxiv.org/abs/2310.11511">arxiv</a>
       </p>
@@ -338,59 +429,80 @@ ol.howto li b { color: var(--ink); font-weight: 600; }
         <figcaption><span class="orig">Figure 1 (p2)</span> · Overview of SELF-RAG. SELF-RAG learns to retrieve, critique, and generate text passages … It decides whether to retrieve on demand and uses critique tokens to assess the quality of its own generations.</figcaption>
       </figure>
       <ol class="tips">
-        <li>左半用一条主轴把 K 段堆叠并联——表达「一锅端」；右半用分支结构表达「并行抽样 + 评估筛选」，同一概念被画成两种典型形态。</li>
-        <li>「Relevant / Irrelevant / Supported」等小标签色块统一用橙 / 绿——左右两栏共用一套评价色，跨栏可比。</li>
-        <li>底部两个 prompt example 并排：一个「需要检索」，一个「不需要检索」——直接展示 Self-RAG 的「按需」特性。</li>
+        <li>左半用一条主轴把 K 段堆叠并联，表达「一锅端」；右半用分支结构表达「并行抽样 + 评估筛选」，同一概念被画成两种典型形态。</li>
+        <li>「Relevant / Irrelevant / Supported」等小标签色块统一用橙 / 绿，左右两栏共用一套评价色，跨栏可比。</li>
+        <li>底部两个 prompt example 并排：一个「需要检索」，一个「不需要检索」，直接展示 Self-RAG 的「按需」特性。</li>
       </ol>
-    </div>
+          </div>
+        </details>
 
-    <div class="fig-card reveal">
-      <h3><span class="fnum">07</span>ReAct（ICLR 2023）· 四种 prompting 对比</h3>
+        <details class="fig-card reveal">
+          <summary><span class="fnum">07</span><span class="card-title">ReAct（ICLR 2023）· 四种 prompting 对比</span><span class="tag">多路对比</span><span class="chev">▾</span></summary>
+          <div class="card-body">
       <p class="meta">
-        <span class="tag">多路对比</span>
         Yao et al. · 2210.03629 ·
         <a href="https://arxiv.org/abs/2210.03629">arxiv</a>
       </p>
-      <p class="why">横向四个 variant（Standard / CoT / Act-only / ReAct）跑同一个 HotpotQA 题，纵向两个任务（HotpotQA / AlfWorld）跑同一套方法——四块网格直接拼成 4×2 的事实证据。</p>
+      <p class="why">横向四个 variant（Standard / CoT / Act-only / ReAct）跑同一个 HotpotQA 题，纵向两个任务（HotpotQA / AlfWorld）跑同一套方法，四块网格直接拼成 4×2 的事实证据。</p>
       <figure>
         <a href="https://arxiv.org/abs/2210.03629"><img src="/img/pipeline/react.png" alt="ReAct Figure 1: four prompting methods compared"></a>
         <figcaption><span class="orig">Figure 1 (p2)</span> · (1) Comparison of 4 prompting methods, (a) Standard, (b) Chain-of-thought (CoT, Reason Only), (c) Act-only, (d) ReAct (Reason + Act). … Combining internal reasoning and external actions outperforms either alone.</figcaption>
       </figure>
       <ol class="tips">
-        <li>同一道题同一份答案结构被复用 4 次——读者不需要额外解释，差异自然显现：「同样的输入、不同的解题路径」。</li>
-        <li>✅ / ❌ 符号直接画在答案右侧——结论在图里、不在 caption 里，扫一眼就懂哪种方法对、哪种错。</li>
-        <li>绿色高亮（搜索词）和红色高亮（错误步骤）跨四格守恒——「动作」与「思维」两类操作各自有颜色身份。</li>
+        <li>同一道题同一份答案结构被复用 4 次，读者不需要额外解释，差异自然显现：「同样的输入、不同的解题路径」。</li>
+        <li>✅ / ❌ 符号直接画在答案右侧，结论在图里、不在 caption 里，扫一眼就懂哪种方法对、哪种错。</li>
+        <li>绿色高亮（搜索词）和红色高亮（错误步骤）跨四格守恒，「动作」与「思维」两类操作各自有颜色身份。</li>
       </ol>
-    </div>
+          </div>
+        </details>
 
-    <div class="fig-card reveal">
-      <h3><span class="fnum">08</span>QLoRA（NeurIPS 2023）· Full / LoRA / QLoRA 三方对比</h3>
+        <details class="fig-card reveal">
+          <summary><span class="fnum">08</span><span class="card-title">QLoRA（NeurIPS 2023）· Full / LoRA / QLoRA 三方对比</span><span class="tag">三方对比</span><span class="chev">▾</span></summary>
+          <div class="card-body">
       <p class="meta">
-        <span class="tag">三方对比</span>
         Dettmers et al. · 2305.14314 ·
         <a href="https://arxiv.org/abs/2305.14314">arxiv</a>
       </p>
-      <p class="why">三个图元从同一「16-bit Transformer」基座出发，依次减少 optimizer state、冻结 base model、把 base model 量化到 4-bit——左→右就是论文贡献的累加。</p>
+      <p class="why">三个图元从同一「16-bit Transformer」基座出发，依次减少 optimizer state、冻结 base model、把 base model 量化到 4-bit，左→右就是论文贡献的累加。</p>
       <figure>
         <a href="https://arxiv.org/abs/2305.14314"><img src="/img/pipeline/qlora.png" alt="QLoRA Figure 1: Full vs LoRA vs QLoRA memory comparison"></a>
         <figcaption><span class="orig">Figure 1 (p3)</span> · Different finetuning methods and their memory requirements. QLoRA improves over LoRA by quantizing the transformer model to 4-bit precision and using paged optimizers to handle memory spikes.</figcaption>
       </figure>
       <ol class="tips">
-        <li>三栏对齐到同一基座框（Base Model 行），上面用空白 / 缩小 / 4-bit 灰度差异直接「画出内存节省」——比表格直观得多。</li>
+        <li>三栏对齐到同一基座框（Base Model 行），上面用空白 / 缩小 / 4-bit 灰度差异直接「画出内存节省」，比表格直观得多。</li>
         <li>箭头图例（蓝 / 绿 / 紫 = 参数 / 梯度 / paging）就地嵌在右下角，不需要读者翻图例页。</li>
         <li>CPU paged-optimizer 块是全场唯一紫色，新引入的组件用新颜色，读者一眼知道「多出来的是什么」。</li>
       </ol>
+          </div>
+        </details>
+      </div>
     </div>
   </section>
 
   <section>
     <h3 class="group-title" id="g-dual"><span class="gletter">C</span>双流对称 / 汇聚</h3>
     <p class="group-note">两组处理流（视觉 vs 文本 / 源域 vs 目标域）从两端对称出发，最后汇聚到一个矩阵 / 一个共享空间。</p>
+    <div class="group-body">
+      <aside class="draw-recipe reveal">
+        <h4>✎ 怎么画 · 双流汇聚</h4>
+        <div class="formula">两条对称流（各守一色）→ 汇聚到一个共享矩阵 / 空间</div>
+        <ol>
+        <li><b>先画汇聚点。</b>N×N 矩阵 / 共享空间放视觉中心，再向两端展开。</li>
+        <li><b>结构镜像。</b>两流对称、间距对称，可复制后 Flip。</li>
+        <li><b>模态各一色。</b>两种模态从头到尾各守一色，汇聚块也遵守。</li>
+        <li><b>匹配关系高亮。</b>对角线、连线直接画出来，零文字解释。</li>
+        <li><b>复杂度递增。</b>多范式并排时，栏内元素数量递增暗示本文工作。</li>
+        </ol>
+        <p class="vs"><b>对照真图</b>：09 对角线高亮 + 紫绿双色守恒；10 三栏递增。</p>
+        <p class="tool">draw.io：复制 + <code>Flip Horizontal</code> 做镜像流</p>
+      </aside>
+      <div class="fig-col">
 
-    <div class="fig-card reveal">
-      <h3><span class="fnum">09</span>CLIP（ICML 2021）· 图文双塔 + N×N 矩阵</h3>
+
+        <details class="fig-card reveal" open>
+          <summary><span class="fnum">09</span><span class="card-title">CLIP（ICML 2021）· 图文双塔 + N×N 矩阵</span><span class="tag">双流汇聚</span><span class="chev">▾</span></summary>
+          <div class="card-body">
       <p class="meta">
-        <span class="tag">双流汇聚</span>
         Radford et al. · 2103.00020 ·
         <a href="https://arxiv.org/abs/2103.00020">arxiv</a>
       </p>
@@ -400,59 +512,80 @@ ol.howto li b { color: var(--ink); font-weight: 600; }
         <figcaption><span class="orig">Figure 1 (p2)</span> · Summary of our approach. While standard image models jointly train an image feature extractor … our method learns to align two encoders by predicting which caption goes with which image.</figcaption>
       </figure>
       <ol class="tips">
-        <li>整张图把论文的「三件事」分成三个子图（contrastive pre-train / dataset classifier / zero-shot prediction），横向编号，等宽对齐——读者能复述出三个名词。</li>
-        <li>中间 N×N 矩阵对角线用浅蓝高亮——「匹配」这件事在视觉中心，不需要文字解释。</li>
-        <li>紫色 = text、绿色 = image——两种模态从头到尾两种颜色，连 N×N 矩阵里的色块都遵守同一规则。</li>
+        <li>整张图把论文的「三件事」分成三个子图（contrastive pre-train / dataset classifier / zero-shot prediction），横向编号，等宽对齐，读者能复述出三个名词。</li>
+        <li>中间 N×N 矩阵对角线用浅蓝高亮，「匹配」这件事在视觉中心，不需要文字解释。</li>
+        <li>紫色 = text、绿色 = image，两种模态从头到尾两种颜色，连 N×N 矩阵里的色块都遵守同一规则。</li>
       </ol>
-    </div>
+          </div>
+        </details>
 
-    <div class="fig-card reveal">
-      <h3><span class="fnum">10</span>Time-LLM（ICLR 2024）· 时序重编程 LLM 三种范式</h3>
+        <details class="fig-card reveal">
+          <summary><span class="fnum">10</span><span class="card-title">Time-LLM（ICLR 2024）· 时序重编程 LLM 三种范式</span><span class="tag">三路汇聚</span><span class="chev">▾</span></summary>
+          <div class="card-body">
       <p class="meta">
-        <span class="tag">三路汇聚</span>
         Jin et al. · 2310.01728 ·
         <a href="https://arxiv.org/abs/2310.01728">arxiv</a>
       </p>
-      <p class="why">源模态 vs 目标模态两块同色框（浅灰），三种方法沿一条横轴并排：(a) task-specific 新建模型；(b) 模型微调；(c) 模型重编程——重编程那栏最复杂，所以占最大篇幅。</p>
+      <p class="why">源模态 vs 目标模态两块同色框（浅灰），三种方法沿一条横轴并排：(a) task-specific 新建模型；(b) 模型微调；(c) 模型重编程，重编程那栏最复杂，所以占最大篇幅。</p>
       <figure>
         <a href="https://arxiv.org/abs/2310.01728"><img src="/img/pipeline/timellm.png" alt="Time-LLM Figure 1: task-specific vs fine-tuning vs reprogramming comparison"></a>
         <figcaption><span class="orig">Figure 1 (p3)</span> · Schematic illustration of reprogramming large language models (LLMs) in comparison to traditional approaches including (a) task-specific learning and (b) model fine-tuning. Our framework aligns a target time-series modality with a pre-trained LLM through learnable prompts and embeddings.</figcaption>
       </figure>
       <ol class="tips">
-        <li>三栏用同一「源 → 目标」骨架，但栏内元素数量呈递增——视觉重量直接告诉读者「(c) 最复杂，也是本文工作」。</li>
-        <li>把「Reprogram. Space」和「Prompt + Reprogram.」单独画出来，是论文两个最关键的概念——图标和文字的耦合比纯文字描述快 5 倍。</li>
-        <li>右下角四件套图例（羽毛 / 点赞 / 灯泡 / 拼图）= 「Lightweight / High Effectiveness / Contextual Bootstrapping / Cross-Modality」，把论文四个卖点排成同一行，配合上方的复杂图做总结——读者滑到底不会错过。</li>
+        <li>三栏用同一「源 → 目标」骨架，但栏内元素数量呈递增，视觉重量直接告诉读者「(c) 最复杂，也是本文工作」。</li>
+        <li>把「Reprogram. Space」和「Prompt + Reprogram.」单独画出来，是论文两个最关键的概念，图标和文字的耦合比纯文字描述快 5 倍。</li>
+        <li>右下角四件套图例（羽毛 / 点赞 / 灯泡 / 拼图）= 「Lightweight / High Effectiveness / Contextual Bootstrapping / Cross-Modality」，把论文四个卖点排成同一行，配合上方的复杂图做总结，读者滑到底不会错过。</li>
       </ol>
+          </div>
+        </details>
+      </div>
     </div>
   </section>
 
   <section>
     <h3 class="group-title" id="g-decomp"><span class="gletter">D</span>重参数 / 编解码（串行分解或对称）</h3>
     <p class="group-note">表达「一个完整的算子被拆成两到三个简单子结构」。常用于参数高效微调、视觉预训练、自回归解码。</p>
+    <div class="group-body">
+      <aside class="draw-recipe reveal">
+        <h4>✎ 怎么画 · 重参数 / 编解码</h4>
+        <div class="formula">完整算子 = frozen 大块 + trainable 小块，几何形状表维度</div>
+        <ol>
+        <li><b>大小即冻结。</b>冻结块画大、可训练块画小，颜色区分参数状态。</li>
+        <li><b>形状表维度。</b>梯形 = 低秩分解，窄带 = token 被压缩。</li>
+        <li><b>汇合点标加号。</b>多条路径的加法汇合用 + 号显式画出。</li>
+        <li><b>宽度表轻重。</b>encoder 大、decoder 小，非对称画进几何里。</li>
+        <li><b>标注行为。</b>初始化（B=0）与部署（可合并回 W）写在图内。</li>
+        </ol>
+        <p class="vs"><b>对照真图</b>：11 梯形表 rank r ≪ d；12 宽度非对称。</p>
+        <p class="tool">matplotlib：<code>FancyBboxPatch</code> 画圆角块、<code>Polygon</code> 画梯形</p>
+      </aside>
+      <div class="fig-col">
 
-    <div class="fig-card reveal">
-      <h3><span class="fnum">11</span>LoRA（ICLR 2022）· 预训练权重 + BA 低秩分解</h3>
+
+        <details class="fig-card reveal" open>
+          <summary><span class="fnum">11</span><span class="card-title">LoRA（ICLR 2022）· 预训练权重 + BA 低秩分解</span><span class="tag">重参数化</span><span class="chev">▾</span></summary>
+          <div class="card-body">
       <p class="meta">
-        <span class="tag">重参数化</span>
         Hu et al. · 2106.09685 ·
         <a href="https://arxiv.org/abs/2106.09685">arxiv</a>
       </p>
-      <p class="why">左侧大蓝块（frozen pretrained W ∈ ℝ<sup>d×d</sup>），右侧两片橙色梯形（B = 0、A = 𝒩(0,σ²)），中间夹 rank r——三件套画完，全文就讲完了。</p>
+      <p class="why">左侧大蓝块（frozen pretrained W ∈ ℝ<sup>d×d</sup>），右侧两片橙色梯形（B = 0、A = 𝒩(0,σ²)），中间夹 rank r，三件套画完，全文就讲完了。</p>
       <figure>
         <a href="https://arxiv.org/abs/2106.09685"><img src="/img/pipeline/lora.png" alt="LoRA Figure 1: reparametrization with pretrained weights + low-rank BA"></a>
         <figcaption><span class="orig">Figure 1 (p1)</span> · Our reparametrization. We only train A and B. The input x is multiplied by both paths and summed. At deployment, the BA product can be merged back into W with no additional inference latency.</figcaption>
       </figure>
       <ol class="tips">
-        <li>蓝色 = frozen，橙色 = trainable——颜色即参数状态，零文字成本解码「哪些参数会动」。</li>
-        <li>梯形几何形状本身就传达「rank r ≪ d」——维度差异不靠数字。</li>
-        <li>上下两条箭头（输入 / 输出）穿过 frozen W 和 BA 两条路，汇合后 + 一起——把「parallel additive」这件事画在结构里，而不是文字里。</li>
+        <li>蓝色 = frozen，橙色 = trainable，颜色即参数状态，零文字成本解码「哪些参数会动」。</li>
+        <li>梯形几何形状本身就传达「rank r ≪ d」，维度差异不靠数字。</li>
+        <li>上下两条箭头（输入 / 输出）穿过 frozen W 和 BA 两条路，汇合后相加，「parallel additive」直接画进结构里，省掉文字解释。</li>
       </ol>
-    </div>
+          </div>
+        </details>
 
-    <div class="fig-card reveal">
-      <h3><span class="fnum">12</span>MAE（CVPR 2022）· 掩码自编码器流水线</h3>
+        <details class="fig-card reveal">
+          <summary><span class="fnum">12</span><span class="card-title">MAE（CVPR 2022）· 掩码自编码器流水线</span><span class="tag">串行编解码</span><span class="chev">▾</span></summary>
+          <div class="card-body">
       <p class="meta">
-        <span class="tag">串行编解码</span>
         He et al. · 2111.06377 ·
         <a href="https://arxiv.org/abs/2111.06377">arxiv</a>
       </p>
@@ -462,21 +595,40 @@ ol.howto li b { color: var(--ink); font-weight: 600; }
         <figcaption><span class="orig">Figure 1 (p1)</span> · Our MAE architecture. During pre-training, a large random subset of image patches (e.g. 75%) is masked out. The encoder is applied only to the visible subset. A lightweight decoder reconstructs the original image from the latent representation and the mask tokens.</figcaption>
       </figure>
       <ol class="tips">
-        <li>encoder / decoder 用两块宽度完全不同的灰色圆角块——「encoder 大、decoder 小」这一非对称设计被画进几何里。</li>
-        <li>中间 token 序列用「带状小格」+「…省略号」画——读者一眼看出 token 序列在数据流里被压缩过。</li>
-        <li>target = 原图，不是「自编码重建图」——和「重建 = 原图」这件事直接用同一张图来表达。</li>
+        <li>encoder / decoder 用两块宽度完全不同的灰色圆角块，「encoder 大、decoder 小」这一非对称设计被画进几何里。</li>
+        <li>中间 token 序列用「带状小格」+「…省略号」画，读者一眼看出 token 序列在数据流里被压缩过。</li>
+        <li>target 直接复用原图，「重建目标 = 原图」用同一张图来表达。</li>
       </ol>
+          </div>
+        </details>
+      </div>
     </div>
   </section>
 
   <section>
     <h3 class="group-title" id="g-industrial"><span class="gletter">E</span>工业 LLM 架构（故障检测 / 异常诊断）</h3>
     <p class="group-note">把 LLM 当作诊断、解释、问答接口，嫁接到传统工业检测管线。多模块、多数据源、跨模态融合。</p>
+    <div class="group-body">
+      <aside class="draw-recipe reveal">
+        <h4>✎ 怎么画 · 工业 LLM 架构</h4>
+        <div class="formula">多路数据源 → 中层加工（每路一色）→ 顶层 LLM + 微调模块</div>
+        <ol>
+        <li><b>底层画数据源。</b>多路传感器 / 图像 / 文本先铺底座。</li>
+        <li><b>中层同色分组。</b>每路加工管线一种边框色，读者先看到三大块。</li>
+        <li><b>顶层放卖点。</b>LLM 与 LoRA 模块放视觉焦点（顶角旗帜）。</li>
+        <li><b>颜色面积叙事。</b>frozen / trainable 占比即部署成本故事。</li>
+        <li><b>图例就地。</b>frozen / 矩阵乘等操作图例嵌图内，不逼读者翻正文。</li>
+        </ol>
+        <p class="vs"><b>对照真图</b>：13 蓝红颜色权重；14 金字塔三层递进。</p>
+        <p class="tool">draw.io：大矩形填充浅灰后 <code>Send to Back</code> 作分层背景</p>
+      </aside>
+      <div class="fig-col">
 
-    <div class="fig-card reveal">
-      <h3><span class="fnum">13</span>AnomalyGPT（AAAI 2024）· 工业异常检测 + LLM</h3>
+
+        <details class="fig-card reveal" open>
+          <summary><span class="fnum">13</span><span class="card-title">AnomalyGPT（AAAI 2024）· 工业异常检测 + LLM</span><span class="tag">工业 + LLM</span><span class="chev">▾</span></summary>
+          <div class="card-body">
       <p class="meta">
-        <span class="tag">工业 + LLM</span>
         Gu et al. · 2308.15366 ·
         <a href="https://arxiv.org/abs/2308.15366">arxiv</a>
       </p>
@@ -486,16 +638,17 @@ ol.howto li b { color: var(--ink); font-weight: 600; }
         <figcaption><span class="orig">Figure 2 (p4)</span> · The architecture of AnomalyGPT. The query image is passed to the frozen image encoder and the patch-level features … the final features extracted from the image encoder and the image decoder are concatenated with the learnable prompt embeddings, then fed into the LLM to generate textual answers.</figcaption>
       </figure>
       <ol class="tips">
-        <li>蓝色 = frozen（占画面 ~70%）、红色 = trained——颜色权重视觉化「参数冻结多、可训练少」这一部署要点。</li>
-        <li>Few-shot Inference 块用橙色虚线框单独画——「这是另一种使用模式」，不与主流程混淆。</li>
-        <li>右上 / 右下两块 Localization Result（监督 / 无监督）输出端并排——同一模型两种用途被画进一张图里。</li>
+        <li>蓝色 = frozen（占画面 ~70%）、红色 = trained，颜色权重视觉化「参数冻结多、可训练少」这一部署要点。</li>
+        <li>Few-shot Inference 块用橙色虚线框单独画，「这是另一种使用模式」，不与主流程混淆。</li>
+        <li>右上 / 右下两块 Localization Result（监督 / 无监督）输出端并排，同一模型两种用途被画进一张图里。</li>
       </ol>
-    </div>
+          </div>
+        </details>
 
-    <div class="fig-card reveal">
-      <h3><span class="fnum">14</span>LLM 轴承故障诊断（arXiv 2024）· 金字塔式框架</h3>
+        <details class="fig-card reveal">
+          <summary><span class="fnum">14</span><span class="card-title">LLM 轴承故障诊断（arXiv 2024）· 金字塔式框架</span><span class="tag">LLM 故障诊断</span><span class="chev">▾</span></summary>
+          <div class="card-body">
       <p class="meta">
-        <span class="tag">LLM 故障诊断</span>
         Liu et al. · 2411.02718 ·
         <a href="https://arxiv.org/abs/2411.02718">arxiv</a>
       </p>
@@ -505,16 +658,19 @@ ol.howto li b { color: var(--ink); font-weight: 600; }
         <figcaption><span class="orig">Figure 1 (p7)</span> · The overall process of the proposed method. An LLM is fine-tuned via LoRA / QLoRA atop a bearing-vibration-signal foundation. Three parallel pathways (feature construction, patching & embedding, case-study matrix) feed the LLM with prompt-templated inputs.</figcaption>
       </figure>
       <ol class="tips">
-        <li>金字塔形状本身就是「抽象层级」的可视化——底层最具体的振动波形，到顶层最抽象的 LLM 微调，读者不需要图例就懂。</li>
-        <li>三种路径（feature / patching / case study）用同一蓝色斜体——跨路径守恒，强化「同一种 LLM 输入」。</li>
-        <li>顶部红色 LoRA / QLoRA 旗帜——一眼看到「这是基于 LLM 的工作」，图本身就把论文卖点写在顶角。</li>
+        <li>金字塔形状本身就是「抽象层级」的可视化，底层最具体的振动波形，到顶层最抽象的 LLM 微调，读者不需要图例就懂。</li>
+        <li>三种路径（feature / patching / case study）用同一蓝色斜体，跨路径守恒，强化「同一种 LLM 输入」。</li>
+        <li>顶部红色 LoRA / QLoRA 旗帜，一眼看到「这是基于 LLM 的工作」，图本身就把论文卖点写在顶角。</li>
       </ol>
+          </div>
+        </details>
+      </div>
     </div>
   </section>
 
   <section>
     <h3 class="group-title" id="g-howto"><span class="gletter">F</span>怎么画出来这些图（30 分钟上手）</h3>
-    <p class="group-note">前面 14 张顶会图 90% 不是「专业软件」画的，而是 <b>draw.io / PowerPoint / matplotlib</b> 三件套。工具不重要，叙事才重要。下面 10 条经验纪律与全部来源都附可查证的出处；想看完整方法论、投稿自查清单与 10 张可复制 matplotlib 模板，去 <a href="/figures/#howto" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">/figures/#howto</a>。</p>
+    <p class="group-note">A–E 每组左侧已经放了该构型的「怎么画」配方卡；本区收通用内容：工具教程、绘图纪律与可查证出处。前面 14 张顶会图 90% 出自 <b>draw.io / PowerPoint / matplotlib</b> 三件套，工具不重要，叙事才重要。想看完整方法论、投稿自查清单与 10 张可复制 matplotlib 模板，去 <a href="/figures/#howto" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">/figures/#howto</a>。</p>
 
     <div class="fig-card reveal">
       <h3>通用五步法</h3>
@@ -598,13 +754,13 @@ fig.savefig(<span class="s">"pipeline.pdf"</span>, bbox_inches=<span class="s">"
 
     <div class="fig-card reveal">
       <h3>手把手 B · PowerPoint 画法要点（20 min）</h3>
-      <p class="why">很多人论文里的「原图」其实是 PPT 拼出来的——尤其是融合多个 PDF 截图的图。下面是 PPT 画 pipeline 不会出错的几件事。</p>
+      <p class="why">很多人论文里的「原图」其实是 PPT 拼出来的，尤其是融合多个 PDF 截图的图。下面是 PPT 画 pipeline 不会出错的几件事。</p>
       <ol class="howto steps">
         <li><b>先把画布尺寸改对。</b>Design → Slide Size → Custom（双栏图 7.16 in × 3.5 in；单栏 3.5 × 3.5 in）。先定尺寸再画，否则最后缩放比例全乱。</li>
         <li><b>Insert → Shapes → Rounded Rectangle。</b>按住 Shift 等比缩放；Shift 多选所有框 → Format → Align → <code>Align Middle</code> + <code>Distribute Horizontally</code>（等距神器）。</li>
         <li><b>箭头用形状里的 <code>Right Arrow</code>。</b>不要用带渐变 / 阴影的「SmartArt」，印刷不友好。同样的 Align 步骤对齐到中线。</li>
         <li><b>Ctrl+G 把同一组打成组。</b>防止后面对齐时散架。需要复用样式就复制整个组，组内样式继承。</li>
-        <li><b>导出 PDF，不要截图。</b>文件 → 另存为 → PDF（不是 PNG！）。PDF 才是矢量，期刊才会收。字号 7–9pt 与正文一致。</li>
+        <li><b>导出 PDF，不要截图。</b>文件 → 另存为 → PDF（切勿 PNG 截图！）。PDF 才是矢量，期刊才会收。字号 7–9pt 与正文一致。</li>
       </ol>
     </div>
 
