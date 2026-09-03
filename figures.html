@@ -98,6 +98,61 @@ p.toc a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .fig-card .why { font-size: 14px; color: var(--ink-soft); margin: 0 0 12px; }
 .fig-card svg { display: block; width: 100%; height: auto; margin: 4px 0 8px; }
 
+/* 案例索引墙 */
+.case-index {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px 12px;
+  margin: 18px 0 30px;
+  padding: 16px 16px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--wash);
+}
+.case-index-head {
+  grid-column: 1 / -1;
+  font-family: var(--sans);
+  font-size: 12.5px; font-weight: 600;
+  color: var(--ink-faint); letter-spacing: .08em;
+  margin: -4px 0 6px;
+  display: flex; align-items: baseline; gap: 8px;
+}
+.case-index-head .count {
+  font-family: var(--serif); font-weight: 400;
+  font-size: 14px; color: var(--ink); letter-spacing: 0;
+}
+.case-card {
+  display: flex; gap: 8px; align-items: baseline;
+  padding: 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fff;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform .25s var(--ease-natural), border-color .25s ease, box-shadow .25s var(--ease-natural);
+}
+.case-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(14,165,233,.5);
+  box-shadow: 0 6px 18px rgba(36,41,47,.06);
+}
+.case-card .fnum {
+  font-family: var(--serif);
+  font-size: 12.5px; font-weight: 700;
+  color: var(--accent); flex-shrink: 0;
+  min-width: 24px;
+}
+.case-card .title {
+  font-size: 13px; color: var(--ink);
+  line-height: 1.4;
+  flex: 1; min-width: 0;
+}
+.case-card .group {
+  font-family: var(--mono);
+  font-size: 10.5px; color: var(--ink-faint);
+  flex-shrink: 0; letter-spacing: .04em;
+}
+
 /* 代码块 */
 details.code { margin-top: 4px; }
 details.code summary {
@@ -241,10 +296,29 @@ footer a:hover { color: var(--accent); }
     <p class="note" data-page-node-id="bGnMRe18fGqyCtXmzSD0KZ">按论文结构分三组，图表类型标注在每条标题里。每张图附完整可运行的 matplotlib 代码，点开「查看代码」复制即用。配色统一采用 Okabe-Ito 色盲友好方案。</p>
     <p class="toc">分组直达：<a href="#fig-method">A · 方法与流程</a><a href="#fig-results">B · 实验结果</a><a href="#fig-analysis">C · 消融与分析</a><a href="#howto">绘制方法论</a></p>
 
+    <div class="case-index">
+      <div class="case-index-head">15 张案例索引 <span class="count">点击直达</span></div>
+      <a class="case-card" href="#c-01"><span class="fnum">01</span><span class="title">横向 Pipeline 流程图</span><span class="group">A</span></a>
+      <a class="case-card" href="#c-02"><span class="fnum">02</span><span class="title">Transformer 堆叠架构图</span><span class="group">A</span></a>
+      <a class="case-card" href="#c-p1"><span class="fnum">P1</span><span class="title">InstructGPT 三幕式流程</span><span class="group">A</span></a>
+      <a class="case-card" href="#c-p2"><span class="fnum">P2</span><span class="title">BERT 双联并置</span><span class="group">A</span></a>
+      <a class="case-card" href="#c-p3"><span class="fnum">P3</span><span class="title">Transformer 对称双塔</span><span class="group">A</span></a>
+      <a class="case-card" href="#c-p4"><span class="fnum">P4</span><span class="title">CLIP 双流汇聚</span><span class="group">A</span></a>
+      <a class="case-card" href="#c-p5"><span class="fnum">P5</span><span class="title">DDPM 双向链式</span><span class="group">A</span></a>
+      <a class="case-card" href="#c-03"><span class="fnum">03</span><span class="title">训练曲线对比（折线）</span><span class="group">B</span></a>
+      <a class="case-card" href="#c-04"><span class="fnum">04</span><span class="title">分组柱状图</span><span class="group">B</span></a>
+      <a class="case-card" href="#c-05"><span class="fnum">05</span><span class="title">雷达图（多维能力）</span><span class="group">B</span></a>
+      <a class="case-card" href="#c-06"><span class="fnum">06</span><span class="title">Scaling 分析（散点）</span><span class="group">B</span></a>
+      <a class="case-card" href="#c-07"><span class="fnum">07</span><span class="title">混淆矩阵（热力图）</span><span class="group">C</span></a>
+      <a class="case-card" href="#c-08"><span class="fnum">08</span><span class="title">多次运行稳定性（箱线）</span><span class="group">C</span></a>
+      <a class="case-card" href="#c-09"><span class="fnum">09</span><span class="title">超参敏感性（小倍数）</span><span class="group">C</span></a>
+      <a class="case-card" href="#c-10"><span class="fnum">10</span><span class="title">精度-延迟帕累托前沿</span><span class="group">C</span></a>
+    </div>
+
     <h3 class="group-title" id="fig-method"><span class="gletter">A</span>方法与流程（Method）</h3>
     <p class="group-note">论文 Method 章节的流程图与架构图，用 matplotlib 的 Patch 与箭头即可画，无需切换到其他工具。</p>
 
-    <div class="fig-card reveal">
+    <div id="c-01" class="fig-card reveal">
       <h3><span class="fnum">01</span>横向 Pipeline 流程图（框图）</h3>
       <p class="why">方法章节的门面。横向四到六个模块最顺口，核心创新模块用主题色描边提亮，数据规模写进框内，读者十秒看懂全流程。</p>
       <svg viewBox="0 0 632 190" role="img" aria-label="横向 Pipeline 流程图示例">
@@ -323,7 +397,7 @@ fig.savefig("fig_pipeline.pdf")</code></pre>
       </details>
     </div>
 
-    <div class="fig-card reveal">
+    <div id="c-02" class="fig-card reveal">
       <h3><span class="fnum">02</span>Transformer 堆叠架构图（结构框图）</h3>
       <p class="why">模型结构用纵向堆叠最直观，数据流自下而上。重复层收进虚线框加 ×N，左侧标注张量形状，结构与维度变化一图说完。</p>
       <svg viewBox="0 0 632 300" role="img" aria-label="Transformer 堆叠架构图示例">
@@ -414,7 +488,7 @@ fig.savefig("fig_arch.pdf")</code></pre>
     <h3 class="sub-title" id="fig-pipeline-cases">顶会 Pipeline 案例解剖</h3>
     <p class="group-note">以下五张是简化重绘的示意图（原图版权归属各论文），分析只谈绘图技法：构图、流向、配色、抽象粒度。所有手法都能用 matplotlib 或 draw.io 复现。<br><br>👉 想看 <b>原始论文里的真图</b>？已整理 <a href="/pipeline/" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">14 张案例库 · 按构图类型分组 →</a></p>
 
-    <div class="fig-card reveal">
+    <div id="c-p1" class="fig-card reveal">
       <h3><span class="fnum">P1</span>InstructGPT（NeurIPS 2022）：三幕式流程</h3>
       <p class="why">RLHF 三阶段图是近年被引用最多的 pipeline 图之一，结构极简却信息完整。</p>
       <svg viewBox="0 0 632 190" role="img" aria-label="InstructGPT 三阶段流程示意">
@@ -479,7 +553,7 @@ fig.savefig("fig_arch.pdf")</code></pre>
       </ol>
     </div>
 
-    <div class="fig-card reveal">
+    <div id="c-p2" class="fig-card reveal">
       <h3><span class="fnum">P2</span>BERT（NAACL 2019）：双联并置</h3>
       <p class="why">预训练与微调画成左右镜像双子图，用「图元复用」表达参数共享，是双阶段方法的标准画法。</p>
       <svg viewBox="0 0 632 190" role="img" aria-label="BERT 预训练与微调双联图示意">
@@ -537,7 +611,7 @@ fig.savefig("fig_arch.pdf")</code></pre>
         <li><b>单点高亮讲机制。</b>掩码 token 是全场唯一暖色块，MLM 机制无需文字即可定位。</li>
       </ol>
     </div>
-    <div class="fig-card reveal">
+    <div id="c-p3" class="fig-card reveal">
       <h3><span class="fnum">P3</span>Transformer（NeurIPS 2017）：对称双塔</h3>
       <p class="why">被引超十万的架构图。对称构图中唯一的斜线就是创新点，值得逐像素学习。</p>
       <svg viewBox="0 0 632 220" role="img" aria-label="Transformer 编码器解码器双塔示意">
@@ -591,7 +665,7 @@ fig.savefig("fig_arch.pdf")</code></pre>
       </ol>
     </div>
 
-    <div class="fig-card reveal">
+    <div id="c-p4" class="fig-card reveal">
       <h3><span class="fnum">P4</span>CLIP（ICML 2021）：双流汇聚</h3>
       <p class="why">双流编码加相似度矩阵的构图被后续所有对比学习论文沿用，矩阵本身就是结果的可视化。</p>
       <svg viewBox="0 0 632 200" role="img" aria-label="CLIP 双流对比学习示意">
@@ -670,7 +744,7 @@ fig.savefig("fig_arch.pdf")</code></pre>
         <li><b>编码器画成黑盒。</b>贡献点在学习目标而非架构，内部结构留白，图面带宽全给对比关系。</li>
       </ol>
     </div>
-    <div class="fig-card reveal">
+    <div id="c-p5" class="fig-card reveal">
       <h3><span class="fnum">P5</span>DDPM（NeurIPS 2020）：双向链式</h3>
       <p class="why">扩散模型的链式图把「状态随时间演化」直接演在节点里，前向与反向两个过程零交叉共存。</p>
       <svg viewBox="0 0 632 160" role="img" aria-label="DDPM 前向反向链示意">
@@ -725,7 +799,7 @@ fig.savefig("fig_arch.pdf")</code></pre>
     <h3 class="group-title" id="fig-results"><span class="gletter">B</span>实验结果（Experiments）</h3>
     <p class="group-note">主实验章节的对比图，回答「我的方法比基线好多少」。</p>
 
-    <div class="fig-card reveal" data-page-node-id="yoGgMPgsde6yPvQblQp12E">
+    <div id="c-03" class="fig-card reveal" data-page-node-id="yoGgMPgsde6yPvQblQp12E">
       <h3 data-page-node-id="sDBW0YBMnK7AEO4chl3L31"><span class="fnum" data-page-node-id="vON68TQVjzt6d4voOF65pu">03</span>训练曲线对比（折线图）</h3>
       <p class="why" data-page-node-id="kjKajBF8ZL7yUDF3F3RZUK">多方法对比的主图。主线用实线加置信带，基线用虚线压低视觉权重，读者一眼锁定你的方法。</p>
       <svg viewBox="0 0 632 252" role="img" aria-label="训练曲线对比示例图" data-page-node-id="UJXxBNVvZmj3Zp4B8TBBgq">
@@ -810,7 +884,7 @@ fig.savefig("fig1_curve.pdf")</code></pre>
       </details>
     </div>
 
-    <div class="fig-card reveal" data-page-node-id="uZXX9HqjQPyDFJGXTw4yCr">
+    <div id="c-04" class="fig-card reveal" data-page-node-id="uZXX9HqjQPyDFJGXTw4yCr">
       <h3 data-page-node-id="YcAmpTZcbbndVhMfvOvusu"><span class="fnum" data-page-node-id="RwU7JQoHncvslaX2Uad2AN">04</span>分组柱状图（柱状图）</h3>
       <p class="why" data-page-node-id="xL0wG5K8QX2YqQMYrpfrlF">离散指标对比的首选。柱顶直接标数值，读者不用回头对着 y 轴估读；组内顺序在全篇论文中保持一致。</p>
       <svg viewBox="0 0 632 252" role="img" aria-label="分组柱状图示例" data-page-node-id="3vVv25NGcuHuK5MFJGn35E">
@@ -901,7 +975,7 @@ fig.savefig("fig2_bar.pdf")</code></pre>
       </details>
     </div>
 
-    <div class="fig-card reveal" data-page-node-id="7OxFuAluJq6wTCU0oelTXL">
+    <div id="c-05" class="fig-card reveal" data-page-node-id="7OxFuAluJq6wTCU0oelTXL">
       <h3 data-page-node-id="5qKHdksAbO6baNCz04djgE"><span class="fnum" data-page-node-id="CUvTmcJq4r6CW88uEnvzBq">05</span>雷达图（多维能力对比）</h3>
       <p class="why" data-page-node-id="u2CCRPUqIgmhKY9NHUfmkf">两个对象五维以内时清晰好用。维度超过六个或对象超过三个就该换柱状图，面积重叠会失去可读性。</p>
       <svg viewBox="0 0 632 300" role="img" aria-label="雷达图示例" data-page-node-id="ZCT70OKdj5SUK4wcef5NXn">
@@ -977,7 +1051,7 @@ fig.savefig("fig4_radar.pdf")</code></pre>
       </details>
     </div>
 
-    <div class="fig-card reveal">
+    <div id="c-06" class="fig-card reveal">
       <h3><span class="fnum">06</span>Scaling 分析（对数轴散点 + 拟合线）</h3>
       <p class="why">参数量与指标的幂律关系是对数轴散点的经典场景。散点给原始观测，直线给拟合趋势，log-log 坐标下幂律天然呈直线。</p>
       <svg viewBox="0 0 632 252" role="img" aria-label="Scaling 对数散点图示例">
@@ -1075,7 +1149,7 @@ fig.savefig("fig_scaling.pdf")</code></pre>
     <h3 class="group-title" id="fig-analysis"><span class="gletter">C</span>消融与分析（Ablation &amp; Analysis）</h3>
     <p class="group-note">消融、稳定性与敏感性分析章节的配图，回答「每个部件是否有用、结果是否稳健」。</p>
 
-    <div class="fig-card reveal" data-page-node-id="K0wwcgMAfsUa6JUURmH5y2">
+    <div id="c-07" class="fig-card reveal" data-page-node-id="K0wwcgMAfsUa6JUURmH5y2">
       <h3 data-page-node-id="FZhSVDXCK7ZqP6qB8PWLjR"><span class="fnum" data-page-node-id="QB4wYrYgY2iM7jWFWLieb1">07</span>混淆矩阵（热力图）</h3>
       <p class="why" data-page-node-id="l1A2ztpgjeWIGJ6IaUsVAv">矩阵类数据的标配。单色渐变比彩虹色更专业，数值直接写进格子，色条只作辅助参照。</p>
       <svg viewBox="0 0 632 268" role="img" aria-label="混淆矩阵热力图示例" data-page-node-id="Wrh6hBrjgNonVZVBJGFWYx">
@@ -1195,7 +1269,7 @@ fig.savefig("fig3_heatmap.pdf")</code></pre>
         </div>
       </details>
     </div>
-    <div class="fig-card reveal">
+    <div id="c-08" class="fig-card reveal">
       <h3><span class="fnum">08</span>多次运行稳定性（箱线图）</h3>
       <p class="why">只报一个数没有说服力。跑 5 到 30 个种子画箱线图，中位数、离散程度与离群点一图讲清，比文字罗列均值方差直观得多。</p>
       <svg viewBox="0 0 632 300" role="img" aria-label="多次运行稳定性箱线图示例">
@@ -1296,7 +1370,7 @@ fig.savefig("fig_stability_boxplot.pdf")</code></pre>
         </div>
       </details>
     </div>
-    <div class="fig-card reveal">
+    <div id="c-09" class="fig-card reveal">
       <h3><span class="fnum">09</span>超参敏感性（小倍数图）</h3>
       <p class="why">审稿人常问「结果对超参有多敏感」。共享坐标轴的 2x2 小倍数图，一眼看出最优区间是否宽、峰值出现在哪。共享 y 轴让四个面板可以直接横向比较。</p>
       <svg viewBox="0 0 632 340" role="img" aria-label="超参敏感性小倍数图示例">
@@ -1381,7 +1455,7 @@ fig.savefig("fig_sensitivity_panels.pdf")</code></pre>
         </div>
       </details>
     </div>
-    <div class="fig-card reveal">
+    <div id="c-10" class="fig-card reveal">
       <h3><span class="fnum">10</span>精度与延迟权衡（帕累托前沿）</h3>
       <p class="why">部署场景的标准叙事图。前沿线上的模型才有资格进对比表，灰色区域的点被直接淘汰。左上是更好的方向，阴影标出被支配区域。</p>
       <svg viewBox="0 0 632 300" role="img" aria-label="精度与延迟帕累托前沿图示例">
