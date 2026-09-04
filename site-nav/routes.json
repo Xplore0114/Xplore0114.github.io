@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-09-01T13:10:12.064208+00:00",
+    "generated_at": "2026-09-04T05:58:50.760355+00:00",
     "items": [
         {
             "desc": "大模型论文追踪·公司研究动态·论文速览",
@@ -29,21 +29,21 @@
             "group": "站点"
         },
         {
-            "desc": "🤖 大模型情报局 | 每日自动追踪 arXiv 前沿论文：13k+ 论文、34 个实验室、模型时间线与学习路径",
-            "badge": "HTML",
-            "featured": false,
-            "path": "https://github.com/Xplore-LAB/llm-tracker",
-            "emoji": "🌐",
-            "title": "llm-tracker",
-            "group": "大项目"
-        },
-        {
             "desc": "每日科技新闻自动聚合 - 多源抓取/自动摘要/定时更新",
             "badge": "Python",
             "featured": false,
             "path": "https://github.com/Xplore-LAB/tech-news",
             "emoji": "🐍",
             "title": "tech-news",
+            "group": "大项目"
+        },
+        {
+            "desc": "🤖 大模型情报局 | 每日自动追踪 arXiv 前沿论文：13k+ 论文、34 个实验室、模型时间线与学习路径",
+            "badge": "HTML",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/llm-tracker",
+            "emoji": "🌐",
+            "title": "llm-tracker",
             "group": "大项目"
         },
         {
