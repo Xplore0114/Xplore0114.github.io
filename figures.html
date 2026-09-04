@@ -297,7 +297,7 @@ footer a:hover { color: var(--accent); }
     <p class="toc">分组直达：<a href="#fig-method">A · 方法与流程</a><a href="#fig-results">B · 实验结果</a><a href="#fig-analysis">C · 消融与分析</a><a href="#howto">绘制方法论</a></p>
 
     <div class="case-index">
-      <div class="case-index-head">15 张案例索引 <span class="count">点击直达</span></div>
+      <div class="case-index-head">20 张案例索引 <span class="count">点击直达</span></div>
       <a class="case-card" href="#c-01"><span class="fnum">01</span><span class="title">横向 Pipeline 流程图</span><span class="group">A</span></a>
       <a class="case-card" href="#c-02"><span class="fnum">02</span><span class="title">Transformer 堆叠架构图</span><span class="group">A</span></a>
       <a class="case-card" href="#c-p1"><span class="fnum">P1</span><span class="title">InstructGPT 三幕式流程</span><span class="group">A</span></a>
@@ -305,6 +305,11 @@ footer a:hover { color: var(--accent); }
       <a class="case-card" href="#c-p3"><span class="fnum">P3</span><span class="title">Transformer 对称双塔</span><span class="group">A</span></a>
       <a class="case-card" href="#c-p4"><span class="fnum">P4</span><span class="title">CLIP 双流汇聚</span><span class="group">A</span></a>
       <a class="case-card" href="#c-p5"><span class="fnum">P5</span><span class="title">DDPM 双向链式</span><span class="group">A</span></a>
+      <a class="case-card" href="#c-p6"><span class="fnum">P6</span><span class="title">ViT patch 网格化</span><span class="group">A</span></a>
+      <a class="case-card" href="#c-p7"><span class="fnum">P7</span><span class="title">GPT-3 缩放曲线族</span><span class="group">A</span></a>
+      <a class="case-card" href="#c-p8"><span class="fnum">P8</span><span class="title">DPO 繁简对照</span><span class="group">A</span></a>
+      <a class="case-card" href="#c-p9"><span class="fnum">P9</span><span class="title">Switch 路由分流</span><span class="group">A</span></a>
+      <a class="case-card" href="#c-p10"><span class="fnum">P10</span><span class="title">CoT 提示对照</span><span class="group">A</span></a>
       <a class="case-card" href="#c-03"><span class="fnum">03</span><span class="title">训练曲线对比（折线）</span><span class="group">B</span></a>
       <a class="case-card" href="#c-04"><span class="fnum">04</span><span class="title">分组柱状图</span><span class="group">B</span></a>
       <a class="case-card" href="#c-05"><span class="fnum">05</span><span class="title">雷达图（多维能力）</span><span class="group">B</span></a>
@@ -793,6 +798,298 @@ fig.savefig("fig_arch.pdf")</code></pre>
         <li><b>两个过程上下分行。</b>前向走上排实线向右，反向走下排虚线向左，方向、线型、颜色三重区分，零交叉。</li>
         <li><b>节点填充直接演状态。</b>从实色渐变到空白的填充即「逐渐变噪」的具象化，读者无需图例。</li>
         <li><b>可学习部分单独着色。</b>只有 p_θ 用主色，标出模型真正要学的部分，其余皆是灰色固定过程。</li>
+      </ol>
+    </div>
+
+    <div id="c-p6" class="fig-card reveal">
+      <h3><span class="fnum">P6</span>ViT（ICLR 2021）：patch 网格化流水线</h3>
+      <p class="why">「一张图等于 16×16 个词」的成名图：把二维图像折叠成一维 token 序列，矩阵到序列的降维全靠图元平铺表达。</p>
+      <svg viewBox="0 0 632 190" role="img" aria-label="ViT patch 化流水线示意">
+        <defs>
+          <marker id="arrp6" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#8b949e"/>
+          </marker>
+        </defs>
+        <!-- 输入图像：3×3 网格，左上角 patch 高亮 -->
+        <rect x="18" y="36" width="96" height="96" fill="#f6f8fa" stroke="#24292f" stroke-width="1.2"/>
+        <rect x="18" y="36" width="32" height="32" fill="#E69F00"/>
+        <rect x="50" y="36" width="32" height="32" fill="#7fa8c9"/>
+        <rect x="82" y="36" width="32" height="32" fill="#6a99be"/>
+        <rect x="18" y="68" width="32" height="32" fill="#89b4d0"/>
+        <rect x="50" y="68" width="32" height="32" fill="#5d90b8"/>
+        <rect x="82" y="68" width="32" height="32" fill="#a4c3da"/>
+        <rect x="18" y="100" width="32" height="32" fill="#76a3c4"/>
+        <rect x="50" y="100" width="32" height="32" fill="#9dbcd4"/>
+        <rect x="82" y="100" width="32" height="32" fill="#6897bf"/>
+        <text x="66" y="150" text-anchor="middle" font-size="9.5" fill="#8b949e">输入图像</text>
+        <!-- 图像 → patch 序列 -->
+        <path d="M120 84 L156 84" stroke="#8b949e" stroke-width="1.4" marker-end="url(#arrp6)"/>
+        <text x="139" y="72" text-anchor="middle" font-size="8" fill="#8b949e">切分</text>
+        <!-- patch 序列（含 class token） -->
+        <text x="244" y="64" text-anchor="middle" font-size="8.5" fill="#8b949e">展平 patch + 位置编码</text>
+        <g font-family="Georgia, serif" font-size="9" text-anchor="middle">
+          <rect x="166" y="74" width="22" height="22" rx="3" fill="#fff" stroke="#0072B2" stroke-width="1.2"/>
+          <text x="177" y="89" fill="#0072B2">0*</text>
+          <rect x="194" y="74" width="22" height="22" rx="3" fill="#E69F00"/>
+          <text x="205" y="89" fill="#fff">1</text>
+          <rect x="222" y="74" width="22" height="22" rx="3" fill="#8ab0cf"/>
+          <text x="233" y="89" fill="#fff">2</text>
+          <rect x="250" y="74" width="22" height="22" rx="3" fill="#a4c3da"/>
+          <text x="261" y="89" fill="#fff">3</text>
+          <text x="286" y="89" fill="#8b949e">…</text>
+          <rect x="300" y="74" width="22" height="22" rx="3" fill="#a4c3da"/>
+          <text x="311" y="89" fill="#fff">9</text>
+        </g>
+        <!-- 序列 → Encoder -->
+        <path d="M330 85 L368 85" stroke="#8b949e" stroke-width="1.4" marker-end="url(#arrp6)"/>
+        <!-- Transformer Encoder -->
+        <rect x="372" y="40" width="104" height="88" rx="8" fill="#e9f3fa" stroke="#0072B2" stroke-width="1.5"/>
+        <g text-anchor="middle">
+          <text x="424" y="58" font-family="Georgia, serif" font-size="9.5" fill="#0072B2" font-weight="bold">Transformer</text>
+          <text x="424" y="71" font-family="Georgia, serif" font-size="9.5" fill="#0072B2" font-weight="bold">Encoder</text>
+          <rect x="386" y="80" width="76" height="12" rx="2" fill="#fff" stroke="#0072B2" stroke-width="0.8"/>
+          <text x="424" y="89" font-size="7.5" fill="#24292f">Multi-Head Attn</text>
+          <rect x="386" y="98" width="76" height="12" rx="2" fill="#fff" stroke="#0072B2" stroke-width="0.8"/>
+          <text x="424" y="107" font-size="7.5" fill="#24292f">MLP</text>
+          <text x="424" y="121" font-size="7.5" fill="#8b949e">× L 层</text>
+        </g>
+        <!-- Encoder → 分类头 -->
+        <path d="M480 85 L512 85" stroke="#8b949e" stroke-width="1.4" marker-end="url(#arrp6)"/>
+        <rect x="516" y="40" width="98" height="88" rx="8" fill="#f6f8fa" stroke="#d0d7de"/>
+        <g font-size="7.5" fill="#57606a">
+          <text x="528" y="58" font-size="8.5" fill="#24292f">类别概率</text>
+          <rect x="528" y="66" width="48" height="9" rx="2" fill="#009E73"/>
+          <text x="580" y="73.5">cat .87</text>
+          <rect x="528" y="82" width="18" height="9" rx="2" fill="#b7c4ce"/>
+          <text x="550" y="89.5">dog .09</text>
+          <rect x="528" y="98" width="9" height="9" rx="2" fill="#d4dce2"/>
+          <text x="541" y="105.5">car .02</text>
+          <text x="565" y="120" text-anchor="middle" fill="#8b949e">MLP 头</text>
+        </g>
+        <text x="316" y="176" text-anchor="middle" font-size="9.5" fill="#8b949e">橙色 patch 全程保持橙色：图元颜色即身份，跨阶段可追踪</text>
+      </svg>
+      <ol class="tips">
+        <li><b>图元平铺即降维。</b>左侧 3×3 网格与右侧 1×9 序列画的是同一组方块，位置重排表达「矩阵展平成序列」，一个字解释都不用。</li>
+        <li><b>单块高亮引导视线。</b>九块蓝灰阶里只有一块橙色，读者第一眼落在「单个 patch 如何被编码」，随后的连线自己就能完成。</li>
+        <li><b>特殊 token 插队。</b>class embedding（0*）排在序列首位却画成空心白底，与实心 patch 区分，「额外插入的」身份一眼可辨。</li>
+        <li><b>颜色只分两类。</b>数据通路一律蓝灰系，可学习模块（Encoder、MLP 头）用主色描边，全图维持「数据 vs 模块」两个色系。</li>
+      </ol>
+    </div>
+
+    <div id="c-p7" class="fig-card reveal">
+      <h3><span class="fnum">P7</span>GPT-3（NeurIPS 2020）：缩放曲线族（小倍数图）</h3>
+      <p class="why">few-shot 缩放的招牌图：同构坐标的小面板平铺，一张图同时回答「规模涨有没有用」与「不同任务涨幅差多少」。</p>
+      <svg viewBox="0 0 632 190" role="img" aria-label="GPT-3 few-shot 缩放小倍数图示意">
+        <text x="20" y="20" font-family="Georgia, serif" font-size="10" fill="#24292f" font-weight="bold">Few-Shot Performance</text>
+        <g font-family="Georgia, serif" font-size="9" fill="#24292f">
+          <line x1="428" y1="14" x2="448" y2="14" stroke="#0072B2" stroke-width="2.4"/>
+          <text x="453" y="17">few-shot</text>
+          <line x1="428" y1="28" x2="448" y2="28" stroke="#E69F00" stroke-width="1.6"/>
+          <text x="453" y="31">one-shot</text>
+          <line x1="428" y1="42" x2="448" y2="42" stroke="#8b949e" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <text x="453" y="45">zero-shot</text>
+        </g>
+        <!-- 四个同构面板 -->
+        <g>
+          <rect x="20" y="52" width="280" height="56" rx="4" fill="#fff" stroke="#e5e9ee"/>
+          <text x="28" y="64" font-size="8.5" fill="#57606a">LAMBADA</text>
+          <polyline points="30,98 100,90 170,76 230,66 288,62" fill="none" stroke="#0072B2" stroke-width="2"/>
+          <polyline points="30,102 100,98 170,92 230,86 288,82" fill="none" stroke="#E69F00" stroke-width="1.4"/>
+          <polyline points="30,105 100,103 170,101 230,99 288,97" fill="none" stroke="#8b949e" stroke-width="1.1" stroke-dasharray="4 3"/>
+        </g>
+        <g>
+          <rect x="332" y="52" width="280" height="56" rx="4" fill="#fff" stroke="#e5e9ee"/>
+          <text x="340" y="64" font-size="8.5" fill="#57606a">TriviaQA</text>
+          <polyline points="342,98 412,86 482,70 542,60 600,58" fill="none" stroke="#0072B2" stroke-width="2"/>
+          <polyline points="342,102 412,96 482,88 542,80 600,76" fill="none" stroke="#E69F00" stroke-width="1.4"/>
+          <polyline points="342,105 412,104 482,102 542,100 600,99" fill="none" stroke="#8b949e" stroke-width="1.1" stroke-dasharray="4 3"/>
+        </g>
+        <g>
+          <rect x="20" y="118" width="280" height="56" rx="4" fill="#fff" stroke="#e5e9ee"/>
+          <text x="28" y="130" font-size="8.5" fill="#57606a">HellaSwag</text>
+          <polyline points="30,166 100,160 170,150 230,140 288,132" fill="none" stroke="#0072B2" stroke-width="2"/>
+          <polyline points="30,169 100,166 170,162 230,158 288,154" fill="none" stroke="#E69F00" stroke-width="1.4"/>
+          <polyline points="30,171 100,170 170,169 230,168 288,167" fill="none" stroke="#8b949e" stroke-width="1.1" stroke-dasharray="4 3"/>
+        </g>
+        <g>
+          <rect x="332" y="118" width="280" height="56" rx="4" fill="#fff" stroke="#e5e9ee"/>
+          <text x="340" y="130" font-size="8.5" fill="#57606a">SuperGLUE</text>
+          <polyline points="342,164 412,156 482,146 542,136 600,130" fill="none" stroke="#0072B2" stroke-width="2"/>
+          <polyline points="342,168 412,165 482,160 542,156 600,152" fill="none" stroke="#E69F00" stroke-width="1.4"/>
+          <polyline points="342,170 412,170 482,169 542,169 600,168" fill="none" stroke="#8b949e" stroke-width="1.1" stroke-dasharray="4 3"/>
+        </g>
+        <text x="316" y="186" text-anchor="middle" font-size="9" fill="#8b949e">横轴：模型参数量（对数刻度，125M → 175B）　纵轴：任务性能（各面板同构）</text>
+      </svg>
+      <ol class="tips">
+        <li><b>小倍数图摊开异质性。</b>每个任务独立面板、共享坐标，任务间的差异与共同的上升趋势同屏呈现，聚合均值会抹掉的细节全部保留。</li>
+        <li><b>三种条件的编码跨面板恒定。</b>few-shot 粗蓝、one-shot 橙、zero-shot 灰虚线，全图共用一套图例，读者解码一次看全场。</li>
+        <li><b>对数横轴是缩放叙事的刚需。</b>参数量横跨三个数量级，log 轴让 125M 到 175B 等距铺开，曲线形态才可比。</li>
+        <li><b>让斜率自己说话。</b>不加趋势注释，所有面板里 few-shot 曲线的斜率都显著大于 zero-shot，「示例越多涨得越快」由视觉直接给出。</li>
+      </ol>
+    </div>
+
+    <div id="c-p8" class="fig-card reveal">
+      <h3><span class="fnum">P8</span>DPO（NeurIPS 2023）：繁简对照（垂直双联）</h3>
+      <p class="why">回应「你的算法太复杂」最有力的方式：上下两栏管线图，上栏 RLHF 框多线绕，下栏 DPO 一条线走完，复杂度对比不证自明。</p>
+      <svg viewBox="0 0 632 190" role="img" aria-label="RLHF 与 DPO 管线繁简对照示意">
+        <defs>
+          <marker id="arrp8" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#8b949e"/>
+          </marker>
+        </defs>
+        <!-- 上栏：RLHF -->
+        <rect x="14" y="14" width="604" height="80" rx="8" fill="#f6f8fa" stroke="#e5e9ee"/>
+        <text x="26" y="30" font-family="Georgia, serif" font-size="9.5" fill="#8b949e" font-weight="bold">RLHF（间接路线）</text>
+        <g font-size="9" text-anchor="middle">
+          <rect x="36" y="48" width="62" height="24" rx="5" fill="#0072B2"/>
+          <text x="67" y="64" fill="#fff">SFT 起点</text>
+          <path d="M102 60 L122 60" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arrp8)"/>
+          <rect x="126" y="48" width="86" height="24" rx="5" fill="#fff" stroke="#0072B2"/>
+          <text x="169" y="64" fill="#24292f">prompt + 双答</text>
+          <path d="M216 60 L236 60" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arrp8)"/>
+          <rect x="240" y="48" width="70" height="24" rx="5" fill="#fff" stroke="#E69F00"/>
+          <text x="275" y="64" fill="#24292f">人工排序</text>
+          <path d="M314 60 L334 60" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arrp8)"/>
+          <rect x="338" y="48" width="62" height="24" rx="5" fill="#E69F00"/>
+          <text x="369" y="64" fill="#fff">奖励模型</text>
+          <path d="M404 60 L424 60" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arrp8)"/>
+          <rect x="428" y="48" width="86" height="24" rx="5" fill="#009E73"/>
+          <text x="471" y="64" fill="#fff">PPO 策略</text>
+          <path d="M369 46 C 369 32, 471 32, 471 46" fill="none" stroke="#E69F00" stroke-width="1.1" stroke-dasharray="3 2" marker-end="url(#arrp8)"/>
+          <text x="420" y="38" fill="#E69F00" font-size="7.5">奖励信号</text>
+          <text x="471" y="84" fill="#8b949e" font-size="7.5">KL 约束回参考策略</text>
+        </g>
+        <!-- 下栏：DPO -->
+        <rect x="14" y="106" width="604" height="58" rx="8" fill="#eaf6f1" stroke="#009E73" stroke-opacity="0.35"/>
+        <text x="26" y="122" font-family="Georgia, serif" font-size="9.5" fill="#009E73" font-weight="bold">DPO（直接路线）</text>
+        <g font-size="9" text-anchor="middle">
+          <rect x="80" y="128" width="170" height="24" rx="5" fill="#fff" stroke="#009E73"/>
+          <text x="165" y="144" fill="#24292f">偏好数据 (x, y_win, y_lose)</text>
+          <path d="M254 140 L286 140" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arrp8)"/>
+          <rect x="290" y="128" width="240" height="24" rx="5" fill="#009E73"/>
+          <text x="410" y="144" fill="#fff">策略 π_θ ＋ DPO 损失（奖励内嵌）</text>
+        </g>
+        <text x="316" y="184" text-anchor="middle" font-size="9.5" fill="#8b949e">上栏 5 框 2 回路，下栏 2 框 1 箭头：复杂度差由图面结构直接给出</text>
+      </svg>
+      <ol class="tips">
+        <li><b>垂直双联做减法论证。</b>上下两栏同宽同起点，唯一变量是中间环节的数量，读者的眼睛会自动数框。</li>
+        <li><b>框数即复杂度。</b>RLHF 栏五个框加两个回路，DPO 栏两个框一条直线，「省掉显式奖励模型」的主张由图面本身完成。</li>
+        <li><b>被删模块留残影。</b>DPO 框里保留「奖励内嵌」字样，对应上栏的奖励模型框，暗示两条路线数学等价，删的只是显式建模步骤。</li>
+        <li><b>颜色随栏收敛。</b>上栏蓝橙绿三色齐上阵，下栏单绿贯穿，繁简对比在色彩上再叠一层证据。</li>
+      </ol>
+    </div>
+
+    <div id="c-p9" class="fig-card reveal">
+      <h3><span class="fnum">P9</span>Switch Transformer（JMLR 2022）：路由分流</h3>
+      <p class="why">稀疏 MoE 的入门图：token 进 Router，从一排同构 expert 里点亮一个，其余保持灰虚线，「每 token 只走一条路」由图面自明。</p>
+      <svg viewBox="0 0 632 190" role="img" aria-label="Switch Transformer 路由分流示意">
+        <defs>
+          <marker id="arrp9" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#8b949e"/>
+          </marker>
+          <marker id="arrp9b" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#0072B2"/>
+          </marker>
+          <marker id="arrp9o" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#E69F00"/>
+          </marker>
+        </defs>
+        <!-- 左：Dense -->
+        <text x="100" y="22" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#24292f" font-weight="bold">Dense FFN</text>
+        <g>
+          <rect x="58" y="52" width="18" height="18" rx="3" fill="#0072B2"/>
+          <text x="67" y="82" text-anchor="middle" font-size="8" fill="#57606a">t1</text>
+          <rect x="58" y="110" width="18" height="18" rx="3" fill="#E69F00"/>
+          <text x="67" y="140" text-anchor="middle" font-size="8" fill="#57606a">t2</text>
+          <path d="M76 61 L98 74" stroke="#8b949e" stroke-width="1.1" marker-end="url(#arrp9)"/>
+          <path d="M76 119 L98 106" stroke="#8b949e" stroke-width="1.1" marker-end="url(#arrp9)"/>
+          <rect x="102" y="60" width="86" height="60" rx="6" fill="#dce8f0" stroke="#b0b8c0"/>
+          <text x="145" y="86" text-anchor="middle" font-size="9" fill="#24292f">共享 FFN</text>
+          <text x="145" y="100" text-anchor="middle" font-size="7.5" fill="#8b949e">全部 token 激活</text>
+        </g>
+        <!-- 右：Switch -->
+        <text x="430" y="22" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#24292f" font-weight="bold">Switch FFN（top-1 路由）</text>
+        <g>
+          <rect x="240" y="50" width="18" height="18" rx="3" fill="#0072B2"/>
+          <text x="249" y="44" text-anchor="middle" font-size="8" fill="#57606a">t1</text>
+          <rect x="240" y="124" width="18" height="18" rx="3" fill="#E69F00"/>
+          <text x="249" y="156" text-anchor="middle" font-size="8" fill="#57606a">t2</text>
+          <path d="M258 59 L300 90" stroke="#8b949e" stroke-width="1.1" marker-end="url(#arrp9)"/>
+          <path d="M258 133 L300 100" stroke="#8b949e" stroke-width="1.1" marker-end="url(#arrp9)"/>
+          <rect x="304" y="84" width="52" height="20" rx="4" fill="#24292f"/>
+          <text x="330" y="97.5" text-anchor="middle" font-size="8.5" fill="#fff">Router</text>
+          <path d="M356 88 L426 42" stroke="#c6cdd4" stroke-width="0.9" stroke-dasharray="3 2"/>
+          <path d="M356 94 L426 76" stroke="#0072B2" stroke-width="1.6" marker-end="url(#arrp9b)"/>
+          <path d="M356 100 L426 114" stroke="#c6cdd4" stroke-width="0.9" stroke-dasharray="3 2"/>
+          <path d="M356 106 L426 152" stroke="#E69F00" stroke-width="1.6" marker-end="url(#arrp9o)"/>
+          <text x="386" y="70" text-anchor="middle" font-size="7.5" fill="#8b949e" font-style="italic">top-1</text>
+          <g font-size="8.5" text-anchor="middle">
+            <rect x="430" y="30" width="86" height="24" rx="5" fill="#fff" stroke="#b0b8c0" stroke-dasharray="4 3"/>
+            <text x="473" y="45" fill="#8b949e">Expert 1</text>
+            <rect x="430" y="64" width="86" height="24" rx="5" fill="#0072B2"/>
+            <text x="473" y="79" fill="#fff" font-weight="bold">Expert 2 ← t1</text>
+            <rect x="430" y="102" width="86" height="24" rx="5" fill="#fff" stroke="#b0b8c0" stroke-dasharray="4 3"/>
+            <text x="473" y="117" fill="#8b949e">Expert 3</text>
+            <rect x="430" y="140" width="86" height="24" rx="5" fill="#E69F00"/>
+            <text x="473" y="155" fill="#fff" font-weight="bold">Expert 4 ← t2</text>
+          </g>
+        </g>
+        <text x="560" y="102" text-anchor="middle" font-size="7.5" fill="#8b949e">加权输出</text>
+        <text x="316" y="182" text-anchor="middle" font-size="9.5" fill="#8b949e">未选中路径保留灰虚线：读者能自行确认「还有别的路」，比只画被选路径更诚实</text>
+      </svg>
+      <ol class="tips">
+        <li><b>分流靠颜色对号。</b>两个 token 两种颜色，各自命中的 expert 同色点亮，多 token 并行的路由关系无需逐条箭头注释。</li>
+        <li><b>expert 图元完全同构。</b>四个专家框同尺寸同圆角，差异只在被选中的实色填充与未选的虚线描边，「可互换」是稀疏路由的前提，图元必须表达它。</li>
+        <li><b>左右对照定义「稀疏」。</b>左栏所有 token 挤一个共享 FFN，右栏每 token 只点亮一个 expert，密集与稀疏的参数效率差异一眼分野。</li>
+        <li><b>Router 是唯一深色块。</b>全图浅色调里 Router 用深底反色，强调「决策发生在这里」，视觉焦点与机制焦点重合。</li>
+      </ol>
+    </div>
+
+    <div id="c-p10" class="fig-card reveal">
+      <h3><span class="fnum">P10</span>Chain-of-Thought（NeurIPS 2022）：提示对照</h3>
+      <p class="why">一道食堂算术题左右开箱：左边标准提示一步答错，右边思维链分步答对，CoT 的全部卖点压缩在两个输出框的高度差里。</p>
+      <svg viewBox="0 0 632 190" role="img" aria-label="标准提示与思维链提示对照示意">
+        <defs>
+          <marker id="arrp10" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#8b949e"/>
+          </marker>
+        </defs>
+        <!-- 左：标准提示 -->
+        <rect x="16" y="14" width="296" height="158" rx="8" fill="#f6f8fa" stroke="#e5e9ee"/>
+        <text x="164" y="32" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#24292f" font-weight="bold">Standard Prompting</text>
+        <rect x="32" y="42" width="264" height="34" rx="5" fill="#fff" stroke="#d0d7de"/>
+        <g font-size="8.5" fill="#24292f">
+          <text x="40" y="56">Q: The cafeteria had 23 apples. Used</text>
+          <text x="40" y="68">20 for lunch, bought 6 more. Now?</text>
+        </g>
+        <path d="M164 78 L164 86" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arrp10)"/>
+        <rect x="32" y="90" width="264" height="32" rx="5" fill="#fff" stroke="#d0d7de"/>
+        <text x="40" y="106" font-size="10" fill="#24292f">A: 27</text>
+        <text x="40" y="116" font-size="7.5" fill="#8b949e">一步作答，无中间步骤</text>
+        <text x="278" y="110" font-size="13" fill="#D55E00" font-weight="bold">✗</text>
+        <!-- 右：思维链提示 -->
+        <rect x="320" y="14" width="296" height="158" rx="8" fill="#f6f8fa" stroke="#e5e9ee"/>
+        <text x="468" y="32" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#24292f" font-weight="bold">Chain-of-Thought Prompting</text>
+        <rect x="336" y="42" width="264" height="34" rx="5" fill="#fff" stroke="#d0d7de"/>
+        <g font-size="8.5" fill="#24292f">
+          <text x="344" y="56">Q: The cafeteria had 23 apples. Used</text>
+          <text x="344" y="68">20 for lunch, bought 6 more. Now?</text>
+        </g>
+        <path d="M468 78 L468 86" stroke="#8b949e" stroke-width="1.2" marker-end="url(#arrp10)"/>
+        <rect x="336" y="90" width="264" height="60" rx="5" fill="#fff" stroke="#d0d7de"/>
+        <g font-size="8.5" fill="#24292f">
+          <text x="344" y="104">23 − 20 = 3</text>
+          <text x="344" y="117">3 + 6 = 9</text>
+        </g>
+        <text x="344" y="138" font-size="10" fill="#009E73" font-weight="bold">A: 9</text>
+        <text x="582" y="142" font-size="13" fill="#009E73" font-weight="bold">✓</text>
+        <text x="316" y="186" text-anchor="middle" font-size="9.5" fill="#8b949e">两侧 prompt 逐字一致，唯一变量是中间步骤的存在与否</text>
+      </svg>
+      <ol class="tips">
+        <li><b>用真实样例代替抽象框图。</b>prompt 与输出都是论文原文摘录的算术题，读者的代入感比任何示意框都强，行为对比类论文的首选画法。</li>
+        <li><b>正误用颜色终判。</b>错误答案配红叉，正确答案配绿勾，全图唯一的强对比色留给「结论行」，视觉权重即论证权重。</li>
+        <li><b>输出框高度即证据。</b>左边一行右边五行，中间步骤的「存在性」由版面高度直接给出，无需任何强调性文字。</li>
+        <li><b>双联共享同一个问题。</b>两侧 prompt 框逐字相同，唯一变量是提示方式，对照实验的受控思想平移到了图面。</li>
       </ol>
     </div>
 
