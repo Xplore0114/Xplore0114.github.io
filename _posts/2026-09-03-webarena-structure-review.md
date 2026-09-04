@@ -40,6 +40,54 @@ tags:
 
 四类站点全部自托管且数据取自真实世界：电商 OneStopShop 基于 Magento（约 90k 商品、300+ 品类），论坛基于 Postmill（95 个 subreddit、127,390 帖子），协作开发用真实 GitLab（300 仓库），外加 CMS 管理后台；工具侧配地图、计算器、草稿本，知识侧配离线 Wikipedia 与官方手册。Docker 容器交付、gym 风格 API、确定性重置脚本，可复现性从口号变成交付物。刻意避开真实线上站点（验证码、内容漂移）的取舍也在文中明说。
 
+<figure style="margin:28px 0">
+<svg viewBox="0 0 680 312" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><marker id="wa-a" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#57606a"/></marker></defs>
+  <rect x="22" y="26" width="200" height="148" rx="10" fill="#f2fafd" stroke="#56B4E9" stroke-width="1.5"/>
+  <text x="122" y="50" text-anchor="middle" font-size="13" font-weight="700" fill="#1E88B8">Web Agent</text>
+  <text x="38" y="76" font-size="10.5" fill="#57606a" font-weight="600">观察空间（三选）</text>
+  <text x="46" y="93" font-size="10.5" fill="#57606a">截图 · HTML DOM · a11y tree</text>
+  <text x="38" y="119" font-size="10.5" fill="#57606a" font-weight="600">动作空间</text>
+  <text x="46" y="136" font-size="10.5" fill="#57606a">click / type / scroll / goto</text>
+  <text x="46" y="153" font-size="10.5" fill="#57606a">元素 ID 前缀 → n 选 1 分类</text>
+  <path d="M 228 78 C 248 78, 248 62, 262 62" fill="none" stroke="#56B4E9" stroke-width="1.5" marker-end="url(#wa-a)"/>
+  <text x="245" y="52" font-size="9.5" fill="#1E88B8" text-anchor="middle">观察</text>
+  <path d="M 262 148 C 248 148, 248 132, 228 132" fill="none" stroke="#E69F00" stroke-width="1.5" marker-end="url(#wa-a)"/>
+  <text x="245" y="168" font-size="9.5" fill="#B77500" text-anchor="middle">动作</text>
+  <rect x="268" y="20" width="392" height="172" rx="10" fill="#fff" stroke="#d0d7de" stroke-width="1.4"/>
+  <text x="464" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#24292f">自托管环境（Docker 交付 · gym 风格 API · 确定性重置）</text>
+  <g font-size="10" text-anchor="middle">
+    <rect x="284" y="56" width="118" height="52" rx="7" fill="#fdf8ef" stroke="#E69F00" stroke-opacity=".5"/>
+    <text x="343" y="76" font-weight="600" fill="#B77500">电商 OneStopShop</text>
+    <text x="343" y="92" fill="#57606a">Magento · 90k 商品</text>
+    <rect x="412" y="56" width="118" height="52" rx="7" fill="#fdf8ef" stroke="#E69F00" stroke-opacity=".5"/>
+    <text x="471" y="76" font-weight="600" fill="#B77500">论坛 Postmill</text>
+    <text x="471" y="92" fill="#57606a">127,390 帖</text>
+    <rect x="540" y="56" width="106" height="52" rx="7" fill="#fdf8ef" stroke="#E69F00" stroke-opacity=".5"/>
+    <text x="593" y="76" font-weight="600" fill="#B77500">GitLab</text>
+    <text x="593" y="92" fill="#57606a">300 仓库</text>
+    <rect x="284" y="118" width="118" height="52" rx="7" fill="#f6f8fa" stroke="#8b949e" stroke-opacity=".5"/>
+    <text x="343" y="138" font-weight="600" fill="#57606a">CMS 后台</text>
+    <text x="343" y="154" fill="#57606a">内容与配置</text>
+    <rect x="412" y="118" width="118" height="52" rx="7" fill="#f6f8fa" stroke="#8b949e" stroke-opacity=".5"/>
+    <text x="471" y="138" font-weight="600" fill="#57606a">工具</text>
+    <text x="471" y="154" fill="#57606a">地图 · 计算器 · 草稿本</text>
+    <rect x="540" y="118" width="106" height="52" rx="7" fill="#f6f8fa" stroke="#8b949e" stroke-opacity=".5"/>
+    <text x="593" y="138" font-weight="600" fill="#57606a">知识库</text>
+    <text x="593" y="154" fill="#57606a">离线 Wiki · 手册</text>
+  </g>
+  <rect x="22" y="212" width="638" height="86" rx="10" fill="#f2fbf7" stroke="#009E73" stroke-opacity=".45"/>
+  <text x="44" y="236" font-size="12" font-weight="700" fill="#00805C">任务套件：241 模板 → 812 意图（均 3.3 实例/模板）</text>
+  <g font-size="10.5" fill="#57606a">
+    <text x="44" y="258">三类任务：信息寻找 · 站点导航 · 内容与配置操作（混入 unachievable 任务测拒答）</text>
+    <text x="44" y="278">两族评测函数：r_info（exact / must_include / fuzzy）· r_prog（locator + 断言，只查终态允许多路径）</text>
+  </g>
+  <text x="340" y="306" font-size="10" fill="#8b949e" text-anchor="middle">Figure 1 环境总览仿绘 · 站点与工具数字出自论文 §2.2 与附录</text>
+</svg>
+<figcaption style="text-align:center;font-size:13px;color:#57606a;margin-top:10px">环境总览仿绘：agent 通过三种观察表示与统一动作空间接入自托管站点，评测函数按任务类型分成两族</figcaption>
+</figure>
+
+
 ## 四、reward function 是第一公民：§3.2 的层次设计
 
 任务从 241 个模板实例化为 812 个意图（平均每模板 3.3 个实例），模板变量化让同一模板能派生出难度截然不同的任务。812 个任务分三类：信息寻找、站点导航、内容与配置操作。评测函数按任务类型分成两族，即 Table 1：
@@ -60,6 +108,34 @@ r_prog 只检查执行后的终态（订单是否真实下单、帖子是否落�
 ## 六、开场即立论：14.41% 对 78.24%
 
 GPT-4 加 CoT 的最佳配置端到端成功率 14.41%（Table 2），人类基准 78.24%：从 170 个模板各抽 1 个任务，5 名计算机专业研究生执行，平均耗时 110 秒。这个 5.4 倍的差距在摘要、引言、结果、结论出现四次，benchmark 的「难」用一张主表加一个人类锚点钉死。附录还补了 GPT-3.5 temperature 0 下 6.28% 的口径，主表数字的实验配置全部可追溯。
+
+<figure style="margin:28px 0">
+<svg viewBox="0 0 680 224" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <line x1="150" y1="40" x2="600" y2="40" stroke="#eaeef2"/>
+  <line x1="150" y1="90" x2="600" y2="90" stroke="#eaeef2"/>
+  <line x1="150" y1="140" x2="600" y2="140" stroke="#eaeef2"/>
+  <line x1="150" y1="190" x2="600" y2="190" stroke="#d0d7de"/>
+  <g font-size="10.5" fill="#8b949e"><text x="144" y="44" text-anchor="end">80</text><text x="144" y="94" text-anchor="end">40</text><text x="144" y="194" text-anchor="end">0</text></g>
+  <g font-size="12" fill="#24292f">
+    <text x="140" y="64" text-anchor="end">人类（5 人均）</text>
+    <text x="140" y="114" text-anchor="end">GPT-4 + CoT</text>
+    <text x="140" y="164" text-anchor="end">GPT-3.5（t=0）</text>
+  </g>
+  <g>
+    <rect x="150" y="46" width="489" height="28" rx="5" fill="#009E73"/>
+    <text x="628" y="65" font-size="12" font-weight="700" fill="#ffffff" text-anchor="end">78.24%</text>
+    <rect x="150" y="96" width="90" height="28" rx="5" fill="#56B4E9"/>
+    <text x="248" y="115" font-size="12" font-weight="700" fill="#1E88B8">14.41%</text>
+    <rect x="150" y="146" width="39" height="28" rx="5" fill="#8b949e"/>
+    <text x="197" y="165" font-size="12" font-weight="700" fill="#57606a">6.28%</text>
+  </g>
+  <path d="M 243 96 C 270 76, 300 66, 340 62" fill="none" stroke="#D55E00" stroke-width="1.6" stroke-dasharray="5 3"/>
+  <text x="390" y="58" font-size="11.5" font-weight="700" fill="#A0410A" text-anchor="middle">人类锚点：5.4 倍差距</text>
+  <text x="375" y="214" font-size="10.5" fill="#8b949e" text-anchor="middle">Table 2 重绘 · 812 任务端到端成功率（SR）· 人类口径为 170 模板抽样、平均 110 秒/任务</text>
+</svg>
+<figcaption style="text-align:center;font-size:13px;color:#57606a;margin-top:10px">主结果重绘：一个数字（14.41%）加一个人类锚点（78.24%），「难」的论证在摘要到结论重复四次</figcaption>
+</figure>
+
 
 ## 七、能学走的三个写作技巧
 

@@ -47,6 +47,36 @@ tags:
 | Memory | 经验回放的语言版 | 短期记忆存轨迹，长期记忆存反思，容量 1 到 3 条 |
 | Process | 训练循环 | Algorithm 1 十行伪代码写完整个流程 |
 
+<figure style="margin:28px 0">
+<svg viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><marker id="rf-a" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#57606a"/></marker></defs>
+  <rect x="50" y="45" width="185" height="72" rx="10" fill="#f2fafd" stroke="#56B4E9" stroke-width="1.6"/>
+  <text x="142" y="73" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1E88B8">Actor（策略）</text>
+  <text x="142" y="93" text-anchor="middle" font-size="11" fill="#57606a">LLM 生成动作 · ReAct / CoT</text>
+  <rect x="445" y="45" width="185" height="72" rx="10" fill="#fdf8ef" stroke="#E69F00" stroke-width="1.6"/>
+  <text x="537" y="73" text-anchor="middle" font-size="13.5" font-weight="700" fill="#B77500">Evaluator（奖励）</text>
+  <text x="537" y="93" text-anchor="middle" font-size="11" fill="#57606a">精确匹配 / 启发式 / LLM 自评</text>
+  <rect x="445" y="215" width="185" height="72" rx="10" fill="#f2fbf7" stroke="#009E73" stroke-width="1.6"/>
+  <text x="537" y="243" text-anchor="middle" font-size="13.5" font-weight="700" fill="#00805C">Self-reflection</text>
+  <text x="537" y="263" text-anchor="middle" font-size="11" fill="#57606a">「第 i 步动作导致后续出错」</text>
+  <rect x="50" y="215" width="185" height="72" rx="10" fill="#faf3f7" stroke="#CC79A7" stroke-width="1.6"/>
+  <text x="142" y="243" text-anchor="middle" font-size="13.5" font-weight="700" fill="#A05177">Memory（回放）</text>
+  <text x="142" y="263" text-anchor="middle" font-size="11" fill="#57606a">长期记忆存反思 · 容量 1–3 条</text>
+  <line x1="235" y1="81" x2="440" y2="81" stroke="#57606a" stroke-width="1.4" marker-end="url(#rf-a)"/>
+  <text x="337" y="70" text-anchor="middle" font-size="11" fill="#57606a">trajectory · 本轮轨迹</text>
+  <line x1="537" y1="117" x2="537" y2="210" stroke="#57606a" stroke-width="1.4" marker-end="url(#rf-a)"/>
+  <text x="537" y="168" text-anchor="middle" font-size="11" fill="#57606a">成败信号</text>
+  <line x1="440" y1="251" x2="240" y2="251" stroke="#57606a" stroke-width="1.4" marker-end="url(#rf-a)"/>
+  <text x="340" y="240" text-anchor="middle" font-size="11" fill="#57606a">具体归因</text>
+  <line x1="142" y1="210" x2="142" y2="122" stroke="#CC79A7" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#rf-a)"/>
+  <text x="142" y="170" text-anchor="middle" font-size="11" fill="#A05177">带着反思再试一次</text>
+  <text x="337" y="150" text-anchor="middle" font-size="12.5" font-weight="600" fill="#24292f">尝试 t → t+1 外循环</text>
+  <text x="337" y="172" text-anchor="middle" font-size="11.5" fill="#8b949e">零梯度 · 零人类标注</text>
+  <text x="340" y="322" text-anchor="middle" font-size="10.5" fill="#8b949e">与 ReAct 的关系：ReAct 是单次尝试内的 Thought-Action-Observation 循环，Reflexion 把循环抬到「跨尝试」层</text>
+</svg>
+<figcaption style="text-align:center;font-size:13px;color:#57606a;margin-top:10px">Figure 2 仿绘：三个 LLM 实例加一个记忆构成的语言学习闭环，每个组件映射一个 RL 概念</figcaption>
+</figure>
+
 这套映射本身就是论文的修辞策略：读者带着 RL 直觉来，用熟悉的词汇理解一个全新的机制。Algorithm 1 与 Figure 2 放在方法节末尾，先分后总，读完组件立刻看到它们如何咬合。
 
 ## 四、实验的组织：消融只出现在最强的地方
@@ -60,6 +90,28 @@ tags:
 | 反馈信号来源 | 奖励从哪来 | 启发式（动作重复超 3 次即失败）与 LLM 自评两种实现，Figure 3 对比 |
 | 记忆方式 | 记什么 | 情景记忆（EPM，只存最近轨迹）对自反思，自反思额外带来 8% 绝对提升 |
 | 组件消融 | 缺一不可吗 | HumanEval Rust 最难 50 题：基线 0.60，去掉测试生成掉到 0.52，去掉自反思持平 0.60，完整 Reflexion 0.68 |
+
+<figure style="margin:28px 0">
+<svg viewBox="0 0 680 252" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <g stroke="#eaeef2"><line x1="60" y1="195" x2="620" y2="195"/><line x1="60" y1="160" x2="620" y2="160"/><line x1="60" y1="125" x2="620" y2="125"/><line x1="60" y1="90" x2="620" y2="90"/><line x1="60" y1="55" x2="620" y2="55"/></g>
+  <g font-size="10.5" fill="#8b949e"><text x="54" y="199" text-anchor="end">0.50</text><text x="54" y="164" text-anchor="end">0.55</text><text x="54" y="129" text-anchor="end">0.60</text><text x="54" y="94" text-anchor="end">0.65</text><text x="54" y="59" text-anchor="end">0.70</text></g>
+  <line x1="60" y1="200" x2="620" y2="200" stroke="#d0d7de"/>
+  <g>
+    <rect x="80" y="125" width="100" height="70" rx="6" fill="#8b949e"/>
+    <rect x="230" y="181" width="100" height="14" rx="6" fill="#56B4E9"/>
+    <rect x="380" y="125" width="100" height="70" rx="6" fill="#E69F00"/>
+    <rect x="530" y="69" width="100" height="126" rx="6" fill="#009E73"/>
+    <g font-size="12.5" font-weight="700" fill="#24292f" text-anchor="middle">
+      <text x="130" y="115">0.60</text><text x="280" y="171">0.52</text><text x="430" y="115">0.60</text><text x="580" y="59" fill="#00805C">0.68</text>
+    </g>
+    <g font-size="11.5" fill="#57606a" text-anchor="middle">
+      <text x="130" y="222">基线（纯重试）</text><text x="280" y="222">− 测试生成</text><text x="430" y="222">− 自反思</text><text x="580" y="222" font-weight="700">完整 Reflexion</text>
+    </g>
+  </g>
+  <text x="340" y="244" font-size="10.5" fill="#8b949e" text-anchor="middle">HumanEval Rust 最难 50 题 pass@1 · 纵轴自 0.50 起（截断轴特此标注）</text>
+</svg>
+<figcaption style="text-align:center;font-size:13px;color:#57606a;margin-top:10px">组件消融重绘：去掉自反思回到 0.60 说明盲目重试无效，学习增量确实来自语言反思；去掉测试生成掉到 0.52 说明反思质量依赖可靠的奖励</figcaption>
+</figure>
 
 「去掉自反思持平」这条结果尤其有价值：它证明在难任务上盲目重试无效，学习的增量确实来自语言反思，这是对核心主张最硬的支撑。
 

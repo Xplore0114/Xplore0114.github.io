@@ -25,6 +25,31 @@ SAO 的回答是把 GRPO 的采样原语整个换掉：每个 prompt 只生成�
 
 它与 DAPO 恰好构成一组对照阅读：DAPO 修的是 GRPO 在同步场景的四个故障模式，SAO 指出 GRPO 在异步场景存在结构性失效，两者的修复手段都沉在 token 级重要性处理这一层。
 
+<figure style="margin:28px 0">
+<svg viewBox="0 0 680 268" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><marker id="so-a" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#57606a"/></marker></defs>
+  <g stroke="#eaeef2"><line x1="70" y1="210" x2="650" y2="210"/><line x1="70" y1="160" x2="650" y2="160"/><line x1="70" y1="110" x2="650" y2="110"/><line x1="70" y1="60" x2="650" y2="60"/></g>
+  <line x1="70" y1="40" x2="70" y2="210" stroke="#d0d7de"/>
+  <line x1="70" y1="210" x2="650" y2="210" stroke="#d0d7de"/>
+  <g font-size="10.5" fill="#8b949e"><text x="70" y="226" text-anchor="middle">0</text><text x="185" y="226" text-anchor="middle">200</text><text x="300" y="226" text-anchor="middle">400</text><text x="415" y="226" text-anchor="middle">600</text><text x="590" y="226" text-anchor="middle">1000</text></g>
+  <text x="64" y="205" text-anchor="end" font-size="10.5" fill="#8b949e">低</text>
+  <text x="64" y="64" text-anchor="end" font-size="10.5" fill="#8b949e">高</text>
+  <text x="360" y="252" text-anchor="middle" font-size="11" fill="#57606a">Training Steps</text>
+  <path d="M 70 196 C 100 160, 125 130, 155 112 C 172 102, 182 100, 190 102 C 215 112, 240 150, 275 176 C 310 198, 360 202, 430 203 C 500 204, 560 204, 650 204" fill="none" stroke="#D55E00" stroke-width="2.4"/>
+  <path d="M 70 200 C 150 185, 230 165, 310 138 C 390 111, 470 90, 540 80 C 580 74, 615 71, 650 69" fill="none" stroke="#009E73" stroke-width="2.4"/>
+  <line x1="161" y1="118" x2="161" y2="210" stroke="#D55E00" stroke-width="1" stroke-dasharray="4 3" stroke-opacity=".5"/>
+  <circle cx="161" cy="112" r="4" fill="#D55E00"/>
+  <text x="171" y="105" font-size="11.5" font-weight="700" fill="#A0410A">~160 步崩溃</text>
+  <text x="171" y="121" font-size="10" fill="#8b5a4a">vanilla GRPO（异步）</text>
+  <circle cx="650" cy="69" r="4" fill="#009E73"/>
+  <text x="640" y="56" font-size="11.5" font-weight="700" fill="#00805C" text-anchor="end">稳定训练 ~1000 步</text>
+  <text x="640" y="46" font-size="10" fill="#00805C" text-anchor="end">SAO</text>
+  <text x="360" y="266" font-size="10" fill="#8b949e" text-anchor="middle">Figure 3 走势仿绘（示意，非逐点数字化）：组等待制造的 off-policy 偏差让 GRPO 在异步设置下先涨后崩</text>
+</svg>
+<figcaption style="text-align:center;font-size:13px;color:#57606a;margin-top:10px">论文 Figure 3 的走势仿绘：同一个异步系统里，vanilla GRPO 约 160 步性能崩溃，SAO 稳定训练约 1000 步</figcaption>
+</figure>
+
+
 ## 二、正文骨架：方法只有一节，但实验占了四节半
 
 | 章节 | 职责 | 拆解要点 |
@@ -57,6 +82,54 @@ SAO 的回答是把 GRPO 的采样原语整个换掉：每个 prompt 只生成�
 
 DIS 的超参值得单独记：数学推理取 `ε_low = 0.3, ε_high = 5.0`，编码 Agent 取 `ε_low = 0.8, ε_high = 3.0`。上下界严重不对称且上界可以放到 5.0，因为目标是「mask 掉极端离群 token」这个温和动作，裁剪区间因此可以比 PPO 激进得多。与 DAPO 的 Clip-Higher 对照着读很有意思：同为非对称区间，DAPO 用它抬熵，SAO 用它防发散。
 
+<figure style="margin:28px 0">
+<svg viewBox="0 0 680 322" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="sm-a" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#57606a"/></marker>
+    <pattern id="sm-obs" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#f6f8fa"/><line x1="0" y1="0" x2="0" y2="8" stroke="#c9d1d9" stroke-width="3"/></pattern>
+  </defs>
+  <text x="30" y="24" font-size="12" font-weight="700" fill="#24292f">单条多轮轨迹 T = [a₀, o₀, a₁, o₁, a₂, …]（1 prompt → 1 rollout，完成即训练）</text>
+  <g font-size="11" text-anchor="middle">
+    <rect x="70" y="40" width="52" height="34" rx="6" fill="#eafaf4" stroke="#009E73"/><text x="96" y="61" fill="#005C42" font-weight="600">a₀ 动作</text>
+    <rect x="140" y="40" width="52" height="34" rx="6" fill="url(#sm-obs)" stroke="#8b949e" stroke-dasharray="5 3"/><text x="166" y="61" fill="#57606a">o₀ 观察</text>
+    <rect x="210" y="40" width="52" height="34" rx="6" fill="#eafaf4" stroke="#009E73"/><text x="236" y="61" fill="#005C42" font-weight="600">a₁ 动作</text>
+    <rect x="280" y="40" width="52" height="34" rx="6" fill="url(#sm-obs)" stroke="#8b949e" stroke-dasharray="5 3"/><text x="306" y="61" fill="#57606a">o₁ 观察</text>
+    <rect x="350" y="40" width="52" height="34" rx="6" fill="#eafaf4" stroke="#009E73"/><text x="376" y="61" fill="#005C42" font-weight="600">a₂ 动作</text>
+    <rect x="420" y="40" width="52" height="34" rx="6" fill="url(#sm-obs)" stroke="#8b949e" stroke-dasharray="5 3"/><text x="446" y="61" fill="#57606a">o₂ 观察</text>
+    <rect x="490" y="40" width="52" height="34" rx="6" fill="#eafaf4" stroke="#009E73"/><text x="516" y="61" fill="#005C42" font-weight="600">a₃ 动作</text>
+    <text x="574" y="61" fill="#8b949e" font-size="13">…</text>
+  </g>
+  <path d="M 96 36 C 130 14, 200 14, 236 36" fill="none" stroke="#009E73" stroke-width="1.8" stroke-dasharray="6 3" marker-end="url(#sm-a)"/>
+  <path d="M 236 36 C 270 14, 340 14, 376 36" fill="none" stroke="#009E73" stroke-width="1.8" stroke-dasharray="6 3" marker-end="url(#sm-a)"/>
+  <path d="M 376 36 C 410 14, 480 14, 516 36" fill="none" stroke="#009E73" stroke-width="1.8" stroke-dasharray="6 3" marker-end="url(#sm-a)"/>
+  <text x="306" y="12" text-anchor="middle" font-size="10.5" fill="#00805C">token 级 GAE 跨过观察区，动作 i 的价值直接接到动作 i+1（式 4、5）</text>
+  <g font-size="11">
+    <rect x="30" y="120" width="200" height="112" rx="10" fill="#f2fafd" stroke="#56B4E9" stroke-width="1.4"/>
+    <text x="130" y="146" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1E88B8">价值模型强化（补基线）</text>
+    <text x="130" y="170" text-anchor="middle" fill="#57606a">Critic 更新 2× Actor</text>
+    <text x="130" y="190" text-anchor="middle" fill="#57606a">冻结 attention · 只训 MoE 投影</text>
+    <text x="130" y="210" text-anchor="middle" fill="#57606a">lr 5×10⁻⁶ vs 策略 1×10⁻⁶</text>
+    <rect x="250" y="120" width="200" height="112" rx="10" fill="#fdf8ef" stroke="#E69F00" stroke-width="1.4"/>
+    <text x="350" y="146" text-anchor="middle" font-size="12.5" font-weight="700" fill="#B77500">DIS 双边裁剪（防发散）</text>
+    <text x="350" y="170" text-anchor="middle" fill="#57606a">rollout 引擎 log 概率算比率</text>
+    <text x="350" y="190" text-anchor="middle" fill="#57606a">推理 [0.3, 5.0] · 编码 [0.8, 3.0]</text>
+    <text x="350" y="210" text-anchor="middle" fill="#57606a">区间外 token 整体 mask</text>
+    <rect x="470" y="120" width="200" height="112" rx="10" fill="#f2fbf7" stroke="#009E73" stroke-width="1.4"/>
+    <text x="570" y="146" text-anchor="middle" font-size="12.5" font-weight="700" fill="#00805C">单 rollout 采样（换原语）</text>
+    <text x="570" y="170" text-anchor="middle" fill="#57606a">每个 prompt 只生成 1 条轨迹</text>
+    <text x="570" y="190" text-anchor="middle" fill="#57606a">完成即训练 · 组等待消失</text>
+    <text x="570" y="210" text-anchor="middle" fill="#57606a">off-policy 偏差随之下降</text>
+  </g>
+  <line x1="248" y1="176" x2="256" y2="176" stroke="#57606a" stroke-width="1.4" marker-end="url(#sm-a)"/>
+  <line x1="468" y1="176" x2="476" y2="176" stroke="#57606a" stroke-width="1.4" marker-end="url(#sm-a)"/>
+  <text x="350" y="262" text-anchor="middle" font-size="10.5" fill="#8b949e">依赖序：换掉采样原语（右）→ 单 rollout 方差更高，必须补价值模型（左）→ 跨观察区的 GAE 防噪声（上）→ DIS 防异步发散（中）</text>
+  <text x="350" y="284" text-anchor="middle" font-size="10.5" fill="#8b949e">价值模型是被 GRPO 删掉的组件，SAO 在异步场景把它请了回来，且只训 MoE 投影层以压显存</text>
+  <text x="350" y="310" text-anchor="middle" font-size="10.5" fill="#8b949e">对照阅读：DAPO 的 Clip-Higher 与 DIS 同为非对称 token 级区间，前者用来抬熵，后者用来防发散</text>
+</svg>
+<figcaption style="text-align:center;font-size:13px;color:#57606a;margin-top:10px">四个机制综合仿绘：上为多轮轨迹的 token 结构与跳过观察的 GAE，下为三个配套工程的分工</figcaption>
+</figure>
+
+
 ## 四、主结果与消融：拆开看每个机制贡献多少
 
 主结果分两张表：Table 1 数学推理（AIME2025 / BeyondAIME / HMMT / IMOAnswerBench），Table 2 编码（SWE-Bench Verified）。基座是 Qwen3-30B-A3B-Thinking-2507：
@@ -70,6 +143,45 @@ DIS 的超参值得单独记：数学推理取 `ε_low = 0.3, ε_high = 5.0`，�
 | IMOAnswerBench | - | 55.8 | **74.0** |
 
 对照组里 GPT-5 High 在四个数学基准上是 94.6 / 74.0 / 89.2 / 76.0，SAO 在 30B 基座上两项反超、两项接近，这张对照表的信息量比绝对分数更大。
+
+<figure style="margin:28px 0">
+<svg viewBox="0 0 680 268" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <text x="195" y="20" text-anchor="middle" font-size="12.5" font-weight="700" fill="#24292f">SWE-Bench Verified（编码）</text>
+  <text x="515" y="20" text-anchor="middle" font-size="12.5" font-weight="700" fill="#24292f">AIME 2025 · Python 工具（数学）</text>
+  <g stroke="#eaeef2"><line x1="60" y1="200" x2="330" y2="200"/><line x1="60" y1="150" x2="330" y2="150"/><line x1="60" y1="100" x2="330" y2="100"/><line x1="60" y1="50" x2="330" y2="50"/><line x1="380" y1="200" x2="650" y2="200"/><line x1="380" y1="150" x2="650" y2="150"/><line x1="380" y1="100" x2="650" y2="100"/><line x1="380" y1="50" x2="650" y2="50"/></g>
+  <line x1="60" y1="205" x2="330" y2="205" stroke="#d0d7de"/>
+  <line x1="380" y1="205" x2="650" y2="205" stroke="#d0d7de"/>
+  <g font-size="10" fill="#8b949e">
+    <text x="54" y="204" text-anchor="end">0</text><text x="54" y="154" text-anchor="end">10</text><text x="54" y="104" text-anchor="end">20</text><text x="54" y="54" text-anchor="end">30</text>
+    <text x="374" y="204" text-anchor="end">70</text><text x="374" y="154" text-anchor="end">80</text><text x="374" y="104" text-anchor="end">90</text><text x="374" y="54" text-anchor="end">100</text>
+  </g>
+  <g>
+    <rect x="90" y="135" width="60" height="65" rx="5" fill="#8b949e"/>
+    <rect x="170" y="122" width="60" height="78" rx="5" fill="#E69F00"/>
+    <rect x="250" y="114" width="60" height="86" rx="5" fill="#009E73"/>
+    <g font-size="11.5" font-weight="700" fill="#24292f" text-anchor="middle">
+      <text x="120" y="127">23.0</text><text x="200" y="114">27.0</text><text x="280" y="106" fill="#00805C">29.8</text>
+    </g>
+    <g font-size="10" fill="#57606a" text-anchor="middle">
+      <text x="120" y="222">基座</text><text x="200" y="222">GRPO (w/DIS)</text><text x="280" y="222" font-weight="700" fill="#00805C">SAO</text>
+    </g>
+    <rect x="410" y="169" width="60" height="31" rx="5" fill="#8b949e"/>
+    <rect x="490" y="161" width="60" height="39" rx="5" fill="#E69F00"/>
+    <rect x="570" y="54" width="60" height="146" rx="5" fill="#009E73"/>
+    <g font-size="11.5" font-weight="700" fill="#24292f" text-anchor="middle">
+      <text x="440" y="161">80.4</text><text x="520" y="153">84.2</text><text x="600" y="46" fill="#00805C">97.3</text>
+    </g>
+    <g font-size="10" fill="#57606a" text-anchor="middle">
+      <text x="440" y="222">基座</text><text x="520" y="222">GRPO (w/DIS)</text><text x="600" y="222" font-weight="700" fill="#00805C">SAO</text>
+    </g>
+  </g>
+  <text x="195" y="240" font-size="10" fill="#8b949e" text-anchor="middle">OpenHands 脚手架 · 最多 300 轮交互</text>
+  <text x="515" y="240" font-size="10" fill="#8b949e" text-anchor="middle">16 次运行均值 · top-p 1.0</text>
+  <text x="355" y="262" font-size="10.5" fill="#8b949e" text-anchor="middle">Table 1 / Table 2 重绘 · 基座均为 Qwen3-30B-A3B-Thinking-2507</text>
+</svg>
+<figcaption style="text-align:center;font-size:13px;color:#57606a;margin-top:10px">主结果重绘：编码与数学两个赛道上，SAO 对 GRPO (w/DIS) 与基座的领先幅度（AIME 2025 上 97.3 对 GPT-5 High 的 94.6）</figcaption>
+</figure>
+
 
 消融部分（Table 3、Table 4）同样按「拆掉哪个机制掉多少分」组织：
 

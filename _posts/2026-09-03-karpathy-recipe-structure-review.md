@@ -35,6 +35,31 @@ tags:
 
 观察 2 之下列了一批真实静默 bug：数据增强翻转了图像却忘了翻转标签，网络内部学会检测翻转并自己翻回来，照常出结果；自回归模型 off-by-one 把预测目标当成了输入；想裁剪梯度却裁了 loss，离群样本被静默忽略。每个例子都不给完整代码，只给足以让读者背脊发凉的一句。方法论文章没有实验数据，这种具体到可复现程度的失败案例就是它的数据。
 
+<figure style="margin:28px 0">
+<svg viewBox="0 0 680 224" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="24" y="26" width="300" height="150" rx="10" fill="#fdf3f1" stroke="#D55E00" stroke-opacity=".45"/>
+  <text x="174" y="50" text-anchor="middle" font-size="12.5" font-weight="700" fill="#A0410A">普通代码：错误是语法性的</text>
+  <g font-size="11" font-family="ui-monospace,Menlo,monospace" fill="#57606a">
+    <text x="44" y="78">def load(x): retrn x</text>
+  </g>
+  <text x="174" y="104" text-anchor="middle" font-size="11.5" font-weight="700" fill="#D55E00">✖ SyntaxError: 立即崩溃</text>
+  <text x="174" y="128" text-anchor="middle" font-size="10.5" fill="#8b5a4a">单元测试可捕获 · 异常即时可见</text>
+  <text x="174" y="158" text-anchor="middle" font-size="10.5" fill="#8b5a4a">对照物：Requests 库能干净隐藏 HTTP 复杂性</text>
+  <rect x="356" y="26" width="300" height="150" rx="10" fill="#f6f8fa" stroke="#8b949e" stroke-opacity=".5"/>
+  <text x="506" y="50" text-anchor="middle" font-size="12.5" font-weight="700" fill="#57606a">网络训练：错误是逻辑性的</text>
+  <g stroke="#eaeef2"><line x1="380" y1="70" x2="632" y2="70"/><line x1="380" y1="95" x2="632" y2="95"/><line x1="380" y1="120" x2="632" y2="120"/><line x1="380" y1="145" x2="632" y2="145"/></g>
+  <path d="M 380 74 C 430 82, 480 108, 530 126 C 570 138, 600 142, 632 143" fill="none" stroke="#009E73" stroke-width="2.2"/>
+  <path d="M 380 78 C 430 96, 470 122, 505 133 C 545 142, 590 144, 632 144" fill="none" stroke="#E69F00" stroke-width="2.2" stroke-dasharray="6 4"/>
+  <text x="600" y="118" font-size="9.5" fill="#00805C" text-anchor="middle">预期 loss</text>
+  <text x="600" y="138" font-size="9.5" fill="#B77500" text-anchor="middle">静默跑歪</text>
+  <text x="506" y="162" text-anchor="middle" font-size="10.5" fill="#8b949e">语法全对 · loss 照降 · 收敛到次优平台</text>
+  <text x="506" y="174" text-anchor="middle" font-size="9" fill="#8b949e">翻转标签 / off-by-one / 裁错 loss</text>
+  <text x="340" y="206" font-size="10.5" fill="#8b949e" text-anchor="middle">观察 2 仿绘：静默失败没有异常可捕获，所以必须用流程（检查项）替代测试</text>
+</svg>
+<figcaption style="text-align:center;font-size:13px;color:#57606a;margin-top:10px">两个观察的对照仿绘：训练的抽象是漏的、失败是静默的，这是「必须按配方流程来」的立论根基</figcaption>
+</figure>
+
+
 ## 四、六步配方的顺序即方法论
 
 | 步骤 | 要点 | 结构角色 |
@@ -45,6 +70,45 @@ tags:
 | 4 Regularize | 用训练精度换验证精度，十三招按优先级排 | 收紧 |
 | 5 Tune | 随机搜索优于网格搜索 | 精修 |
 | 6 Squeeze out the juice | 集成加别急着停训练 | 末段收益 |
+
+<figure style="margin:28px 0">
+<svg viewBox="0 0 680 268" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <g>
+    <rect x="22" y="196" width="100" height="50" rx="6" fill="#f6f8fa" stroke="#d0d7de"/>
+    <rect x="128" y="164" width="100" height="82" rx="6" fill="#f2fafd" stroke="#56B4E9" stroke-opacity=".6"/>
+    <rect x="234" y="132" width="100" height="114" rx="6" fill="#eaf3fa" stroke="#56B4E9" stroke-opacity=".8"/>
+    <rect x="340" y="100" width="100" height="146" rx="6" fill="#e0eef9" stroke="#56B4E9"/>
+    <rect x="446" y="68" width="100" height="178" rx="6" fill="#d5e9f6" stroke="#1E88B8" stroke-opacity=".7"/>
+    <rect x="552" y="36" width="106" height="210" rx="6" fill="#f2fbf7" stroke="#009E73" stroke-width="1.5"/>
+  </g>
+  <g font-size="10.5" fill="#24292f" text-anchor="middle">
+    <text x="72" y="216">① 数据</text>
+    <text x="72" y="232" fill="#8b949e">不碰模型</text>
+    <text x="178" y="186">② 骨架 +</text>
+    <text x="178" y="202" fill="#8b949e">哑基线</text>
+    <text x="178" y="218" fill="#8b949e">13 项检查</text>
+    <text x="284" y="154">③ Overfit</text>
+    <text x="284" y="170" fill="#8b949e">先证明</text>
+    <text x="284" y="186" fill="#8b949e">容量足够</text>
+    <text x="390" y="122">④ Regularize</text>
+    <text x="390" y="138" fill="#8b949e">13 招按</text>
+    <text x="390" y="154" fill="#8b949e">优先级排</text>
+    <text x="496" y="90">⑤ Tune</text>
+    <text x="496" y="106" fill="#8b949e">随机搜索</text>
+    <text x="496" y="122" fill="#8b949e">优于网格</text>
+    <text x="605" y="58">⑥ 榨干</text>
+    <text x="605" y="74" fill="#00805C">集成</text>
+    <text x="605" y="90" fill="#00805C">leave it</text>
+    <text x="605" y="106" fill="#00805C">training</text>
+  </g>
+  <path d="M 30 250 C 200 250, 420 244, 640 252" fill="none" stroke="#8b949e" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="72" y="262" font-size="9.5" fill="#8b949e" text-anchor="middle">简单</text>
+  <text x="605" y="262" font-size="9.5" fill="#8b949e" text-anchor="middle">复杂</text>
+  <text x="340" y="266" font-size="10.5" fill="#8b949e" text-anchor="middle">从简单到复杂：每步先做具体假设再用实验验证，跳步 = 静默失败的上门机会</text>
+</svg>
+<figcaption style="text-align:center;font-size:13px;color:#57606a;margin-top:10px">六步配方阶梯仿绘：先数据、再骨架、先过拟合再收紧，复杂度每步只加一点</figcaption>
+</figure>
+
 
 步骤 2 的检查项最见密度：固定随机种子、在大测试集上加有效数字、验证初始 loss 等于 -log(1/n_classes)、末层 bias 按目标均值初始化、输入全置零做输入独立基线、两个样本过拟合到零损失、在 y_hat = model(x) 之前可视化输入张量、用反向传播梯度验证依赖关系。每项格式统一：加粗短标题、一句话说清怎么做、一句话说清为什么。检查项写到这个颗粒度，读者照抄就能用，这是配方体例的核心竞争力。
 

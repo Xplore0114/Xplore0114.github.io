@@ -33,6 +33,50 @@ tags:
 | Verification Indices 验证 | 操作后的监控变量与恢复判据 |
 | Safety Notes 风险边界 | 何时减速、停车或上报升级 |
 
+<figure style="margin:28px 0">
+<svg viewBox="0 0 680 216" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><marker id="ok-a" markerWidth="6" markerHeight="6" refX="4.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#57606a"/></marker></defs>
+  <g font-size="10.5" text-anchor="middle">
+    <rect x="10" y="40" width="102" height="72" rx="9" fill="#f2fafd" stroke="#56B4E9" stroke-width="1.3"/>
+    <text x="61" y="64" font-size="12" font-weight="700" fill="#1E88B8">① 诊断</text>
+    <text x="61" y="84" fill="#57606a">Diagnosis</text>
+    <text x="61" y="100" fill="#8b949e" font-size="9.5">异常状态与程度</text>
+    <rect x="128" y="40" width="102" height="72" rx="9" fill="#f6f8fa" stroke="#8b949e" stroke-opacity=".6"/>
+    <text x="179" y="64" font-size="12" font-weight="700" fill="#57606a">② 证据</text>
+    <text x="179" y="84" fill="#57606a">Evidence</text>
+    <text x="179" y="100" fill="#8b949e" font-size="9.5">过程变量 · 测量值</text>
+    <rect x="246" y="40" width="102" height="72" rx="9" fill="#f6f8fa" stroke="#8b949e" stroke-opacity=".6"/>
+    <text x="297" y="64" font-size="12" font-weight="700" fill="#57606a">③ 原因</text>
+    <text x="297" y="84" fill="#57606a">Causes</text>
+    <text x="297" y="100" fill="#8b949e" font-size="9.5">因果机理 · 故障源</text>
+    <rect x="364" y="40" width="102" height="72" rx="9" fill="#f2fbf7" stroke="#009E73" stroke-width="1.3"/>
+    <text x="415" y="64" font-size="12" font-weight="700" fill="#00805C">④ 操作</text>
+    <text x="415" y="84" fill="#57606a">Operation</text>
+    <text x="415" y="100" fill="#8b949e" font-size="9.5">可执行步骤</text>
+    <rect x="482" y="40" width="102" height="72" rx="9" fill="#fdf8ef" stroke="#E69F00" stroke-width="1.3"/>
+    <text x="533" y="64" font-size="12" font-weight="700" fill="#B77500">⑤ 验证</text>
+    <text x="533" y="84" fill="#57606a">Verification</text>
+    <text x="533" y="100" fill="#8b949e" font-size="9.5">监控变量 · 恢复判据</text>
+    <rect x="600" y="40" width="70" height="72" rx="9" fill="#fdf3f1" stroke="#D55E00" stroke-width="1.3"/>
+    <text x="635" y="64" font-size="12" font-weight="700" fill="#A0410A">⑥ 风险</text>
+    <text x="635" y="84" fill="#57606a">Safety</text>
+    <text x="635" y="100" fill="#8b949e" font-size="9.5">停车 · 上报</text>
+  </g>
+  <g>
+    <line x1="112" y1="76" x2="126" y2="76" stroke="#57606a" stroke-width="1.3" marker-end="url(#ok-a)"/>
+    <line x1="230" y1="76" x2="244" y2="76" stroke="#57606a" stroke-width="1.3" marker-end="url(#ok-a)"/>
+    <line x1="348" y1="76" x2="362" y2="76" stroke="#57606a" stroke-width="1.3" marker-end="url(#ok-a)"/>
+    <line x1="466" y1="76" x2="480" y2="76" stroke="#57606a" stroke-width="1.3" marker-end="url(#ok-a)"/>
+    <line x1="584" y1="76" x2="598" y2="76" stroke="#57606a" stroke-width="1.3" marker-end="url(#ok-a)"/>
+  </g>
+  <text x="340" y="152" font-size="11.5" font-weight="600" fill="#24292f" text-anchor="middle">每次回答必须输出全部六字段：幻觉最容易发生在自由发挥处，槽位收窄了输出空间</text>
+  <text x="340" y="176" font-size="10.5" fill="#8b949e" text-anchor="middle">无论问题类型是什么（哪怕只是问一个位号的含义），都走完全链，让结构成为肌肉记忆</text>
+  <text x="340" y="200" font-size="10.5" fill="#8b949e" text-anchor="middle">缺了哪个字段，在评测端立刻可见 · 场景：空分装置粗氩塔氮塞处置</text>
+</svg>
+<figcaption style="text-align:center;font-size:13px;color:#57606a;margin-top:10px">OKC 六元素链：处置逻辑显式化为六个必填槽位，从诊断一路锚定到风险边界</figcaption>
+</figure>
+
+
 核心思路：幻觉最容易发生在模型「自由发挥」的地方，六字段结构把回答的每一步都锚定在必须填充的槽位上，模型没有随意发挥的余地，缺了哪个字段在评测端立刻可见。
 
 ## 三、数据：611 条结构化样本与 858 条非结构化基线
@@ -70,6 +114,36 @@ tags:
 | 幻觉率 | 34.4% | **15.6%** |
 | 结构完整率 | 无结构约束 | 99.8% |
 | 关键点覆盖率 | 低于实验组 | 0.7378 |
+
+<figure style="margin:28px 0">
+<svg viewBox="0 0 680 252" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <text x="30" y="24" font-size="12.5" font-weight="700" fill="#24292f">幻觉率：34.4% → 15.6%（同测试集 61 条 · 同评分口径）</text>
+  <g stroke="#eaeef2"><line x1="60" y1="50" x2="420" y2="50"/><line x1="60" y1="100" x2="420" y2="100"/><line x1="60" y1="150" x2="420" y2="150"/><line x1="60" y1="200" x2="420" y2="200"/></g>
+  <line x1="60" y1="205" x2="420" y2="205" stroke="#d0d7de"/>
+  <g font-size="10" fill="#8b949e"><text x="54" y="204" text-anchor="end">0</text><text x="54" y="154" text-anchor="end">10</text><text x="54" y="104" text-anchor="end">20</text><text x="54" y="54" text-anchor="end">30</text></g>
+  <g font-size="11.5" fill="#24292f"><text x="52" y="76" text-anchor="end">QA 基线</text><text x="52" y="136" text-anchor="end">OKC-SFT</text></g>
+  <g>
+    <rect x="60" y="58" width="331" height="22" rx="5" fill="#D55E00" fill-opacity=".85"/>
+    <text x="398" y="74" font-size="12" font-weight="700" fill="#A0410A">34.4%</text>
+    <rect x="60" y="118" width="150" height="22" rx="5" fill="#009E73"/>
+    <text x="217" y="134" font-size="12" font-weight="700" fill="#00805C">15.6%</text>
+  </g>
+  <path d="M 391 69 C 420 90, 240 118, 216 126" fill="none" stroke="#009E73" stroke-width="1.6" stroke-dasharray="5 3"/>
+  <text x="330" y="100" font-size="10.5" fill="#00805C" text-anchor="middle">下降超过一半</text>
+  <g>
+    <rect x="450" y="46" width="206" height="62" rx="10" fill="#f2fbf7" stroke="#009E73" stroke-opacity=".45"/>
+    <text x="468" y="72" font-size="20" font-weight="700" fill="#00805C">99.8%</text>
+    <text x="468" y="94" font-size="10.5" fill="#57606a">结构完整率 · 六字段格式稳定学会</text>
+    <rect x="450" y="122" width="206" height="62" rx="10" fill="#f2fafd" stroke="#56B4E9" stroke-opacity=".45"/>
+    <text x="468" y="148" font-size="20" font-weight="700" fill="#1E88B8">0.7378</text>
+    <text x="468" y="170" font-size="10.5" fill="#57606a">关键点覆盖率 · expected_key_points</text>
+  </g>
+  <text x="340" y="228" font-size="10.5" fill="#8b949e" text-anchor="middle">Qwen2.5-7B · LoRA 微调 · 611 条结构化样本胜过 858 条非结构化基线，增益来自结构约束本身</text>
+  <text x="340" y="246" font-size="10.5" fill="#8b949e" text-anchor="middle">残余 15.6% 如实写进论文，直接定义下一阶段（RAG + 审核流）的工作目标</text>
+</svg>
+<figcaption style="text-align:center;font-size:13px;color:#57606a;margin-top:10px">主结果重绘：幻觉率减半，结构完整率接近满分，更少的结构化数据赢了更多的非结构化数据</figcaption>
+</figure>
+
 
 三个值得强调的点：
 

@@ -45,6 +45,41 @@ tags:
 | 3.3 Training Template | think / search / information / answer 四标签模板 | 接口成立：模型怎么「说出」一次搜索 |
 | 3.4 Reward Modeling | 纯 outcome 的规则式 EM 奖励 | 信号成立：答对给 1，答错给 0，无格式奖励 |
 
+<figure style="margin:28px 0">
+<svg viewBox="0 0 680 330" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="sr-a" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#57606a"/></marker>
+    <pattern id="sr-mask" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#f6f8fa"/><line x1="0" y1="0" x2="0" y2="8" stroke="#c9d1d9" stroke-width="3"/></pattern>
+  </defs>
+  <rect x="30" y="22" width="230" height="42" rx="8" fill="#fff" stroke="#d0d7de"/>
+  <text x="145" y="47" text-anchor="middle" font-size="12" fill="#24292f">问题：谁发明了回旋加速器？</text>
+  <line x1="145" y1="64" x2="145" y2="82" stroke="#57606a" stroke-width="1.3" marker-end="url(#sr-a)"/>
+  <rect x="30" y="86" width="400" height="204" rx="10" fill="#fff" stroke="#d0d7de" stroke-width="1.4"/>
+  <text x="230" y="108" text-anchor="middle" font-size="12.5" font-weight="700" fill="#24292f">LLM（策略 πθ）· 四标签模板</text>
+  <g font-size="11" text-anchor="middle">
+    <rect x="52" y="120" width="356" height="24" rx="6" fill="#eafaf4" stroke="#009E73"/><text x="230" y="136" fill="#005C42" font-weight="600">&lt;think&gt; 需要确认发明者身份，先搜索 &lt;/think&gt;</text>
+    <line x1="230" y1="144" x2="230" y2="155" stroke="#57606a" stroke-width="1.2" marker-end="url(#sr-a)"/>
+    <rect x="52" y="157" width="356" height="24" rx="6" fill="#f2fafd" stroke="#56B4E9"/><text x="230" y="173" fill="#1E88B8" font-weight="600">&lt;search&gt; cyclotron inventor &lt;/search&gt;</text>
+    <line x1="230" y1="181" x2="230" y2="192" stroke="#57606a" stroke-width="1.2" marker-end="url(#sr-a)"/>
+    <rect x="52" y="194" width="356" height="24" rx="6" fill="url(#sr-mask)" stroke="#8b949e" stroke-dasharray="5 3"/><text x="230" y="210" fill="#57606a">&lt;information&gt; Lawrence, 1930 … &lt;/information&gt;</text>
+    <line x1="230" y1="218" x2="230" y2="229" stroke="#57606a" stroke-width="1.2" marker-end="url(#sr-a)"/>
+    <rect x="52" y="231" width="356" height="24" rx="6" fill="#eafaf4" stroke="#009E73"/><text x="230" y="247" fill="#005C42" font-weight="600">&lt;think&gt; 证据指向 Ernest Lawrence &lt;/think&gt;</text>
+    <line x1="230" y1="255" x2="230" y2="263" stroke="#57606a" stroke-width="1.2" marker-end="url(#sr-a)"/>
+    <rect x="52" y="264" width="356" height="20" rx="6" fill="#fff" stroke="#009E73" stroke-width="1.6"/><text x="230" y="278" fill="#24292f" font-weight="600">&lt;answer&gt; Ernest O. Lawrence &lt;/answer&gt;</text>
+  </g>
+  <rect x="470" y="150" width="180" height="88" rx="10" fill="#fdf8ef" stroke="#E69F00" stroke-width="1.4"/>
+  <text x="560" y="178" text-anchor="middle" font-size="12.5" font-weight="700" fill="#B77500">搜索引擎</text>
+  <text x="560" y="198" text-anchor="middle" font-size="10.5" fill="#57606a">E5 检索 · Wikipedia</text>
+  <text x="560" y="214" text-anchor="middle" font-size="10.5" fill="#57606a">top-3 · 最多 4 次调用</text>
+  <path d="M 448 169 L 470 169" stroke="#56B4E9" stroke-width="1.6" marker-end="url(#sr-a)" fill="none"/>
+  <text x="458" y="160" font-size="9.5" fill="#1E88B8" text-anchor="middle">查询</text>
+  <path d="M 470 223 C 460 223, 455 206, 448 206" stroke="#8b949e" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#sr-a)" fill="none"/>
+  <text x="456" y="240" font-size="9.5" fill="#8b949e" text-anchor="middle">返回</text>
+  <text x="340" y="316" text-anchor="middle" font-size="10.5" fill="#8b949e">斜纹段是检索 token：进上下文、进奖励计算，但被 loss masking 排除出策略梯度（机制 3.1 提出，5.4 节消融验证）</text>
+</svg>
+<figcaption style="text-align:center;font-size:13px;color:#57606a;margin-top:10px">四标签模板与 loss masking 仿绘：模型生成的 think / search / answer 进策略梯度，环境注入的 information 被遮罩</figcaption>
+</figure>
+
 这个顺序是依赖序。最大的工程风险（检索 token 混入策略梯度导致训练不稳）在第一个子节就用 loss masking 处理掉，读者按顺序读完，恰好具备复现的全部要素。
 
 loss masking 的「提出与验证」跨节闭环也很讲究：机制在 3.1 提出，效果在 5.4 节与 Table 4 验证，Qwen2.5-7B 有 mask 平均 EM 0.431 对无 mask 0.343，3B 上为 0.303 对 0.262，完整研究再放附录 D。一个机制从动机、设计到消融形成完整证据链。
@@ -59,6 +94,36 @@ loss masking 的「提出与验证」跨节闭环也很讲究：机制在 3.1 �
 4. **loss masking 消融**（5.4）：见上节
 
 方法论文的主表证明「有效」，分析节证明「可迁移」。Table 3 的 PPO/GRPO 对比在正文之外额外贡献了一组别人可以直接引用的实证结论，这是分析节的天花板。
+
+<figure style="margin:28px 0">
+<svg viewBox="0 0 680 262" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <g stroke="#eaeef2"><line x1="60" y1="205" x2="620" y2="205"/><line x1="60" y1="165" x2="620" y2="165"/><line x1="60" y1="125" x2="620" y2="125"/><line x1="60" y1="85" x2="620" y2="85"/><line x1="60" y1="45" x2="620" y2="45"/></g>
+  <g font-size="10.5" fill="#8b949e"><text x="54" y="209" text-anchor="end">0.20</text><text x="54" y="169" text-anchor="end">0.30</text><text x="54" y="129" text-anchor="end">0.40</text><text x="54" y="89" text-anchor="end">0.50</text><text x="54" y="49" text-anchor="end">0.60</text></g>
+  <line x1="60" y1="210" x2="620" y2="210" stroke="#d0d7de"/>
+  <g font-size="11" text-anchor="middle" fill="#57606a">
+    <rect x="120" y="20" width="60" height="13" rx="2" fill="#009E73"/><text x="190" y="30">有 mask</text>
+    <rect x="260" y="20" width="60" height="13" rx="2" fill="#E69F00"/><text x="330" y="30">无 mask</text>
+    <rect x="410" y="20" width="60" height="13" rx="2" fill="#56B4E9"/><text x="480" y="30">PPO</text>
+    <rect x="545" y="20" width="60" height="13" rx="2" fill="#CC79A7"/><text x="615" y="30">GRPO</text>
+  </g>
+  <g>
+    <rect x="90" y="90" width="90" height="115" rx="6" fill="#009E73"/>
+    <rect x="230" y="133" width="90" height="72" rx="6" fill="#E69F00"/>
+    <rect x="390" y="90" width="90" height="115" rx="6" fill="#56B4E9"/>
+    <rect x="525" y="152" width="90" height="53" rx="6" fill="#CC79A7"/>
+    <g font-size="12.5" font-weight="700" fill="#24292f" text-anchor="middle">
+      <text x="135" y="82">0.431</text><text x="275" y="125">0.343</text><text x="435" y="82">0.431</text><text x="570" y="144">0.350</text>
+    </g>
+    <g font-size="12" font-weight="700" fill="#24292f" text-anchor="middle">
+      <text x="215" y="232">Qwen2.5-7B base</text><text x="500" y="232">Qwen2.5-7B base</text>
+    </g>
+    <text x="215" y="250" font-size="10.5" fill="#8b949e" text-anchor="middle">loss masking 消融（Table 4）</text>
+    <text x="500" y="250" font-size="10.5" fill="#8b949e" text-anchor="middle">PPO vs GRPO（Table 3）</text>
+  </g>
+</svg>
+<figcaption style="text-align:center;font-size:13px;color:#57606a;margin-top:10px">两组关键数字重绘：左为 loss masking 消融（7B 平均 EM 0.431 对 0.343），右为算法对比（7B 上 PPO 0.431 对 GRPO 0.350）</figcaption>
+</figure>
+
 
 ## 五、附录 A 到 J：把可复现做成结构
 

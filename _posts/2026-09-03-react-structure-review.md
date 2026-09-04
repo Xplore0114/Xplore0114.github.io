@@ -38,6 +38,57 @@ agent 方向几乎所有后续工作的骨架都长在 ReAct 上：thought、act
 
 Introduction 用同一道 HotpotQA 题目跑了四种提示：Standard 直接答、CoT 只推理、Act 只行动、ReAct 交错。读者在见到任何公式之前，已经用肉眼看到了差异从哪来：Act-only 会盲目搜索，CoT 会顺着错误记忆编下去，ReAct 每一步行动前都有一次对观察的消化。
 
+<figure style="margin:28px 0">
+<svg viewBox="0 0 680 318" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><marker id="ra-a" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#57606a"/></marker></defs>
+  <rect x="8" y="30" width="152" height="278" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
+  <rect x="176" y="30" width="152" height="278" rx="10" fill="#fdf8ef" stroke="#E69F00" stroke-opacity=".45"/>
+  <rect x="344" y="30" width="152" height="278" rx="10" fill="#f2fafd" stroke="#56B4E9" stroke-opacity=".55"/>
+  <rect x="512" y="30" width="152" height="278" rx="10" fill="#f2fbf7" stroke="#009E73" stroke-opacity=".55"/>
+  <text x="84" y="20" text-anchor="middle" font-size="12.5" font-weight="700" fill="#57606a">Standard 直接答</text>
+  <text x="252" y="20" text-anchor="middle" font-size="12.5" font-weight="700" fill="#B77500">CoT 只推理</text>
+  <text x="420" y="20" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1E88B8">Act 只行动</text>
+  <text x="588" y="20" text-anchor="middle" font-size="12.5" font-weight="700" fill="#00805C">ReAct 交错</text>
+  <g font-size="11" text-anchor="middle">
+    <rect x="22" y="46" width="124" height="26" rx="6" fill="#fff" stroke="#d0d7de"/><text x="84" y="63" fill="#24292f">问题</text>
+    <line x1="84" y1="72" x2="84" y2="86" stroke="#57606a" stroke-width="1.3" marker-end="url(#ra-a)"/>
+    <rect x="22" y="88" width="124" height="26" rx="6" fill="#fff" stroke="#d0d7de"/><text x="84" y="105" fill="#24292f">直接作答</text>
+    <text x="84" y="138" font-size="10.5" fill="#9a6700">⚠ 无外部证据</text>
+    <text x="84" y="154" font-size="10.5" fill="#8b949e">赌模型记忆</text>
+    <rect x="190" y="46" width="124" height="26" rx="6" fill="#fff" stroke="#E69F00"/><text x="252" y="63" fill="#24292f">问题</text>
+    <line x1="252" y1="72" x2="252" y2="86" stroke="#57606a" stroke-width="1.3" marker-end="url(#ra-a)"/>
+    <rect x="190" y="88" width="124" height="26" rx="6" fill="#fff" stroke="#E69F00"/><text x="252" y="105" fill="#24292f">思考 · 思考 · …</text>
+    <line x1="252" y1="114" x2="252" y2="128" stroke="#57606a" stroke-width="1.3" marker-end="url(#ra-a)"/>
+    <rect x="190" y="130" width="124" height="26" rx="6" fill="#fff" stroke="#E69F00"/><text x="252" y="147" fill="#24292f">作答（编造）</text>
+    <text x="252" y="180" font-size="10.5" fill="#9a6700">⚠ 顺错误记忆编下去</text>
+    <text x="252" y="196" font-size="10.5" fill="#8b949e">失败中 56% 源于幻觉</text>
+    <rect x="358" y="46" width="124" height="26" rx="6" fill="#fff" stroke="#56B4E9"/><text x="420" y="63" fill="#24292f">问题</text>
+    <line x1="420" y1="72" x2="420" y2="86" stroke="#57606a" stroke-width="1.3" marker-end="url(#ra-a)"/>
+    <rect x="358" y="88" width="124" height="26" rx="6" fill="#fff" stroke="#56B4E9"/><text x="420" y="105" fill="#24292f">Search(A)</text>
+    <line x1="420" y1="114" x2="420" y2="128" stroke="#57606a" stroke-width="1.3" marker-end="url(#ra-a)"/>
+    <rect x="358" y="130" width="124" height="26" rx="6" fill="#fff" stroke="#56B4E9"/><text x="420" y="147" fill="#24292f">Search(B)</text>
+    <line x1="420" y1="156" x2="420" y2="170" stroke="#57606a" stroke-width="1.3" marker-end="url(#ra-a)"/>
+    <rect x="358" y="172" width="124" height="26" rx="6" fill="#fff" stroke="#56B4E9"/><text x="420" y="189" fill="#24292f">Search(A) 重复</text>
+    <text x="420" y="222" font-size="10.5" fill="#9a6700">⚠ 盲目搜索</text>
+    <text x="420" y="238" font-size="10.5" fill="#8b949e">23% 搜索无信息</text>
+    <rect x="526" y="46" width="124" height="24" rx="6" fill="#fff" stroke="#d0d7de"/><text x="588" y="62" fill="#24292f">问题</text>
+    <line x1="588" y1="70" x2="588" y2="80" stroke="#57606a" stroke-width="1.3" marker-end="url(#ra-a)"/>
+    <rect x="526" y="82" width="124" height="24" rx="6" fill="#eafaf4" stroke="#009E73"/><text x="588" y="98" fill="#005C42" font-weight="600">思考：还缺什么</text>
+    <line x1="588" y1="106" x2="588" y2="116" stroke="#57606a" stroke-width="1.3" marker-end="url(#ra-a)"/>
+    <rect x="526" y="118" width="124" height="24" rx="6" fill="#fff" stroke="#56B4E9"/><text x="588" y="134" fill="#24292f">行动：Search</text>
+    <line x1="588" y1="142" x2="588" y2="152" stroke="#57606a" stroke-width="1.3" marker-end="url(#ra-a)"/>
+    <rect x="526" y="154" width="124" height="24" rx="6" fill="#f2fafd" stroke="#8ba9b8"/><text x="588" y="170" fill="#3d5666">观察：返回结果</text>
+    <line x1="588" y1="178" x2="588" y2="188" stroke="#57606a" stroke-width="1.3" marker-end="url(#ra-a)"/>
+    <rect x="526" y="190" width="124" height="24" rx="6" fill="#eafaf4" stroke="#009E73"/><text x="588" y="206" fill="#005C42" font-weight="600">思考：消化证据</text>
+    <line x1="588" y1="214" x2="588" y2="224" stroke="#57606a" stroke-width="1.3" marker-end="url(#ra-a)"/>
+    <rect x="526" y="226" width="124" height="24" rx="6" fill="#fff" stroke="#009E73" stroke-width="1.6"/><text x="588" y="242" fill="#24292f" font-weight="600">作答 ✓</text>
+    <text x="588" y="272" font-size="10.5" fill="#00805C">每个 answer 前</text>
+    <text x="588" y="288" font-size="10.5" fill="#00805C">都有 observation</text>
+  </g>
+</svg>
+<figcaption style="text-align:center;font-size:13px;color:#57606a;margin-top:10px">Figure 1 四格对比仿绘：同一道 HotpotQA 题目下四种提示策略的行为差异（数字出自正文 Table 2）</figcaption>
+</figure>
+
 方法节顺理成章只需要做一件事：把动作空间扩展为 A ∪ L，语言空间 L 中的 thought 有六种用途（分解目标、注入常识、提取关键信息、跟踪进度、处理异常、合成答案）。方法本身越简单，写作的功夫越要花在「让读者第一眼就懂」上，Figure 1 承担了这个职能。
 
 ## 四、失败模式分析：Table 2 是被低估的宝藏
@@ -50,6 +101,30 @@ Introduction 用同一道 HotpotQA 题目跑了四种提示：Standard 直接答
 | 失败中源于幻觉的占比 | 0% | 56% |
 | 失败中的推理错误 | 47% | 16% |
 | 搜索结果无信息（ReAct 特有） | 23% | 无此项 |
+
+<figure style="margin:28px 0">
+<svg viewBox="0 0 680 248" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="150" y="40" width="14" height="12" rx="2" fill="#009E73"/><text x="170" y="50" font-size="11.5" fill="#57606a">ReAct</text>
+  <rect x="230" y="40" width="14" height="12" rx="2" fill="#E69F00"/><text x="250" y="50" font-size="11.5" fill="#57606a">CoT</text>
+  <g font-size="12" fill="#24292f">
+    <text x="140" y="87" text-anchor="end">成功中的幻觉</text>
+    <text x="140" y="119" text-anchor="end">失败中源于幻觉</text>
+    <text x="140" y="151" text-anchor="end">失败中的推理错误</text>
+    <text x="140" y="183" text-anchor="end">搜索结果无信息</text>
+  </g>
+  <line x1="150" y1="196" x2="590" y2="196" stroke="#d0d7de"/>
+  <g>
+    <rect x="150" y="76" width="40" height="13" rx="3" fill="#009E73"/><text x="196" y="87" font-size="11" fill="#57606a">6%</text>
+    <rect x="150" y="91" width="93" height="13" rx="3" fill="#E69F00"/><text x="249" y="102" font-size="11" fill="#57606a">14%</text>
+    <rect x="150" y="122" width="2" height="13" rx="1" fill="#009E73"/><text x="160" y="133" font-size="11" fill="#57606a">0%</text>
+    <rect x="150" y="137" width="373" height="13" rx="3" fill="#E69F00"/><text x="529" y="148" font-size="11" fill="#57606a">56%</text>
+    <rect x="150" y="168" width="313" height="13" rx="3" fill="#009E73"/><text x="469" y="179" font-size="11" fill="#57606a">47%</text>
+    <rect x="150" y="183" width="107" height="13" rx="3" fill="#E69F00"/><text x="263" y="194" font-size="11" fill="#57606a">16%</text>
+  </g>
+  <text x="590" y="225" font-size="10.5" fill="#8b949e" text-anchor="end">ReAct 特有项：搜索无信息 23%（CoT 无此行为）· 比例尺 0–60%</text>
+</svg>
+<figcaption style="text-align:center;font-size:13px;color:#57606a;margin-top:10px">Table 2 数据重绘：ReAct 用更高的推理错误率换来了幻觉的系统性下降，混合两者因此拿到最佳结果</figcaption>
+</figure>
 
 这张表诚实到报出自己的软肋：ReAct 的结构约束导致推理错误率反而更高，还会重复生成先前的动作。但正是这份诚实的分析直接催生了全文最佳结果：既然 ReAct 赢在事实性、CoT 赢在灵活性，那就组合，ReAct 与 CoT-SC 的混合提示在 HotpotQA 拿到 35.1 EM，在 FEVER 拿到 64.6，比任一单打都高。
 

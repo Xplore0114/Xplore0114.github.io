@@ -34,6 +34,47 @@ tags:
 
 开篇的总览图就是全文目录的图形化：图里三个组件框，正文三个 Component 章节，一一对应。读者看完图就能预测全文结构，预测成真是好结构的基本特征。
 
+<figure style="margin:28px 0">
+<svg viewBox="0 0 680 344" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><marker id="ll-a" markerWidth="6" markerHeight="6" refX="4.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#57606a"/></marker></defs>
+  <rect x="270" y="126" width="140" height="66" rx="12" fill="#fdf8ef" stroke="#E69F00" stroke-width="1.8"/>
+  <text x="340" y="154" text-anchor="middle" font-size="14" font-weight="700" fill="#B77500">LLM</text>
+  <text x="340" y="174" text-anchor="middle" font-size="10.5" fill="#57606a">大脑 · 中枢控制器</text>
+  <rect x="24" y="30" width="220" height="176" rx="10" fill="#f2fafd" stroke="#56B4E9" stroke-width="1.4"/>
+  <text x="134" y="52" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1E88B8">Planning · 拆任务</text>
+  <g font-size="10" fill="#57606a">
+    <text x="40" y="76" font-weight="600">任务分解（复杂度递进）</text>
+    <text x="52" y="93">CoT → ToT（BFS/DFS）→ LLM+P（PDDL）</text>
+    <text x="40" y="119" font-weight="600">自我反思（手段递进）</text>
+    <text x="52" y="136">ReAct → Reflexion → CoH → Algo Distill</text>
+    <text x="40" y="162" font-size="9.5" fill="#8b949e">排序藏在工程品味里：最便宜的方案先列</text>
+    <text x="40" y="180" font-size="9.5" fill="#8b949e">Challenges 对应：长程规划遇错难调整</text>
+  </g>
+  <rect x="436" y="30" width="220" height="176" rx="10" fill="#faf3f7" stroke="#CC79A7" stroke-width="1.4"/>
+  <text x="546" y="52" text-anchor="middle" font-size="12.5" font-weight="700" fill="#A05177">Memory · 存经验</text>
+  <g font-size="10" fill="#57606a">
+    <text x="452" y="76" font-weight="600">人脑记忆类比映射</text>
+    <text x="464" y="93">感觉 → embedding 输入</text>
+    <text x="464" y="110">短期 → 上下文窗口（约 7 项）</text>
+    <text x="464" y="127">长期 → 外部向量库</text>
+    <text x="452" y="153" font-weight="600">检索 = MIPS</text>
+    <text x="464" y="170">LSH · ANNOY · HNSW · FAISS · ScaNN</text>
+    <text x="452" y="190" font-size="9.5" fill="#8b949e">Challenges 对应：表达力不如 full attention</text>
+  </g>
+  <path d="M 244 110 C 258 110, 260 140, 268 148" fill="none" stroke="#57606a" stroke-width="1.3" marker-end="url(#ll-a)"/>
+  <path d="M 436 110 C 422 110, 420 140, 412 148" fill="none" stroke="#57606a" stroke-width="1.3" marker-end="url(#ll-a)"/>
+  <path d="M 340 192 L 340 212" fill="none" stroke="#57606a" stroke-width="1.3" marker-end="url(#ll-a)"/>
+  <rect x="24" y="216" width="632" height="72" rx="10" fill="#f2fbf7" stroke="#009E73" stroke-width="1.4"/>
+  <text x="46" y="242" font-size="12.5" font-weight="700" fill="#00805C">Tool use · 伸出体外</text>
+  <text x="46" y="264" font-size="10" fill="#57606a">进化线：MRKL → HuggingGPT · 案例：ChemCrow（13 个专家工具，ReAct 格式）· AutoGPT（正文直接贴 system message）</text>
+  <text x="46" y="280" font-size="9.5" fill="#8b949e">Challenges 对应：自然语言接口可靠性存疑，demo 代码精力耗在解析模型输出上</text>
+  <text x="340" y="316" font-size="10.5" fill="#8b949e" text-anchor="middle">Figure 1 总览图仿绘 · 三个组件框 = 正文三个 Component 章节 · 结尾三条 Challenges 与三组件一一对应</text>
+  <text x="340" y="336" font-size="10.5" fill="#8b949e" text-anchor="middle">本系列已拆的 ReAct、Reflexion 都挂在这张图的 Planning 分支上</text>
+</svg>
+<figcaption style="text-align:center;font-size:13px;color:#57606a;margin-top:10px">总览图仿绘：一张图定死目录，LLM 是大脑、三个组件环绕，读者看完图就能预测全文结构</figcaption>
+</figure>
+
+
 ## 三、Planning 章：方法谱系的进场顺序有讲究
 
 任务分解子节里，方法按复杂度递增进场：CoT（链式思考）到 ToT（树状搜索，每步多分支，用 BFS 或 DFS 配合分类器评估）到 LLM+P（干脆把规划外包给外部经典规划器，用 PDDL 做中间语言）。一条从提示工程到符号系统的光谱，读者顺着走就能理解每一步的增量。
@@ -53,6 +94,34 @@ tags:
 | 长期记忆 | 外部向量存储，按需快速检索 |
 
 一个认知心理学的经典框架直接平移到工程系统，读者不需要新学任何概念就能记住三组件里的记忆设计。落到实现层，她把长期记忆的检索问题命名为 MIPS（最大内积搜索），列举 LSH、ANNOY、HNSW、FAISS、ScaNN 五个算法。类比负责让人懂，算法名负责让人能动手，两层衔接顺畅。
+
+<figure style="margin:28px 0">
+<svg viewBox="0 0 680 216" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><marker id="lm-a" markerWidth="6" markerHeight="6" refX="4.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#57606a"/></marker></defs>
+  <text x="170" y="28" text-anchor="middle" font-size="12" font-weight="700" fill="#57606a">人脑记忆（Miller 1956）</text>
+  <text x="500" y="28" text-anchor="middle" font-size="12" font-weight="700" fill="#A05177">agent 系统对应</text>
+  <g font-size="11">
+    <rect x="40" y="44" width="260" height="40" rx="8" fill="#f6f8fa" stroke="#d0d7de"/>
+    <text x="56" y="62">感觉记忆</text><text x="56" y="78" font-size="9.5" fill="#8b949e">毫秒级原始输入缓冲</text>
+    <rect x="380" y="44" width="260" height="40" rx="8" fill="#faf3f7" stroke="#CC79A7" stroke-opacity=".6"/>
+    <text x="396" y="62">原始输入的 embedding 表示</text><text x="396" y="78" font-size="9.5" fill="#8b949e">进模型前的向量化形态</text>
+    <line x1="300" y1="64" x2="378" y2="64" stroke="#57606a" stroke-width="1.2" marker-end="url(#lm-a)"/>
+    <rect x="40" y="94" width="260" height="40" rx="8" fill="#f6f8fa" stroke="#d0d7de"/>
+    <text x="56" y="112">短期记忆</text><text x="56" y="128" font-size="9.5" fill="#8b949e">约 7 项 · 持续 20-30 秒</text>
+    <rect x="380" y="94" width="260" height="40" rx="8" fill="#faf3f7" stroke="#CC79A7" stroke-opacity=".6"/>
+    <text x="396" y="112">上下文学习</text><text x="396" y="128" font-size="9.5" fill="#8b949e">受 Transformer 上下文窗口约束</text>
+    <line x1="300" y1="114" x2="378" y2="114" stroke="#57606a" stroke-width="1.2" marker-end="url(#lm-a)"/>
+    <rect x="40" y="144" width="260" height="40" rx="8" fill="#f6f8fa" stroke="#d0d7de"/>
+    <text x="56" y="162">长期记忆</text><text x="56" y="178" font-size="9.5" fill="#8b949e">容量近乎无限 · 按需提取</text>
+    <rect x="380" y="144" width="260" height="40" rx="8" fill="#faf3f7" stroke="#CC79A7" stroke-opacity=".6"/>
+    <text x="396" y="162">外部向量存储 + MIPS 检索</text><text x="396" y="178" font-size="9.5" fill="#8b949e">LSH · ANNOY · HNSW · FAISS · ScaNN</text>
+    <line x1="300" y1="164" x2="378" y2="164" stroke="#57606a" stroke-width="1.2" marker-end="url(#lm-a)"/>
+  </g>
+  <text x="340" y="208" font-size="10.5" fill="#8b949e" text-anchor="middle">类比负责让人懂，算法名负责让人能动手：记忆章的两层衔接</text>
+</svg>
+<figcaption style="text-align:center;font-size:13px;color:#57606a;margin-top:10px">记忆映射仿绘：认知心理学框架平移到工程系统，长期记忆的检索被命名为 MIPS 并给出五个可用算法</figcaption>
+</figure>
+
 
 ## 五、Case Studies 章：三档案例的层次感
 
