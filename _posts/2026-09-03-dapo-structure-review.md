@@ -97,3 +97,4 @@ Dynamic Sampling 一项独占 8 分，作者解释是「熵抬起来之后，原
 - 模型权重：huggingface.co/BytedTsinghua-SIA/DAPO-Qwen-32B
 - 项目页：dapo-sia.github.io
 - 主实验口径：AIME 2024 评估时每个问题采样 32 次报告 avg@32，推理 temperature = 1.0，top-p = 0.7
+- 对照阅读：SAO（arXiv:2607.07508，GRPO 组式采样在异步场景的结构性失效与修复），本站拆解见「SAO 拆解：当 GRPO 的组式采样撞上异步 Agent 训练，160 步崩溃之后怎么救」
