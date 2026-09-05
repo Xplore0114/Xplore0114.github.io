@@ -9,7 +9,7 @@ baseurl: ""
 
 # Sidebar settings
 sidebar: true
-sidebar-about-description: "浙江大学控制工程硕士 | AI 应用开发 | 工业数据智能"
+sidebar-about-description: "控制工程硕士 | AI 应用开发 | 工业数据智能"
 sidebar-avatar: /img/avatar.svg
 
 # SNS settings
