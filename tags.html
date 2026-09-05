@@ -39,7 +39,7 @@ body {
   height: 2px; width: 0%;
   background: linear-gradient(90deg, var(--accent), var(--accent-deep));
 }
-.page { max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+.page { max-width: 880px; margin: 0 auto; padding: 0 28px 80px; }
 nav {
   display: flex; justify-content: space-between; align-items: baseline;
   padding: 28px 0 0;
@@ -85,7 +85,7 @@ header.archive-head p { margin: 0; color: var(--ink-faint); font-size: 15px; }
   transition: background-size .3s var(--ease-natural), color .2s ease;
 }
 .post-list a:hover { color: var(--accent); background-size: 100% 1.5px; }
-.post-list .ptags { margin-left: auto; font-size: 12px; color: var(--ink-faint); flex-shrink: 0; }
+.post-list .ptags { margin-left: auto; font-size: 12px; color: var(--ink-faint); min-width: 0; flex-shrink: 1; text-align: right; }
 .muted { color: var(--ink-faint); font-size: 15px; }
 
 footer {

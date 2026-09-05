@@ -40,7 +40,7 @@ body {
   height: 2px; width: 0%;
   background: linear-gradient(90deg, var(--accent), var(--accent-deep));
 }
-.page { max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+.page { max-width: 1120px; margin: 0 auto; padding: 0 32px 80px; }
 nav {
   display: flex; justify-content: space-between; align-items: baseline;
   padding: 28px 0 0;
@@ -86,15 +86,28 @@ p.toc { font-size: 13.5px; margin: -4px 0 10px; color: var(--ink-faint); }
 p.toc a { color: var(--accent); text-decoration: none; margin-right: 16px; }
 p.toc a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-/* 图例卡片 */
-.fig-card {
+/* 图例卡片（默认折叠，点标题展开） */
+details.fig-card {
   border: 1px solid var(--line); border-radius: 10px;
-  padding: 18px 18px 12px; margin-bottom: 18px; background: #fff;
+  padding: 0; margin-bottom: 14px; background: #fff;
   transition: box-shadow .3s var(--ease-natural);
 }
-.fig-card:hover { box-shadow: 0 10px 28px rgba(36,41,47,.08); }
-.fig-card h3 { margin: 0 0 2px; font-size: 16px; }
-.fig-card h3 .fnum { color: var(--accent); font-family: var(--serif); margin-right: 8px; }
+details.fig-card:hover { box-shadow: 0 10px 28px rgba(36,41,47,.08); }
+details.fig-card > summary {
+  list-style: none; cursor: pointer; user-select: none;
+  display: flex; align-items: baseline; gap: 8px;
+  padding: 12px 18px 10px;
+}
+details.fig-card > summary::-webkit-details-marker { display: none; }
+details.fig-card > summary h3 { margin: 0; font-size: 16px; flex: 1; min-width: 0; }
+details.fig-card > summary .fnum { color: var(--accent); font-family: var(--serif); margin-right: 8px; }
+details.fig-card > summary .chev {
+  color: var(--ink-faint); font-size: 16px; flex: none;
+  transition: transform .3s var(--ease-natural), color .2s ease;
+}
+details.fig-card[open] > summary { border-bottom: 1px dashed var(--line); }
+details.fig-card[open] > summary .chev { transform: rotate(90deg); color: var(--accent); }
+details.fig-card .card-body { padding: 12px 18px; }
 .fig-card .why { font-size: 14px; color: var(--ink-soft); margin: 0 0 12px; }
 .fig-card svg { display: block; width: 100%; height: auto; margin: 4px 0 8px; }
 
@@ -147,11 +160,24 @@ p.toc a:hover { text-decoration: underline; text-underline-offset: 3px; }
   line-height: 1.4;
   flex: 1; min-width: 0;
 }
-.case-card .group {
-  font-family: var(--mono);
-  font-size: 10.5px; color: var(--ink-faint);
-  flex-shrink: 0; letter-spacing: .04em;
+.ci-label {
+  grid-column: 1 / -1;
+  display: flex; align-items: baseline; gap: 8px;
+  font-size: 12px; font-weight: 600; color: var(--ink-soft);
+  letter-spacing: .05em; margin: 10px 0 -2px;
 }
+.ci-label.sep { border-top: 1px dashed var(--line); padding-top: 10px; margin-top: 12px; }
+.ci-label b { font-family: var(--serif); font-size: 13.5px; color: var(--accent); letter-spacing: 0; }
+.ci-label .cnt { font-weight: 400; color: var(--ink-faint); font-size: 11px; margin-left: auto; letter-spacing: 0; }
+.expand-ctrl { display: flex; gap: 10px; margin: -4px 0 18px; }
+.expand-ctrl button {
+  font-family: var(--sans); font-size: 12.5px;
+  color: var(--ink-soft); background: #fff;
+  border: 1px solid var(--line); border-radius: 99px;
+  padding: 4px 16px; cursor: pointer;
+  transition: color .2s ease, border-color .2s ease, box-shadow .25s var(--ease-natural);
+}
+.expand-ctrl button:hover { color: var(--accent); border-color: rgba(14,165,233,.5); box-shadow: 0 4px 12px rgba(36,41,47,.05); }
 
 /* 代码块 */
 details.code { margin-top: 4px; }
@@ -293,38 +319,49 @@ footer a:hover { color: var(--accent); }
 
   <section id="gallery" data-page-node-id="ID59MS8rwYLYrVCjI2DBqw">
     <h2 class="section-title" data-page-node-id="Xx3pQ9WV2fbAQ9VE4MN1Sb">图例速览</h2>
-    <p class="note" data-page-node-id="bGnMRe18fGqyCtXmzSD0KZ">按论文结构分三组，图表类型标注在每条标题里。每张图附完整可运行的 matplotlib 代码，点开「查看代码」复制即用。配色统一采用 Okabe-Ito 色盲友好方案。</p>
+    <p class="note" data-page-node-id="bGnMRe18fGqyCtXmzSD0KZ">按论文结构分四块：A 组基础模板与顶会案例、B 组主实验对比、C 组消融分析。卡片默认折叠，点标题展开图例与完整 matplotlib 代码，复制即用。配色统一采用 Okabe-Ito 色盲友好方案。</p>
     <p class="toc">分组直达：<a href="#fig-method">A · 方法与流程</a><a href="#fig-results">B · 实验结果</a><a href="#fig-analysis">C · 消融与分析</a><a href="#howto">绘制方法论</a></p>
 
+    <div class="expand-ctrl">
+      <button type="button" id="expand-all">展开全部 20 张</button>
+      <button type="button" id="collapse-all">收起全部</button>
+    </div>
+
     <div class="case-index">
-      <div class="case-index-head">20 张案例索引 <span class="count">点击直达</span></div>
-      <a class="case-card" href="#c-01"><span class="fnum">01</span><span class="title">横向 Pipeline 流程图</span><span class="group">A</span></a>
-      <a class="case-card" href="#c-02"><span class="fnum">02</span><span class="title">Transformer 堆叠架构图</span><span class="group">A</span></a>
-      <a class="case-card" href="#c-p1"><span class="fnum">P1</span><span class="title">InstructGPT 三幕式流程</span><span class="group">A</span></a>
-      <a class="case-card" href="#c-p2"><span class="fnum">P2</span><span class="title">BERT 双联并置</span><span class="group">A</span></a>
-      <a class="case-card" href="#c-p3"><span class="fnum">P3</span><span class="title">Transformer 对称双塔</span><span class="group">A</span></a>
-      <a class="case-card" href="#c-p4"><span class="fnum">P4</span><span class="title">CLIP 双流汇聚</span><span class="group">A</span></a>
-      <a class="case-card" href="#c-p5"><span class="fnum">P5</span><span class="title">DDPM 双向链式</span><span class="group">A</span></a>
-      <a class="case-card" href="#c-p6"><span class="fnum">P6</span><span class="title">ViT patch 网格化</span><span class="group">A</span></a>
-      <a class="case-card" href="#c-p7"><span class="fnum">P7</span><span class="title">GPT-3 缩放曲线族</span><span class="group">A</span></a>
-      <a class="case-card" href="#c-p8"><span class="fnum">P8</span><span class="title">DPO 繁简对照</span><span class="group">A</span></a>
-      <a class="case-card" href="#c-p9"><span class="fnum">P9</span><span class="title">Switch 路由分流</span><span class="group">A</span></a>
-      <a class="case-card" href="#c-p10"><span class="fnum">P10</span><span class="title">CoT 提示对照</span><span class="group">A</span></a>
-      <a class="case-card" href="#c-03"><span class="fnum">03</span><span class="title">训练曲线对比（折线）</span><span class="group">B</span></a>
-      <a class="case-card" href="#c-04"><span class="fnum">04</span><span class="title">分组柱状图</span><span class="group">B</span></a>
-      <a class="case-card" href="#c-05"><span class="fnum">05</span><span class="title">雷达图（多维能力）</span><span class="group">B</span></a>
-      <a class="case-card" href="#c-06"><span class="fnum">06</span><span class="title">Scaling 分析（散点）</span><span class="group">B</span></a>
-      <a class="case-card" href="#c-07"><span class="fnum">07</span><span class="title">混淆矩阵（热力图）</span><span class="group">C</span></a>
-      <a class="case-card" href="#c-08"><span class="fnum">08</span><span class="title">多次运行稳定性（箱线）</span><span class="group">C</span></a>
-      <a class="case-card" href="#c-09"><span class="fnum">09</span><span class="title">超参敏感性（小倍数）</span><span class="group">C</span></a>
-      <a class="case-card" href="#c-10"><span class="fnum">10</span><span class="title">精度-延迟帕累托前沿</span><span class="group">C</span></a>
+      <div class="case-index-head">案例索引 <span class="count">20 张 · 点击直达</span></div>
+      <div class="ci-label"><b>A</b>方法与流程 · 基础模板<span class="cnt">2 张</span></div>
+      <a class="case-card" href="#c-01"><span class="fnum">01</span><span class="title">横向 Pipeline 流程图</span></a>
+      <a class="case-card" href="#c-02"><span class="fnum">02</span><span class="title">Transformer 堆叠架构图</span></a>
+      <div class="ci-label sep"><b>A</b>方法与流程 · 顶会案例解剖<span class="cnt">10 张</span></div>
+      <a class="case-card" href="#c-p1"><span class="fnum">P1</span><span class="title">InstructGPT 三幕式流程</span></a>
+      <a class="case-card" href="#c-p2"><span class="fnum">P2</span><span class="title">BERT 双联并置</span></a>
+      <a class="case-card" href="#c-p3"><span class="fnum">P3</span><span class="title">Transformer 对称双塔</span></a>
+      <a class="case-card" href="#c-p4"><span class="fnum">P4</span><span class="title">CLIP 双流汇聚</span></a>
+      <a class="case-card" href="#c-p5"><span class="fnum">P5</span><span class="title">DDPM 双向链式</span></a>
+      <a class="case-card" href="#c-p6"><span class="fnum">P6</span><span class="title">ViT patch 网格化</span></a>
+      <a class="case-card" href="#c-p7"><span class="fnum">P7</span><span class="title">GPT-3 缩放曲线族</span></a>
+      <a class="case-card" href="#c-p8"><span class="fnum">P8</span><span class="title">DPO 繁简对照</span></a>
+      <a class="case-card" href="#c-p9"><span class="fnum">P9</span><span class="title">Switch 路由分流</span></a>
+      <a class="case-card" href="#c-p10"><span class="fnum">P10</span><span class="title">CoT 提示对照</span></a>
+      <div class="ci-label sep"><b>B</b>实验结果 · 主对比<span class="cnt">4 张</span></div>
+      <a class="case-card" href="#c-03"><span class="fnum">03</span><span class="title">训练曲线对比（折线）</span></a>
+      <a class="case-card" href="#c-04"><span class="fnum">04</span><span class="title">分组柱状图</span></a>
+      <a class="case-card" href="#c-05"><span class="fnum">05</span><span class="title">雷达图（多维能力）</span></a>
+      <a class="case-card" href="#c-06"><span class="fnum">06</span><span class="title">Scaling 分析（散点）</span></a>
+      <div class="ci-label sep"><b>C</b>消融与分析 · 稳健性<span class="cnt">4 张</span></div>
+      <a class="case-card" href="#c-07"><span class="fnum">07</span><span class="title">混淆矩阵（热力图）</span></a>
+      <a class="case-card" href="#c-08"><span class="fnum">08</span><span class="title">多次运行稳定性（箱线）</span></a>
+      <a class="case-card" href="#c-09"><span class="fnum">09</span><span class="title">超参敏感性（小倍数）</span></a>
+      <a class="case-card" href="#c-10"><span class="fnum">10</span><span class="title">精度-延迟帕累托前沿</span></a>
     </div>
 
     <h3 class="group-title" id="fig-method"><span class="gletter">A</span>方法与流程（Method）</h3>
     <p class="group-note">论文 Method 章节的流程图与架构图，用 matplotlib 的 Patch 与箭头即可画，无需切换到其他工具。</p>
 
-    <div id="c-01" class="fig-card reveal">
-      <h3><span class="fnum">01</span>横向 Pipeline 流程图（框图）</h3>
+    <details id="c-01" class="fig-card reveal">
+      <summary><h3><span class="fnum">01</span>横向 Pipeline 流程图（框图）</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why">方法章节的门面。横向四到六个模块最顺口，核心创新模块用主题色描边提亮，数据规模写进框内，读者十秒看懂全流程。</p>
       <svg viewBox="0 0 632 190" role="img" aria-label="横向 Pipeline 流程图示例">
         <g font-family="Georgia, serif" font-size="8.5" fill="#8b949e" letter-spacing="1.5" text-anchor="middle">
@@ -400,10 +437,13 @@ for i, (title, sub, hot) in enumerate(stages):
 fig.savefig("fig_pipeline.pdf")</code></pre>
         </div>
       </details>
-    </div>
+      </div>
+    </details>
 
-    <div id="c-02" class="fig-card reveal">
-      <h3><span class="fnum">02</span>Transformer 堆叠架构图（结构框图）</h3>
+    <details id="c-02" class="fig-card reveal">
+      <summary><h3><span class="fnum">02</span>Transformer 堆叠架构图（结构框图）</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why">模型结构用纵向堆叠最直观，数据流自下而上。重复层收进虚线框加 ×N，左侧标注张量形状，结构与维度变化一图说完。</p>
       <svg viewBox="0 0 632 300" role="img" aria-label="Transformer 堆叠架构图示例">
         <!-- 输出 -->
@@ -488,13 +528,16 @@ for y, s in [(0.61, "B × L"), (1.81, "B × L × d"),
 fig.savefig("fig_arch.pdf")</code></pre>
         </div>
       </details>
-    </div>
+      </div>
+    </details>
 
     <h3 class="sub-title" id="fig-pipeline-cases">顶会 Pipeline 案例解剖</h3>
-    <p class="group-note">以下五张是简化重绘的示意图（原图版权归属各论文），分析只谈绘图技法：构图、流向、配色、抽象粒度。所有手法都能用 matplotlib 或 draw.io 复现。<br><br>👉 想看 <b>原始论文里的真图</b>？已整理 <a href="/pipeline/" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">14 张案例库 · 按构图类型分组 →</a></p>
+    <p class="group-note">以下十张是简化重绘的示意图（原图版权归属各论文），分析只谈绘图技法：构图、流向、配色、抽象粒度。所有手法都能用 matplotlib 或 draw.io 复现。<br><br>👉 想看 <b>原始论文里的真图</b>？已整理 <a href="/pipeline/" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">14 张案例库 · 按构图类型分组 →</a></p>
 
-    <div id="c-p1" class="fig-card reveal">
-      <h3><span class="fnum">P1</span>InstructGPT（NeurIPS 2022）：三幕式流程</h3>
+    <details id="c-p1" class="fig-card reveal">
+      <summary><h3><span class="fnum">P1</span>InstructGPT（NeurIPS 2022）：三幕式流程</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why">RLHF 三阶段图是近年被引用最多的 pipeline 图之一，结构极简却信息完整。</p>
       <svg viewBox="0 0 632 190" role="img" aria-label="InstructGPT 三阶段流程示意">
         <defs>
@@ -556,10 +599,13 @@ fig.savefig("fig_arch.pdf")</code></pre>
         <li><b>箭头语义分层。</b>实线表示数据流，虚线表示参数更新，两种箭头构成全部图例，读者零成本解码。</li>
         <li><b>颜色守恒。</b>Prompt（蓝）、RM（橙）、策略（绿）三个角色跨幕固定颜色，视线可追踪。</li>
       </ol>
-    </div>
+      </div>
+    </details>
 
-    <div id="c-p2" class="fig-card reveal">
-      <h3><span class="fnum">P2</span>BERT（NAACL 2019）：双联并置</h3>
+    <details id="c-p2" class="fig-card reveal">
+      <summary><h3><span class="fnum">P2</span>BERT（NAACL 2019）：双联并置</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why">预训练与微调画成左右镜像双子图，用「图元复用」表达参数共享，是双阶段方法的标准画法。</p>
       <svg viewBox="0 0 632 190" role="img" aria-label="BERT 预训练与微调双联图示意">
         <g font-family="Georgia, serif" font-size="12" fill="#24292f" text-anchor="middle">
@@ -615,9 +661,12 @@ fig.savefig("fig_arch.pdf")</code></pre>
         <li><b>图元复用替代文字。</b>「参数共享」靠画成一模一样来表达，比加一行注释更直接。</li>
         <li><b>单点高亮讲机制。</b>掩码 token 是全场唯一暖色块，MLM 机制无需文字即可定位。</li>
       </ol>
-    </div>
-    <div id="c-p3" class="fig-card reveal">
-      <h3><span class="fnum">P3</span>Transformer（NeurIPS 2017）：对称双塔</h3>
+      </div>
+    </details>
+    <details id="c-p3" class="fig-card reveal">
+      <summary><h3><span class="fnum">P3</span>Transformer（NeurIPS 2017）：对称双塔</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why">被引超十万的架构图。对称构图中唯一的斜线就是创新点，值得逐像素学习。</p>
       <svg viewBox="0 0 632 220" role="img" aria-label="Transformer 编码器解码器双塔示意">
         <defs>
@@ -668,10 +717,13 @@ fig.savefig("fig_arch.pdf")</code></pre>
         <li><b>流向与阅读方向一致。</b>数据自下而上，输入在下、输出在顶，读者不需要方向图例。</li>
         <li><b>次要元素降饱和度。</b>Add &amp; Norm 只用一行小字带过，线稿浅灰，不抢主体的戏。</li>
       </ol>
-    </div>
+      </div>
+    </details>
 
-    <div id="c-p4" class="fig-card reveal">
-      <h3><span class="fnum">P4</span>CLIP（ICML 2021）：双流汇聚</h3>
+    <details id="c-p4" class="fig-card reveal">
+      <summary><h3><span class="fnum">P4</span>CLIP（ICML 2021）：双流汇聚</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why">双流编码加相似度矩阵的构图被后续所有对比学习论文沿用，矩阵本身就是结果的可视化。</p>
       <svg viewBox="0 0 632 200" role="img" aria-label="CLIP 双流对比学习示意">
         <defs>
@@ -748,9 +800,12 @@ fig.savefig("fig_arch.pdf")</code></pre>
         <li><b>矩阵自解释。</b>对角线深色块直接编码「正样本在对角」，替代整段文字说明。</li>
         <li><b>编码器画成黑盒。</b>贡献点在学习目标而非架构，内部结构留白，图面带宽全给对比关系。</li>
       </ol>
-    </div>
-    <div id="c-p5" class="fig-card reveal">
-      <h3><span class="fnum">P5</span>DDPM（NeurIPS 2020）：双向链式</h3>
+      </div>
+    </details>
+    <details id="c-p5" class="fig-card reveal">
+      <summary><h3><span class="fnum">P5</span>DDPM（NeurIPS 2020）：双向链式</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why">扩散模型的链式图把「状态随时间演化」直接演在节点里，前向与反向两个过程零交叉共存。</p>
       <svg viewBox="0 0 632 160" role="img" aria-label="DDPM 前向反向链示意">
         <defs>
@@ -799,10 +854,13 @@ fig.savefig("fig_arch.pdf")</code></pre>
         <li><b>节点填充直接演状态。</b>从实色渐变到空白的填充即「逐渐变噪」的具象化，读者无需图例。</li>
         <li><b>可学习部分单独着色。</b>只有 p_θ 用主色，标出模型真正要学的部分，其余皆是灰色固定过程。</li>
       </ol>
-    </div>
+      </div>
+    </details>
 
-    <div id="c-p6" class="fig-card reveal">
-      <h3><span class="fnum">P6</span>ViT（ICLR 2021）：patch 网格化流水线</h3>
+    <details id="c-p6" class="fig-card reveal">
+      <summary><h3><span class="fnum">P6</span>ViT（ICLR 2021）：patch 网格化流水线</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why">「一张图等于 16×16 个词」的成名图：把二维图像折叠成一维 token 序列，矩阵到序列的降维全靠图元平铺表达。</p>
       <svg viewBox="0 0 632 190" role="img" aria-label="ViT patch 化流水线示意">
         <defs>
@@ -874,10 +932,13 @@ fig.savefig("fig_arch.pdf")</code></pre>
         <li><b>特殊 token 插队。</b>class embedding（0*）排在序列首位却画成空心白底，与实心 patch 区分，「额外插入的」身份一眼可辨。</li>
         <li><b>颜色只分两类。</b>数据通路一律蓝灰系，可学习模块（Encoder、MLP 头）用主色描边，全图维持「数据 vs 模块」两个色系。</li>
       </ol>
-    </div>
+      </div>
+    </details>
 
-    <div id="c-p7" class="fig-card reveal">
-      <h3><span class="fnum">P7</span>GPT-3（NeurIPS 2020）：缩放曲线族（小倍数图）</h3>
+    <details id="c-p7" class="fig-card reveal">
+      <summary><h3><span class="fnum">P7</span>GPT-3（NeurIPS 2020）：缩放曲线族（小倍数图）</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why">few-shot 缩放的招牌图：同构坐标的小面板平铺，一张图同时回答「规模涨有没有用」与「不同任务涨幅差多少」。</p>
       <svg viewBox="0 0 632 190" role="img" aria-label="GPT-3 few-shot 缩放小倍数图示意">
         <text x="20" y="20" font-family="Georgia, serif" font-size="10" fill="#24292f" font-weight="bold">Few-Shot Performance</text>
@@ -926,10 +987,13 @@ fig.savefig("fig_arch.pdf")</code></pre>
         <li><b>对数横轴是缩放叙事的刚需。</b>参数量横跨三个数量级，log 轴让 125M 到 175B 等距铺开，曲线形态才可比。</li>
         <li><b>让斜率自己说话。</b>不加趋势注释，所有面板里 few-shot 曲线的斜率都显著大于 zero-shot，「示例越多涨得越快」由视觉直接给出。</li>
       </ol>
-    </div>
+      </div>
+    </details>
 
-    <div id="c-p8" class="fig-card reveal">
-      <h3><span class="fnum">P8</span>DPO（NeurIPS 2023）：繁简对照（垂直双联）</h3>
+    <details id="c-p8" class="fig-card reveal">
+      <summary><h3><span class="fnum">P8</span>DPO（NeurIPS 2023）：繁简对照（垂直双联）</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why">回应「你的算法太复杂」最有力的方式：上下两栏管线图，上栏 RLHF 框多线绕，下栏 DPO 一条线走完，复杂度对比不证自明。</p>
       <svg viewBox="0 0 632 190" role="img" aria-label="RLHF 与 DPO 管线繁简对照示意">
         <defs>
@@ -977,10 +1041,13 @@ fig.savefig("fig_arch.pdf")</code></pre>
         <li><b>被删模块留残影。</b>DPO 框里保留「奖励内嵌」字样，对应上栏的奖励模型框，暗示两条路线数学等价，删的只是显式建模步骤。</li>
         <li><b>颜色随栏收敛。</b>上栏蓝橙绿三色齐上阵，下栏单绿贯穿，繁简对比在色彩上再叠一层证据。</li>
       </ol>
-    </div>
+      </div>
+    </details>
 
-    <div id="c-p9" class="fig-card reveal">
-      <h3><span class="fnum">P9</span>Switch Transformer（JMLR 2022）：路由分流</h3>
+    <details id="c-p9" class="fig-card reveal">
+      <summary><h3><span class="fnum">P9</span>Switch Transformer（JMLR 2022）：路由分流</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why">稀疏 MoE 的入门图：token 进 Router，从一排同构 expert 里点亮一个，其余保持灰虚线，「每 token 只走一条路」由图面自明。</p>
       <svg viewBox="0 0 632 190" role="img" aria-label="Switch Transformer 路由分流示意">
         <defs>
@@ -1043,10 +1110,13 @@ fig.savefig("fig_arch.pdf")</code></pre>
         <li><b>左右对照定义「稀疏」。</b>左栏所有 token 挤一个共享 FFN，右栏每 token 只点亮一个 expert，密集与稀疏的参数效率差异一眼分野。</li>
         <li><b>Router 是唯一深色块。</b>全图浅色调里 Router 用深底反色，强调「决策发生在这里」，视觉焦点与机制焦点重合。</li>
       </ol>
-    </div>
+      </div>
+    </details>
 
-    <div id="c-p10" class="fig-card reveal">
-      <h3><span class="fnum">P10</span>Chain-of-Thought（NeurIPS 2022）：提示对照</h3>
+    <details id="c-p10" class="fig-card reveal">
+      <summary><h3><span class="fnum">P10</span>Chain-of-Thought（NeurIPS 2022）：提示对照</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why">一道食堂算术题左右开箱：左边标准提示一步答错，右边思维链分步答对，CoT 的全部卖点压缩在两个输出框的高度差里。</p>
       <svg viewBox="0 0 632 190" role="img" aria-label="标准提示与思维链提示对照示意">
         <defs>
@@ -1091,13 +1161,16 @@ fig.savefig("fig_arch.pdf")</code></pre>
         <li><b>输出框高度即证据。</b>左边一行右边五行，中间步骤的「存在性」由版面高度直接给出，无需任何强调性文字。</li>
         <li><b>双联共享同一个问题。</b>两侧 prompt 框逐字相同，唯一变量是提示方式，对照实验的受控思想平移到了图面。</li>
       </ol>
-    </div>
+      </div>
+    </details>
 
     <h3 class="group-title" id="fig-results"><span class="gletter">B</span>实验结果（Experiments）</h3>
     <p class="group-note">主实验章节的对比图，回答「我的方法比基线好多少」。</p>
 
-    <div id="c-03" class="fig-card reveal" data-page-node-id="yoGgMPgsde6yPvQblQp12E">
-      <h3 data-page-node-id="sDBW0YBMnK7AEO4chl3L31"><span class="fnum" data-page-node-id="vON68TQVjzt6d4voOF65pu">03</span>训练曲线对比（折线图）</h3>
+    <details id="c-03" class="fig-card reveal" data-page-node-id="yoGgMPgsde6yPvQblQp12E">
+      <summary><h3 data-page-node-id="sDBW0YBMnK7AEO4chl3L31"><span class="fnum" data-page-node-id="vON68TQVjzt6d4voOF65pu">03</span>训练曲线对比（折线图）</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why" data-page-node-id="kjKajBF8ZL7yUDF3F3RZUK">多方法对比的主图。主线用实线加置信带，基线用虚线压低视觉权重，读者一眼锁定你的方法。</p>
       <svg viewBox="0 0 632 252" role="img" aria-label="训练曲线对比示例图" data-page-node-id="UJXxBNVvZmj3Zp4B8TBBgq">
         <!-- 网格线 -->
@@ -1179,10 +1252,13 @@ ax.legend(loc="upper right")
 fig.savefig("fig1_curve.pdf")</code></pre>
         </div>
       </details>
-    </div>
+      </div>
+    </details>
 
-    <div id="c-04" class="fig-card reveal" data-page-node-id="uZXX9HqjQPyDFJGXTw4yCr">
-      <h3 data-page-node-id="YcAmpTZcbbndVhMfvOvusu"><span class="fnum" data-page-node-id="RwU7JQoHncvslaX2Uad2AN">04</span>分组柱状图（柱状图）</h3>
+    <details id="c-04" class="fig-card reveal" data-page-node-id="uZXX9HqjQPyDFJGXTw4yCr">
+      <summary><h3 data-page-node-id="YcAmpTZcbbndVhMfvOvusu"><span class="fnum" data-page-node-id="RwU7JQoHncvslaX2Uad2AN">04</span>分组柱状图（柱状图）</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why" data-page-node-id="xL0wG5K8QX2YqQMYrpfrlF">离散指标对比的首选。柱顶直接标数值，读者不用回头对着 y 轴估读；组内顺序在全篇论文中保持一致。</p>
       <svg viewBox="0 0 632 252" role="img" aria-label="分组柱状图示例" data-page-node-id="3vVv25NGcuHuK5MFJGn35E">
         <g stroke="#e5e9ee" stroke-width="1" data-page-node-id="0MpaCydaD4qDFCKoot4Wzk">
@@ -1270,10 +1346,13 @@ ax.legend(loc="upper right", ncols=3, columnspacing=0.9)
 fig.savefig("fig2_bar.pdf")</code></pre>
         </div>
       </details>
-    </div>
+      </div>
+    </details>
 
-    <div id="c-05" class="fig-card reveal" data-page-node-id="7OxFuAluJq6wTCU0oelTXL">
-      <h3 data-page-node-id="5qKHdksAbO6baNCz04djgE"><span class="fnum" data-page-node-id="CUvTmcJq4r6CW88uEnvzBq">05</span>雷达图（多维能力对比）</h3>
+    <details id="c-05" class="fig-card reveal" data-page-node-id="7OxFuAluJq6wTCU0oelTXL">
+      <summary><h3 data-page-node-id="5qKHdksAbO6baNCz04djgE"><span class="fnum" data-page-node-id="CUvTmcJq4r6CW88uEnvzBq">05</span>雷达图（多维能力对比）</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why" data-page-node-id="u2CCRPUqIgmhKY9NHUfmkf">两个对象五维以内时清晰好用。维度超过六个或对象超过三个就该换柱状图，面积重叠会失去可读性。</p>
       <svg viewBox="0 0 632 300" role="img" aria-label="雷达图示例" data-page-node-id="ZCT70OKdj5SUK4wcef5NXn">
         <!-- 网格环 -->
@@ -1346,10 +1425,13 @@ ax.legend(loc="upper right", bbox_to_anchor=(1.35, 1.1))
 fig.savefig("fig4_radar.pdf")</code></pre>
         </div>
       </details>
-    </div>
+      </div>
+    </details>
 
-    <div id="c-06" class="fig-card reveal">
-      <h3><span class="fnum">06</span>Scaling 分析（对数轴散点 + 拟合线）</h3>
+    <details id="c-06" class="fig-card reveal">
+      <summary><h3><span class="fnum">06</span>Scaling 分析（对数轴散点 + 拟合线）</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why">参数量与指标的幂律关系是对数轴散点的经典场景。散点给原始观测，直线给拟合趋势，log-log 坐标下幂律天然呈直线。</p>
       <svg viewBox="0 0 632 252" role="img" aria-label="Scaling 对数散点图示例">
         <!-- 网格 -->
@@ -1441,13 +1523,16 @@ ax.legend(loc="lower left")
 fig.savefig("fig_scaling.pdf")</code></pre>
         </div>
       </details>
-    </div>
+      </div>
+    </details>
 
     <h3 class="group-title" id="fig-analysis"><span class="gletter">C</span>消融与分析（Ablation &amp; Analysis）</h3>
     <p class="group-note">消融、稳定性与敏感性分析章节的配图，回答「每个部件是否有用、结果是否稳健」。</p>
 
-    <div id="c-07" class="fig-card reveal" data-page-node-id="K0wwcgMAfsUa6JUURmH5y2">
-      <h3 data-page-node-id="FZhSVDXCK7ZqP6qB8PWLjR"><span class="fnum" data-page-node-id="QB4wYrYgY2iM7jWFWLieb1">07</span>混淆矩阵（热力图）</h3>
+    <details id="c-07" class="fig-card reveal" data-page-node-id="K0wwcgMAfsUa6JUURmH5y2">
+      <summary><h3 data-page-node-id="FZhSVDXCK7ZqP6qB8PWLjR"><span class="fnum" data-page-node-id="QB4wYrYgY2iM7jWFWLieb1">07</span>混淆矩阵（热力图）</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why" data-page-node-id="l1A2ztpgjeWIGJ6IaUsVAv">矩阵类数据的标配。单色渐变比彩虹色更专业，数值直接写进格子，色条只作辅助参照。</p>
       <svg viewBox="0 0 632 268" role="img" aria-label="混淆矩阵热力图示例" data-page-node-id="Wrh6hBrjgNonVZVBJGFWYx">
         <g font-family="Georgia, serif" font-size="10.5" fill="#57606a" data-page-node-id="YyIT0sBil6HKABqZFH08t1">
@@ -1565,9 +1650,12 @@ fig.colorbar(im, ax=ax, shrink=0.85)
 fig.savefig("fig3_heatmap.pdf")</code></pre>
         </div>
       </details>
-    </div>
-    <div id="c-08" class="fig-card reveal">
-      <h3><span class="fnum">08</span>多次运行稳定性（箱线图）</h3>
+      </div>
+    </details>
+    <details id="c-08" class="fig-card reveal">
+      <summary><h3><span class="fnum">08</span>多次运行稳定性（箱线图）</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why">只报一个数没有说服力。跑 5 到 30 个种子画箱线图，中位数、离散程度与离群点一图讲清，比文字罗列均值方差直观得多。</p>
       <svg viewBox="0 0 632 300" role="img" aria-label="多次运行稳定性箱线图示例">
         <!-- 网格线 -->
@@ -1666,9 +1754,12 @@ ax.spines[["top", "right"]].set_visible(False)
 fig.savefig("fig_stability_boxplot.pdf")</code></pre>
         </div>
       </details>
-    </div>
-    <div id="c-09" class="fig-card reveal">
-      <h3><span class="fnum">09</span>超参敏感性（小倍数图）</h3>
+      </div>
+    </details>
+    <details id="c-09" class="fig-card reveal">
+      <summary><h3><span class="fnum">09</span>超参敏感性（小倍数图）</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why">审稿人常问「结果对超参有多敏感」。共享坐标轴的 2x2 小倍数图，一眼看出最优区间是否宽、峰值出现在哪。共享 y 轴让四个面板可以直接横向比较。</p>
       <svg viewBox="0 0 632 340" role="img" aria-label="超参敏感性小倍数图示例">
         <!-- 面板 1: depth 12 -->
@@ -1751,9 +1842,12 @@ fig.tight_layout()
 fig.savefig("fig_sensitivity_panels.pdf")</code></pre>
         </div>
       </details>
-    </div>
-    <div id="c-10" class="fig-card reveal">
-      <h3><span class="fnum">10</span>精度与延迟权衡（帕累托前沿）</h3>
+      </div>
+    </details>
+    <details id="c-10" class="fig-card reveal">
+      <summary><h3><span class="fnum">10</span>精度与延迟权衡（帕累托前沿）</h3><span class="chev" aria-hidden="true">›</span></summary>
+      <div class="card-body">
+
       <p class="why">部署场景的标准叙事图。前沿线上的模型才有资格进对比表，灰色区域的点被直接淘汰。左上是更好的方向，阴影标出被支配区域。</p>
       <svg viewBox="0 0 632 300" role="img" aria-label="精度与延迟帕累托前沿图示例">
         <!-- 被支配区域阴影 -->
@@ -1861,7 +1955,8 @@ ax.spines[["top", "right"]].set_visible(False)
 fig.savefig("fig_pareto.pdf")</code></pre>
         </div>
       </details>
-    </div>
+      </div>
+    </details>
   </section>
   <section id="howto">
     <h2 class="section-title">实图绘制方法论</h2>
@@ -2099,6 +2194,28 @@ plt.rcParams.update({
       copyText(c[0], function () { showToast('已复制 ' + c[0]); });
     });
     palette.appendChild(b);
+  });
+  /* 卡片折叠：全部展开/收起 + 深链自动展开 */
+  var figCards = Array.prototype.slice.call(document.querySelectorAll('details.fig-card'));
+  var btnExpand = document.getElementById('expand-all');
+  var btnCollapse = document.getElementById('collapse-all');
+  if (btnExpand) btnExpand.addEventListener('click', function () {
+    figCards.forEach(function (d) { d.open = true; });
+  });
+  if (btnCollapse) btnCollapse.addEventListener('click', function () {
+    figCards.forEach(function (d) { d.open = false; });
+  });
+  function openTarget(hash) {
+    if (!hash || hash.length < 2) return;
+    var el = document.getElementById(hash.slice(1));
+    if (el && el.tagName === 'DETAILS') el.open = true;
+  }
+  window.addEventListener('hashchange', function () { openTarget(location.hash); });
+  openTarget(location.hash);
+  document.querySelectorAll('.case-card').forEach(function (a) {
+    a.addEventListener('click', function () {
+      openTarget(a.getAttribute('href'));
+    });
   });
 })();
 </script>

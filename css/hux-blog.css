@@ -1089,3 +1089,11 @@ img::-moz-selection {
 .page-fullscreen footer .copyright a:hover {
   color: #ddd;
 }
+
+/* ---- 桌面端横屏自适应：大屏加宽 bootstrap 容器（文章页正文随之加宽）---- */
+@media (min-width: 1440px) {
+  .container { width: 1360px; }
+}
+@media (min-width: 1800px) {
+  .container { width: 1520px; }
+}
