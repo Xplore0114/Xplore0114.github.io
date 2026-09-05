@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-09-04T05:58:50.760355+00:00",
+    "generated_at": "2026-09-05T05:49:27.196318+00:00",
     "items": [
         {
             "desc": "大模型论文追踪·公司研究动态·论文速览",
@@ -47,6 +47,15 @@
             "group": "大项目"
         },
         {
+            "desc": "SFT 指令微调数据集（详见仓库 README）",
+            "badge": "Shell",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/OKC-SFT-Dataset",
+            "emoji": "🐚",
+            "title": "OKC-SFT-Dataset",
+            "group": "大项目"
+        },
+        {
             "desc": "在 NVIDIA DGX Spark/GB10 上运行 MiniMax H3（文/图生视频带声音）：全容器化 ComfyUI v0.30.0 + NGC PyTorch 25.11，HTTP API 工作流",
             "badge": "Shell",
             "featured": false,
@@ -62,15 +71,6 @@
             "path": "https://github.com/Xplore-LAB/DataLens",
             "emoji": "🌐",
             "title": "DataLens",
-            "group": "大项目"
-        },
-        {
-            "desc": "SFT 指令微调数据集（详见仓库 README）",
-            "badge": "Shell",
-            "featured": false,
-            "path": "https://github.com/Xplore-LAB/OKC-SFT-Dataset",
-            "emoji": "🐚",
-            "title": "OKC-SFT-Dataset",
             "group": "大项目"
         },
         {
@@ -110,6 +110,15 @@
             "group": "Agent 技能"
         },
         {
+            "desc": "Word + Outlook VBA 批量邮件工具：按 Excel 每行数据生成邮件并附对应附件",
+            "badge": "VBA",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/word-mail-merge-batch-sender",
+            "emoji": "📧",
+            "title": "word-mail-merge-batch-sender",
+            "group": "小工具"
+        },
+        {
             "desc": "轻量级 Python LLM 网关，支持 OpenAI / DeepSeek / Qwen / Claude 多模型统一路由",
             "badge": "Python",
             "featured": false,
@@ -125,15 +134,6 @@
             "path": "https://github.com/Xplore-LAB/openai-compatible-proxy",
             "emoji": "🐍",
             "title": "openai-compatible-proxy",
-            "group": "小工具"
-        },
-        {
-            "desc": "Word + Outlook VBA 批量邮件工具：按 Excel 每行数据生成邮件并附对应附件",
-            "badge": "VBA",
-            "featured": false,
-            "path": "https://github.com/Xplore-LAB/word-mail-merge-batch-sender",
-            "emoji": "📧",
-            "title": "word-mail-merge-batch-sender",
             "group": "小工具"
         },
         {
@@ -216,6 +216,15 @@
             "emoji": "🐙",
             "title": "GitHub 主页",
             "group": "外部链接"
+        },
+        {
+            "desc": "🕊️ Postbird 信鸽 — AI 替你跑邮件和文档这趟腿。DeepSeek Harness 办公插件，14 个工具：群发/分诊/归档/求职台账/Word/PPT/表格。QQ·163·Gmail 通吃，数据不出本机。",
+            "badge": "JavaScript",
+            "featured": false,
+            "path": "https://github.com/Xplore-LAB/dsh-plugin-office",
+            "emoji": "🟨",
+            "title": "dsh-plugin-office",
+            "group": "开源项目"
         }
     ]
 }
