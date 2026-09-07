@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-09-06T06:00:44.166557+00:00",
+    "generated_at": "2026-09-07T06:09:22.226773+00:00",
     "items": [
         {
             "desc": "大模型论文追踪·公司研究动态·论文速览",
@@ -218,7 +218,7 @@
             "group": "外部链接"
         },
         {
-            "desc": "🕊️ Postbird 信鸽 — AI 替你跑邮件和文档这趟腿。DeepSeek Harness 办公插件，14 个工具：群发/分诊/归档/求职台账/Word/PPT/表格。QQ·163·Gmail 通吃，数据不出本机。",
+            "desc": "A Simple and Universal Local-first AI Office Toolkit, Getting Email and Documents Done. 简洁通用的本地优先 AI 办公工具箱，让邮件与文档自动完成。",
             "badge": "JavaScript",
             "featured": false,
             "path": "https://github.com/Xplore-LAB/postbird",
